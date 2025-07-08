@@ -23,7 +23,7 @@ RIDER_POINTS_HISTORY_FILE = os.path.join(DATA_DIR, 'rider_points_history.json')
 LEADERBOARD_HISTORY_FILE = os.path.join(DATA_DIR, 'leaderboard_history.json')
 
 # NEW: Web output directory for GitHub Pages
-WEB_OUTPUT_DIR = 'website'
+WEB_OUTPUT_DIR = 'docs'
 WEB_DATA_DIR = os.path.join(WEB_OUTPUT_DIR, 'data')
 
 
