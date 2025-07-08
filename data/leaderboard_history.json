@@ -1,0 +1,65 @@
+[
+    {
+        "stage_number": 1,
+        "date": "2025-07-08",
+        "leaderboard": [
+            {
+                "participant_name": "Participant A",
+                "total_score": 81,
+                "rank": 1
+            },
+            {
+                "participant_name": "Participant B",
+                "total_score": 42,
+                "rank": 2
+            },
+            {
+                "participant_name": "Participant C",
+                "total_score": 12,
+                "rank": 3
+            }
+        ]
+    },
+    {
+        "stage_number": 2,
+        "date": "2025-07-08",
+        "leaderboard": [
+            {
+                "participant_name": "Participant A",
+                "total_score": 157,
+                "rank": 1
+            },
+            {
+                "participant_name": "Participant B",
+                "total_score": 94,
+                "rank": 2
+            },
+            {
+                "participant_name": "Participant C",
+                "total_score": 28,
+                "rank": 3
+            }
+        ]
+    },
+    {
+        "stage_number": 3,
+        "date": "2025-07-08",
+        "leaderboard": [
+            {
+                "participant_name": "Participant A",
+                "total_score": 220,
+                "rank": 1
+            },
+            {
+                "participant_name": "Participant B",
+                "total_score": 151,
+                "rank": 2
+            },
+            {
+                "participant_name": "Participant C",
+                "total_score": 44,
+                "rank": 3
+            }
+        ]
+    }
+]

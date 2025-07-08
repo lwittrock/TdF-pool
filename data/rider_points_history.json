@@ -1,0 +1,98 @@
+[
+    {
+        "stage_number": 1,
+        "date": "2025-07-08",
+        "daily_rider_points": {
+            "Tadej Poga\u010dar": 30,
+            "Mattias Skjelmose": 24,
+            "Remco Evenepoel": 18,
+            "Primo\u017e Rogli\u010d": 17,
+            "Thymen Arensman": 16,
+            "Juan Ayuso": 15,
+            "Sepp Kuss": 14,
+            "Santiago Buitrago": 18,
+            "Ben O'Connor": 12,
+            "Jo\u00e3o Almeida": 11,
+            "Carlos Rodr\u00edguez": 10,
+            "Jonas Vingegaard": 19
+        },
+        "cumulative_rider_points": {
+            "Tadej Poga\u010dar": 30,
+            "Mattias Skjelmose": 24,
+            "Remco Evenepoel": 18,
+            "Primo\u017e Rogli\u010d": 17,
+            "Thymen Arensman": 16,
+            "Juan Ayuso": 15,
+            "Sepp Kuss": 14,
+            "Santiago Buitrago": 18,
+            "Ben O'Connor": 12,
+            "Jo\u00e3o Almeida": 11,
+            "Carlos Rodr\u00edguez": 10,
+            "Jonas Vingegaard": 19
+        }
+    },
+    {
+        "stage_number": 2,
+        "date": "2025-07-08",
+        "daily_rider_points": {
+            "Remco Evenepoel": 30,
+            "Juan Ayuso": 24,
+            "Jo\u00e3o Almeida": 18,
+            "Thymen Arensman": 17,
+            "Ben O'Connor": 16,
+            "Primo\u017e Rogli\u010d": 15,
+            "Mattias Skjelmose": 14,
+            "Carlos Rodr\u00edguez": 13,
+            "Tadej Poga\u010dar": 12,
+            "Santiago Buitrago": 11,
+            "Sepp Kuss": 10,
+            "Jonas Vingegaard": 24
+        },
+        "cumulative_rider_points": {
+            "Tadej Poga\u010dar": 42,
+            "Mattias Skjelmose": 38,
+            "Remco Evenepoel": 48,
+            "Primo\u017e Rogli\u010d": 32,
+            "Thymen Arensman": 33,
+            "Juan Ayuso": 39,
+            "Sepp Kuss": 24,
+            "Santiago Buitrago": 29,
+            "Ben O'Connor": 28,
+            "Jo\u00e3o Almeida": 29,
+            "Carlos Rodr\u00edguez": 23,
+            "Jonas Vingegaard": 43
+        }
+    },
+    {
+        "stage_number": 3,
+        "date": "2025-07-08",
+        "daily_rider_points": {
+            "Juan Ayuso": 30,
+            "Mattias Skjelmose": 19,
+            "Primo\u017e Rogli\u010d": 18,
+            "Sepp Kuss": 17,
+            "Ben O'Connor": 16,
+            "Jonas Vingegaard": 25,
+            "Thymen Arensman": 14,
+            "Jo\u00e3o Almeida": 13,
+            "Santiago Buitrago": 22,
+            "Tadej Poga\u010dar": 11,
+            "Remco Evenepoel": 10,
+            "Carlos Rodr\u00edguez": 9
+        },
+        "cumulative_rider_points": {
+            "Tadej Poga\u010dar": 53,
+            "Mattias Skjelmose": 57,
+            "Remco Evenepoel": 58,
+            "Primo\u017e Rogli\u010d": 50,
+            "Thymen Arensman": 47,
+            "Juan Ayuso": 69,
+            "Sepp Kuss": 41,
+            "Santiago Buitrago": 51,
+            "Ben O'Connor": 44,
+            "Jo\u00e3o Almeida": 42,
+            "Carlos Rodr\u00edguez": 32,
+            "Jonas Vingegaard": 68
+        }
+    }
+]
