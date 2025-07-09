@@ -4,7 +4,7 @@ import re
 import pandas as pd
 from collections import defaultdict
 from datetime import datetime
-import shutil # NEW: Import shutil for copying files
+import shutil
 
 # --- Configuration ---
 SCORING_RULES = {
@@ -22,7 +22,7 @@ CUMULATIVE_LEADERBOARD_FILE = os.path.join(DATA_DIR, 'cumulative_leaderboard.jso
 RIDER_POINTS_HISTORY_FILE = os.path.join(DATA_DIR, 'rider_points_history.json')
 LEADERBOARD_HISTORY_FILE = os.path.join(DATA_DIR, 'leaderboard_history.json')
 
-# NEW: Web output directory for GitHub Pages
+# Web output directory for GitHub Pages (now confirmed as 'docs')
 WEB_OUTPUT_DIR = 'docs'
 WEB_DATA_DIR = os.path.join(WEB_OUTPUT_DIR, 'data')
 
@@ -135,14 +135,25 @@ def update_cumulative_rider_points(daily_rider_points, cumulative_file_path):
 
 # --- Participant Score Calculation ---
 
-def calculate_participant_scores(participant_selections, all_cumulative_rider_points):
-    participant_total_scores = defaultdict(int)
+def calculate_participant_scores(participant_selections, all_cumulative_rider_points, daily_rider_points_for_current_stage):
+    """
+    Calculates total scores for each participant based on their chosen riders' cumulative total points.
+    Also calculates daily scores for participants based on daily rider points.
+    Returns a tuple: (sorted_cumulative_leaderboard_list, daily_participant_scores_dict)
+    """
+    participant_cumulative_scores = defaultdict(int)
+    participant_daily_scores = defaultdict(int) # NEW: For daily participant points
+
     for participant_name, selected_riders in participant_selections.items():
         for rider in selected_riders:
-            participant_total_scores[participant_name] += all_cumulative_rider_points.get(rider, 0)
+            # Cumulative score
+            participant_cumulative_scores[participant_name] += all_cumulative_rider_points.get(rider, 0)
+            # Daily score for this participant based on this stage's rider points
+            participant_daily_scores[participant_name] += daily_rider_points_for_current_stage.get(rider, 0)
 
+    # Prepare cumulative leaderboard
     leaderboard = []
-    for participant_name, score in participant_total_scores.items():
+    for participant_name, score in participant_cumulative_scores.items():
         leaderboard.append({
             "participant_name": participant_name,
             "total_score": score,
@@ -150,7 +161,8 @@ def calculate_participant_scores(participant_selections, all_cumulative_rider_po
     leaderboard_sorted = sorted(leaderboard, key=lambda x: x['total_score'], reverse=True)
     for i, entry in enumerate(leaderboard_sorted):
         entry['rank'] = i + 1
-    return leaderboard_sorted
+
+    return leaderboard_sorted, dict(participant_daily_scores) # Return both cumulative and daily
 
 # --- Main Execution ---
 
@@ -176,10 +188,10 @@ if __name__ == "__main__":
 
     print(f"Found {len(available_stage_numbers)} stages: {available_stage_numbers}")
 
-    # Initialize daily_rider_points to be available in the history entry
-    daily_rider_points_for_history = {} 
-    
+    daily_rider_points_for_history = {} # Initialize outside loop
+
     for stage_num in available_stage_numbers:
+        # Generate current date for history entry (or derive from stage_num if simulating specific dates)
         current_date_for_stage = datetime.now().strftime("%Y-%m-%d")
 
         print(f"\n--- Processing Stage {stage_num} ({current_date_for_stage}) ---")
@@ -192,14 +204,14 @@ if __name__ == "__main__":
             print(f"Error loading data for Stage {stage_num}: {e}. Skipping this stage.")
             continue
 
-        daily_rider_points_for_history = get_all_rider_points_for_current_stage( # Store this for history
+        daily_rider_points_for_history = get_all_rider_points_for_current_stage(
             current_stage_results,
             current_gc_standings,
             current_jersey_holders
         )
 
         cumulative_rider_points = update_cumulative_rider_points(
-            daily_rider_points_for_history, # Use this for cumulative update
+            daily_rider_points_for_history,
             CUMULATIVE_RIDER_POINTS_FILE
         )
 
@@ -212,32 +224,37 @@ if __name__ == "__main__":
         rider_history_entry = {
             "stage_number": stage_num,
             "date": current_date_for_stage,
-            "daily_rider_points": dict(daily_rider_points_for_history), # NEW: Daily points for this stage
+            "daily_rider_points": dict(daily_rider_points_for_history), # Daily points for this stage
             "cumulative_rider_points": dict(cumulative_rider_points)
         }
         append_to_json_history(rider_history_entry, RIDER_POINTS_HISTORY_FILE)
         print(f"Rider points for Stage {stage_num} saved to history (cumulative & daily).")
 
-        current_leaderboard = calculate_participant_scores( # Renamed function
-            PARTICIPANT_SELECTIONS, # Renamed variable
-            cumulative_rider_points
+        # 4. Calculate participant scores based on the CUMULATIVE rider points AND daily rider points for this stage
+        current_leaderboard, daily_participant_scores = calculate_participant_scores(
+            PARTICIPANT_SELECTIONS,
+            cumulative_rider_points,
+            daily_rider_points_for_history # Pass the daily rider points here
         )
 
+        # 5. Save the current cumulative leaderboard
         save_json_data(current_leaderboard, CUMULATIVE_LEADERBOARD_FILE)
 
         print("Current Leaderboard (after this stage):")
         for entry in current_leaderboard:
             print(f"  Rank {entry['rank']}: {entry['participant_name']} - {entry['total_score']} points")
 
+        # 6. Save the current leaderboard to history (now includes daily participant scores)
         leaderboard_history_entry = {
             "stage_number": stage_num,
             "date": current_date_for_stage,
-            "leaderboard": current_leaderboard
+            "leaderboard": current_leaderboard, # Cumulative leaderboard
+            "daily_participant_scores": daily_participant_scores # NEW: Daily participant scores for this stage
         }
         append_to_json_history(leaderboard_history_entry, LEADERBOARD_HISTORY_FILE)
-        print(f"Leaderboard for Stage {stage_num} saved to history.")
+        print(f"Leaderboard for Stage {stage_num} saved to history (cumulative & daily participant scores).")
 
-        print("-" * 50)
+        print("-" * 50) # Separator for clarity between stages
 
     print("\n--- Full Points Recalculation Complete ---")
     print(f"Final cumulative leaderboard saved to: {CUMULATIVE_LEADERBOARD_FILE}")
@@ -245,16 +262,17 @@ if __name__ == "__main__":
     print(f"Rider points history saved to: {RIDER_POINTS_HISTORY_FILE}")
     print(f"Leaderboard history saved to: {LEADERBOARD_HISTORY_FILE}")
 
-    # NEW: Copy generated JSONs to the web-accessible data directory
+    # Copy generated JSONs to the web-accessible data directory
     print(f"\n--- Copying data for web display to {WEB_DATA_DIR} ---")
     try:
         shutil.copy(CUMULATIVE_LEADERBOARD_FILE, WEB_DATA_DIR)
         print(f"Copied {os.path.basename(CUMULATIVE_LEADERBOARD_FILE)}")
         shutil.copy(RIDER_POINTS_HISTORY_FILE, WEB_DATA_DIR)
         print(f"Copied {os.path.basename(RIDER_POINTS_HISTORY_FILE)}")
-        # You might also want to copy cumulative_rider_points.json if you plan to display it
         shutil.copy(CUMULATIVE_RIDER_POINTS_FILE, WEB_DATA_DIR)
         print(f"Copied {os.path.basename(CUMULATIVE_RIDER_POINTS_FILE)}")
+        shutil.copy(LEADERBOARD_HISTORY_FILE, WEB_DATA_DIR) # Copy this new version too!
+        print(f"Copied {os.path.basename(LEADERBOARD_HISTORY_FILE)}")
 
     except Exception as e:
         print(f"Error copying files to web directory: {e}")
