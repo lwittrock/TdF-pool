@@ -23,10 +23,22 @@
     </nav>
 
     <main>
-        <h2>Teamselecties Deelnemers</h2>
-        <div id="team-selection-container">
-            <p>Teamselecties laden...</p>
-        </div>
+        <section class="team-selection-page">
+            <h2>Teamselectie</h2>
+
+            <div class="search-and-list-container">
+                <div class="search-bar-wrapper">
+                    <label for="participant-search">Zoek Deelnemer:</label>
+                    <input type="text" id="participant-search" placeholder="Typ naam...">
+                </div>
+                <div id="all-participants-list" class="participants-list">
+                    <p>Laden deelnemers...</p>
+                </div>
+            </div>
+
+            <div id="selected-participant-details">
+                </div>
+        </section>
     </main>
 
     <footer>

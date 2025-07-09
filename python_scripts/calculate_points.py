@@ -21,7 +21,6 @@ CUMULATIVE_RIDER_POINTS_FILE = os.path.join(DATA_DIR, 'cumulative_rider_points.j
 CUMULATIVE_LEADERBOARD_FILE = os.path.join(DATA_DIR, 'cumulative_leaderboard.json')
 RIDER_POINTS_HISTORY_FILE = os.path.join(DATA_DIR, 'rider_points_history.json')
 LEADERBOARD_HISTORY_FILE = os.path.join(DATA_DIR, 'leaderboard_history.json')
-# NEW: Path to the participant selections file
 PARTICIPANT_SELECTIONS_FILE = os.path.join(DATA_DIR, 'participant_selections.json')
 
 
@@ -63,7 +62,8 @@ def load_simulated_stage_data(stage_number, simulated_data_dir):
     if not os.path.exists(filepath):
         raise FileNotFoundError(f"Simulated data for Stage {stage_number} not found at: {filepath}.")
     data = load_json_data(filepath)
-    return data['stage_results'], data['gc_standings'], data['jersey_holders']
+    # Return the full data dictionary, including new fields
+    return data 
 
 def find_available_stages(simulated_data_dir):
     stage_numbers = []
@@ -131,7 +131,6 @@ def update_cumulative_rider_points(daily_rider_points, cumulative_file_path):
 
 # --- Participant Score Calculation ---
 
-# Updated to accept the new participant_selections structure
 def calculate_participant_scores(participant_selections_data, all_cumulative_rider_points, daily_rider_points_for_current_stage):
     """
     Calculates total scores for each participant based on their chosen main riders' cumulative total points.
@@ -141,14 +140,11 @@ def calculate_participant_scores(participant_selections_data, all_cumulative_rid
     participant_cumulative_scores = defaultdict(int)
     participant_daily_scores = defaultdict(int)
 
-    # Iterate through the new participant_selections_data structure
     for participant_name, selection_details in participant_selections_data.items():
         main_riders = selection_details.get("main_riders", []) # Get main riders
         
         for rider in main_riders: # Only use main riders for current scoring
-            # Cumulative score
             participant_cumulative_scores[participant_name] += all_cumulative_rider_points.get(rider, 0)
-            # Daily score for this participant based on this stage's rider points
             participant_daily_scores[participant_name] += daily_rider_points_for_current_stage.get(rider, 0)
 
     # Prepare cumulative leaderboard
@@ -179,7 +175,7 @@ if __name__ == "__main__":
     clear_json_file(LEADERBOARD_HISTORY_FILE, list)
     print("Previous data cleared.")
 
-    # NEW: Load participant selections
+    # Load participant selections
     try:
         PARTICIPANT_SELECTIONS = load_json_data(PARTICIPANT_SELECTIONS_FILE)
         if not PARTICIPANT_SELECTIONS:
@@ -195,7 +191,7 @@ if __name__ == "__main__":
 
     if not available_stage_numbers:
         print(f"No simulated stage data found in {SIMULATED_DATA_DIR}.")
-        print("Please ensure you have run the simulation script (`python -m python_scripts.scrape_pcs`) to generate the stage data first.")
+        print("Please ensure you have run the simulation script (`python -m python_scripts.scrape_pcs` or the helper stage data script) to generate the stage data first.")
         exit()
 
     print(f"Found {len(available_stage_numbers)} stages: {available_stage_numbers}")
@@ -208,8 +204,11 @@ if __name__ == "__main__":
         print(f"\n--- Processing Stage {stage_num} ({current_date_for_stage}) ---")
 
         try:
-            current_stage_results, current_gc_standings, current_jersey_holders = \
-                load_simulated_stage_data(stage_num, SIMULATED_DATA_DIR)
+            # Load full stage data dictionary now
+            full_stage_data = load_simulated_stage_data(stage_num, SIMULATED_DATA_DIR)
+            current_stage_results = full_stage_data.get('stage_results', [])
+            current_gc_standings = full_stage_data.get('gc_standings', [])
+            current_jersey_holders = full_stage_data.get('jersey_holders', {})
             print(f"Successfully loaded simulated data for Stage {stage_num}.")
         except FileNotFoundError as e:
             print(f"Error loading data for Stage {stage_num}: {e}. Skipping this stage.")
@@ -270,20 +269,34 @@ if __name__ == "__main__":
     print(f"Rider points history saved to: {RIDER_POINTS_HISTORY_FILE}")
     print(f"Leaderboard history saved to: {LEADERBOARD_HISTORY_FILE}")
 
-    # Copy generated JSONs to the web-accessible data directory
+    # Copy generated JSONs and simulated stages to the web-accessible data directory
     print(f"\n--- Copying data for web display to {WEB_DATA_DIR} ---")
     try:
-        shutil.copy(CUMULATIVE_LEADERBOARD_FILE, WEB_DATA_DIR)
-        print(f"Copied {os.path.basename(CUMULATIVE_LEADERBOARD_FILE)}")
-        shutil.copy(RIDER_POINTS_HISTORY_FILE, WEB_DATA_DIR)
-        print(f"Copied {os.path.basename(RIDER_POINTS_HISTORY_FILE)}")
-        shutil.copy(CUMULATIVE_RIDER_POINTS_FILE, WEB_DATA_DIR)
-        print(f"Copied {os.path.basename(CUMULATIVE_RIDER_POINTS_FILE)}")
-        shutil.copy(LEADERBOARD_HISTORY_FILE, WEB_DATA_DIR)
-        print(f"Copied {os.path.basename(LEADERBOARD_HISTORY_FILE)}")
-        # NEW: Copy participant_selections.json to web data directory
-        shutil.copy(PARTICIPANT_SELECTIONS_FILE, WEB_DATA_DIR)
-        print(f"Copied {os.path.basename(PARTICIPANT_SELECTIONS_FILE)}")
+        # Copy individual JSON files
+        files_to_copy = [
+            CUMULATIVE_LEADERBOARD_FILE,
+            RIDER_POINTS_HISTORY_FILE,
+            CUMULATIVE_RIDER_POINTS_FILE,
+            LEADERBOARD_HISTORY_FILE,
+            PARTICIPANT_SELECTIONS_FILE
+        ]
+        for f_path in files_to_copy:
+            shutil.copy(f_path, WEB_DATA_DIR)
+            print(f"Copied {os.path.basename(f_path)}")
+
+        # Copy the entire simulated_stages directory
+        src_sim_stages_dir = SIMULATED_DATA_DIR
+        dest_sim_stages_dir = os.path.join(WEB_DATA_DIR, 'simulated_stages')
+
+        if os.path.exists(dest_sim_stages_dir):
+            shutil.rmtree(dest_sim_stages_dir) # Remove existing to avoid errors on copytree
+            print(f"Removed existing '{dest_sim_stages_dir}'")
+
+        if os.path.exists(src_sim_stages_dir):
+            shutil.copytree(src_sim_stages_dir, dest_sim_stages_dir)
+            print(f"Copied entire simulated stages directory from '{src_sim_stages_dir}' to '{dest_sim_stages_dir}'")
+        else:
+            print(f"Warning: Source simulated stages directory '{src_sim_stages_dir}' does not exist. Skipping copy.")
 
     except Exception as e:
         print(f"Error copying files to web directory: {e}")

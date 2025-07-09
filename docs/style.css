@@ -148,15 +148,12 @@ section {
 .daily-highlights div,
 .cumulative-standings div,
 #full-leaderboard-container,
-#team-selection-container,
+#team-selection-container, /* This HTML element may not be directly styled as a container, but it's here for completeness if needed */
 #selected-stage-details,
 #fun-stats-container {
     background-color: var(--color-background-card); /* White background for content */
     padding: 25px;
     border-radius: 8px; /* Subtle rounding */
-    /* Remove borders and strong shadows for clean look */
-    /* border: 1px solid var(--color-border-subtle); */
-    /* box-shadow: 0 1px 3px rgba(0,0,0,0.05); */
     margin-top: 20px; /* Space from heading */
 }
 
@@ -203,6 +200,27 @@ tr:hover {
 .rank-2 { background-color: #e0f2f7; font-weight: 500; } /* Lightest blue */
 .rank-3 { background-color: #ffe0b2; font-weight: 500; } /* Lightest orange */
 
+/* Styles for the reserve rider row in Team Selection table */
+.reserve-rider {
+    border-top: 2px dashed #a0a0a0; /* A clear dashed line */
+    background-color: #f5f5f5;   /* Slightly lighter background */
+    font-style: italic;          /* Italic text */
+    color: #666;                 /* Slightly muted text color */
+}
+
+/* Style for the total points row in Team Selection table */
+.total-row {
+    background-color: #e6e6e6; /* A distinct background color */
+    font-weight: bold;
+    border-top: 2px solid #555; /* A strong border at the top */
+}
+
+.total-row td {
+    padding: 12px 8px; /* Slightly more padding for emphasis */
+    font-size: 1.1em;
+}
+
+
 /* Lists within content sections (e.g., scoring rules) */
 ul {
     list-style: none; /* Remove default bullets */
@@ -233,7 +251,7 @@ ul li::before { /* Custom bullet point */
     margin-top: 20px;
 }
 
-/* Form elements (e.g., select dropdown) */
+/* Form elements (e.g., select dropdown for Stages page) */
 select {
     padding: 10px 15px;
     border: 1px solid var(--color-border-subtle);
@@ -245,12 +263,106 @@ select {
     margin-top: 10px;
     box-shadow: inset 0 1px 3px rgba(0,0,0,0.05); /* Subtle inner shadow */
     transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    /* Custom arrow for select, if needed for stages.html, but remove for filter input */
+    appearance: none;
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23000%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13.6-6.4H18.8c-5%200-9.3%201.8-12.9%205.5-3.6%203.7-5.4%208.5-5.4%2013.8v101.4c0%205.3%201.8%2010.1%205.4%2013.8%203.6%203.7%208%205.5%2012.9%205.5h254.6c5%200%209.3-1.8%2012.9-5.5%203.6-3.7%205.4-8.5%205.4-13.8V83.2c0-5.3-1.8-10.1-5.4-13.8z%22%2F%3E%3C%2Fsvg%3E');
+    background-repeat: no-repeat;
+    background-position: right 10px top 50%;
+    background-size: 12px;
 }
 
 select:focus {
     border-color: var(--color-accent);
     box-shadow: 0 0 0 2px rgba(108, 124, 112, 0.2); /* Accent glow on focus */
     outline: none;
+}
+
+
+/* --- Team Selection Page Specific Styles (Search and Filter) --- */
+
+.search-and-list-container {
+    display: flex;
+    flex-direction: column; /* Stack search bar and list vertically */
+    align-items: center; /* Center items horizontally */
+    margin-bottom: 25px;
+    padding: 15px;
+    background-color: var(--color-background-card); /* Use card background for search area */
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05); /* Subtle shadow for the container */
+}
+
+.search-bar-wrapper {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 400px; /* Limit width of search bar area */
+    justify-content: center;
+}
+
+.search-bar-wrapper label {
+    font-weight: 500; /* Use your existing font weight */
+    margin-right: 10px;
+    font-size: 1.1em;
+    color: var(--color-text-primary); /* Use your text color */
+    white-space: nowrap; /* Prevent label from wrapping */
+}
+
+.search-bar-wrapper input[type="text"] {
+    padding: 10px 15px;
+    border: 1px solid var(--color-border-subtle); /* Use your border color */
+    border-radius: 5px; /* Use your existing border radius */
+    font-size: 1em;
+    flex-grow: 1; /* Allow input to take available space */
+    max-width: 300px; /* Max width for input field */
+    background-color: var(--color-background-light); /* Slightly off-white for input */
+    color: var(--color-text-primary);
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.05); /* Subtle inner shadow */
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.search-bar-wrapper input[type="text"]:focus {
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 2px rgba(108, 124, 112, 0.2); /* Accent glow on focus */
+    outline: none;
+}
+
+.participants-list {
+    width: 100%;
+    max-width: 400px; /* Match search bar width */
+    max-height: 300px; /* Make the list scrollable if many participants */
+    overflow-y: auto;
+    border: 1px solid var(--color-border-subtle); /* Use your border color */
+    border-radius: 5px; /* Use your existing border radius */
+    background-color: var(--color-background-card); /* Use card background for list */
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.05); /* Inner shadow for list */
+}
+
+.participant-item {
+    padding: 12px 15px;
+    border-bottom: 1px solid var(--color-border-subtle); /* Use your border color */
+    cursor: pointer;
+    text-align: left;
+    font-size: 1em;
+    color: var(--color-text-primary);
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.participant-item:last-child {
+    border-bottom: none; /* No border on the last item */
+}
+
+.participant-item:hover {
+    background-color: #f2f2f2; /* Light grey hover, consistent with table rows */
+    color: var(--color-accent); /* Accent color on hover */
+}
+
+.participants-list .no-results {
+    padding: 15px;
+    text-align: center;
+    color: var(--color-text-secondary);
+    font-style: italic;
+    cursor: default;
 }
 
 
@@ -291,5 +403,23 @@ footer {
     th, td {
         padding: 10px 12px;
         font-size: 0.9em;
+    }
+
+    .search-bar-wrapper {
+        flex-direction: column; /* Stack label and input on small screens */
+        align-items: flex-start;
+    }
+
+    .search-bar-wrapper label {
+        margin-bottom: 5px;
+    }
+
+    .search-bar-wrapper input[type="text"] {
+        width: 100%; /* Full width on small screens */
+        max-width: unset;
+    }
+
+    .participants-list {
+        max-width: unset; /* Full width on small screens */
     }
 }

@@ -3,6 +3,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const lastUpdatedDateSpan = document.getElementById('last-updated-date');
     const DATA_PATH = './data/';
 
+    // --- Global Variables for Team Selection Page ---
+    // These will store data once fetched to avoid refetching on every search/click
+    let globalParticipantSelectionsData = null;
+    let globalCumulativeRiderPoints = null;
+    let globalAllParticipantNames = []; // Stores all participant names
+
     // --- Helper Functions ---
     async function fetchData(filename) {
         try {
@@ -55,8 +61,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     case "Cumulatieve Punten": displayValue = row.cumulative_points; break;
                     case "Tijd (indien beschikbaar)": displayValue = row.time || 'N/A'; break;
                     case "Verdiende Punten": displayValue = row.points_earned || row.points; break; // 'points' or 'points_earned'
-                    case "Team": displayValue = row.pro_team; break; // New for team selection
-                    case "Type": displayValue = row.type; break; // New for team selection (Main/Reserve)
                     default: displayValue = 'N/A'; // Fallback
                 }
                 tableHTML += `<td>${displayValue !== undefined ? displayValue : 'N/A'}</td>`;
@@ -72,11 +76,16 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Home Page Functions (index.html) ---
     async function renderHomePage() {
         const currentStageTitle = document.getElementById('current-stage-title');
+        const startLocationSpan = document.getElementById('start-location');
+        const finishLocationSpan = document.getElementById('finish-location');
+        const distanceKmSpan = document.getElementById('distance-km');
+        const stageTypeSpan = document.getElementById('stage-type');
         const topFinishersSpan = document.getElementById('top-finishers');
         const yellowJerseySpan = document.getElementById('yellow-jersey');
         const greenJerseySpan = document.getElementById('green-jersey');
         const polkaDotJerseySpan = document.getElementById('polka-dot-jersey');
         const whiteJerseySpan = document.getElementById('white-jersey');
+        const notableDropoutSpan = document.getElementById('notable-dropout'); // Added notable dropout
         const topDailyParticipantsDiv = document.getElementById('top-daily-participants');
         const topCumulativeParticipantsDiv = document.getElementById('top-cumulative-participants');
 
@@ -87,6 +96,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (!riderHistory || !leaderboardHistory || !cumulativeLeaderboard) {
             console.error('Niet alle benodigde gegevens konden worden geladen voor de startpagina.'); // Translated
+            // Set all spans to indicate loading failure
+            [currentStageTitle, startLocationSpan, finishLocationSpan, distanceKmSpan, stageTypeSpan,
+             topFinishersSpan, yellowJerseySpan, greenJerseySpan, polkaDotJerseySpan, whiteJerseySpan,
+             notableDropoutSpan].forEach(span => {
+                if (span) span.textContent = 'Gegevens laden mislukt.'; // Translated
+            });
+            if (topDailyParticipantsDiv) topDailyParticipantsDiv.innerHTML = '<p>Gegevens laden mislukt.</p>';
+            if (topCumulativeParticipantsDiv) topCumulativeParticipantsDiv.innerHTML = '<p>Gegevens laden mislukt.</p>';
             return;
         }
 
@@ -95,8 +112,16 @@ document.addEventListener('DOMContentLoaded', () => {
         const latestLeaderboardStageData = leaderboardHistory[leaderboardHistory.length - 1];
         
         if (!latestRiderStageData || !latestLeaderboardStageData) {
-            console.warn('Geen etappegegevens beschikbaar.'); // Translated
+            console.warn('Geen etappegegevens beschikbaar in geschiedenisbestanden.'); // Translated
             currentStageTitle.textContent = 'Nog geen etappegegevens beschikbaar.'; // Translated
+            // Clear other stage-specific spans
+            [startLocationSpan, finishLocationSpan, distanceKmSpan, stageTypeSpan,
+             topFinishersSpan, yellowJerseySpan, greenJerseySpan, polkaDotJerseySpan, whiteJerseySpan,
+             notableDropoutSpan].forEach(span => {
+                if (span) span.textContent = 'N/A';
+            });
+            if (topDailyParticipantsDiv) topDailyParticipantsDiv.innerHTML = '<p>Geen dagelijkse deelnemersscores beschikbaar.</p>';
+            if (topCumulativeParticipantsDiv) topCumulativeParticipantsDiv.innerHTML = '<p>Geen algemeen klassement beschikbaar.</p>';
             return;
         }
 
@@ -107,8 +132,17 @@ document.addEventListener('DOMContentLoaded', () => {
         // Render Current Stage Info
         currentStageTitle.textContent = `Meest Recente Etappe: Etappe ${stageNumber} (${updateDate})`; // Translated
         
+        // Fetch specific stage details from simulated_stages folder
         const simulatedStageData = await fetchData(`simulated_stages/stage_${stageNumber}_data.json`);
+        
         if (simulatedStageData) {
+            // Stage Overview Details
+            startLocationSpan.textContent = simulatedStageData.start_location || 'Onbekend'; // Translated
+            finishLocationSpan.textContent = simulatedStageData.finish_location || 'Onbekend'; // Translated
+            distanceKmSpan.textContent = simulatedStageData.distance_km ? `${simulatedStageData.distance_km}` : 'Onbekend'; // Translated
+            stageTypeSpan.textContent = simulatedStageData.stage_type || 'Onbekend'; // Translated
+
+            // Stage Results Summary
             const stageResults = simulatedStageData.stage_results;
             const jerseyHolders = simulatedStageData.jersey_holders;
 
@@ -119,22 +153,27 @@ document.addEventListener('DOMContentLoaded', () => {
                 topFinishersSpan.textContent = 'Nog geen resultaten beschikbaar.'; // Translated
             }
 
-            // Jersey Holders
+            // Jersey Holders (ensure proper N/A if not available)
             yellowJerseySpan.textContent = jerseyHolders.yellow || 'N/A';
             greenJerseySpan.textContent = jerseyHolders.green || 'N/A';
             polkaDotJerseySpan.textContent = jerseyHolders.polka_dot || 'N/A';
             whiteJerseySpan.textContent = jerseyHolders.white || 'N/A';
+            // Notable Dropout is still a placeholder
+            notableDropoutSpan.textContent = '(Nog niet geïmplementeerd)';
+
         } else {
-            topFinishersSpan.textContent = 'Gegevens niet beschikbaar.'; // Translated
-            yellowJerseySpan.textContent = 'N/A (gegevens niet beschikbaar)'; // Translated
-            greenJerseySpan.textContent = 'N/A (gegevens niet beschikbaar)'; // Translated
-            polkaDotJerseySpan.textContent = 'N/A (gegevens niet beschikbaar)'; // Translated
-            whiteJerseySpan.textContent = 'N/A (gegevens niet beschikbaar)'; // Translated
+            // Fallback if simulatedStageData itself is not found
+            console.warn(`Simulatiegegevens voor Etappe ${stageNumber} niet gevonden.`); // Translated
+            [startLocationSpan, finishLocationSpan, distanceKmSpan, stageTypeSpan,
+             topFinishersSpan, yellowJerseySpan, greenJerseySpan, polkaDotJerseySpan, whiteJerseySpan,
+             notableDropoutSpan].forEach(span => {
+                if (span) span.textContent = 'Gegevens niet beschikbaar.'; // Translated
+            });
         }
 
         // Render Top 5 Daily Scorers (Participants)
         const dailyParticipantScores = latestLeaderboardStageData.daily_participant_scores;
-        if (dailyParticipantScores) {
+        if (dailyParticipantScores && Object.keys(dailyParticipantScores).length > 0) {
             const sortedDailyParticipants = Object.entries(dailyParticipantScores)
                 .sort(([, scoreA], [, scoreB]) => scoreB - scoreA)
                 .map(([name, score]) => ({ participant_name: name, daily_score: score }))
@@ -147,7 +186,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         // Render Top 5 Overall Standings (Participants)
-        if (cumulativeLeaderboard) {
+        if (cumulativeLeaderboard && cumulativeLeaderboard.length > 0) {
             const top5Cumulative = cumulativeLeaderboard.slice(0, 5);
             const headers = ["Rang", "Deelnemer Naam", "Totaal Score"]; // Translated
             topCumulativeParticipantsDiv.innerHTML = createTable(headers, top5Cumulative, 'rank');
@@ -173,68 +212,139 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // --- Team Selection Page Functions (team_selection.html) ---
-    async function renderTeamSelectionPage() {
-        const teamSelectionContainer = document.getElementById('team-selection-container');
-        if (teamSelectionContainer) {
-            teamSelectionContainer.innerHTML = '<p>Teamselecties laden...</p>'; // Translated
-            
-            // Fetch participant selections from the newly generated JSON file
-            const participantSelectionsData = await fetchData('participant_selections.json');
-            const cumulativeRiderPoints = await fetchData('cumulative_rider_points.json');
+    async function displayParticipantTeam(participantName) { // Removed data params as they are global now
+        const selectedParticipantDetails = document.getElementById('selected-participant-details');
+        selectedParticipantDetails.innerHTML = ''; // Clear previous content
 
-            if (!participantSelectionsData || !cumulativeRiderPoints) {
-                teamSelectionContainer.innerHTML = '<p>Niet alle benodigde gegevens voor teamselecties konden worden geladen.</p>'; // Translated
-                return;
-            }
-
-            let htmlContent = '';
-            for (const participantName in participantSelectionsData) {
-                const selectionDetails = participantSelectionsData[participantName];
-                htmlContent += `<h3>${participantName}</h3>`;
-                htmlContent += `
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Renner</th>
-                                <th>Type</th>
-                                <th>Team</th>
-                                <th>Cumulatieve Punten</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                `; // Translated headers
-
-                // Main Riders
-                selectionDetails.main_riders.forEach(rider => {
-                    const points = cumulativeRiderPoints[rider] || 0;
-                    htmlContent += `
-                        <tr>
-                            <td>${rider}</td>
-                            <td>Hoofdrenner</td>
-                            <td>${selectionDetails.pro_team}</td>
-                            <td>${points}</td>
-                        </tr>
-                    `; // Translated type
-                });
-
-                // Reserve Rider
-                if (selectionDetails.reserve_rider) {
-                    const points = cumulativeRiderPoints[selectionDetails.reserve_rider] || 0;
-                    htmlContent += `
-                        <tr>
-                            <td>${selectionDetails.reserve_rider}</td>
-                            <td>Reserve</td>
-                            <td>${selectionDetails.pro_team}</td>
-                            <td>${points}</td>
-                        </tr>
-                    `; // Translated type
-                }
-
-                htmlContent += `</tbody></table>`;
-            }
-            teamSelectionContainer.innerHTML = htmlContent;
+        if (!participantName) {
+            selectedParticipantDetails.innerHTML = '<p>Selecteer een deelnemer om de teamselectie te bekijken.</p>';
+            return;
         }
+
+        const selectionDetails = globalParticipantSelectionsData[participantName];
+        if (!selectionDetails) {
+            selectedParticipantDetails.innerHTML = `<p>Geen selectiegegevens gevonden voor ${participantName}.</p>`;
+            return;
+        }
+
+        let htmlContent = `<h3>Teamselectie van ${participantName}</h3>`;
+        // Display the chosen professional team prominently
+        htmlContent += `<p><strong>Gekozen Team:</strong> ${selectionDetails.pro_team || 'N/A'}</p>`;
+
+        htmlContent += `
+            <table>
+                <thead>
+                    <tr>
+                        <th>Renner</th>
+                        <th>Cumulatieve Punten</th>
+                    </tr>
+                </thead>
+                <tbody>
+        `;
+
+        let totalCumulativePoints = 0;
+
+        // Main Riders
+        selectionDetails.main_riders.forEach(rider => {
+            const points = globalCumulativeRiderPoints[rider] || 0;
+            totalCumulativePoints += points; // Sum points for main riders
+            htmlContent += `
+                <tr>
+                    <td>${rider}</td>
+                    <td>${points}</td>
+                </tr>
+            `;
+        });
+
+        // Reserve Rider (with visual distinction)
+        if (selectionDetails.reserve_rider) {
+            const reservePoints = globalCumulativeRiderPoints[selectionDetails.reserve_rider] || 0;
+            htmlContent += `
+                <tr class="reserve-rider">
+                    <td>${selectionDetails.reserve_rider} (Reserve)</td>
+                    <td>${reservePoints}</td>
+                </tr>
+            `;
+        }
+
+        htmlContent += `
+                </tbody>
+                <tfoot>
+                    <tr class="total-row">
+                        <td><strong>Totaal Punten (Hoofdrenners)</strong></td>
+                        <td><strong>${totalCumulativePoints}</strong></td>
+                    </tr>
+                </tfoot>
+            </table>
+        `;
+        selectedParticipantDetails.innerHTML = htmlContent;
     }
+
+
+    // New helper function to render the list of participants
+    function renderParticipantList(namesToDisplay) {
+        const allParticipantsListDiv = document.getElementById('all-participants-list');
+        allParticipantsListDiv.innerHTML = ''; // Clear existing list
+
+        if (namesToDisplay.length === 0) {
+            allParticipantsListDiv.innerHTML = '<p class="no-results">Geen deelnemers gevonden die overeenkomen met de zoekterm.</p>';
+            return;
+        }
+
+        namesToDisplay.forEach(name => {
+            const participantItem = document.createElement('div');
+            participantItem.classList.add('participant-item');
+            participantItem.textContent = name;
+            participantItem.addEventListener('click', () => {
+                // Set the search bar value to the clicked name (optional, but good for clarity)
+                document.getElementById('participant-search').value = name;
+                // Display details for the clicked participant
+                displayParticipantTeam(name); // Now uses global data
+                // Optional: Scroll to the top of the team details section
+                document.getElementById('selected-participant-details').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+            allParticipantsListDiv.appendChild(participantItem);
+        });
+    }
+
+
+    async function renderTeamSelectionPage() {
+        const participantSearchInput = document.getElementById('participant-search');
+        const allParticipantsListDiv = document.getElementById('all-participants-list');
+        const selectedParticipantDetails = document.getElementById('selected-participant-details');
+
+        allParticipantsListDiv.innerHTML = '<p>Deelnemers laden...</p>'; // Initial loading message
+
+        // Fetch data and store globally
+        globalParticipantSelectionsData = await fetchData('participant_selections.json');
+        globalCumulativeRiderPoints = await fetchData('cumulative_rider_points.json');
+
+        if (!globalParticipantSelectionsData || !globalCumulativeRiderPoints || Object.keys(globalParticipantSelectionsData).length === 0) {
+            participantSearchInput.placeholder = 'Geen deelnemers beschikbaar';
+            participantSearchInput.disabled = true;
+            allParticipantsListDiv.innerHTML = '<p>Niet alle benodigde gegevens voor teamselecties konden worden geladen of er zijn geen deelnemers.</p>';
+            selectedParticipantDetails.innerHTML = ''; // Clear any previous default text
+            return;
+        }
+
+        globalAllParticipantNames = Object.keys(globalParticipantSelectionsData).sort();
+
+        // Initially display ALL participants
+        renderParticipantList(globalAllParticipantNames);
+        selectedParticipantDetails.innerHTML = '<p>Selecteer een deelnemer uit de lijst om de teamselectie te bekijken.</p>';
+
+
+        // Add event listener for search input
+        participantSearchInput.addEventListener('input', () => {
+            const searchTerm = participantSearchInput.value.toLowerCase();
+            
+            const filteredNames = globalAllParticipantNames.filter(name =>
+                name.toLowerCase().includes(searchTerm)
+            );
+            renderParticipantList(filteredNames);
+        });
+    }
+
 
     // --- Stages Page Functions (stages.html) ---
     async function renderStagesPage() {
@@ -263,6 +373,7 @@ document.addEventListener('DOMContentLoaded', () => {
             selectedStageDetails.innerHTML = `<p>Details voor Etappe ${stageNumber} laden...</p>`; // Translated
             
             const stageHistoryEntry = riderHistory.find(s => s.stage_number == stageNumber);
+            // Fetch the full simulated stage data for details
             const simulatedStageData = await fetchData(`simulated_stages/stage_${stageNumber}_data.json`);
 
             if (!stageHistoryEntry || !simulatedStageData) {
@@ -270,10 +381,19 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
-            const { stage_results, gc_standings, jersey_holders } = simulatedStageData;
+            const { stage_results, gc_standings, jersey_holders, start_location, finish_location, distance_km, stage_type } = simulatedStageData;
             const dailyRiderPoints = stageHistoryEntry.daily_rider_points;
 
             let detailsHtml = `<h3>Etappe ${stageNumber} - ${stageHistoryEntry.date}</h3>`;
+
+            // New: Detailed Stage Overview
+            detailsHtml += `
+                <h4>Etappe Overzicht</h4>
+                <p><strong>Start:</strong> ${start_location || 'Onbekend'}</p>
+                <p><strong>Finish:</strong> ${finish_location || 'Onbekend'}</p>
+                <p><strong>Afstand:</strong> ${distance_km ? `${distance_km} km` : 'Onbekend'}</p>
+                <p><strong>Type:</strong> ${stage_type || 'Onbekend'}</p>
+            `; // Translated
 
             // Top Finishers (from stage_results)
             if (stage_results && stage_results.length > 0) {
@@ -301,7 +421,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 </ul>`; // Translated
             
             // Riders who scored points in this stage (top 10 based on our daily_rider_points calc)
-            if (dailyRiderPoints) {
+            if (dailyRiderPoints && Object.keys(dailyRiderPoints).length > 0) {
                 const sortedDailyRiderPoints = Object.entries(dailyRiderPoints)
                     .sort(([, pointsA], [, pointsB]) => pointsB - pointsA)
                     .slice(0, 10); // Show top 10 riders by daily points
@@ -319,7 +439,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
                 detailsHtml += `</tbody></table>`;
             } else {
-                detailsHtml += `<p>Geen puntenscorende rennersgegevens voor deze etappe.</p>`; // Translated
+                detailsHtml += `<p>Geen puntenscorende rennersgegevens voor deze etappe.</p Huber</p>`; // Translated
             }
 
             selectedStageDetails.innerHTML = detailsHtml;
@@ -360,7 +480,7 @@ document.addEventListener('DOMContentLoaded', () => {
     } else if (path.includes('full_leaderboard.html')) {
         renderFullLeaderboardPage();
     } else if (path.includes('team_selection.html')) {
-        renderTeamSelectionPage();
+        renderTeamSelectionPage(); // <-- Ensure this is called here
     } else if (path.includes('stages.html')) {
         renderStagesPage();
     } else if (path.includes('fun_stats.html')) {
