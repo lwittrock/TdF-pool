@@ -726,8 +726,12 @@ section:last-of-type { margin-bottom: 0; }
 
 /* Mobile styles: Show hamburger, hide nav links */
 @media (max-width: 768px) {
+    
+    /* Keep .main-nav general styles */
     .main-nav {
         justify-content: flex-end; /* Push hamburger to the right */
+        /* Ensure its own background is not black here if it's black by default */
+        background-color: #333; /* Default nav background on mobile */
     }
 
     .hamburger {
@@ -735,14 +739,14 @@ section:last-of-type { margin-bottom: 0; }
     }
 
     .main-nav .nav-links {
-        display: none; /* Hide nav links by default on mobile */
+        display: none; /* HIDE nav links by default on mobile screens */
         flex-direction: column;
-        position: absolute;
+        position: fixed; /* Use fixed to cover entire viewport, not absolute relative to nav */
         top: 0;
-        right: 0;
+        left: 0; /* Changed from right:0 to left:0 for consistency with translateX */
         width: 100%;
         height: 100vh; /* Full viewport height */
-        background-color: rgba(0, 0, 0, 0.9); /* Semi-transparent overlay */
+        background-color: rgba(0, 0, 0, 0.9); /* Semi-transparent overlay for the menu itself */
         padding-top: 60px; /* Space for the hamburger/close button */
         align-items: center;
         justify-content: center;
@@ -752,6 +756,7 @@ section:last-of-type { margin-bottom: 0; }
     }
 
     .main-nav .nav-links.active {
+        display: flex; /* IMPORTANT: SHOW nav links when active */
         transform: translateX(0); /* Slide in when active */
     }
 
