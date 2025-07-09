@@ -667,3 +667,112 @@ section:last-of-type { margin-bottom: 0; }
         column-count: 3;
     }
 }
+
+
+/* --- Navigation Bar Improvements (Hamburger Menu) --- */
+
+.main-nav {
+    display: flex;
+    justify-content: space-between; /* Pushes hamburger to one side, links to other */
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #333;
+    color: #fff;
+    position: relative; /* Needed for absolute positioning of the dropdown */
+}
+
+/* Default state for nav links: visible on larger screens */
+.main-nav .nav-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex; /* Links next to each other */
+}
+
+.main-nav .nav-links li {
+    margin-left: 25px; /* Spacing between links */
+}
+
+.main-nav .nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.main-nav .nav-links a:hover {
+    color: #ffd700; /* Gold on hover */
+}
+
+/* Hamburger Icon Styling (hidden by default on desktop) */
+.hamburger {
+    display: none; /* Hide by default */
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 25px;
+    cursor: pointer;
+    z-index: 1001; /* Ensure it's above other content */
+}
+
+.hamburger span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: #fff;
+    border-radius: 2px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Mobile styles: Show hamburger, hide nav links */
+@media (max-width: 768px) {
+    .main-nav {
+        justify-content: flex-end; /* Push hamburger to the right */
+    }
+
+    .hamburger {
+        display: flex; /* Show hamburger on mobile */
+    }
+
+    .main-nav .nav-links {
+        display: none; /* Hide nav links by default on mobile */
+        flex-direction: column;
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 100vh; /* Full viewport height */
+        background-color: rgba(0, 0, 0, 0.9); /* Semi-transparent overlay */
+        padding-top: 60px; /* Space for the hamburger/close button */
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.3s ease-in-out;
+        transform: translateX(100%); /* Initially off-screen to the right */
+        z-index: 1000; /* Below hamburger, above page content */
+    }
+
+    .main-nav .nav-links.active {
+        transform: translateX(0); /* Slide in when active */
+    }
+
+    .main-nav .nav-links li {
+        margin: 20px 0; /* Vertical spacing for list items */
+    }
+
+    .main-nav .nav-links a {
+        font-size: 1.5em;
+        padding: 10px 20px;
+        display: block;
+    }
+
+    /* Animation for the hamburger icon when active (transforms into an X) */
+    .hamburger.active span:nth-child(1) {
+        transform: translateY(11px) rotate(45deg);
+    }
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+    .hamburger.active span:nth-child(3) {
+        transform: translateY(-11px) rotate(-45deg);
+    }
+}
