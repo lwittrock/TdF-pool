@@ -21,12 +21,12 @@
         },
         {
             "rank": 3,
-            "rider_name": "João Almeida",
+            "rider_name": "Jo\u00e3o Almeida",
             "team": "UAD",
             "time": "00:06",
             "points": 15,
             "bonification_seconds": 0,
-            "url": "rider/joão-almeida"
+            "url": "rider/jo\u00e3o-almeida"
         },
         {
             "rank": 4,
@@ -48,12 +48,12 @@
         },
         {
             "rank": 6,
-            "rider_name": "Primož Roglič",
+            "rider_name": "Primo\u017e Rogli\u010d",
             "team": "BOH",
             "time": "00:25",
             "points": 8,
             "bonification_seconds": 0,
-            "url": "rider/primož-roglič"
+            "url": "rider/primo\u017e-rogli\u010d"
         },
         {
             "rank": 7,
@@ -66,21 +66,21 @@
         },
         {
             "rank": 8,
-            "rider_name": "Carlos Rodríguez",
+            "rider_name": "Carlos Rodr\u00edguez",
             "team": "IGD",
             "time": "00:21",
             "points": 4,
             "bonification_seconds": 0,
-            "url": "rider/carlos-rodríguez"
+            "url": "rider/carlos-rodr\u00edguez"
         },
         {
             "rank": 9,
-            "rider_name": "Tadej Pogačar",
+            "rider_name": "Tadej Poga\u010dar",
             "team": "UAD",
             "time": "00:32",
             "points": 6,
             "bonification_seconds": 0,
-            "url": "rider/tadej-pogačar"
+            "url": "rider/tadej-poga\u010dar"
         },
         {
             "rank": 10,
@@ -121,11 +121,11 @@
         },
         {
             "rank": 2,
-            "rider_name": "Tadej Pogačar",
+            "rider_name": "Tadej Poga\u010dar",
             "team": "UAD",
             "time": "01:11",
             "time_gap": "+01:11",
-            "url": "rider/tadej-pogačar"
+            "url": "rider/tadej-poga\u010dar"
         },
         {
             "rank": 3,
@@ -137,11 +137,11 @@
         },
         {
             "rank": 4,
-            "rider_name": "Primož Roglič",
+            "rider_name": "Primo\u017e Rogli\u010d",
             "team": "BOH",
             "time": "01:32",
             "time_gap": "+01:32",
-            "url": "rider/primož-roglič"
+            "url": "rider/primo\u017e-rogli\u010d"
         },
         {
             "rank": 5,
@@ -153,19 +153,19 @@
         },
         {
             "rank": 6,
-            "rider_name": "Carlos Rodríguez",
+            "rider_name": "Carlos Rodr\u00edguez",
             "team": "IGD",
             "time": "01:52",
             "time_gap": "+01:52",
-            "url": "rider/carlos-rodríguez"
+            "url": "rider/carlos-rodr\u00edguez"
         },
         {
             "rank": 7,
-            "rider_name": "João Almeida",
+            "rider_name": "Jo\u00e3o Almeida",
             "team": "UAD",
             "time": "02:04",
             "time_gap": "+02:04",
-            "url": "rider/joão-almeida"
+            "url": "rider/jo\u00e3o-almeida"
         },
         {
             "rank": 8,
@@ -213,9 +213,5 @@
         "green": "Remco Evenepoel",
         "polka_dot": "Jonas Vingegaard",
         "white": "Juan Ayuso"
-    },
-    "start_location": "Startplaats Etappe 2",
-    "finish_location": "Finishplaats Etappe 2",
-    "distance_km": 160,
-    "stage_type": "Heuvelachtige rit"
+    }
 }

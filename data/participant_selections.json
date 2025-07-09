@@ -1,1922 +1,1922 @@
 {
     "Deelnemer 1": {
         "main_riders": [
-            "EF Education-EasyPost Domestique 1",
-            "Elia Viviani",
-            "DSM-Firmenich PostNL Domestique 1",
-            "Giulio Ciccone",
-            "Richard Carapaz",
-            "Soren Kragh Andersen",
-            "Axel Laurance",
-            "Romain Bardet",
+            "Greg Van Avermaet",
             "Wilco Kelderman",
-            "Jack Haig"
+            "Sepp Kuss",
+            "Tao Geoghegan Hart",
+            "Marc Hirschi",
+            "Juan Ayuso",
+            "Tiesj Benoot",
+            "Ben O'Connor",
+            "Felix Gall",
+            "Magnus Cort Nielsen"
         ],
-        "reserve_rider": "Sam Welsford",
-        "pro_team": "Bora-Hansgrohe"
+        "reserve_rider": "Maxim Van Gils",
+        "pro_team": "UAE Team Emirates"
     },
     "Deelnemer 2": {
         "main_riders": [
-            "Bora-Hansgrohe Domestique 1",
-            "Tadej Pogačar",
-            "Magnus Cort Nielsen",
-            "Greg Van Avermaet",
-            "Maxim Van Gils",
-            "Julian Alaphilippe",
-            "Santiago Buitrago",
-            "Tobias Foss",
-            "Jan Tratnik",
-            "Mathieu van der Poel"
+            "Jonathan Milan",
+            "Tiesj Benoot",
+            "Esteban Chaves",
+            "Romain Bardet",
+            "Biniam Girmay",
+            "Christophe Laporte",
+            "Michael Matthews",
+            "Damiano Caruso",
+            "Quinn Simmons",
+            "Alpecin-Deceuninck Domestique 1"
         ],
-        "reserve_rider": "Pascal Ackermann",
-        "pro_team": "Bahrain Victorious"
+        "reserve_rider": "Rigoberto Urán",
+        "pro_team": "UAE Team Emirates"
     },
     "Deelnemer 3": {
         "main_riders": [
-            "Richard Carapaz",
+            "Elia Viviani",
+            "Alexander Kristoff",
+            "Hugh Carthy",
+            "Enric Mas",
+            "Tobias Foss",
             "Groupama-FDJ Domestique 1",
-            "Stefan Küng",
-            "Daniel Martínez",
-            "Jai Hindley",
-            "Mark Cavendish",
-            "Jan Tratnik",
+            "Filippo Ganna",
             "Lenny Martinez",
-            "Jack Haig",
-            "Olav Kooij"
+            "Jayco AlUla Domestique 1",
+            "Movistar Domestique 1"
         ],
-        "reserve_rider": "Pello Bilbao",
-        "pro_team": "Uno-X Mobility"
+        "reserve_rider": "Chris Froome",
+        "pro_team": "Team DSM-Firmenich PostNL"
     },
     "Deelnemer 4": {
         "main_riders": [
-            "Christoph Pfingsten",
-            "Neilson Powless",
-            "Dylan Teuns",
-            "Julian Alaphilippe",
-            "Jayco AlUla Domestique 1",
-            "Ben Healy",
-            "Alexander Kristoff",
-            "Lidl-Trek Domestique 1",
-            "Egan Bernal",
-            "Nils Politt"
+            "Thibaut Pinot",
+            "Jasper Philipsen",
+            "Richard Carapaz",
+            "Arkéa-B&B Hotels Domestique 1",
+            "Mads Pedersen",
+            "Mathieu van der Poel",
+            "Thymen Arensman",
+            "Warren Barguil",
+            "Biniam Girmay",
+            "Vincenzo Nibali"
         ],
-        "reserve_rider": "Marijn van den Berg",
-        "pro_team": "Uno-X Mobility"
+        "reserve_rider": "Marc Hirschi",
+        "pro_team": "TotalEnergies"
     },
     "Deelnemer 5": {
         "main_riders": [
-            "Alberto Bettiol",
-            "Maxim Van Gils",
-            "Jonathan Milan",
-            "Bauke Mollema",
-            "Tobias Foss",
-            "Christophe Laporte",
-            "João Almeida",
-            "Cian Uijtdebroeks",
-            "Phil Bauhaus",
-            "Bryan Coquard"
+            "Quinn Simmons",
+            "Michael Woods",
+            "Marijn van den Berg",
+            "Groupama-FDJ Domestique 1",
+            "Movistar Domestique 1",
+            "Ineos Domestique 1",
+            "Greg Van Avermaet",
+            "EF Education-EasyPost Domestique 1",
+            "Yves Lampaert",
+            "Jonas Vingegaard"
         ],
-        "reserve_rider": "Esteban Chaves",
-        "pro_team": "Lidl-Trek"
+        "reserve_rider": "Ben O'Connor",
+        "pro_team": "TotalEnergies"
     },
     "Deelnemer 6": {
         "main_riders": [
-            "Dylan Groenewegen",
-            "UAE Domestique 1",
-            "Victor Campenaerts",
-            "João Almeida",
-            "Arnaud Démare",
-            "Sepp Kuss",
-            "Soren Kragh Andersen",
-            "Damiano Caruso",
-            "Andreas Kron",
-            "Chris Froome"
+            "Alexander Kristoff",
+            "Daniel Martínez",
+            "Kévin Vauquelin",
+            "Wout Van Aert",
+            "Vincenzo Nibali",
+            "Pello Bilbao",
+            "Primož Roglič",
+            "Magnus Cort Nielsen",
+            "Juan Pedro López",
+            "Jack Haig"
         ],
-        "reserve_rider": "Alexey Lutsenko",
-        "pro_team": "TotalEnergies"
+        "reserve_rider": "Biniam Girmay",
+        "pro_team": "Groupama-FDJ"
     },
     "Deelnemer 7": {
         "main_riders": [
-            "Tim Declercq",
-            "Sam Welsford",
-            "Intermarché-Wanty Domestique 1",
-            "Arnaud De Lie",
-            "Mattias Skjelmose",
-            "Bahrain Victorious Domestique 1",
-            "João Almeida",
-            "EF Education-EasyPost Domestique 1",
-            "Neilson Powless",
-            "Tom Pidcock"
+            "Steven Kruijswijk",
+            "Jumbo-Visma Domestique 1",
+            "Arkéa-B&B Hotels Domestique 1",
+            "Jai Hindley",
+            "Juan Pedro López",
+            "Remco Evenepoel",
+            "Chris Froome",
+            "Stefan Küng",
+            "Axel Laurance",
+            "Christoph Pfingsten"
         ],
-        "reserve_rider": "Wout Van Aert",
-        "pro_team": "Movistar Team"
+        "reserve_rider": "Rigoberto Urán",
+        "pro_team": "Bora-Hansgrohe"
     },
     "Deelnemer 8": {
         "main_riders": [
-            "Jonathan Milan",
-            "Bryan Coquard",
-            "Chris Froome",
-            "Alberto Bettiol",
-            "Pascal Ackermann",
-            "Magnus Cort Nielsen",
-            "Peter Sagan",
-            "Wilco Kelderman",
-            "Maxim Van Gils",
-            "Marc Hirschi"
+            "Bauke Mollema",
+            "DSM-Firmenich PostNL Domestique 1",
+            "Richard Carapaz",
+            "Bora-Hansgrohe Domestique 1",
+            "Alexey Lutsenko",
+            "Ineos Domestique 1",
+            "Juan Ayuso",
+            "Michael Matthews",
+            "Miguel Ángel López",
+            "Cian Uijtdebroeks"
         ],
-        "reserve_rider": "Tiesj Benoot",
-        "pro_team": "TotalEnergies"
+        "reserve_rider": "Pello Bilbao",
+        "pro_team": "Cofidis"
     },
     "Deelnemer 9": {
         "main_riders": [
-            "Decathlon AG2R La Mondiale Domestique 1",
-            "Biniam Girmay",
-            "UAE Domestique 1",
-            "Jasper Philipsen",
-            "Sam Welsford",
-            "Simone Consonni",
-            "Neilson Powless",
+            "Marc Hirschi",
+            "Jai Hindley",
             "Caleb Ewan",
-            "Jayco AlUla Domestique 1",
-            "Cian Uijtdebroeks"
+            "UAE Domestique 1",
+            "Esteban Chaves",
+            "Christoph Pfingsten",
+            "Alberto Bettiol",
+            "Astana Qazaqstan Domestique 1",
+            "Olav Kooij",
+            "Giulio Ciccone"
         ],
-        "reserve_rider": "George Bennett",
-        "pro_team": "Team Visma | Lease a Bike"
+        "reserve_rider": "Adam Yates",
+        "pro_team": "Bahrain Victorious"
     },
     "Deelnemer 10": {
         "main_riders": [
-            "Fabio Jakobsen",
-            "Giacomo Nizzolo",
             "Decathlon AG2R La Mondiale Domestique 1",
-            "Hugh Carthy",
+            "Alexander Kristoff",
+            "Danny van Poppel",
             "Maximilian Schachmann",
-            "Filippo Ganna",
-            "Louis Vervaeke",
-            "Tiesj Benoot",
-            "Marc Hirschi",
-            "Alexander Kristoff"
+            "Jonathan Milan",
+            "Stefan Küng",
+            "Jordi Meeus",
+            "Mattias Skjelmose",
+            "Intermarché-Wanty Domestique 1",
+            "Esteban Chaves"
         ],
-        "reserve_rider": "Esteban Chaves",
-        "pro_team": "Cofidis"
+        "reserve_rider": "Arnaud Démare",
+        "pro_team": "Groupama-FDJ"
     },
     "Deelnemer 11": {
         "main_riders": [
-            "Egan Bernal",
-            "Ben O'Connor",
-            "Maxim Van Gils",
+            "Tadej Pogačar",
+            "Jasper Philipsen",
             "Jonathan Milan",
-            "Matej Mohorič",
-            "Brandon McNulty",
-            "Tim Declercq",
-            "Biniam Girmay",
-            "Maximilian Schachmann",
-            "Damiano Caruso"
+            "Thibaut Pinot",
+            "Filippo Ganna",
+            "João Almeida",
+            "Bahrain Victorious Domestique 1",
+            "Adam Yates",
+            "Jonas Vingegaard",
+            "Matej Mohorič"
         ],
-        "reserve_rider": "Hugh Carthy",
-        "pro_team": "Arkéa-B&B Hotels"
+        "reserve_rider": "Decathlon AG2R La Mondiale Domestique 1",
+        "pro_team": "Cofidis"
     },
     "Deelnemer 12": {
         "main_riders": [
-            "Santiago Buitrago",
-            "Sepp Kuss",
-            "Kasper Asgreen",
-            "Vincenzo Nibali",
-            "Matej Mohorič",
-            "Andreas Kron",
-            "Alexander Kristoff",
-            "Olav Kooij",
-            "Simone Consonni",
-            "Lenny Martinez"
+            "Romain Bardet",
+            "Emanuel Buchmann",
+            "Giacomo Nizzolo",
+            "Julian Alaphilippe",
+            "Danny van Poppel",
+            "Mattias Skjelmose",
+            "Lenny Martinez",
+            "Esteban Chaves",
+            "Christophe Laporte",
+            "Arnaud Démare"
         ],
-        "reserve_rider": "Arnaud Démare",
-        "pro_team": "Arkéa-B&B Hotels"
+        "reserve_rider": "Wout Van Aert",
+        "pro_team": "Team Jayco AlUla"
     },
     "Deelnemer 13": {
         "main_riders": [
-            "Dylan Teuns",
+            "João Almeida",
+            "Matej Mohorič",
+            "Pascal Ackermann",
+            "Esteban Chaves",
+            "Simon Yates",
             "Astana Qazaqstan Domestique 1",
-            "Tobias Foss",
-            "Mads Würtz Schmidt",
-            "Movistar Domestique 1",
-            "Juan Ayuso",
-            "Bryan Coquard",
-            "Giacomo Nizzolo",
-            "Greg Van Avermaet",
-            "Wilco Kelderman"
+            "Jai Hindley",
+            "Marijn van den Berg",
+            "Valentin Madouas",
+            "Groupama-FDJ Domestique 1"
         ],
-        "reserve_rider": "Stefan Küng",
-        "pro_team": "Team Jayco AlUla"
+        "reserve_rider": "Emanuel Buchmann",
+        "pro_team": "Decathlon AG2R La Mondiale"
     },
     "Deelnemer 14": {
         "main_riders": [
-            "Romain Bardet",
-            "Geraint Thomas",
-            "Alpecin-Deceuninck Domestique 1",
-            "Wilco Kelderman",
-            "Miguel Ángel López",
-            "Alexander Kristoff",
-            "Sam Bennett",
-            "Tobias Foss",
-            "Steven Kruijswijk",
-            "Thibaut Pinot"
+            "Groupama-FDJ Domestique 1",
+            "Phil Bauhaus",
+            "Sepp Kuss",
+            "Intermarché-Wanty Domestique 1",
+            "Nairo Quintana",
+            "Jayco AlUla Domestique 1",
+            "Simone Consonni",
+            "Marijn van den Berg",
+            "Thibaut Pinot",
+            "Damiano Caruso"
         ],
-        "reserve_rider": "Mads Pedersen",
-        "pro_team": "Alpecin-Deceuninck"
+        "reserve_rider": "Vincenzo Nibali",
+        "pro_team": "INEOS Grenadiers"
     },
     "Deelnemer 15": {
         "main_riders": [
-            "Simon Carr",
-            "Bahrain Victorious Domestique 1",
-            "Attila Valter",
-            "Primož Roglič",
-            "Tadej Pogačar",
-            "Pello Bilbao",
-            "Filippo Ganna",
-            "Arkéa-B&B Hotels Domestique 1",
-            "Pascal Ackermann",
-            "Wout Poels"
+            "João Almeida",
+            "Vincenzo Nibali",
+            "Lenny Martinez",
+            "Astana Qazaqstan Domestique 1",
+            "Arnaud Démare",
+            "Marijn van den Berg",
+            "Jasper Philipsen",
+            "Maximilian Schachmann",
+            "Sam Bennett",
+            "Simon Carr"
         ],
-        "reserve_rider": "Nairo Quintana",
-        "pro_team": "Astana Qazaqstan Team"
+        "reserve_rider": "Louis Vervaeke",
+        "pro_team": "Lidl-Trek"
     },
     "Deelnemer 16": {
         "main_riders": [
-            "Victor Campenaerts",
-            "Dylan Teuns",
-            "Chris Froome",
-            "Maxim Van Gils",
-            "Tao Geoghegan Hart",
-            "Andreas Kron",
-            "Caleb Ewan",
-            "Alexey Lutsenko",
-            "Jan Tratnik",
-            "Florian Sénéchal"
+            "Romain Bardet",
+            "Adam Yates",
+            "Ben Healy",
+            "Alpecin-Deceuninck Domestique 1",
+            "Warren Barguil",
+            "Yves Lampaert",
+            "Bora-Hansgrohe Domestique 1",
+            "Fred Wright",
+            "Bahrain Victorious Domestique 1",
+            "Esteban Chaves"
         ],
-        "reserve_rider": "Paul Penhoët",
-        "pro_team": "Decathlon AG2R La Mondiale"
+        "reserve_rider": "Jonathan Milan",
+        "pro_team": "Team Jayco AlUla"
     },
     "Deelnemer 17": {
         "main_riders": [
-            "Ineos Domestique 1",
-            "Tom Pidcock",
-            "Jan Tratnik",
-            "Lidl-Trek Domestique 1",
-            "Lenny Martinez",
-            "Simon Carr",
-            "Christoph Pfingsten",
+            "Quinn Simmons",
+            "Victor Campenaerts",
+            "Bauke Mollema",
+            "Philippe Gilbert",
+            "Mads Pedersen",
+            "Neilson Powless",
+            "Arnaud De Lie",
+            "Alexey Lutsenko",
             "Filippo Ganna",
-            "Elia Viviani",
-            "Magnus Cort Nielsen"
+            "Movistar Domestique 1"
         ],
-        "reserve_rider": "Giacomo Nizzolo",
+        "reserve_rider": "Pello Bilbao",
         "pro_team": "Team DSM-Firmenich PostNL"
     },
     "Deelnemer 18": {
         "main_riders": [
-            "Steven Kruijswijk",
-            "Jai Hindley",
-            "George Bennett",
+            "Arkéa-B&B Hotels Domestique 1",
+            "Primož Roglič",
+            "Kévin Vauquelin",
+            "Mathieu van der Poel",
+            "Ineos Domestique 1",
+            "Fabio Jakobsen",
+            "Rigoberto Urán",
             "Felix Gall",
-            "Fred Wright",
-            "Jonathan Milan",
-            "Intermarché-Wanty Domestique 1",
-            "Damiano Caruso",
-            "Tobias Foss",
-            "Olav Kooij"
+            "Maximilian Schachmann",
+            "Tim Declercq"
         ],
-        "reserve_rider": "Bryan Coquard",
-        "pro_team": "Bahrain Victorious"
+        "reserve_rider": "UAE Domestique 1",
+        "pro_team": "Uno-X Mobility"
     },
     "Deelnemer 19": {
         "main_riders": [
-            "Simone Consonni",
-            "Caleb Ewan",
-            "Alberto Bettiol",
-            "Adam Yates",
-            "Jai Hindley",
-            "Fred Wright",
-            "Bauke Mollema",
-            "Mathieu van der Poel",
-            "Romain Bardet",
-            "Soren Kragh Andersen"
+            "Fabio Jakobsen",
+            "Maxim Van Gils",
+            "Kasper Asgreen",
+            "Sergio Higuita",
+            "Jonathan Milan",
+            "Bahrain Victorious Domestique 1",
+            "Jonas Vingegaard",
+            "Brandon McNulty",
+            "Richard Carapaz",
+            "Thibaut Pinot"
         ],
-        "reserve_rider": "Steven Kruijswijk",
-        "pro_team": "UAE Team Emirates"
+        "reserve_rider": "Philippe Gilbert",
+        "pro_team": "INEOS Grenadiers"
     },
     "Deelnemer 20": {
         "main_riders": [
-            "Fred Wright",
-            "Julian Alaphilippe",
-            "Ben Healy",
-            "Filippo Ganna",
-            "Jai Hindley",
-            "Sam Bennett",
-            "DSM-Firmenich PostNL Domestique 1",
-            "Mads Würtz Schmidt",
-            "Arnaud Démare",
-            "Maxim Van Gils"
+            "Jonathan Milan",
+            "Lenny Martinez",
+            "João Almeida",
+            "Alberto Bettiol",
+            "Warren Barguil",
+            "Sam Welsford",
+            "Pello Bilbao",
+            "Remco Evenepoel",
+            "Philippe Gilbert",
+            "Julian Alaphilippe"
         ],
-        "reserve_rider": "Lidl-Trek Domestique 1",
-        "pro_team": "TotalEnergies"
+        "reserve_rider": "Valentin Madouas",
+        "pro_team": "Movistar Team"
     },
     "Deelnemer 21": {
         "main_riders": [
-            "Wilco Kelderman",
-            "Vincenzo Nibali",
-            "Maxim Van Gils",
-            "Philippe Gilbert",
-            "Dylan Teuns",
-            "Arnaud Démare",
-            "Jayco AlUla Domestique 1",
-            "Fred Wright",
-            "Julian Alaphilippe",
-            "Bora-Hansgrohe Domestique 1"
+            "Marc Hirschi",
+            "Neilson Powless",
+            "Jordi Meeus",
+            "Simon Yates",
+            "DSM-Firmenich PostNL Domestique 1",
+            "Axel Laurance",
+            "Wout Poels",
+            "Ben Healy",
+            "Alpecin-Deceuninck Domestique 1",
+            "Florian Sénéchal"
         ],
-        "reserve_rider": "Alpecin-Deceuninck Domestique 1",
-        "pro_team": "Movistar Team"
+        "reserve_rider": "Simone Consonni",
+        "pro_team": "INEOS Grenadiers"
     },
     "Deelnemer 22": {
         "main_riders": [
-            "Alexey Lutsenko",
-            "Elia Viviani",
-            "Bora-Hansgrohe Domestique 1",
-            "Greg Van Avermaet",
-            "Alberto Bettiol",
-            "Tiesj Benoot",
-            "Tom Pidcock",
-            "Soudal Quick-Step Domestique 1",
-            "Daniel Martínez",
-            "Jasper Philipsen"
+            "Alpecin-Deceuninck Domestique 1",
+            "Sam Welsford",
+            "Yves Lampaert",
+            "Romain Bardet",
+            "Ben O'Connor",
+            "Wilco Kelderman",
+            "Mads Pedersen",
+            "Pascal Ackermann",
+            "Bauke Mollema",
+            "Warren Barguil"
         ],
-        "reserve_rider": "Christoph Pfingsten",
-        "pro_team": "Movistar Team"
+        "reserve_rider": "Stefan Küng",
+        "pro_team": "Team Visma | Lease a Bike"
     },
     "Deelnemer 23": {
         "main_riders": [
-            "EF Education-EasyPost Domestique 1",
-            "Giulio Ciccone",
-            "Enric Mas",
-            "Emanuel Buchmann",
-            "Danny van Poppel",
-            "Dylan Teuns",
-            "Christoph Pfingsten",
-            "Lidl-Trek Domestique 1",
-            "Louis Vervaeke",
-            "Nairo Quintana"
+            "Axel Laurance",
+            "David Gaudu",
+            "Bauke Mollema",
+            "Alexey Lutsenko",
+            "Olav Kooij",
+            "Pascal Ackermann",
+            "Paul Penhoët",
+            "Florian Sénéchal",
+            "Biniam Girmay",
+            "Mathieu van der Poel"
         ],
-        "reserve_rider": "Mark Cavendish",
-        "pro_team": "Groupama-FDJ"
+        "reserve_rider": "Lenny Martinez",
+        "pro_team": "Movistar Team"
     },
     "Deelnemer 24": {
         "main_riders": [
             "Rigoberto Urán",
-            "Bryan Coquard",
-            "UAE Domestique 1",
-            "Marc Hirschi",
-            "Ben Healy",
-            "Yves Lampaert",
-            "Dylan Teuns",
-            "Groupama-FDJ Domestique 1",
-            "David Gaudu",
-            "Alpecin-Deceuninck Domestique 1"
+            "Movistar Domestique 1",
+            "Fabio Jakobsen",
+            "Ethan Hayter",
+            "Matej Mohorič",
+            "Kasper Asgreen",
+            "Damiano Caruso",
+            "Rigoberto Urán",
+            "Dylan Groenewegen",
+            "Jonas Vingegaard"
         ],
-        "reserve_rider": "Axel Laurance",
-        "pro_team": "Team DSM-Firmenich PostNL"
+        "reserve_rider": "Jonathan Milan",
+        "pro_team": "UAE Team Emirates"
     },
     "Deelnemer 25": {
         "main_riders": [
-            "Nairo Quintana",
-            "Brandon McNulty",
-            "Bahrain Victorious Domestique 1",
-            "Giulio Ciccone",
-            "Caleb Ewan",
-            "Damiano Caruso",
-            "Vincenzo Nibali",
-            "Primož Roglič",
-            "Tadej Pogačar",
-            "Mathieu van der Poel"
+            "Soudal Quick-Step Domestique 1",
+            "Paul Penhoët",
+            "Juan Pedro López",
+            "Tao Geoghegan Hart",
+            "Simon Yates",
+            "Andreas Kron",
+            "Matej Mohorič",
+            "Wout Van Aert",
+            "Chris Froome",
+            "Sergio Higuita"
         ],
-        "reserve_rider": "DSM-Firmenich PostNL Domestique 1",
-        "pro_team": "Groupama-FDJ"
+        "reserve_rider": "Attila Valter",
+        "pro_team": "Bora-Hansgrohe"
     },
     "Deelnemer 26": {
         "main_riders": [
-            "Florian Sénéchal",
-            "Tobias Foss",
-            "Maximilian Schachmann",
-            "Stefan Küng",
-            "Egan Bernal",
-            "Victor Campenaerts",
-            "Fabio Jakobsen",
-            "Greg Van Avermaet",
+            "Romain Bardet",
+            "Juan Ayuso",
             "UAE Domestique 1",
-            "Decathlon AG2R La Mondiale Domestique 1"
+            "Danny van Poppel",
+            "Brandon McNulty",
+            "Kévin Vauquelin",
+            "Caleb Ewan",
+            "Yves Lampaert",
+            "Biniam Girmay",
+            "Bahrain Victorious Domestique 1"
         ],
-        "reserve_rider": "Wout Poels",
-        "pro_team": "Team Jayco AlUla"
+        "reserve_rider": "Juan Pedro López",
+        "pro_team": "Team DSM-Firmenich PostNL"
     },
     "Deelnemer 27": {
         "main_riders": [
+            "Mark Cavendish",
+            "Wout Poels",
+            "Matej Mohorič",
+            "Louis Vervaeke",
+            "Ben Healy",
+            "Magnus Cort Nielsen",
             "Christophe Laporte",
-            "Christoph Pfingsten",
-            "Jayco AlUla Domestique 1",
-            "Romain Bardet",
-            "Jasper Philipsen",
-            "Bauke Mollema",
-            "Peter Sagan",
-            "Yves Lampaert",
-            "Egan Bernal",
-            "Lenny Martinez"
+            "Warren Barguil",
+            "Carlos Rodríguez",
+            "UAE Domestique 1"
         ],
-        "reserve_rider": "Marc Hirschi",
-        "pro_team": "Soudal Quick-Step"
+        "reserve_rider": "Stefan Küng",
+        "pro_team": "Team Jayco AlUla"
     },
     "Deelnemer 28": {
         "main_riders": [
-            "Magnus Cort Nielsen",
-            "Nils Politt",
-            "Nairo Quintana",
-            "Movistar Domestique 1",
-            "Giacomo Nizzolo",
-            "Jonathan Milan",
-            "Thibaut Pinot",
-            "Danny van Poppel",
-            "Julian Alaphilippe",
-            "Romain Bardet"
+            "Vincenzo Nibali",
+            "Santiago Buitrago",
+            "Sepp Kuss",
+            "Soudal Quick-Step Domestique 1",
+            "Pascal Ackermann",
+            "Emanuel Buchmann",
+            "Marijn van den Berg",
+            "DSM-Firmenich PostNL Domestique 1",
+            "Chris Froome",
+            "Alexey Lutsenko"
         ],
-        "reserve_rider": "Andreas Kron",
-        "pro_team": "TotalEnergies"
+        "reserve_rider": "Florian Sénéchal",
+        "pro_team": "Lidl-Trek"
     },
     "Deelnemer 29": {
         "main_riders": [
-            "Juan Ayuso",
-            "Jan Tratnik",
-            "Ben O'Connor",
-            "Michael Matthews",
-            "Decathlon AG2R La Mondiale Domestique 1",
-            "Thymen Arensman",
-            "Nils Politt",
-            "DSM-Firmenich PostNL Domestique 1",
-            "Christoph Pfingsten",
-            "Warren Barguil"
+            "Cian Uijtdebroeks",
+            "Alberto Bettiol",
+            "Jasper Philipsen",
+            "Primož Roglič",
+            "Thibaut Pinot",
+            "Marc Hirschi",
+            "Greg Van Avermaet",
+            "Chris Froome",
+            "Jordi Meeus",
+            "Maxim Van Gils"
         ],
-        "reserve_rider": "Cian Uijtdebroeks",
-        "pro_team": "Team Jayco AlUla"
+        "reserve_rider": "Egan Bernal",
+        "pro_team": "Team DSM-Firmenich PostNL"
     },
     "Deelnemer 30": {
         "main_riders": [
-            "Jack Haig",
-            "Primož Roglič",
-            "Tobias Foss",
+            "Greg Van Avermaet",
+            "Fred Wright",
+            "Axel Laurance",
+            "Steven Kruijswijk",
+            "Tiesj Benoot",
             "Elia Viviani",
-            "Magnus Cort Nielsen",
-            "Alexander Kristoff",
-            "Ineos Domestique 1",
-            "Esteban Chaves",
-            "Felix Gall",
-            "Tao Geoghegan Hart"
+            "Tobias Foss",
+            "Simon Yates",
+            "Jonathan Milan",
+            "Jayco AlUla Domestique 1"
         ],
-        "reserve_rider": "Romain Bardet",
-        "pro_team": "Team Visma | Lease a Bike"
+        "reserve_rider": "Danny van Poppel",
+        "pro_team": "Intermarché-Wanty"
     },
     "Deelnemer 31": {
         "main_riders": [
-            "Wout Poels",
-            "UAE Domestique 1",
-            "Nils Politt",
-            "Kasper Asgreen",
-            "Giulio Ciccone",
-            "Mattias Skjelmose",
-            "Michael Matthews",
-            "Wout Van Aert",
-            "Sam Welsford",
-            "Florian Sénéchal"
-        ],
-        "reserve_rider": "Miguel Ángel López",
-        "pro_team": "Astana Qazaqstan Team"
-    },
-    "Deelnemer 32": {
-        "main_riders": [
-            "Mads Würtz Schmidt",
-            "Felix Gall",
-            "Jonas Vingegaard",
-            "Arnaud De Lie",
-            "Attila Valter",
-            "Philippe Gilbert",
-            "Sepp Kuss",
-            "Simon Carr",
-            "Brandon McNulty",
-            "Louis Vervaeke"
-        ],
-        "reserve_rider": "Phil Bauhaus",
-        "pro_team": "Uno-X Mobility"
-    },
-    "Deelnemer 33": {
-        "main_riders": [
-            "Mattias Skjelmose",
-            "Warren Barguil",
-            "Arnaud Démare",
-            "Tom Pidcock",
-            "Kasper Asgreen",
-            "Giacomo Nizzolo",
-            "Jonathan Milan",
-            "Dylan Teuns",
-            "Wout Poels",
-            "Rigoberto Urán"
-        ],
-        "reserve_rider": "Mathieu van der Poel",
-        "pro_team": "Team DSM-Firmenich PostNL"
-    },
-    "Deelnemer 34": {
-        "main_riders": [
-            "Arnaud Démare",
-            "Jai Hindley",
-            "Egan Bernal",
-            "Louis Vervaeke",
-            "Tadej Pogačar",
-            "Miguel Ángel López",
-            "Jack Haig",
             "Marc Hirschi",
-            "Damiano Caruso",
-            "Neilson Powless"
-        ],
-        "reserve_rider": "Nairo Quintana",
-        "pro_team": "Bahrain Victorious"
-    },
-    "Deelnemer 35": {
-        "main_riders": [
-            "Quinn Simmons",
-            "Biniam Girmay",
-            "Romain Bardet",
-            "Mattias Skjelmose",
-            "Alexey Lutsenko",
-            "Miguel Ángel López",
-            "Soren Kragh Andersen",
-            "Richard Carapaz",
-            "Nairo Quintana",
-            "Warren Barguil"
-        ],
-        "reserve_rider": "Hugh Carthy",
-        "pro_team": "Uno-X Mobility"
-    },
-    "Deelnemer 36": {
-        "main_riders": [
-            "Ben Healy",
-            "Sam Bennett",
-            "Geraint Thomas",
-            "Nairo Quintana",
-            "Mark Cavendish",
-            "Filippo Ganna",
-            "Adam Yates",
-            "Paul Penhoët",
-            "Mattias Skjelmose",
-            "Greg Van Avermaet"
-        ],
-        "reserve_rider": "Jayco AlUla Domestique 1",
-        "pro_team": "EF Education-EasyPost"
-    },
-    "Deelnemer 37": {
-        "main_riders": [
-            "Christophe Laporte",
-            "Lidl-Trek Domestique 1",
-            "Sam Bennett",
-            "UAE Domestique 1",
-            "Phil Bauhaus",
-            "Danny van Poppel",
-            "Hugh Carthy",
-            "Thibaut Pinot",
-            "Pello Bilbao",
-            "Christoph Pfingsten"
-        ],
-        "reserve_rider": "Carlos Rodríguez",
-        "pro_team": "Bora-Hansgrohe"
-    },
-    "Deelnemer 38": {
-        "main_riders": [
-            "Juan Pedro López",
-            "Maxim Van Gils",
-            "João Almeida",
-            "Primož Roglič",
-            "Adam Yates",
-            "Quinn Simmons",
-            "Alpecin-Deceuninck Domestique 1",
-            "Attila Valter",
-            "Elia Viviani",
-            "Marijn van den Berg"
-        ],
-        "reserve_rider": "Jayco AlUla Domestique 1",
-        "pro_team": "Groupama-FDJ"
-    },
-    "Deelnemer 39": {
-        "main_riders": [
-            "Warren Barguil",
-            "David Gaudu",
-            "Michael Matthews",
-            "Chris Froome",
-            "Alexander Kristoff",
-            "Soren Kragh Andersen",
-            "Wilco Kelderman",
-            "Rigoberto Urán",
-            "Victor Campenaerts",
-            "Alpecin-Deceuninck Domestique 1"
-        ],
-        "reserve_rider": "Dylan Groenewegen",
-        "pro_team": "Bora-Hansgrohe"
-    },
-    "Deelnemer 40": {
-        "main_riders": [
-            "Julian Alaphilippe",
-            "Pello Bilbao",
-            "Yves Lampaert",
-            "Michael Woods",
-            "Ethan Hayter",
-            "Peter Sagan",
-            "Enric Mas",
-            "Jonathan Milan",
-            "Sergio Higuita",
-            "Tom Pidcock"
-        ],
-        "reserve_rider": "Vincenzo Nibali",
-        "pro_team": "Intermarché-Wanty"
-    },
-    "Deelnemer 41": {
-        "main_riders": [
-            "Marijn van den Berg",
-            "Simone Consonni",
-            "Intermarché-Wanty Domestique 1",
-            "Mathieu van der Poel",
-            "Julian Alaphilippe",
-            "Tadej Pogačar",
-            "Egan Bernal",
-            "Jayco AlUla Domestique 1",
-            "Lenny Martinez",
-            "Alberto Bettiol"
-        ],
-        "reserve_rider": "Phil Bauhaus",
-        "pro_team": "Lidl-Trek"
-    },
-    "Deelnemer 42": {
-        "main_riders": [
-            "Tao Geoghegan Hart",
-            "Nils Politt",
-            "Marc Hirschi",
-            "Hugh Carthy",
-            "Decathlon AG2R La Mondiale Domestique 1",
-            "Jan Tratnik",
-            "Matej Mohorič",
-            "Louis Vervaeke",
-            "Soren Kragh Andersen",
-            "Christoph Pfingsten"
-        ],
-        "reserve_rider": "Thymen Arensman",
-        "pro_team": "TotalEnergies"
-    },
-    "Deelnemer 43": {
-        "main_riders": [
-            "Paul Penhoët",
-            "Bryan Coquard",
-            "Simone Consonni",
-            "Pascal Ackermann",
-            "Richard Carapaz",
-            "Romain Bardet",
-            "Kasper Asgreen",
-            "Julian Alaphilippe",
-            "Mads Pedersen",
-            "Christophe Laporte"
-        ],
-        "reserve_rider": "Emanuel Buchmann",
-        "pro_team": "Astana Qazaqstan Team"
-    },
-    "Deelnemer 44": {
-        "main_riders": [
-            "Tim Declercq",
-            "Victor Campenaerts",
-            "Florian Sénéchal",
-            "Paul Penhoët",
-            "Bauke Mollema",
-            "Dylan Groenewegen",
-            "Ben O'Connor",
-            "Wout Van Aert",
-            "Daniel Martínez",
-            "Peter Sagan"
-        ],
-        "reserve_rider": "Maxim Van Gils",
-        "pro_team": "EF Education-EasyPost"
-    },
-    "Deelnemer 45": {
-        "main_riders": [
-            "Santiago Buitrago",
-            "Thymen Arensman",
-            "Adam Yates",
-            "Philippe Gilbert",
-            "Hugh Carthy",
-            "Victor Campenaerts",
-            "Enric Mas",
-            "Pascal Ackermann",
-            "Tim Declercq",
-            "Valentin Madouas"
-        ],
-        "reserve_rider": "Romain Bardet",
-        "pro_team": "EF Education-EasyPost"
-    },
-    "Deelnemer 46": {
-        "main_riders": [
-            "Mattias Skjelmose",
-            "David Gaudu",
-            "Jasper Philipsen",
-            "Ineos Domestique 1",
-            "Maxim Van Gils",
-            "Bahrain Victorious Domestique 1",
-            "Dylan Groenewegen",
-            "Victor Campenaerts",
-            "Lidl-Trek Domestique 1",
-            "Cian Uijtdebroeks"
-        ],
-        "reserve_rider": "Wout Van Aert",
-        "pro_team": "Team Jayco AlUla"
-    },
-    "Deelnemer 47": {
-        "main_riders": [
-            "Wout Poels",
-            "Florian Sénéchal",
-            "Victor Campenaerts",
-            "Kasper Asgreen",
-            "Vincenzo Nibali",
-            "Decathlon AG2R La Mondiale Domestique 1",
-            "Warren Barguil",
-            "Nils Politt",
-            "Simon Carr",
-            "Lenny Martinez"
-        ],
-        "reserve_rider": "Attila Valter",
-        "pro_team": "TotalEnergies"
-    },
-    "Deelnemer 48": {
-        "main_riders": [
-            "Sam Welsford",
-            "Andreas Kron",
-            "Steven Kruijswijk",
-            "Soudal Quick-Step Domestique 1",
-            "Sergio Higuita",
-            "Tao Geoghegan Hart",
-            "Neilson Powless",
-            "Mark Cavendish",
-            "Emanuel Buchmann",
-            "Carlos Rodríguez"
-        ],
-        "reserve_rider": "Jumbo-Visma Domestique 1",
-        "pro_team": "Lidl-Trek"
-    },
-    "Deelnemer 49": {
-        "main_riders": [
-            "Simon Carr",
-            "Kasper Asgreen",
-            "Giulio Ciccone",
-            "Hugh Carthy",
-            "Yves Lampaert",
-            "UAE Domestique 1",
-            "Kévin Vauquelin",
-            "Tiesj Benoot",
-            "Lidl-Trek Domestique 1",
-            "Felix Gall"
-        ],
-        "reserve_rider": "Dylan Groenewegen",
-        "pro_team": "EF Education-EasyPost"
-    },
-    "Deelnemer 50": {
-        "main_riders": [
-            "Jan Tratnik",
-            "Tiesj Benoot",
-            "Esteban Chaves",
-            "Rigoberto Urán",
-            "Emanuel Buchmann",
-            "Arnaud De Lie",
-            "Alexander Kristoff",
-            "Danny van Poppel",
-            "Wout Van Aert",
-            "Tobias Foss"
-        ],
-        "reserve_rider": "Elia Viviani",
-        "pro_team": "Arkéa-B&B Hotels"
-    },
-    "Deelnemer 51": {
-        "main_riders": [
-            "Marijn van den Berg",
-            "Hugh Carthy",
-            "Jordi Meeus",
-            "Mark Cavendish",
-            "Giulio Ciccone",
-            "Michael Woods",
-            "Giacomo Nizzolo",
-            "Simone Consonni",
-            "Stefan Küng",
-            "Wout Van Aert"
-        ],
-        "reserve_rider": "Santiago Buitrago",
-        "pro_team": "Uno-X Mobility"
-    },
-    "Deelnemer 52": {
-        "main_riders": [
-            "Axel Laurance",
-            "Neilson Powless",
-            "Simon Yates",
-            "Wout Van Aert",
-            "DSM-Firmenich PostNL Domestique 1",
-            "Jan Tratnik",
-            "Maxim Van Gils",
-            "Sergio Higuita",
-            "Ben Healy",
-            "Caleb Ewan"
-        ],
-        "reserve_rider": "Michael Matthews",
-        "pro_team": "UAE Team Emirates"
-    },
-    "Deelnemer 53": {
-        "main_riders": [
-            "Simon Carr",
-            "Sergio Higuita",
-            "Jonathan Milan",
-            "Yves Lampaert",
-            "Rigoberto Urán",
-            "Thymen Arensman",
-            "Cian Uijtdebroeks",
-            "Peter Sagan",
-            "Jack Haig",
-            "Carlos Rodríguez"
-        ],
-        "reserve_rider": "Jasper Philipsen",
-        "pro_team": "Bahrain Victorious"
-    },
-    "Deelnemer 54": {
-        "main_riders": [
-            "Ben O'Connor",
-            "George Bennett",
-            "Michael Woods",
-            "Christophe Laporte",
-            "Romain Bardet",
-            "Olav Kooij",
-            "Axel Laurance",
-            "Jordi Meeus",
-            "Decathlon AG2R La Mondiale Domestique 1",
-            "Rigoberto Urán"
-        ],
-        "reserve_rider": "Sam Welsford",
-        "pro_team": "Bahrain Victorious"
-    },
-    "Deelnemer 55": {
-        "main_riders": [
-            "João Almeida",
-            "Arnaud De Lie",
-            "Philippe Gilbert",
-            "Juan Ayuso",
-            "Mathieu van der Poel",
-            "Julian Alaphilippe",
-            "Pascal Ackermann",
-            "Lidl-Trek Domestique 1",
-            "Tao Geoghegan Hart",
-            "Christoph Pfingsten"
-        ],
-        "reserve_rider": "Alexander Kristoff",
-        "pro_team": "Team Jayco AlUla"
-    },
-    "Deelnemer 56": {
-        "main_riders": [
-            "Alexander Kristoff",
-            "Quinn Simmons",
-            "Rigoberto Urán",
-            "Sam Bennett",
-            "Fabio Jakobsen",
-            "Jack Haig",
-            "Pello Bilbao",
-            "Soren Kragh Andersen",
-            "Dylan Teuns",
-            "Emanuel Buchmann"
-        ],
-        "reserve_rider": "Warren Barguil",
-        "pro_team": "Cofidis"
-    },
-    "Deelnemer 57": {
-        "main_riders": [
-            "Mathieu van der Poel",
-            "Lenny Martinez",
-            "Mads Würtz Schmidt",
-            "Primož Roglič",
-            "Tom Pidcock",
-            "Giacomo Nizzolo",
-            "Juan Ayuso",
-            "Nairo Quintana",
-            "UAE Domestique 1",
-            "Romain Bardet"
-        ],
-        "reserve_rider": "Giulio Ciccone",
-        "pro_team": "Team Visma | Lease a Bike"
-    },
-    "Deelnemer 58": {
-        "main_riders": [
-            "Juan Pedro López",
-            "Santiago Buitrago",
-            "Jack Haig",
-            "Bahrain Victorious Domestique 1",
-            "Dylan Teuns",
-            "Mads Pedersen",
-            "Jonathan Milan",
-            "Jan Tratnik",
-            "Andreas Kron",
-            "Brandon McNulty"
-        ],
-        "reserve_rider": "Alberto Bettiol",
-        "pro_team": "Bora-Hansgrohe"
-    },
-    "Deelnemer 59": {
-        "main_riders": [
-            "Wout Poels",
-            "Elia Viviani",
-            "Giulio Ciccone",
-            "Phil Bauhaus",
-            "Rigoberto Urán",
-            "Fred Wright",
-            "Biniam Girmay",
-            "Magnus Cort Nielsen",
-            "João Almeida",
-            "Romain Bardet"
-        ],
-        "reserve_rider": "David Gaudu",
-        "pro_team": "Groupama-FDJ"
-    },
-    "Deelnemer 60": {
-        "main_riders": [
-            "David Gaudu",
-            "Fabio Jakobsen",
-            "Nils Politt",
-            "Ben Healy",
-            "Stefan Küng",
-            "Warren Barguil",
-            "Greg Van Avermaet",
-            "Juan Ayuso",
-            "Mark Cavendish",
-            "Quinn Simmons"
-        ],
-        "reserve_rider": "Arnaud De Lie",
-        "pro_team": "Uno-X Mobility"
-    },
-    "Deelnemer 61": {
-        "main_riders": [
-            "Tim Declercq",
-            "Tobias Foss",
-            "Simon Yates",
-            "Matej Mohorič",
-            "Arnaud Démare",
-            "Sepp Kuss",
-            "Danny van Poppel",
-            "Adam Yates",
-            "Vincenzo Nibali",
-            "Elia Viviani"
-        ],
-        "reserve_rider": "Santiago Buitrago",
-        "pro_team": "Decathlon AG2R La Mondiale"
-    },
-    "Deelnemer 62": {
-        "main_riders": [
-            "Filippo Ganna",
-            "Pello Bilbao",
-            "Primož Roglič",
-            "Mads Pedersen",
-            "Cian Uijtdebroeks",
-            "Sam Bennett",
-            "Wilco Kelderman",
-            "Tobias Foss",
-            "Bauke Mollema",
-            "Dylan Teuns"
-        ],
-        "reserve_rider": "Mads Würtz Schmidt",
-        "pro_team": "Astana Qazaqstan Team"
-    },
-    "Deelnemer 63": {
-        "main_riders": [
-            "Bora-Hansgrohe Domestique 1",
-            "Astana Qazaqstan Domestique 1",
-            "Giulio Ciccone",
-            "Fred Wright",
-            "Juan Pedro López",
-            "Bryan Coquard",
-            "Santiago Buitrago",
-            "Wout Poels",
-            "Tom Pidcock",
-            "Thibaut Pinot"
-        ],
-        "reserve_rider": "Romain Bardet",
-        "pro_team": "Arkéa-B&B Hotels"
-    },
-    "Deelnemer 64": {
-        "main_riders": [
-            "Alexander Kristoff",
-            "Philippe Gilbert",
-            "Elia Viviani",
-            "Jan Tratnik",
-            "Axel Laurance",
-            "Stefan Küng",
-            "Louis Vervaeke",
-            "Wilco Kelderman",
-            "Mathieu van der Poel",
-            "Victor Campenaerts"
-        ],
-        "reserve_rider": "Jack Haig",
-        "pro_team": "Team DSM-Firmenich PostNL"
-    },
-    "Deelnemer 65": {
-        "main_riders": [
-            "Juan Ayuso",
-            "Alexander Kristoff",
-            "Cian Uijtdebroeks",
-            "Thibaut Pinot",
-            "Chris Froome",
-            "Groupama-FDJ Domestique 1",
-            "Decathlon AG2R La Mondiale Domestique 1",
-            "Tiesj Benoot",
-            "Bauke Mollema",
-            "Juan Pedro López"
-        ],
-        "reserve_rider": "Michael Matthews",
-        "pro_team": "UAE Team Emirates"
-    },
-    "Deelnemer 66": {
-        "main_riders": [
-            "Lenny Martinez",
-            "Astana Qazaqstan Domestique 1",
-            "Arkéa-B&B Hotels Domestique 1",
-            "Bauke Mollema",
-            "Thibaut Pinot",
-            "Geraint Thomas",
-            "Miguel Ángel López",
-            "Louis Vervaeke",
-            "Jonas Vingegaard",
-            "Cian Uijtdebroeks"
-        ],
-        "reserve_rider": "Axel Laurance",
-        "pro_team": "INEOS Grenadiers"
-    },
-    "Deelnemer 67": {
-        "main_riders": [
-            "Adam Yates",
-            "Alpecin-Deceuninck Domestique 1",
-            "Bryan Coquard",
-            "Jonathan Milan",
-            "Filippo Ganna",
-            "Tadej Pogačar",
-            "Ben O'Connor",
-            "Ineos Domestique 1",
-            "Remco Evenepoel",
-            "Mattias Skjelmose"
-        ],
-        "reserve_rider": "Brandon McNulty",
-        "pro_team": "UAE Team Emirates"
-    },
-    "Deelnemer 68": {
-        "main_riders": [
-            "Romain Bardet",
-            "Decathlon AG2R La Mondiale Domestique 1",
-            "Geraint Thomas",
-            "Lidl-Trek Domestique 1",
-            "Mathieu van der Poel",
-            "Kasper Asgreen",
-            "Peter Sagan",
-            "Neilson Powless",
-            "Kévin Vauquelin",
-            "Sam Bennett"
-        ],
-        "reserve_rider": "Steven Kruijswijk",
-        "pro_team": "Intermarché-Wanty"
-    },
-    "Deelnemer 69": {
-        "main_riders": [
-            "Tao Geoghegan Hart",
-            "Rigoberto Urán",
-            "João Almeida",
-            "George Bennett",
-            "Valentin Madouas",
-            "UAE Domestique 1",
-            "Decathlon AG2R La Mondiale Domestique 1",
-            "Alberto Bettiol",
-            "Nairo Quintana",
-            "Groupama-FDJ Domestique 1"
-        ],
-        "reserve_rider": "Louis Vervaeke",
-        "pro_team": "Bahrain Victorious"
-    },
-    "Deelnemer 70": {
-        "main_riders": [
-            "Sergio Higuita",
-            "Fabio Jakobsen",
-            "Marijn van den Berg",
-            "Jack Haig",
-            "Felix Gall",
-            "Dylan Groenewegen",
-            "Wilco Kelderman",
-            "Kévin Vauquelin",
-            "Soudal Quick-Step Domestique 1",
-            "Caleb Ewan"
-        ],
-        "reserve_rider": "Santiago Buitrago",
-        "pro_team": "Groupama-FDJ"
-    },
-    "Deelnemer 71": {
-        "main_riders": [
-            "Phil Bauhaus",
-            "Paul Penhoët",
-            "Maxim Van Gils",
-            "Maximilian Schachmann",
-            "Fred Wright",
-            "Biniam Girmay",
-            "Brandon McNulty",
-            "Attila Valter",
-            "Carlos Rodríguez",
-            "Nairo Quintana"
-        ],
-        "reserve_rider": "Alberto Bettiol",
-        "pro_team": "INEOS Grenadiers"
-    },
-    "Deelnemer 72": {
-        "main_riders": [
-            "Juan Pedro López",
-            "Maxim Van Gils",
-            "Intermarché-Wanty Domestique 1",
-            "Simone Consonni",
-            "Mathieu van der Poel",
-            "Adam Yates",
-            "Paul Penhoët",
-            "Maximilian Schachmann",
-            "Fred Wright",
-            "Tiesj Benoot"
-        ],
-        "reserve_rider": "Bahrain Victorious Domestique 1",
-        "pro_team": "UAE Team Emirates"
-    },
-    "Deelnemer 73": {
-        "main_riders": [
-            "Filippo Ganna",
-            "Peter Sagan",
-            "Esteban Chaves",
-            "Romain Bardet",
-            "Matej Mohorič",
-            "Dylan Teuns",
-            "Danny van Poppel",
-            "Adam Yates",
-            "Chris Froome",
-            "Caleb Ewan"
-        ],
-        "reserve_rider": "Giacomo Nizzolo",
-        "pro_team": "Movistar Team"
-    },
-    "Deelnemer 74": {
-        "main_riders": [
-            "Juan Ayuso",
-            "Sam Welsford",
-            "Magnus Cort Nielsen",
-            "Valentin Madouas",
-            "Bahrain Victorious Domestique 1",
-            "Intermarché-Wanty Domestique 1",
-            "Yves Lampaert",
-            "Lidl-Trek Domestique 1",
-            "Alexey Lutsenko",
-            "Hugh Carthy"
-        ],
-        "reserve_rider": "Kasper Asgreen",
-        "pro_team": "INEOS Grenadiers"
-    },
-    "Deelnemer 75": {
-        "main_riders": [
-            "Ben O'Connor",
-            "Julian Alaphilippe",
-            "Intermarché-Wanty Domestique 1",
-            "Richard Carapaz",
-            "UAE Domestique 1",
-            "Axel Laurance",
-            "Damiano Caruso",
-            "Groupama-FDJ Domestique 1",
-            "Rigoberto Urán",
-            "Neilson Powless"
-        ],
-        "reserve_rider": "Lidl-Trek Domestique 1",
-        "pro_team": "Intermarché-Wanty"
-    },
-    "Deelnemer 76": {
-        "main_riders": [
-            "Vincenzo Nibali",
-            "Astana Qazaqstan Domestique 1",
-            "Jonas Vingegaard",
-            "Jordi Meeus",
-            "Valentin Madouas",
-            "Alexey Lutsenko",
-            "Magnus Cort Nielsen",
-            "Lenny Martinez",
-            "Biniam Girmay",
-            "Nils Politt"
-        ],
-        "reserve_rider": "Maxim Van Gils",
-        "pro_team": "Bora-Hansgrohe"
-    },
-    "Deelnemer 77": {
-        "main_riders": [
-            "Nairo Quintana",
-            "Lidl-Trek Domestique 1",
-            "Jayco AlUla Domestique 1",
-            "Enric Mas",
-            "Julian Alaphilippe",
-            "Romain Bardet",
-            "DSM-Firmenich PostNL Domestique 1",
-            "Greg Van Avermaet",
-            "Alexander Kristoff",
-            "Geraint Thomas"
-        ],
-        "reserve_rider": "Ineos Domestique 1",
-        "pro_team": "Arkéa-B&B Hotels"
-    },
-    "Deelnemer 78": {
-        "main_riders": [
-            "Groupama-FDJ Domestique 1",
-            "Tim Declercq",
-            "Dylan Teuns",
-            "Andreas Kron",
-            "Juan Pedro López",
             "EF Education-EasyPost Domestique 1",
-            "Matej Mohorič",
-            "Alpecin-Deceuninck Domestique 1",
-            "Warren Barguil",
-            "Yves Lampaert"
-        ],
-        "reserve_rider": "Lidl-Trek Domestique 1",
-        "pro_team": "INEOS Grenadiers"
-    },
-    "Deelnemer 79": {
-        "main_riders": [
-            "Arkéa-B&B Hotels Domestique 1",
-            "Vincenzo Nibali",
-            "Felix Gall",
-            "Stefan Küng",
-            "Sergio Higuita",
-            "Wilco Kelderman",
-            "Kasper Asgreen",
-            "Movistar Domestique 1",
-            "Romain Bardet",
-            "Mattias Skjelmose"
-        ],
-        "reserve_rider": "Bahrain Victorious Domestique 1",
-        "pro_team": "Team Visma | Lease a Bike"
-    },
-    "Deelnemer 80": {
-        "main_riders": [
-            "Tobias Foss",
-            "Axel Laurance",
-            "Dylan Teuns",
-            "Soren Kragh Andersen",
-            "Mark Cavendish",
-            "Tao Geoghegan Hart",
-            "UAE Domestique 1",
-            "Tim Declercq",
-            "Tadej Pogačar",
-            "Wout Van Aert"
-        ],
-        "reserve_rider": "Julian Alaphilippe",
-        "pro_team": "Cofidis"
-    },
-    "Deelnemer 81": {
-        "main_riders": [
-            "Steven Kruijswijk",
-            "Mark Cavendish",
-            "Rigoberto Urán",
-            "Tim Declercq",
             "Ethan Hayter",
-            "Bauke Mollema",
-            "Stefan Küng",
-            "Chris Froome",
-            "Mattias Skjelmose",
-            "Simone Consonni"
-        ],
-        "reserve_rider": "Sam Welsford",
-        "pro_team": "Team DSM-Firmenich PostNL"
-    },
-    "Deelnemer 82": {
-        "main_riders": [
-            "Elia Viviani",
-            "Danny van Poppel",
-            "Bora-Hansgrohe Domestique 1",
-            "Maxim Van Gils",
-            "Intermarché-Wanty Domestique 1",
-            "Astana Qazaqstan Domestique 1",
-            "Lidl-Trek Domestique 1",
-            "João Almeida",
-            "Geraint Thomas",
-            "Tobias Foss"
-        ],
-        "reserve_rider": "Greg Van Avermaet",
-        "pro_team": "Team Jayco AlUla"
-    },
-    "Deelnemer 83": {
-        "main_riders": [
-            "Mathieu van der Poel",
-            "Maximilian Schachmann",
-            "Magnus Cort Nielsen",
-            "Miguel Ángel López",
-            "Yves Lampaert",
-            "Bora-Hansgrohe Domestique 1",
-            "Simone Consonni",
-            "Enric Mas",
-            "Valentin Madouas",
-            "Kasper Asgreen"
-        ],
-        "reserve_rider": "Filippo Ganna",
-        "pro_team": "Team DSM-Firmenich PostNL"
-    },
-    "Deelnemer 84": {
-        "main_riders": [
-            "Simon Yates",
-            "Sam Bennett",
-            "Fabio Jakobsen",
-            "Phil Bauhaus",
-            "Valentin Madouas",
-            "Giacomo Nizzolo",
-            "Simone Consonni",
-            "Fred Wright",
-            "Jayco AlUla Domestique 1",
-            "Paul Penhoët"
-        ],
-        "reserve_rider": "Astana Qazaqstan Domestique 1",
-        "pro_team": "Intermarché-Wanty"
-    },
-    "Deelnemer 85": {
-        "main_riders": [
-            "Carlos Rodríguez",
-            "Tom Pidcock",
-            "Bora-Hansgrohe Domestique 1",
-            "Nairo Quintana",
-            "Esteban Chaves",
-            "Fred Wright",
-            "Florian Sénéchal",
-            "Michael Matthews",
-            "Maximilian Schachmann",
-            "Egan Bernal"
-        ],
-        "reserve_rider": "Bahrain Victorious Domestique 1",
-        "pro_team": "EF Education-EasyPost"
-    },
-    "Deelnemer 86": {
-        "main_riders": [
-            "Jonathan Milan",
-            "Thymen Arensman",
-            "Ineos Domestique 1",
-            "Jayco AlUla Domestique 1",
-            "Mads Pedersen",
-            "Attila Valter",
-            "Movistar Domestique 1",
-            "Sam Bennett",
-            "Caleb Ewan",
-            "EF Education-EasyPost Domestique 1"
-        ],
-        "reserve_rider": "Astana Qazaqstan Domestique 1",
-        "pro_team": "Lidl-Trek"
-    },
-    "Deelnemer 87": {
-        "main_riders": [
-            "Arnaud De Lie",
-            "Neilson Powless",
-            "Felix Gall",
-            "Alberto Bettiol",
-            "Nairo Quintana",
-            "Sepp Kuss",
-            "Tobias Foss",
-            "Danny van Poppel",
-            "Yves Lampaert",
-            "EF Education-EasyPost Domestique 1"
-        ],
-        "reserve_rider": "Biniam Girmay",
-        "pro_team": "Team Visma | Lease a Bike"
-    },
-    "Deelnemer 88": {
-        "main_riders": [
-            "Ineos Domestique 1",
-            "Simone Consonni",
-            "Marijn van den Berg",
-            "Alexander Kristoff",
-            "Nils Politt",
-            "Emanuel Buchmann",
-            "Jai Hindley",
-            "Sergio Higuita",
-            "Julian Alaphilippe",
-            "Mads Pedersen"
+            "Jonas Vingegaard",
+            "Remco Evenepoel",
+            "George Bennett",
+            "Ben Healy",
+            "Matej Mohorič",
+            "Rigoberto Urán",
+            "Nils Politt"
         ],
         "reserve_rider": "Pello Bilbao",
         "pro_team": "Alpecin-Deceuninck"
     },
-    "Deelnemer 89": {
+    "Deelnemer 32": {
         "main_riders": [
-            "Thymen Arensman",
-            "Romain Bardet",
-            "Steven Kruijswijk",
-            "Remco Evenepoel",
-            "Jasper Philipsen",
-            "Maxim Van Gils",
-            "Sergio Higuita",
-            "Giulio Ciccone",
-            "Dylan Teuns",
-            "Hugh Carthy"
-        ],
-        "reserve_rider": "Kasper Asgreen",
-        "pro_team": "Uno-X Mobility"
-    },
-    "Deelnemer 90": {
-        "main_riders": [
-            "Ben Healy",
-            "Tim Declercq",
-            "Romain Bardet",
-            "Damiano Caruso",
-            "Jonathan Milan",
-            "Arnaud De Lie",
-            "Maximilian Schachmann",
-            "Cian Uijtdebroeks",
-            "Jasper Philipsen",
-            "Sepp Kuss"
-        ],
-        "reserve_rider": "Florian Sénéchal",
-        "pro_team": "EF Education-EasyPost"
-    },
-    "Deelnemer 91": {
-        "main_riders": [
-            "Giacomo Nizzolo",
-            "Stefan Küng",
-            "Bryan Coquard",
-            "Damiano Caruso",
-            "Nils Politt",
-            "Andreas Kron",
-            "Attila Valter",
-            "Jack Haig",
-            "Movistar Domestique 1",
-            "Magnus Cort Nielsen"
-        ],
-        "reserve_rider": "EF Education-EasyPost Domestique 1",
-        "pro_team": "INEOS Grenadiers"
-    },
-    "Deelnemer 92": {
-        "main_riders": [
-            "Egan Bernal",
-            "Florian Sénéchal",
-            "Groupama-FDJ Domestique 1",
-            "Andreas Kron",
-            "Sepp Kuss",
-            "Daniel Martínez",
-            "Bauke Mollema",
-            "Julian Alaphilippe",
-            "David Gaudu",
-            "Alexander Kristoff"
-        ],
-        "reserve_rider": "EF Education-EasyPost Domestique 1",
-        "pro_team": "Team Visma | Lease a Bike"
-    },
-    "Deelnemer 93": {
-        "main_riders": [
-            "Peter Sagan",
-            "Richard Carapaz",
             "Ineos Domestique 1",
+            "Elia Viviani",
+            "EF Education-EasyPost Domestique 1",
+            "Pello Bilbao",
+            "Lenny Martinez",
+            "George Bennett",
             "Louis Vervaeke",
-            "Wout Poels",
-            "Geraint Thomas",
-            "Victor Campenaerts",
+            "Cian Uijtdebroeks",
+            "Mark Cavendish",
+            "Peter Sagan"
+        ],
+        "reserve_rider": "Julian Alaphilippe",
+        "pro_team": "Bahrain Victorious"
+    },
+    "Deelnemer 33": {
+        "main_riders": [
+            "Tim Declercq",
+            "Pascal Ackermann",
+            "Dylan Groenewegen",
+            "Ben O'Connor",
+            "Soren Kragh Andersen",
+            "David Gaudu",
+            "Rigoberto Urán",
+            "Quinn Simmons",
+            "Bahrain Victorious Domestique 1",
+            "Marijn van den Berg"
+        ],
+        "reserve_rider": "Alexander Kristoff",
+        "pro_team": "Alpecin-Deceuninck"
+    },
+    "Deelnemer 34": {
+        "main_riders": [
+            "Intermarché-Wanty Domestique 1",
+            "Caleb Ewan",
+            "Remco Evenepoel",
+            "Tiesj Benoot",
+            "Emanuel Buchmann",
+            "Brandon McNulty",
+            "Juan Pedro López",
+            "Simone Consonni",
+            "Marc Hirschi",
+            "Kasper Asgreen"
+        ],
+        "reserve_rider": "Christophe Laporte",
+        "pro_team": "Lidl-Trek"
+    },
+    "Deelnemer 35": {
+        "main_riders": [
+            "Chris Froome",
+            "Richard Carapaz",
+            "Attila Valter",
+            "Valentin Madouas",
+            "Arnaud Démare",
+            "Magnus Cort Nielsen",
+            "Arkéa-B&B Hotels Domestique 1",
+            "Giacomo Nizzolo",
+            "Vincenzo Nibali",
+            "Jordi Meeus"
+        ],
+        "reserve_rider": "Christophe Laporte",
+        "pro_team": "Alpecin-Deceuninck"
+    },
+    "Deelnemer 36": {
+        "main_riders": [
+            "Tom Pidcock",
+            "Tim Declercq",
+            "Ben O'Connor",
+            "Dylan Teuns",
+            "Mads Pedersen",
+            "Tobias Foss",
+            "Sam Welsford",
+            "Mattias Skjelmose",
+            "Jasper Philipsen",
+            "Cian Uijtdebroeks"
+        ],
+        "reserve_rider": "Peter Sagan",
+        "pro_team": "Arkéa-B&B Hotels"
+    },
+    "Deelnemer 37": {
+        "main_riders": [
             "Jonas Vingegaard",
-            "Julian Alaphilippe",
-            "Maxim Van Gils"
+            "Rigoberto Urán",
+            "Thymen Arensman",
+            "Axel Laurance",
+            "Giulio Ciccone",
+            "Neilson Powless",
+            "Biniam Girmay",
+            "Alexander Kristoff",
+            "Miguel Ángel López",
+            "Paul Penhoët"
         ],
         "reserve_rider": "Hugh Carthy",
-        "pro_team": "Groupama-FDJ"
-    },
-    "Deelnemer 94": {
-        "main_riders": [
-            "David Gaudu",
-            "Arkéa-B&B Hotels Domestique 1",
-            "Julian Alaphilippe",
-            "Sam Welsford",
-            "Magnus Cort Nielsen",
-            "Richard Carapaz",
-            "Simon Carr",
-            "Ineos Domestique 1",
-            "Alexey Lutsenko",
-            "Egan Bernal"
-        ],
-        "reserve_rider": "Jumbo-Visma Domestique 1",
-        "pro_team": "Bora-Hansgrohe"
-    },
-    "Deelnemer 95": {
-        "main_riders": [
-            "Mattias Skjelmose",
-            "Felix Gall",
-            "Maxim Van Gils",
-            "Wilco Kelderman",
-            "Peter Sagan",
-            "Sepp Kuss",
-            "Jack Haig",
-            "Chris Froome",
-            "Lenny Martinez",
-            "Santiago Buitrago"
-        ],
-        "reserve_rider": "Intermarché-Wanty Domestique 1",
-        "pro_team": "INEOS Grenadiers"
-    },
-    "Deelnemer 96": {
-        "main_riders": [
-            "Stefan Küng",
-            "Vincenzo Nibali",
-            "Warren Barguil",
-            "Arnaud Démare",
-            "Florian Sénéchal",
-            "Remco Evenepoel",
-            "Sergio Higuita",
-            "Daniel Martínez",
-            "Jayco AlUla Domestique 1",
-            "Axel Laurance"
-        ],
-        "reserve_rider": "UAE Domestique 1",
-        "pro_team": "Movistar Team"
-    },
-    "Deelnemer 97": {
-        "main_riders": [
-            "Ben O'Connor",
-            "Juan Pedro López",
-            "Romain Bardet",
-            "David Gaudu",
-            "João Almeida",
-            "Emanuel Buchmann",
-            "Sepp Kuss",
-            "Soren Kragh Andersen",
-            "Kévin Vauquelin",
-            "Astana Qazaqstan Domestique 1"
-        ],
-        "reserve_rider": "Santiago Buitrago",
         "pro_team": "UAE Team Emirates"
     },
-    "Deelnemer 98": {
+    "Deelnemer 38": {
         "main_riders": [
-            "Pascal Ackermann",
-            "Tadej Pogačar",
-            "Tiesj Benoot",
-            "Bahrain Victorious Domestique 1",
-            "Soren Kragh Andersen",
-            "Arkéa-B&B Hotels Domestique 1",
+            "Warren Barguil",
+            "Maximilian Schachmann",
+            "Wout Poels",
+            "Julian Alaphilippe",
+            "Jumbo-Visma Domestique 1",
+            "Marijn van den Berg",
             "Elia Viviani",
-            "Alberto Bettiol",
+            "Mads Würtz Schmidt",
+            "Philippe Gilbert",
+            "Ben Healy"
+        ],
+        "reserve_rider": "Wilco Kelderman",
+        "pro_team": "EF Education-EasyPost"
+    },
+    "Deelnemer 39": {
+        "main_riders": [
+            "Movistar Domestique 1",
+            "Florian Sénéchal",
+            "Arnaud Démare",
+            "Mattias Skjelmose",
+            "Tiesj Benoot",
+            "Astana Qazaqstan Domestique 1",
+            "Groupama-FDJ Domestique 1",
+            "Matej Mohorič",
+            "Tim Declercq",
+            "Enric Mas"
+        ],
+        "reserve_rider": "Christoph Pfingsten",
+        "pro_team": "Team DSM-Firmenich PostNL"
+    },
+    "Deelnemer 40": {
+        "main_riders": [
             "Bora-Hansgrohe Domestique 1",
-            "Intermarché-Wanty Domestique 1"
+            "Julian Alaphilippe",
+            "Matej Mohorič",
+            "Fred Wright",
+            "Axel Laurance",
+            "Kasper Asgreen",
+            "Santiago Buitrago",
+            "Filippo Ganna",
+            "Felix Gall",
+            "Juan Pedro López"
+        ],
+        "reserve_rider": "Simone Consonni",
+        "pro_team": "Team Jayco AlUla"
+    },
+    "Deelnemer 41": {
+        "main_riders": [
+            "Esteban Chaves",
+            "Jack Haig",
+            "Julian Alaphilippe",
+            "João Almeida",
+            "Julian Alaphilippe",
+            "Nils Politt",
+            "Jan Tratnik",
+            "Wout Poels",
+            "Remco Evenepoel",
+            "Victor Campenaerts"
+        ],
+        "reserve_rider": "Warren Barguil",
+        "pro_team": "Bora-Hansgrohe"
+    },
+    "Deelnemer 42": {
+        "main_riders": [
+            "Michael Woods",
+            "Thymen Arensman",
+            "Romain Bardet",
+            "Maximilian Schachmann",
+            "Bora-Hansgrohe Domestique 1",
+            "UAE Domestique 1",
+            "Geraint Thomas",
+            "Filippo Ganna",
+            "Simon Yates",
+            "Phil Bauhaus"
+        ],
+        "reserve_rider": "Tao Geoghegan Hart",
+        "pro_team": "Lidl-Trek"
+    },
+    "Deelnemer 43": {
+        "main_riders": [
+            "Tom Pidcock",
+            "Sam Welsford",
+            "Juan Pedro López",
+            "Jumbo-Visma Domestique 1",
+            "Arnaud Démare",
+            "Fred Wright",
+            "Ineos Domestique 1",
+            "Romain Bardet",
+            "Julian Alaphilippe",
+            "Primož Roglič"
+        ],
+        "reserve_rider": "Soudal Quick-Step Domestique 1",
+        "pro_team": "Decathlon AG2R La Mondiale"
+    },
+    "Deelnemer 44": {
+        "main_riders": [
+            "Wout Van Aert",
+            "Geraint Thomas",
+            "Romain Bardet",
+            "Arkéa-B&B Hotels Domestique 1",
+            "Tiesj Benoot",
+            "Julian Alaphilippe",
+            "Jack Haig",
+            "Marc Hirschi",
+            "Quinn Simmons",
+            "Wout Poels"
+        ],
+        "reserve_rider": "Mads Würtz Schmidt",
+        "pro_team": "INEOS Grenadiers"
+    },
+    "Deelnemer 45": {
+        "main_riders": [
+            "Giacomo Nizzolo",
+            "Mathieu van der Poel",
+            "Thibaut Pinot",
+            "Nils Politt",
+            "Bora-Hansgrohe Domestique 1",
+            "Christophe Laporte",
+            "Sam Welsford",
+            "Romain Bardet",
+            "Peter Sagan",
+            "Cian Uijtdebroeks"
+        ],
+        "reserve_rider": "Alexander Kristoff",
+        "pro_team": "Movistar Team"
+    },
+    "Deelnemer 46": {
+        "main_riders": [
+            "Arkéa-B&B Hotels Domestique 1",
+            "Simon Yates",
+            "Wout Poels",
+            "Ben O'Connor",
+            "Adam Yates",
+            "Jayco AlUla Domestique 1",
+            "Miguel Ángel López",
+            "Juan Pedro López",
+            "Lenny Martinez",
+            "Danny van Poppel"
+        ],
+        "reserve_rider": "Phil Bauhaus",
+        "pro_team": "Movistar Team"
+    },
+    "Deelnemer 47": {
+        "main_riders": [
+            "Rigoberto Urán",
+            "Romain Bardet",
+            "Valentin Madouas",
+            "Jayco AlUla Domestique 1",
+            "Intermarché-Wanty Domestique 1",
+            "Simone Consonni",
+            "Nils Politt",
+            "Adam Yates",
+            "Pello Bilbao",
+            "Quinn Simmons"
+        ],
+        "reserve_rider": "Sepp Kuss",
+        "pro_team": "Team DSM-Firmenich PostNL"
+    },
+    "Deelnemer 48": {
+        "main_riders": [
+            "Elia Viviani",
+            "Attila Valter",
+            "Ben Healy",
+            "Jasper Philipsen",
+            "Vincenzo Nibali",
+            "Jan Tratnik",
+            "Mads Würtz Schmidt",
+            "Lidl-Trek Domestique 1",
+            "Danny van Poppel",
+            "Nils Politt"
+        ],
+        "reserve_rider": "Christoph Pfingsten",
+        "pro_team": "Alpecin-Deceuninck"
+    },
+    "Deelnemer 49": {
+        "main_riders": [
+            "Carlos Rodríguez",
+            "Greg Van Avermaet",
+            "Giacomo Nizzolo",
+            "Attila Valter",
+            "Romain Bardet",
+            "Philippe Gilbert",
+            "Simon Yates",
+            "Arkéa-B&B Hotels Domestique 1",
+            "Arnaud Démare",
+            "Arnaud De Lie"
+        ],
+        "reserve_rider": "Tom Pidcock",
+        "pro_team": "Lidl-Trek"
+    },
+    "Deelnemer 50": {
+        "main_riders": [
+            "Julian Alaphilippe",
+            "Ineos Domestique 1",
+            "Movistar Domestique 1",
+            "Mads Würtz Schmidt",
+            "Simone Consonni",
+            "Jonas Vingegaard",
+            "Romain Bardet",
+            "Bora-Hansgrohe Domestique 1",
+            "Jan Tratnik",
+            "Rigoberto Urán"
+        ],
+        "reserve_rider": "Richard Carapaz",
+        "pro_team": "Team DSM-Firmenich PostNL"
+    },
+    "Deelnemer 51": {
+        "main_riders": [
+            "Geraint Thomas",
+            "Jai Hindley",
+            "Alpecin-Deceuninck Domestique 1",
+            "Astana Qazaqstan Domestique 1",
+            "Carlos Rodríguez",
+            "Giulio Ciccone",
+            "Decathlon AG2R La Mondiale Domestique 1",
+            "Olav Kooij",
+            "Simone Consonni",
+            "Mathieu van der Poel"
+        ],
+        "reserve_rider": "Tim Declercq",
+        "pro_team": "UAE Team Emirates"
+    },
+    "Deelnemer 52": {
+        "main_riders": [
+            "Astana Qazaqstan Domestique 1",
+            "Louis Vervaeke",
+            "Decathlon AG2R La Mondiale Domestique 1",
+            "UAE Domestique 1",
+            "Kévin Vauquelin",
+            "Enric Mas",
+            "Paul Penhoët",
+            "DSM-Firmenich PostNL Domestique 1",
+            "Simone Consonni",
+            "Brandon McNulty"
+        ],
+        "reserve_rider": "Elia Viviani",
+        "pro_team": "Alpecin-Deceuninck"
+    },
+    "Deelnemer 53": {
+        "main_riders": [
+            "Juan Pedro López",
+            "Andreas Kron",
+            "Steven Kruijswijk",
+            "Marc Hirschi",
+            "Soren Kragh Andersen",
+            "Victor Campenaerts",
+            "Dylan Teuns",
+            "David Gaudu",
+            "Enric Mas",
+            "Jumbo-Visma Domestique 1"
+        ],
+        "reserve_rider": "Tadej Pogačar",
+        "pro_team": "Alpecin-Deceuninck"
+    },
+    "Deelnemer 54": {
+        "main_riders": [
+            "Steven Kruijswijk",
+            "Jai Hindley",
+            "Caleb Ewan",
+            "Cian Uijtdebroeks",
+            "Thymen Arensman",
+            "Adam Yates",
+            "Phil Bauhaus",
+            "Ben O'Connor",
+            "Arnaud Démare",
+            "Remco Evenepoel"
+        ],
+        "reserve_rider": "Fabio Jakobsen",
+        "pro_team": "Bahrain Victorious"
+    },
+    "Deelnemer 55": {
+        "main_riders": [
+            "Mattias Skjelmose",
+            "Florian Sénéchal",
+            "Jan Tratnik",
+            "Wout Van Aert",
+            "EF Education-EasyPost Domestique 1",
+            "Geraint Thomas",
+            "Rigoberto Urán",
+            "Jumbo-Visma Domestique 1",
+            "Movistar Domestique 1",
+            "Dylan Groenewegen"
+        ],
+        "reserve_rider": "Thibaut Pinot",
+        "pro_team": "Movistar Team"
+    },
+    "Deelnemer 56": {
+        "main_riders": [
+            "Sergio Higuita",
+            "Alpecin-Deceuninck Domestique 1",
+            "Jonathan Milan",
+            "George Bennett",
+            "Decathlon AG2R La Mondiale Domestique 1",
+            "Michael Woods",
+            "Tim Declercq",
+            "Movistar Domestique 1",
+            "Olav Kooij",
+            "Tiesj Benoot"
+        ],
+        "reserve_rider": "Kasper Asgreen",
+        "pro_team": "EF Education-EasyPost"
+    },
+    "Deelnemer 57": {
+        "main_riders": [
+            "Neilson Powless",
+            "Fabio Jakobsen",
+            "Jonathan Milan",
+            "David Gaudu",
+            "Jack Haig",
+            "Wout Van Aert",
+            "Giulio Ciccone",
+            "Brandon McNulty",
+            "Adam Yates",
+            "Nairo Quintana"
+        ],
+        "reserve_rider": "Soren Kragh Andersen",
+        "pro_team": "Astana Qazaqstan Team"
+    },
+    "Deelnemer 58": {
+        "main_riders": [
+            "David Gaudu",
+            "Maxim Van Gils",
+            "Sam Welsford",
+            "Ineos Domestique 1",
+            "Egan Bernal",
+            "Juan Ayuso",
+            "Chris Froome",
+            "Christophe Laporte",
+            "Ben O'Connor",
+            "Mads Würtz Schmidt"
+        ],
+        "reserve_rider": "Louis Vervaeke",
+        "pro_team": "Decathlon AG2R La Mondiale"
+    },
+    "Deelnemer 59": {
+        "main_riders": [
+            "Tobias Foss",
+            "Julian Alaphilippe",
+            "Hugh Carthy",
+            "Giacomo Nizzolo",
+            "Soudal Quick-Step Domestique 1",
+            "Brandon McNulty",
+            "Decathlon AG2R La Mondiale Domestique 1",
+            "UAE Domestique 1",
+            "Bauke Mollema",
+            "Felix Gall"
+        ],
+        "reserve_rider": "Marijn van den Berg",
+        "pro_team": "Astana Qazaqstan Team"
+    },
+    "Deelnemer 60": {
+        "main_riders": [
+            "Neilson Powless",
+            "Quinn Simmons",
+            "Jonathan Milan",
+            "Rigoberto Urán",
+            "Jai Hindley",
+            "Jonas Vingegaard",
+            "João Almeida",
+            "Arkéa-B&B Hotels Domestique 1",
+            "Damiano Caruso",
+            "Tom Pidcock"
+        ],
+        "reserve_rider": "Emanuel Buchmann",
+        "pro_team": "Arkéa-B&B Hotels"
+    },
+    "Deelnemer 61": {
+        "main_riders": [
+            "Romain Bardet",
+            "Dylan Groenewegen",
+            "Decathlon AG2R La Mondiale Domestique 1",
+            "Sepp Kuss",
+            "Mads Würtz Schmidt",
+            "Egan Bernal",
+            "Paul Penhoët",
+            "Quinn Simmons",
+            "Florian Sénéchal",
+            "Alpecin-Deceuninck Domestique 1"
+        ],
+        "reserve_rider": "Esteban Chaves",
+        "pro_team": "Bora-Hansgrohe"
+    },
+    "Deelnemer 62": {
+        "main_riders": [
+            "Jonas Vingegaard",
+            "Peter Sagan",
+            "Mads Würtz Schmidt",
+            "Michael Woods",
+            "Adam Yates",
+            "Wout Van Aert",
+            "Intermarché-Wanty Domestique 1",
+            "Wout Poels",
+            "Arkéa-B&B Hotels Domestique 1",
+            "Elia Viviani"
+        ],
+        "reserve_rider": "Magnus Cort Nielsen",
+        "pro_team": "Intermarché-Wanty"
+    },
+    "Deelnemer 63": {
+        "main_riders": [
+            "Simon Carr",
+            "Astana Qazaqstan Domestique 1",
+            "Soudal Quick-Step Domestique 1",
+            "Thymen Arensman",
+            "Julian Alaphilippe",
+            "Ben Healy",
+            "Bauke Mollema",
+            "Primož Roglič",
+            "Dylan Teuns",
+            "Philippe Gilbert"
         ],
         "reserve_rider": "DSM-Firmenich PostNL Domestique 1",
         "pro_team": "INEOS Grenadiers"
     },
-    "Deelnemer 99": {
+    "Deelnemer 64": {
         "main_riders": [
-            "Kasper Asgreen",
-            "Neilson Powless",
             "Romain Bardet",
-            "Nils Politt",
-            "Caleb Ewan",
-            "Mads Würtz Schmidt",
-            "Bauke Mollema",
+            "Olav Kooij",
+            "Fred Wright",
+            "Esteban Chaves",
             "Marijn van den Berg",
-            "Chris Froome",
-            "Esteban Chaves"
+            "Simon Yates",
+            "Giulio Ciccone",
+            "Santiago Buitrago",
+            "Maximilian Schachmann",
+            "Simon Carr"
+        ],
+        "reserve_rider": "Yves Lampaert",
+        "pro_team": "Decathlon AG2R La Mondiale"
+    },
+    "Deelnemer 65": {
+        "main_riders": [
+            "Mattias Skjelmose",
+            "Romain Bardet",
+            "Michael Woods",
+            "Sam Bennett",
+            "Intermarché-Wanty Domestique 1",
+            "DSM-Firmenich PostNL Domestique 1",
+            "Jasper Philipsen",
+            "Soudal Quick-Step Domestique 1",
+            "Magnus Cort Nielsen",
+            "Sam Welsford"
+        ],
+        "reserve_rider": "Wout Van Aert",
+        "pro_team": "Soudal Quick-Step"
+    },
+    "Deelnemer 66": {
+        "main_riders": [
+            "Groupama-FDJ Domestique 1",
+            "Michael Matthews",
+            "Jonathan Milan",
+            "Andreas Kron",
+            "Romain Bardet",
+            "Remco Evenepoel",
+            "Rigoberto Urán",
+            "Egan Bernal",
+            "Decathlon AG2R La Mondiale Domestique 1",
+            "Olav Kooij"
+        ],
+        "reserve_rider": "Florian Sénéchal",
+        "pro_team": "EF Education-EasyPost"
+    },
+    "Deelnemer 67": {
+        "main_riders": [
+            "Maxim Van Gils",
+            "Hugh Carthy",
+            "Simone Consonni",
+            "Lenny Martinez",
+            "Brandon McNulty",
+            "Pello Bilbao",
+            "Carlos Rodríguez",
+            "Sepp Kuss",
+            "Jasper Philipsen",
+            "Florian Sénéchal"
+        ],
+        "reserve_rider": "Jumbo-Visma Domestique 1",
+        "pro_team": "Intermarché-Wanty"
+    },
+    "Deelnemer 68": {
+        "main_riders": [
+            "Christoph Pfingsten",
+            "Jai Hindley",
+            "Esteban Chaves",
+            "Quinn Simmons",
+            "Jonas Vingegaard",
+            "Sam Bennett",
+            "Arnaud Démare",
+            "Wout Van Aert",
+            "Andreas Kron",
+            "Brandon McNulty"
+        ],
+        "reserve_rider": "Marijn van den Berg",
+        "pro_team": "UAE Team Emirates"
+    },
+    "Deelnemer 69": {
+        "main_riders": [
+            "Simone Consonni",
+            "Mads Würtz Schmidt",
+            "Christophe Laporte",
+            "Andreas Kron",
+            "Marijn van den Berg",
+            "Sepp Kuss",
+            "Astana Qazaqstan Domestique 1",
+            "Jonas Vingegaard",
+            "Axel Laurance",
+            "Nairo Quintana"
+        ],
+        "reserve_rider": "Tiesj Benoot",
+        "pro_team": "Arkéa-B&B Hotels"
+    },
+    "Deelnemer 70": {
+        "main_riders": [
+            "Jan Tratnik",
+            "Romain Bardet",
+            "Steven Kruijswijk",
+            "Julian Alaphilippe",
+            "Stefan Küng",
+            "Esteban Chaves",
+            "Greg Van Avermaet",
+            "Soudal Quick-Step Domestique 1",
+            "Dylan Teuns",
+            "Jonathan Milan"
+        ],
+        "reserve_rider": "Marijn van den Berg",
+        "pro_team": "UAE Team Emirates"
+    },
+    "Deelnemer 71": {
+        "main_riders": [
+            "Egan Bernal",
+            "João Almeida",
+            "Peter Sagan",
+            "Giulio Ciccone",
+            "Jack Haig",
+            "Giacomo Nizzolo",
+            "Tim Declercq",
+            "Mathieu van der Poel",
+            "Simone Consonni",
+            "Jan Tratnik"
+        ],
+        "reserve_rider": "Philippe Gilbert",
+        "pro_team": "Lidl-Trek"
+    },
+    "Deelnemer 72": {
+        "main_riders": [
+            "Michael Matthews",
+            "Michael Woods",
+            "Greg Van Avermaet",
+            "Cian Uijtdebroeks",
+            "Sam Bennett",
+            "Axel Laurance",
+            "Marc Hirschi",
+            "Nils Politt",
+            "Marijn van den Berg",
+            "Elia Viviani"
+        ],
+        "reserve_rider": "Maxim Van Gils",
+        "pro_team": "Lidl-Trek"
+    },
+    "Deelnemer 73": {
+        "main_riders": [
+            "Alexey Lutsenko",
+            "Marijn van den Berg",
+            "Intermarché-Wanty Domestique 1",
+            "Kasper Asgreen",
+            "Michael Woods",
+            "Jack Haig",
+            "Mark Cavendish",
+            "Olav Kooij",
+            "Jayco AlUla Domestique 1",
+            "Louis Vervaeke"
+        ],
+        "reserve_rider": "Paul Penhoët",
+        "pro_team": "UAE Team Emirates"
+    },
+    "Deelnemer 74": {
+        "main_riders": [
+            "Ben O'Connor",
+            "Magnus Cort Nielsen",
+            "Bahrain Victorious Domestique 1",
+            "Wout Van Aert",
+            "Enric Mas",
+            "Lenny Martinez",
+            "Marijn van den Berg",
+            "Matej Mohorič",
+            "Bauke Mollema",
+            "Phil Bauhaus"
+        ],
+        "reserve_rider": "Maximilian Schachmann",
+        "pro_team": "EF Education-EasyPost"
+    },
+    "Deelnemer 75": {
+        "main_riders": [
+            "João Almeida",
+            "Warren Barguil",
+            "Sepp Kuss",
+            "Tiesj Benoot",
+            "Florian Sénéchal",
+            "Magnus Cort Nielsen",
+            "Giulio Ciccone",
+            "Esteban Chaves",
+            "Mads Würtz Schmidt",
+            "Santiago Buitrago"
+        ],
+        "reserve_rider": "Quinn Simmons",
+        "pro_team": "Bahrain Victorious"
+    },
+    "Deelnemer 76": {
+        "main_riders": [
+            "Mark Cavendish",
+            "Jumbo-Visma Domestique 1",
+            "Valentin Madouas",
+            "Groupama-FDJ Domestique 1",
+            "Julian Alaphilippe",
+            "Mads Pedersen",
+            "Egan Bernal",
+            "Enric Mas",
+            "Jonathan Milan",
+            "Thymen Arensman"
+        ],
+        "reserve_rider": "Giacomo Nizzolo",
+        "pro_team": "TotalEnergies"
+    },
+    "Deelnemer 77": {
+        "main_riders": [
+            "Ben Healy",
+            "EF Education-EasyPost Domestique 1",
+            "Dylan Teuns",
+            "Daniel Martínez",
+            "Florian Sénéchal",
+            "Andreas Kron",
+            "Jasper Philipsen",
+            "Vincenzo Nibali",
+            "Thibaut Pinot",
+            "Rigoberto Urán"
+        ],
+        "reserve_rider": "Quinn Simmons",
+        "pro_team": "Cofidis"
+    },
+    "Deelnemer 78": {
+        "main_riders": [
+            "Wout Van Aert",
+            "Philippe Gilbert",
+            "Matej Mohorič",
+            "Vincenzo Nibali",
+            "Maximilian Schachmann",
+            "Steven Kruijswijk",
+            "Sam Welsford",
+            "João Almeida",
+            "Rigoberto Urán",
+            "Marc Hirschi"
+        ],
+        "reserve_rider": "Decathlon AG2R La Mondiale Domestique 1",
+        "pro_team": "EF Education-EasyPost"
+    },
+    "Deelnemer 79": {
+        "main_riders": [
+            "Simon Yates",
+            "Adam Yates",
+            "Jordi Meeus",
+            "EF Education-EasyPost Domestique 1",
+            "Rigoberto Urán",
+            "Richard Carapaz",
+            "Jasper Philipsen",
+            "Enric Mas",
+            "João Almeida",
+            "Thibaut Pinot"
+        ],
+        "reserve_rider": "Christophe Laporte",
+        "pro_team": "Decathlon AG2R La Mondiale"
+    },
+    "Deelnemer 80": {
+        "main_riders": [
+            "Mads Pedersen",
+            "Decathlon AG2R La Mondiale Domestique 1",
+            "Yves Lampaert",
+            "UAE Domestique 1",
+            "Neilson Powless",
+            "Simone Consonni",
+            "Valentin Madouas",
+            "Mathieu van der Poel",
+            "Julian Alaphilippe",
+            "Maximilian Schachmann"
+        ],
+        "reserve_rider": "Stefan Küng",
+        "pro_team": "Cofidis"
+    },
+    "Deelnemer 81": {
+        "main_riders": [
+            "Mathieu van der Poel",
+            "Julian Alaphilippe",
+            "Egan Bernal",
+            "Attila Valter",
+            "EF Education-EasyPost Domestique 1",
+            "Maxim Van Gils",
+            "Brandon McNulty",
+            "Olav Kooij",
+            "Neilson Powless",
+            "Marc Hirschi"
+        ],
+        "reserve_rider": "Filippo Ganna",
+        "pro_team": "Cofidis"
+    },
+    "Deelnemer 82": {
+        "main_riders": [
+            "Danny van Poppel",
+            "Kasper Asgreen",
+            "Tadej Pogačar",
+            "Movistar Domestique 1",
+            "Enric Mas",
+            "UAE Domestique 1",
+            "Jai Hindley",
+            "Tiesj Benoot",
+            "Dylan Teuns",
+            "Simone Consonni"
         ],
         "reserve_rider": "Rigoberto Urán",
-        "pro_team": "INEOS Grenadiers"
+        "pro_team": "UAE Team Emirates"
+    },
+    "Deelnemer 83": {
+        "main_riders": [
+            "Philippe Gilbert",
+            "Decathlon AG2R La Mondiale Domestique 1",
+            "Movistar Domestique 1",
+            "Enric Mas",
+            "Arkéa-B&B Hotels Domestique 1",
+            "Mark Cavendish",
+            "Paul Penhoët",
+            "Danny van Poppel",
+            "Louis Vervaeke",
+            "Richard Carapaz"
+        ],
+        "reserve_rider": "Romain Bardet",
+        "pro_team": "TotalEnergies"
+    },
+    "Deelnemer 84": {
+        "main_riders": [
+            "Ben Healy",
+            "Maximilian Schachmann",
+            "Stefan Küng",
+            "Mattias Skjelmose",
+            "Tao Geoghegan Hart",
+            "Axel Laurance",
+            "Filippo Ganna",
+            "Damiano Caruso",
+            "Danny van Poppel",
+            "Rigoberto Urán"
+        ],
+        "reserve_rider": "Warren Barguil",
+        "pro_team": "Team Jayco AlUla"
+    },
+    "Deelnemer 85": {
+        "main_riders": [
+            "Intermarché-Wanty Domestique 1",
+            "Esteban Chaves",
+            "Alberto Bettiol",
+            "Michael Woods",
+            "Chris Froome",
+            "Ben Healy",
+            "Mathieu van der Poel",
+            "Thymen Arensman",
+            "Jai Hindley",
+            "EF Education-EasyPost Domestique 1"
+        ],
+        "reserve_rider": "Bryan Coquard",
+        "pro_team": "Uno-X Mobility"
+    },
+    "Deelnemer 86": {
+        "main_riders": [
+            "Stefan Küng",
+            "Soren Kragh Andersen",
+            "Kasper Asgreen",
+            "Jayco AlUla Domestique 1",
+            "João Almeida",
+            "Movistar Domestique 1",
+            "Louis Vervaeke",
+            "Chris Froome",
+            "David Gaudu",
+            "Sergio Higuita"
+        ],
+        "reserve_rider": "Wout Van Aert",
+        "pro_team": "Lidl-Trek"
+    },
+    "Deelnemer 87": {
+        "main_riders": [
+            "Enric Mas",
+            "Damiano Caruso",
+            "Tadej Pogačar",
+            "Pello Bilbao",
+            "Groupama-FDJ Domestique 1",
+            "Bora-Hansgrohe Domestique 1",
+            "Cian Uijtdebroeks",
+            "Movistar Domestique 1",
+            "Jumbo-Visma Domestique 1",
+            "Arnaud Démare"
+        ],
+        "reserve_rider": "Adam Yates",
+        "pro_team": "Intermarché-Wanty"
+    },
+    "Deelnemer 88": {
+        "main_riders": [
+            "Maxim Van Gils",
+            "Paul Penhoët",
+            "Intermarché-Wanty Domestique 1",
+            "Alexey Lutsenko",
+            "Ineos Domestique 1",
+            "Bora-Hansgrohe Domestique 1",
+            "Neilson Powless",
+            "Giulio Ciccone",
+            "Primož Roglič",
+            "Victor Campenaerts"
+        ],
+        "reserve_rider": "UAE Domestique 1",
+        "pro_team": "UAE Team Emirates"
+    },
+    "Deelnemer 89": {
+        "main_riders": [
+            "Dylan Groenewegen",
+            "Matej Mohorič",
+            "Rigoberto Urán",
+            "Julian Alaphilippe",
+            "Jonas Vingegaard",
+            "Hugh Carthy",
+            "Mattias Skjelmose",
+            "Remco Evenepoel",
+            "Wilco Kelderman",
+            "Miguel Ángel López"
+        ],
+        "reserve_rider": "Phil Bauhaus",
+        "pro_team": "Uno-X Mobility"
+    },
+    "Deelnemer 90": {
+        "main_riders": [
+            "Wout Van Aert",
+            "Enric Mas",
+            "Juan Ayuso",
+            "Felix Gall",
+            "Attila Valter",
+            "Rigoberto Urán",
+            "Jonas Vingegaard",
+            "Jai Hindley",
+            "Yves Lampaert",
+            "Caleb Ewan"
+        ],
+        "reserve_rider": "Biniam Girmay",
+        "pro_team": "Team Visma | Lease a Bike"
+    },
+    "Deelnemer 91": {
+        "main_riders": [
+            "Louis Vervaeke",
+            "DSM-Firmenich PostNL Domestique 1",
+            "Bora-Hansgrohe Domestique 1",
+            "Groupama-FDJ Domestique 1",
+            "Movistar Domestique 1",
+            "Sepp Kuss",
+            "Wout Poels",
+            "Phil Bauhaus",
+            "Mathieu van der Poel",
+            "Biniam Girmay"
+        ],
+        "reserve_rider": "Victor Campenaerts",
+        "pro_team": "Astana Qazaqstan Team"
+    },
+    "Deelnemer 92": {
+        "main_riders": [
+            "Felix Gall",
+            "Wout Van Aert",
+            "Victor Campenaerts",
+            "DSM-Firmenich PostNL Domestique 1",
+            "Remco Evenepoel",
+            "EF Education-EasyPost Domestique 1",
+            "Elia Viviani",
+            "Rigoberto Urán",
+            "Ethan Hayter",
+            "Maximilian Schachmann"
+        ],
+        "reserve_rider": "Ben O'Connor",
+        "pro_team": "Astana Qazaqstan Team"
+    },
+    "Deelnemer 93": {
+        "main_riders": [
+            "EF Education-EasyPost Domestique 1",
+            "Jai Hindley",
+            "Giulio Ciccone",
+            "Michael Matthews",
+            "Fred Wright",
+            "Ethan Hayter",
+            "Fabio Jakobsen",
+            "Cian Uijtdebroeks",
+            "Greg Van Avermaet",
+            "Tiesj Benoot"
+        ],
+        "reserve_rider": "Astana Qazaqstan Domestique 1",
+        "pro_team": "Team Visma | Lease a Bike"
+    },
+    "Deelnemer 94": {
+        "main_riders": [
+            "Elia Viviani",
+            "Rigoberto Urán",
+            "Juan Ayuso",
+            "Olav Kooij",
+            "Simone Consonni",
+            "Simon Yates",
+            "Jayco AlUla Domestique 1",
+            "Enric Mas",
+            "Stefan Küng",
+            "Thymen Arensman"
+        ],
+        "reserve_rider": "Bryan Coquard",
+        "pro_team": "EF Education-EasyPost"
+    },
+    "Deelnemer 95": {
+        "main_riders": [
+            "Lidl-Trek Domestique 1",
+            "Tao Geoghegan Hart",
+            "Jayco AlUla Domestique 1",
+            "Arkéa-B&B Hotels Domestique 1",
+            "Astana Qazaqstan Domestique 1",
+            "Quinn Simmons",
+            "UAE Domestique 1",
+            "Kasper Asgreen",
+            "Mads Pedersen",
+            "Movistar Domestique 1"
+        ],
+        "reserve_rider": "Alexey Lutsenko",
+        "pro_team": "Cofidis"
+    },
+    "Deelnemer 96": {
+        "main_riders": [
+            "Louis Vervaeke",
+            "Tiesj Benoot",
+            "Mathieu van der Poel",
+            "Peter Sagan",
+            "Rigoberto Urán",
+            "Yves Lampaert",
+            "Tobias Foss",
+            "Maximilian Schachmann",
+            "Steven Kruijswijk",
+            "Juan Pedro López"
+        ],
+        "reserve_rider": "Michael Matthews",
+        "pro_team": "Team Jayco AlUla"
+    },
+    "Deelnemer 97": {
+        "main_riders": [
+            "Soren Kragh Andersen",
+            "Ethan Hayter",
+            "Bahrain Victorious Domestique 1",
+            "Movistar Domestique 1",
+            "Juan Pedro López",
+            "Rigoberto Urán",
+            "Groupama-FDJ Domestique 1",
+            "Fred Wright",
+            "Victor Campenaerts",
+            "Marijn van den Berg"
+        ],
+        "reserve_rider": "Florian Sénéchal",
+        "pro_team": "Astana Qazaqstan Team"
+    },
+    "Deelnemer 98": {
+        "main_riders": [
+            "Marc Hirschi",
+            "Caleb Ewan",
+            "Juan Ayuso",
+            "Stefan Küng",
+            "Ben O'Connor",
+            "George Bennett",
+            "Arkéa-B&B Hotels Domestique 1",
+            "Romain Bardet",
+            "Wilco Kelderman",
+            "Wout Van Aert"
+        ],
+        "reserve_rider": "Jumbo-Visma Domestique 1",
+        "pro_team": "UAE Team Emirates"
+    },
+    "Deelnemer 99": {
+        "main_riders": [
+            "Astana Qazaqstan Domestique 1",
+            "João Almeida",
+            "Danny van Poppel",
+            "Tobias Foss",
+            "Dylan Groenewegen",
+            "Victor Campenaerts",
+            "Dylan Teuns",
+            "Fred Wright",
+            "Rigoberto Urán",
+            "Tiesj Benoot"
+        ],
+        "reserve_rider": "Jack Haig",
+        "pro_team": "UAE Team Emirates"
     },
     "Deelnemer 100": {
         "main_riders": [
-            "Tim Declercq",
-            "Christophe Laporte",
-            "Jordi Meeus",
-            "Enric Mas",
-            "Simon Yates",
-            "Fabio Jakobsen",
-            "Andreas Kron",
-            "Rigoberto Urán",
-            "Primož Roglič",
-            "Marc Hirschi"
+            "Pello Bilbao",
+            "Jai Hindley",
+            "Emanuel Buchmann",
+            "Mathieu van der Poel",
+            "Tom Pidcock",
+            "Mads Würtz Schmidt",
+            "Vincenzo Nibali",
+            "Filippo Ganna",
+            "Dylan Groenewegen",
+            "Thymen Arensman"
         ],
-        "reserve_rider": "Santiago Buitrago",
-        "pro_team": "Uno-X Mobility"
+        "reserve_rider": "Romain Bardet",
+        "pro_team": "Movistar Team"
     },
     "Deelnemer 101": {
         "main_riders": [
-            "Tobias Foss",
-            "Giulio Ciccone",
-            "Jayco AlUla Domestique 1",
-            "DSM-Firmenich PostNL Domestique 1",
-            "Neilson Powless",
-            "Wout Van Aert",
-            "Sepp Kuss",
-            "Christophe Laporte",
+            "Geraint Thomas",
+            "Jai Hindley",
+            "Peter Sagan",
+            "Florian Sénéchal",
+            "Rigoberto Urán",
+            "Hugh Carthy",
+            "Jonas Vingegaard",
             "Soudal Quick-Step Domestique 1",
-            "Victor Campenaerts"
+            "Tao Geoghegan Hart",
+            "Pello Bilbao"
         ],
-        "reserve_rider": "Lidl-Trek Domestique 1",
-        "pro_team": "Movistar Team"
+        "reserve_rider": "Tiesj Benoot",
+        "pro_team": "Arkéa-B&B Hotels"
     },
     "Deelnemer 102": {
         "main_riders": [
-            "Lidl-Trek Domestique 1",
-            "Romain Bardet",
-            "Jonathan Milan",
-            "Tom Pidcock",
-            "Sergio Higuita",
+            "Attila Valter",
             "Mark Cavendish",
-            "Peter Sagan",
-            "Wilco Kelderman",
-            "Santiago Buitrago",
-            "Arkéa-B&B Hotels Domestique 1"
+            "Egan Bernal",
+            "Daniel Martínez",
+            "Julian Alaphilippe",
+            "Danny van Poppel",
+            "Caleb Ewan",
+            "Intermarché-Wanty Domestique 1",
+            "Florian Sénéchal",
+            "Alexander Kristoff"
         ],
-        "reserve_rider": "Intermarché-Wanty Domestique 1",
-        "pro_team": "Lidl-Trek"
+        "reserve_rider": "Mads Pedersen",
+        "pro_team": "Team Visma | Lease a Bike"
     },
     "Deelnemer 103": {
         "main_riders": [
-            "Arkéa-B&B Hotels Domestique 1",
-            "Biniam Girmay",
-            "Michael Woods",
-            "Alexey Lutsenko",
             "Caleb Ewan",
-            "Intermarché-Wanty Domestique 1",
-            "Juan Pedro López",
-            "Movistar Domestique 1",
-            "Olav Kooij",
-            "Giacomo Nizzolo"
+            "Dylan Groenewegen",
+            "Primož Roglič",
+            "EF Education-EasyPost Domestique 1",
+            "Richard Carapaz",
+            "Santiago Buitrago",
+            "Dylan Teuns",
+            "Philippe Gilbert",
+            "Mads Pedersen",
+            "Bauke Mollema"
         ],
-        "reserve_rider": "Damiano Caruso",
-        "pro_team": "Uno-X Mobility"
+        "reserve_rider": "Pello Bilbao",
+        "pro_team": "Soudal Quick-Step"
     },
     "Deelnemer 104": {
         "main_riders": [
-            "Mads Pedersen",
-            "George Bennett",
-            "Geraint Thomas",
-            "Esteban Chaves",
-            "Stefan Küng",
-            "Arnaud De Lie",
-            "Rigoberto Urán",
-            "Quinn Simmons",
-            "Wout Poels",
-            "Mathieu van der Poel"
+            "Emanuel Buchmann",
+            "Sam Welsford",
+            "David Gaudu",
+            "Nairo Quintana",
+            "Jonas Vingegaard",
+            "DSM-Firmenich PostNL Domestique 1",
+            "Cian Uijtdebroeks",
+            "Caleb Ewan",
+            "Peter Sagan",
+            "Marc Hirschi"
         ],
-        "reserve_rider": "Remco Evenepoel",
-        "pro_team": "Team Visma | Lease a Bike"
+        "reserve_rider": "Soudal Quick-Step Domestique 1",
+        "pro_team": "EF Education-EasyPost"
     },
     "Deelnemer 105": {
         "main_riders": [
-            "Stefan Küng",
-            "Thymen Arensman",
-            "João Almeida",
-            "Pello Bilbao",
-            "Florian Sénéchal",
+            "Quinn Simmons",
+            "Yves Lampaert",
+            "Daniel Martínez",
+            "Maximilian Schachmann",
+            "Jan Tratnik",
+            "Primož Roglič",
+            "Axel Laurance",
+            "Groupama-FDJ Domestique 1",
+            "Kévin Vauquelin",
+            "Enric Mas"
+        ],
+        "reserve_rider": "Soren Kragh Andersen",
+        "pro_team": "Bahrain Victorious"
+    },
+    "Deelnemer 106": {
+        "main_riders": [
+            "Jai Hindley",
             "Romain Bardet",
-            "Simon Carr",
+            "Chris Froome",
+            "Fabio Jakobsen",
+            "Remco Evenepoel",
+            "Neilson Powless",
+            "Giacomo Nizzolo",
+            "Biniam Girmay",
+            "Alexander Kristoff",
+            "Simon Carr"
+        ],
+        "reserve_rider": "Alexey Lutsenko",
+        "pro_team": "Team Jayco AlUla"
+    },
+    "Deelnemer 107": {
+        "main_riders": [
+            "Adam Yates",
+            "Primož Roglič",
+            "Fred Wright",
+            "Axel Laurance",
+            "Giacomo Nizzolo",
+            "Lenny Martinez",
             "Carlos Rodríguez",
+            "Jasper Philipsen",
+            "Simon Yates",
+            "Daniel Martínez"
+        ],
+        "reserve_rider": "Esteban Chaves",
+        "pro_team": "UAE Team Emirates"
+    },
+    "Deelnemer 108": {
+        "main_riders": [
+            "Louis Vervaeke",
+            "Richard Carapaz",
+            "Hugh Carthy",
+            "Tim Declercq",
+            "Giacomo Nizzolo",
+            "Mads Pedersen",
+            "Adam Yates",
+            "Jack Haig",
+            "Kasper Asgreen",
+            "Neilson Powless"
+        ],
+        "reserve_rider": "Jai Hindley",
+        "pro_team": "Uno-X Mobility"
+    },
+    "Deelnemer 109": {
+        "main_riders": [
+            "Intermarché-Wanty Domestique 1",
+            "Santiago Buitrago",
+            "Arnaud De Lie",
+            "Elia Viviani",
+            "Wilco Kelderman",
+            "Tiesj Benoot",
+            "Stefan Küng",
+            "Giacomo Nizzolo",
+            "Andreas Kron",
+            "Danny van Poppel"
+        ],
+        "reserve_rider": "Fabio Jakobsen",
+        "pro_team": "Movistar Team"
+    },
+    "Deelnemer 110": {
+        "main_riders": [
+            "Bahrain Victorious Domestique 1",
+            "Phil Bauhaus",
+            "Andreas Kron",
+            "Groupama-FDJ Domestique 1",
+            "Jai Hindley",
+            "Juan Pedro López",
+            "Greg Van Avermaet",
+            "Elia Viviani",
+            "Tom Pidcock",
+            "Wout Poels"
+        ],
+        "reserve_rider": "Sepp Kuss",
+        "pro_team": "Bora-Hansgrohe"
+    },
+    "Deelnemer 111": {
+        "main_riders": [
+            "Pascal Ackermann",
+            "Juan Ayuso",
+            "Phil Bauhaus",
+            "Astana Qazaqstan Domestique 1",
+            "Decathlon AG2R La Mondiale Domestique 1",
+            "Rigoberto Urán",
+            "Damiano Caruso",
+            "Elia Viviani",
+            "Wout Van Aert",
+            "Marijn van den Berg"
+        ],
+        "reserve_rider": "Andreas Kron",
+        "pro_team": "Soudal Quick-Step"
+    },
+    "Deelnemer 112": {
+        "main_riders": [
+            "Simone Consonni",
+            "Daniel Martínez",
+            "Dylan Teuns",
+            "Christoph Pfingsten",
+            "Simon Yates",
+            "Phil Bauhaus",
+            "Hugh Carthy",
+            "Jayco AlUla Domestique 1",
+            "Bora-Hansgrohe Domestique 1",
+            "Carlos Rodríguez"
+        ],
+        "reserve_rider": "Intermarché-Wanty Domestique 1",
+        "pro_team": "Alpecin-Deceuninck"
+    },
+    "Deelnemer 113": {
+        "main_riders": [
+            "Biniam Girmay",
+            "Rigoberto Urán",
             "Julian Alaphilippe",
-            "George Bennett"
+            "Dylan Teuns",
+            "Christophe Laporte",
+            "Wilco Kelderman",
+            "Daniel Martínez",
+            "Rigoberto Urán",
+            "Richard Carapaz",
+            "Arkéa-B&B Hotels Domestique 1"
+        ],
+        "reserve_rider": "Andreas Kron",
+        "pro_team": "Decathlon AG2R La Mondiale"
+    },
+    "Deelnemer 114": {
+        "main_riders": [
+            "Mattias Skjelmose",
+            "Simon Yates",
+            "Thibaut Pinot",
+            "David Gaudu",
+            "Stefan Küng",
+            "Arnaud De Lie",
+            "Marijn van den Berg",
+            "Ethan Hayter",
+            "Carlos Rodríguez",
+            "Soudal Quick-Step Domestique 1"
+        ],
+        "reserve_rider": "Lidl-Trek Domestique 1",
+        "pro_team": "UAE Team Emirates"
+    },
+    "Deelnemer 115": {
+        "main_riders": [
+            "Rigoberto Urán",
+            "Pello Bilbao",
+            "Adam Yates",
+            "João Almeida",
+            "Fred Wright",
+            "Jasper Philipsen",
+            "Arnaud De Lie",
+            "Carlos Rodríguez",
+            "Attila Valter",
+            "Decathlon AG2R La Mondiale Domestique 1"
+        ],
+        "reserve_rider": "Giacomo Nizzolo",
+        "pro_team": "Lidl-Trek"
+    },
+    "Deelnemer 116": {
+        "main_riders": [
+            "Warren Barguil",
+            "Kévin Vauquelin",
+            "Matej Mohorič",
+            "Neilson Powless",
+            "Carlos Rodríguez",
+            "Wout Poels",
+            "João Almeida",
+            "Mark Cavendish",
+            "Fabio Jakobsen",
+            "Alberto Bettiol"
+        ],
+        "reserve_rider": "Nairo Quintana",
+        "pro_team": "Team Visma | Lease a Bike"
+    },
+    "Deelnemer 117": {
+        "main_riders": [
+            "Jayco AlUla Domestique 1",
+            "Michael Woods",
+            "Sergio Higuita",
+            "Kévin Vauquelin",
+            "Nils Politt",
+            "Geraint Thomas",
+            "Stefan Küng",
+            "Esteban Chaves",
+            "Yves Lampaert",
+            "Lenny Martinez"
+        ],
+        "reserve_rider": "David Gaudu",
+        "pro_team": "Uno-X Mobility"
+    },
+    "Deelnemer 118": {
+        "main_riders": [
+            "Marc Hirschi",
+            "Stefan Küng",
+            "Maxim Van Gils",
+            "Magnus Cort Nielsen",
+            "Simon Yates",
+            "Alexander Kristoff",
+            "Alpecin-Deceuninck Domestique 1",
+            "Attila Valter",
+            "Mads Würtz Schmidt",
+            "Enric Mas"
         ],
         "reserve_rider": "Vincenzo Nibali",
         "pro_team": "Team Visma | Lease a Bike"
     },
-    "Deelnemer 106": {
+    "Deelnemer 119": {
         "main_riders": [
-            "Simon Yates",
-            "Julian Alaphilippe",
-            "Tom Pidcock",
-            "Thymen Arensman",
-            "Filippo Ganna",
-            "Carlos Rodríguez",
-            "Jan Tratnik",
-            "Greg Van Avermaet",
-            "Jai Hindley",
-            "Tobias Foss"
-        ],
-        "reserve_rider": "Attila Valter",
-        "pro_team": "Soudal Quick-Step"
-    },
-    "Deelnemer 107": {
-        "main_riders": [
-            "Alexander Kristoff",
-            "Movistar Domestique 1",
-            "Intermarché-Wanty Domestique 1",
-            "Simone Consonni",
-            "Jai Hindley",
-            "Decathlon AG2R La Mondiale Domestique 1",
-            "Astana Qazaqstan Domestique 1",
-            "Jordi Meeus",
+            "Magnus Cort Nielsen",
             "Bauke Mollema",
-            "Arnaud Démare"
-        ],
-        "reserve_rider": "Mads Würtz Schmidt",
-        "pro_team": "EF Education-EasyPost"
-    },
-    "Deelnemer 108": {
-        "main_riders": [
-            "Andreas Kron",
-            "Jonas Vingegaard",
-            "Chris Froome",
-            "Alpecin-Deceuninck Domestique 1",
-            "Nairo Quintana",
-            "Alberto Bettiol",
-            "Lenny Martinez",
-            "Carlos Rodríguez",
-            "Thymen Arensman",
-            "EF Education-EasyPost Domestique 1"
-        ],
-        "reserve_rider": "Soudal Quick-Step Domestique 1",
-        "pro_team": "Intermarché-Wanty"
-    },
-    "Deelnemer 109": {
-        "main_riders": [
-            "Tobias Foss",
-            "Maxim Van Gils",
-            "Rigoberto Urán",
-            "Mads Würtz Schmidt",
-            "Christophe Laporte",
-            "Jan Tratnik",
-            "Dylan Groenewegen",
-            "Primož Roglič",
-            "Astana Qazaqstan Domestique 1",
-            "Fred Wright"
-        ],
-        "reserve_rider": "Stefan Küng",
-        "pro_team": "Team DSM-Firmenich PostNL"
-    },
-    "Deelnemer 110": {
-        "main_riders": [
-            "Chris Froome",
-            "Hugh Carthy",
-            "George Bennett",
-            "Damiano Caruso",
-            "Mathieu van der Poel",
-            "Esteban Chaves",
-            "Geraint Thomas",
-            "Steven Kruijswijk",
-            "Jumbo-Visma Domestique 1",
-            "Fred Wright"
-        ],
-        "reserve_rider": "Tom Pidcock",
-        "pro_team": "Team Jayco AlUla"
-    },
-    "Deelnemer 111": {
-        "main_riders": [
-            "Emanuel Buchmann",
-            "Ineos Domestique 1",
-            "Lenny Martinez",
-            "Miguel Ángel López",
-            "Jai Hindley",
-            "Sepp Kuss",
-            "Maximilian Schachmann",
             "Wilco Kelderman",
-            "Primož Roglič",
-            "Julian Alaphilippe"
-        ],
-        "reserve_rider": "Michael Matthews",
-        "pro_team": "Lidl-Trek"
-    },
-    "Deelnemer 112": {
-        "main_riders": [
-            "Kévin Vauquelin",
-            "Tadej Pogačar",
-            "Andreas Kron",
-            "Fabio Jakobsen",
-            "Julian Alaphilippe",
-            "Bauke Mollema",
-            "Lidl-Trek Domestique 1",
-            "Hugh Carthy",
-            "Rigoberto Urán",
-            "Nairo Quintana"
-        ],
-        "reserve_rider": "Romain Bardet",
-        "pro_team": "UAE Team Emirates"
-    },
-    "Deelnemer 113": {
-        "main_riders": [
-            "Mads Würtz Schmidt",
-            "Florian Sénéchal",
-            "Marc Hirschi",
+            "Simone Consonni",
+            "Tim Declercq",
+            "Stefan Küng",
+            "Valentin Madouas",
+            "Emanuel Buchmann",
             "Decathlon AG2R La Mondiale Domestique 1",
-            "Jan Tratnik",
-            "Elia Viviani",
-            "João Almeida",
-            "Danny van Poppel",
-            "Groupama-FDJ Domestique 1",
-            "Cian Uijtdebroeks"
-        ],
-        "reserve_rider": "Magnus Cort Nielsen",
-        "pro_team": "UAE Team Emirates"
-    },
-    "Deelnemer 114": {
-        "main_riders": [
-            "Mads Pedersen",
-            "Thibaut Pinot",
-            "Arkéa-B&B Hotels Domestique 1",
-            "Steven Kruijswijk",
-            "Julian Alaphilippe",
-            "Andreas Kron",
-            "Kasper Asgreen",
-            "Brandon McNulty",
-            "Chris Froome",
             "Attila Valter"
         ],
         "reserve_rider": "Ben Healy",
-        "pro_team": "Movistar Team"
-    },
-    "Deelnemer 115": {
-        "main_riders": [
-            "Alpecin-Deceuninck Domestique 1",
-            "Ben Healy",
-            "Tim Declercq",
-            "Arkéa-B&B Hotels Domestique 1",
-            "Giulio Ciccone",
-            "Tiesj Benoot",
-            "Michael Matthews",
-            "Groupama-FDJ Domestique 1",
-            "Jordi Meeus",
-            "Giacomo Nizzolo"
-        ],
-        "reserve_rider": "Ben O'Connor",
-        "pro_team": "Arkéa-B&B Hotels"
-    },
-    "Deelnemer 116": {
-        "main_riders": [
-            "Egan Bernal",
-            "Movistar Domestique 1",
-            "Tobias Foss",
-            "Mattias Skjelmose",
-            "Jonas Vingegaard",
-            "Olav Kooij",
-            "Groupama-FDJ Domestique 1",
-            "UAE Domestique 1",
-            "Wilco Kelderman",
-            "Rigoberto Urán"
-        ],
-        "reserve_rider": "Enric Mas",
-        "pro_team": "Team DSM-Firmenich PostNL"
-    },
-    "Deelnemer 117": {
-        "main_riders": [
-            "Wout Poels",
-            "Jonathan Milan",
-            "Julian Alaphilippe",
-            "Brandon McNulty",
-            "Matej Mohorič",
-            "Lenny Martinez",
-            "EF Education-EasyPost Domestique 1",
-            "Richard Carapaz",
-            "Bahrain Victorious Domestique 1",
-            "Ethan Hayter"
-        ],
-        "reserve_rider": "Giacomo Nizzolo",
-        "pro_team": "Intermarché-Wanty"
-    },
-    "Deelnemer 118": {
-        "main_riders": [
-            "Philippe Gilbert",
-            "DSM-Firmenich PostNL Domestique 1",
-            "Marijn van den Berg",
-            "Primož Roglič",
-            "Alexey Lutsenko",
-            "Jonas Vingegaard",
-            "Ben Healy",
-            "Yves Lampaert",
-            "Jai Hindley",
-            "UAE Domestique 1"
-        ],
-        "reserve_rider": "Ineos Domestique 1",
-        "pro_team": "Team DSM-Firmenich PostNL"
-    },
-    "Deelnemer 119": {
-        "main_riders": [
-            "Romain Bardet",
-            "Intermarché-Wanty Domestique 1",
-            "Filippo Ganna",
-            "Dylan Teuns",
-            "Fabio Jakobsen",
-            "Lidl-Trek Domestique 1",
-            "Tao Geoghegan Hart",
-            "Mattias Skjelmose",
-            "Florian Sénéchal",
-            "Astana Qazaqstan Domestique 1"
-        ],
-        "reserve_rider": "Wout Poels",
-        "pro_team": "Astana Qazaqstan Team"
+        "pro_team": "INEOS Grenadiers"
     },
     "Deelnemer 120": {
         "main_riders": [
-            "Geraint Thomas",
-            "Warren Barguil",
-            "Jordi Meeus",
-            "Peter Sagan",
-            "Soudal Quick-Step Domestique 1",
-            "Rigoberto Urán",
-            "Jumbo-Visma Domestique 1",
             "Mattias Skjelmose",
-            "Jonas Vingegaard",
-            "UAE Domestique 1"
+            "Julian Alaphilippe",
+            "Michael Matthews",
+            "Pascal Ackermann",
+            "Romain Bardet",
+            "UAE Domestique 1",
+            "Giulio Ciccone",
+            "Marc Hirschi",
+            "Tadej Pogačar",
+            "Pello Bilbao"
         ],
-        "reserve_rider": "Sepp Kuss",
-        "pro_team": "Bahrain Victorious"
+        "reserve_rider": "Movistar Domestique 1",
+        "pro_team": "Team Visma | Lease a Bike"
     }
 }
