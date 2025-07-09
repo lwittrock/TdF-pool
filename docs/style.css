@@ -10,7 +10,7 @@
     --color-accent: #3b82f6;
     --color-accent-light: #60a5fa;
     --color-border-subtle: #e2e8f0;
-    --color-header-bg: #1e293b;
+    --color-header-bg: #1e293b; /* This is your dark header background */
     --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
     --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
     --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
@@ -42,7 +42,7 @@ body {
 }
 
 header {
-    background-color: var(--color-header-bg);
+    background-color: var(--color-header-bg); /* Your defined dark header background */
     color: white;
     padding: 2rem 0;
     text-align: center;
@@ -57,17 +57,23 @@ header h1 {
     letter-spacing: -0.025em;
 }
 
-nav {
-    background-color: var(--color-background-card);
+/* --- Navigation Bar Styles (Desktop) --- */
+/* Your existing 'nav' rule now specifically targets .main-nav for clarity */
+.main-nav { /* Renamed 'nav' to '.main-nav' as per your HTML */
+    background-color: var(--color-background-card); /* Your light nav background */
     padding: 0.75rem 0;
     position: sticky;
     top: 0;
     z-index: 100;
     box-shadow: var(--shadow-sm);
     margin-bottom: 0;
+    display: flex; /* Added flex to align contents (links and hamburger) */
+    justify-content: center; /* Center links on desktop */
+    align-items: center;
 }
 
-nav ul {
+/* Default state for nav links: visible and centered on larger screens */
+.main-nav .nav-links { /* Used .main-nav .nav-links as per your HTML */
     list-style: none;
     padding: 0;
     margin: 0;
@@ -76,12 +82,12 @@ nav ul {
     flex-wrap: wrap;
 }
 
-nav li {
+.main-nav .nav-links li { /* Used .main-nav .nav-links li */
     margin: 0 20px;
 }
 
-nav a {
-    color: var(--color-text-secondary);
+.main-nav .nav-links a { /* Used .main-nav .nav-links a */
+    color: var(--color-text-secondary); /* Your existing link color */
     text-decoration: none;
     font-weight: 500;
     padding: 8px 0;
@@ -89,7 +95,7 @@ nav a {
     transition: color 0.3s ease;
 }
 
-nav a::after {
+.main-nav .nav-links a::after { /* Used .main-nav .nav-links a::after */
     content: '';
     position: absolute;
     width: 0;
@@ -101,15 +107,36 @@ nav a::after {
     transition: width 0.3s ease;
 }
 
-nav a:hover,
-nav a.active {
+.main-nav .nav-links a:hover, /* Used .main-nav .nav-links a:hover */
+.main-nav .nav-links a.active {
     color: var(--color-accent);
 }
 
-nav a:hover::after,
-nav a.active::after {
+.main-nav .nav-links a:hover::after, /* Used .main-nav .nav-links a:hover::after */
+.main-nav .nav-links a.active::after {
     width: 100%;
 }
+
+/* --- Hamburger Icon Styling (Desktop - Hidden) --- */
+.hamburger {
+    display: none; /* Hide hamburger by default on desktop */
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 25px;
+    cursor: pointer;
+    z-index: 1001; /* Ensure it's above the menu overlay */
+}
+
+.hamburger span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: var(--color-text-primary); /* Dark color for hamburger lines on light nav background */
+    border-radius: 2px;
+    transition: all 0.3s ease-in-out;
+}
+
 
 main {
     max-width: 1200px;
@@ -470,7 +497,7 @@ footer {
     padding: 30px;
     color: white;
     font-size: 0.9em;
-    background-color: var(--color-header-bg);
+    background-color: var(--color-header-bg); /* Your dark footer background */
     border-radius: 8px 8px 0 0;
 }
 
@@ -505,26 +532,84 @@ footer {
 .medal-icon.silver { background-color: #b0b0b0; }
 .medal-icon.bronze { background-color: #cd7f32; }
 
+/* --- Responsive Adjustments & Mobile Navigation --- */
 @media (max-width: 768px) {
     header h1 { font-size: 2rem; }
-    nav ul { padding: 0 1rem; }
-    .stage-info { grid-template-columns: 1fr; }
+    
+    /* Center the nav content on smaller screens but keep hamburger right */
+    .main-nav {
+        justify-content: space-between; /* Allow space for hamburger */
+        padding-right: 20px; /* Ensure padding on the right for hamburger */
+    }
+
+    .main-nav .nav-links {
+        display: none; /* HIDE nav links by default on mobile screens */
+        flex-direction: column;
+        position: fixed; /* Use fixed to cover entire viewport */
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh; /* Full viewport height */
+        background-color: var(--color-background-card); /* Use your white card background for the mobile menu */
+        padding-top: 80px; /* Space from top to start menu items */
+        align-items: center;
+        justify-content: flex-start; /* Align items to top, not center */
+        transition: transform 0.3s ease-in-out;
+        transform: translateX(100%); /* Initially off-screen to the right */
+        z-index: 999; /* Below hamburger, above page content */
+        box-shadow: var(--shadow-lg); /* Use a stronger shadow for the overlay */
+    }
+
+    .main-nav .nav-links.active {
+        display: flex; /* IMPORTANT: SHOW nav links when active */
+        transform: translateX(0); /* Slide in when active */
+    }
+
+    .main-nav .nav-links li {
+        margin: 15px 0; /* Vertical spacing for list items */
+        width: 100%; /* Make list item full width of menu */
+        text-align: center; /* Center text in full-width list item */
+    }
+
+    .main-nav .nav-links a {
+        font-size: 1.6em; /* Larger font size for mobile links */
+        padding: 10px 20px;
+        display: block;
+        color: var(--color-text-primary); /* Dark text for mobile links on white background */
+    }
+
+    .main-nav .nav-links a::after {
+        /* Keep the underline effect for mobile menu links if desired, or remove */
+        background-color: var(--color-accent);
+    }
+    
+    .hamburger {
+        display: flex; /* Show hamburger on mobile */
+    }
+
+    /* Animation for the hamburger icon when active (transforms into an X) */
+    .hamburger.active span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg); /* Adjusted for less exaggeration */
+    }
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+    .hamburger.active span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg); /* Adjusted for less exaggeration */
+    }
+
+    /* General responsive adjustments */
     main { padding: 0 1rem; }
+    .stage-info { grid-template-columns: 1fr; }
 }
 
-[id$="-loading"] {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 100px;
-    color: var(--color-text-secondary);
-}
-
+/* Animations */
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
+/* --- Misc. Section Spacing --- */
 section { margin-bottom: 2rem; }
 section:last-of-type { margin-bottom: 0; }
 
@@ -606,11 +691,8 @@ section:last-of-type { margin-bottom: 0; }
     padding: 10px 0;
 }
 
-/* style.css */
-
 /* --- For Rider Contributions on Homepage Click --- */
 .rider-scores-content {
-    /* Basic padding for spacing */
     padding: 10px 0;
 }
 
@@ -621,14 +703,12 @@ section:last-of-type { margin-bottom: 0; }
 }
 
 .rider-points-list {
-    list-style: none; /* Remove default bullet points */
+    list-style: none;
     padding: 0;
     margin: 0;
-
-    /* For side-by-side layout on larger screens */
     display: flex;
-    flex-wrap: wrap; /* Allow items to wrap to the next line */
-    gap: 15px 30px; /* Vertical and horizontal gap between items */
+    flex-wrap: wrap;
+    gap: 15px 30px;
 }
 
 .rider-points-list li {
@@ -637,147 +717,29 @@ section:last-of-type { margin-bottom: 0; }
     border-radius: 5px;
     border: 1px solid #eee;
     font-size: 0.95em;
-    white-space: nowrap; /* Keep rider name and points on one line */
+    white-space: nowrap;
 }
 
 .rider-points-list li .rider-point-value {
     font-weight: bold;
-    color: #007bff; /* Or another highlight color */
+    color: #007bff;
 }
 
-/* Optional: Make columns more explicit on larger screens */
 @media (min-width: 768px) {
     .rider-points-list {
-        /* Distribute items into roughly 2-3 columns */
         column-count: 2;
-        column-gap: 40px; /* Space between columns */
+        column-gap: 40px;
     }
 
-    /* Reset flex behavior if column-count is used for older browsers */
     .rider-points-list li {
-        break-inside: avoid; /* Prevent list items from breaking across columns */
-        display: block; /* Ensure li behaves like a block in columns */
-        margin-bottom: 10px; /* Add vertical space between items in columns */
+        break-inside: avoid;
+        display: block;
+        margin-bottom: 10px;
     }
 }
 
-/* Even larger screens for 3 columns if desired */
 @media (min-width: 1200px) {
     .rider-points-list {
         column-count: 3;
-    }
-}
-
-
-/* --- Navigation Bar Improvements (Hamburger Menu) --- */
-
-.main-nav {
-    display: flex;
-    justify-content: space-between; /* Pushes hamburger to one side, links to other */
-    align-items: center;
-    padding: 15px 20px;
-    background-color: #333;
-    color: #fff;
-    position: relative; /* Needed for absolute positioning of the dropdown */
-}
-
-/* Default state for nav links: visible on larger screens */
-.main-nav .nav-links {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex; /* Links next to each other */
-}
-
-.main-nav .nav-links li {
-    margin-left: 25px; /* Spacing between links */
-}
-
-.main-nav .nav-links a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s ease;
-}
-
-.main-nav .nav-links a:hover {
-    color: #ffd700; /* Gold on hover */
-}
-
-/* Hamburger Icon Styling (hidden by default on desktop) */
-.hamburger {
-    display: none; /* Hide by default */
-    flex-direction: column;
-    justify-content: space-around;
-    width: 30px;
-    height: 25px;
-    cursor: pointer;
-    z-index: 1001; /* Ensure it's above other content */
-}
-
-.hamburger span {
-    display: block;
-    width: 100%;
-    height: 3px;
-    background-color: #fff;
-    border-radius: 2px;
-    transition: all 0.3s ease-in-out;
-}
-
-/* Mobile styles: Show hamburger, hide nav links */
-@media (max-width: 768px) {
-    
-    /* Keep .main-nav general styles */
-    .main-nav {
-        justify-content: flex-end; /* Push hamburger to the right */
-        /* Ensure its own background is not black here if it's black by default */
-        background-color: #333; /* Default nav background on mobile */
-    }
-
-    .hamburger {
-        display: flex; /* Show hamburger on mobile */
-    }
-
-    .main-nav .nav-links {
-        display: none; /* HIDE nav links by default on mobile screens */
-        flex-direction: column;
-        position: fixed; /* Use fixed to cover entire viewport, not absolute relative to nav */
-        top: 0;
-        left: 0; /* Changed from right:0 to left:0 for consistency with translateX */
-        width: 100%;
-        height: 100vh; /* Full viewport height */
-        background-color: rgba(0, 0, 0, 0.9); /* Semi-transparent overlay for the menu itself */
-        padding-top: 60px; /* Space for the hamburger/close button */
-        align-items: center;
-        justify-content: center;
-        transition: transform 0.3s ease-in-out;
-        transform: translateX(100%); /* Initially off-screen to the right */
-        z-index: 1000; /* Below hamburger, above page content */
-    }
-
-    .main-nav .nav-links.active {
-        display: flex; /* IMPORTANT: SHOW nav links when active */
-        transform: translateX(0); /* Slide in when active */
-    }
-
-    .main-nav .nav-links li {
-        margin: 20px 0; /* Vertical spacing for list items */
-    }
-
-    .main-nav .nav-links a {
-        font-size: 1.5em;
-        padding: 10px 20px;
-        display: block;
-    }
-
-    /* Animation for the hamburger icon when active (transforms into an X) */
-    .hamburger.active span:nth-child(1) {
-        transform: translateY(11px) rotate(45deg);
-    }
-    .hamburger.active span:nth-child(2) {
-        opacity: 0;
-    }
-    .hamburger.active span:nth-child(3) {
-        transform: translateY(-11px) rotate(-45deg);
     }
 }
