@@ -62,8 +62,7 @@ def load_simulated_stage_data(stage_number, simulated_data_dir):
     if not os.path.exists(filepath):
         raise FileNotFoundError(f"Simulated data for Stage {stage_number} not found at: {filepath}.")
     data = load_json_data(filepath)
-    # Return the full data dictionary, including new fields
-    return data 
+    return data
 
 def find_available_stages(simulated_data_dir):
     stage_numbers = []
@@ -131,23 +130,30 @@ def update_cumulative_rider_points(daily_rider_points, cumulative_file_path):
 
 # --- Participant Score Calculation ---
 
-def calculate_participant_scores(participant_selections_data, all_cumulative_rider_points, daily_rider_points_for_current_stage):
+def calculate_participant_scores(participant_selections_data, all_cumulative_rider_points, daily_rider_points_for_current_stage, previous_leaderboard=None):
     """
     Calculates total scores for each participant based on their chosen main riders' cumulative total points.
     Also calculates daily scores for participants based on daily rider points.
+    Includes logic for position gained/lost if previous_leaderboard is provided.
     Returns a tuple: (sorted_cumulative_leaderboard_list, daily_participant_scores_dict)
     """
     participant_cumulative_scores = defaultdict(int)
     participant_daily_scores = defaultdict(int)
 
+    # Create a dictionary for quick lookup of previous ranks
+    previous_ranks = {}
+    if previous_leaderboard:
+        for entry in previous_leaderboard:
+            previous_ranks[entry['participant_name']] = entry['rank']
+
     for participant_name, selection_details in participant_selections_data.items():
-        main_riders = selection_details.get("main_riders", []) # Get main riders
-        
-        for rider in main_riders: # Only use main riders for current scoring
+        main_riders = selection_details.get("main_riders", [])
+
+        for rider in main_riders:
             participant_cumulative_scores[participant_name] += all_cumulative_rider_points.get(rider, 0)
             participant_daily_scores[participant_name] += daily_rider_points_for_current_stage.get(rider, 0)
 
-    # Prepare cumulative leaderboard
+    # Prepare cumulative leaderboard for current stage
     leaderboard = []
     for participant_name, score in participant_cumulative_scores.items():
         leaderboard.append({
@@ -155,8 +161,20 @@ def calculate_participant_scores(participant_selections_data, all_cumulative_rid
             "total_score": score,
         })
     leaderboard_sorted = sorted(leaderboard, key=lambda x: x['total_score'], reverse=True)
+
+    # Assign current ranks and calculate rank change
     for i, entry in enumerate(leaderboard_sorted):
-        entry['rank'] = i + 1
+        current_rank = i + 1
+        entry['rank'] = current_rank
+
+        participant_name = entry['participant_name']
+        prev_rank = previous_ranks.get(participant_name)
+
+        if prev_rank is not None:
+            rank_change = prev_rank - current_rank # Positive if gained, negative if lost, 0 if no change
+            entry['rank_change'] = rank_change
+        else:
+            entry['rank_change'] = None # New participant or no previous data
 
     return leaderboard_sorted, dict(participant_daily_scores)
 
@@ -196,7 +214,8 @@ if __name__ == "__main__":
 
     print(f"Found {len(available_stage_numbers)} stages: {available_stage_numbers}")
 
-    daily_rider_points_for_history = {}
+    # Initialize a variable to hold the leaderboard from the *previous* stage
+    previous_leaderboard_for_rank_calc = None
 
     for stage_num in available_stage_numbers:
         current_date_for_stage = datetime.now().strftime("%Y-%m-%d")
@@ -204,7 +223,6 @@ if __name__ == "__main__":
         print(f"\n--- Processing Stage {stage_num} ({current_date_for_stage}) ---")
 
         try:
-            # Load full stage data dictionary now
             full_stage_data = load_simulated_stage_data(stage_num, SIMULATED_DATA_DIR)
             current_stage_results = full_stage_data.get('stage_results', [])
             current_gc_standings = full_stage_data.get('gc_standings', [])
@@ -214,14 +232,14 @@ if __name__ == "__main__":
             print(f"Error loading data for Stage {stage_num}: {e}. Skipping this stage.")
             continue
 
-        daily_rider_points_for_history = get_all_rider_points_for_current_stage(
+        daily_rider_points_for_current_stage = get_all_rider_points_for_current_stage(
             current_stage_results,
             current_gc_standings,
             current_jersey_holders
         )
 
         cumulative_rider_points = update_cumulative_rider_points(
-            daily_rider_points_for_history,
+            daily_rider_points_for_current_stage,
             CUMULATIVE_RIDER_POINTS_FILE
         )
 
@@ -233,34 +251,45 @@ if __name__ == "__main__":
         rider_history_entry = {
             "stage_number": stage_num,
             "date": current_date_for_stage,
-            "daily_rider_points": dict(daily_rider_points_for_history),
+            "daily_rider_points": dict(daily_rider_points_for_current_stage),
             "cumulative_rider_points": dict(cumulative_rider_points)
         }
         append_to_json_history(rider_history_entry, RIDER_POINTS_HISTORY_FILE)
         print(f"Rider points for Stage {stage_num} saved to history (cumulative & daily).")
 
-        # Pass the loaded PARTICIPANT_SELECTIONS to the calculation function
+        # Pass the previous leaderboard for rank calculation
         current_leaderboard, daily_participant_scores = calculate_participant_scores(
-            PARTICIPANT_SELECTIONS, # Use the loaded selections
+            PARTICIPANT_SELECTIONS,
             cumulative_rider_points,
-            daily_rider_points_for_history
+            daily_rider_points_for_current_stage,
+            previous_leaderboard=previous_leaderboard_for_rank_calc # Pass the previous state
         )
 
         save_json_data(current_leaderboard, CUMULATIVE_LEADERBOARD_FILE)
 
         print("Current Leaderboard (after this stage):")
         for entry in current_leaderboard:
-            print(f"  Rang {entry['rank']}: {entry['participant_name']} - {entry['total_score']} punten") # Translated output
+            rank_change_display = ""
+            if entry['rank_change'] is not None:
+                if entry['rank_change'] > 0:
+                    rank_change_display = f" (↑{entry['rank_change']})"
+                elif entry['rank_change'] < 0:
+                    rank_change_display = f" (↓{abs(entry['rank_change'])})"
+                else:
+                    rank_change_display = " (=)"
+            print(f"  Rang {entry['rank']}: {entry['participant_name']} - {entry['total_score']} punten{rank_change_display}")
 
         leaderboard_history_entry = {
             "stage_number": stage_num,
             "date": current_date_for_stage,
-            "leaderboard": current_leaderboard,
+            "leaderboard": current_leaderboard, # This now includes 'rank_change'
             "daily_participant_scores": daily_participant_scores
         }
         append_to_json_history(leaderboard_history_entry, LEADERBOARD_HISTORY_FILE)
         print(f"Leaderboard for Stage {stage_num} saved to history (cumulative & daily participant scores).")
 
+        # Update previous_leaderboard_for_rank_calc for the next iteration
+        previous_leaderboard_for_rank_calc = current_leaderboard
         print("-" * 50)
 
     print("\n--- Full Points Recalculation Complete ---")

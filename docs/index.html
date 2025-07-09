@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tour de France 2025 Poule - Startpagina</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2gBVDpSDzAVM/z/qG9xS0N4SWc/AZoAbXhNoW4q4x6Qy2iX/tWTjeGFw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
     <header>
@@ -23,36 +24,49 @@
     </nav>
 
     <main>
+        <h2 id="current-stage-title">Meest Recente Etappe: Laden...</h2>
         <section class="stage-info">
-            <h2 id="current-stage-title">Meest Recente Etappe: Laden...</h2>
-            <div id="stage-overview-details">
-                <h3>Etappe Overzicht</h3>
-                <p><strong>Start:</strong> <span id="start-location">Laden...</span></p>
-                <p><strong>Finish:</strong> <span id="finish-location">Laden...</span></p>
-                <p><strong>Afstand:</strong> <span id="distance-km">Laden...</span> km</p>
-                <p><strong>Type:</strong> <span id="stage-type">Laden...</span></p>
+            <div id="stage-overview-details" class="card">
+                <h3>Etappe Overzicht <i class="fas fa-road icon-heading"></i></h3>
+                <p><strong><i class="fas fa-play-circle icon-inline"></i> Start:</strong> <span id="start-location">Laden...</span></p>
+                <p><strong><i class="fas fa-flag-checkered icon-inline"></i> Finish:</strong> <span id="finish-location">Laden...</span></p>
+                <p><strong><i class="fas fa-ruler-horizontal icon-inline"></i> Afstand:</strong> <span id="distance-km">Laden...</span> km</p>
+                <p><strong><i class="fas fa-mountain icon-inline"></i> Type:</strong> <span id="stage-type">Laden...</span></p>
             </div>
-            <div id="stage-results-summary">
-                <h3>Resultaten van de Etappe</h3>
-                <p><strong>Top 3 Aankomsten:</strong> <span id="top-finishers">Laden...</span></p>
-                <p><strong>Gele Trui:</strong> <span id="yellow-jersey">Laden...</span></p>
-                <p><strong>Groene Trui:</strong> <span id="green-jersey">Laden...</span></p>
-                <p><strong>Bolletjestrui:</strong> <span id="polka-dot-jersey">Laden...</span></p>
-                <p><strong>Witte Trui:</strong> <span id="white-jersey">Laden...</span></p>
-                <p><strong>Opvallende Uitvallers:</strong> <span id="notable-dropout">(Nog niet geïmplementeerd)</span></p>
+            <div id="stage-results-summary" class="card">
+                <h3>Resultaten <i class="fas fa-trophy icon-heading"></i></h3>
+                <div class="top-finishers-list-group">
+                    <div class="mini-heading">Top Finishers</div>
+                    <div class="top-finishers-list">
+                        <div class="finisher finisher-1"><span class="medal-icon"></span> <span id="finisher-1">Laden...</span></div>
+                        <div class="finisher finisher-2"><span class="medal-icon silver"></span> <span id="finisher-2">Laden...</span></div>
+                        <div class="finisher finisher-3"><span class="medal-icon bronze"></span> <span id="finisher-3">Laden...</span></div>
+                    </div>
+                </div>
+                <div class="jersey-winners-group">
+                    <div class="mini-heading">Truiwinnaars</div>
+                    <p><strong><span class="jersey-icon yellow"></span></strong> <span id="yellow-jersey">Laden...</span></p>
+                    <p><strong><span class="jersey-icon green"></span></strong> <span id="green-jersey">Laden...</span></p>
+                    <p><strong><span class="jersey-icon polka-dot"></span></strong> <span id="polka-dot-jersey">Laden...</span></p>
+                    <p><strong><span class="jersey-icon white"></span></strong> <span id="white-jersey">Laden...</span></p>
+                </div>
+                <div class="dropouts-group">
+                    <div class="mini-heading">Uitvallers</div>
+                    <p><i class="fas fa-chain-broken icon-inline"></i> <span id="notable-dropout">Laden...</span></p>
+                </div>
             </div>
         </section>
 
         <section class="daily-highlights">
-            <h2>Top 5 Dagelijkse Scoorders (Deze Etappe)</h2>
-            <div id="top-daily-participants">
+            <h2>Top Scoorders Deze Etappe <i class="fas fa-fire icon-heading"></i></h2>
+            <div id="top-daily-participants" class="card participant-list">
                 <p>Dagelijkse scores van deelnemers laden...</p>
             </div>
         </section>
 
         <section class="cumulative-standings">
-            <h2>Top 5 Algemeen Klassement</h2>
-            <div id="top-cumulative-participants">
+            <h2>Top 5 Algemeen Klassement <i class="fas fa-ranking-star icon-heading"></i></h2>
+            <div id="top-cumulative-participants" class="card participant-list">
                 <p>Algemeen klassement laden...</p>
             </div>
         </section>
