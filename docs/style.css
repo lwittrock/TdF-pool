@@ -511,8 +511,8 @@ footer {
 .finisher {
     display: flex;
     align-items: center;
-    font-size: 1.08em;
-    font-weight: 500;
+    font-size: 1em;
+    font-weight: 400;
     padding: 0.2em 0.2em 0.2em 0;
     border-radius: 0.5em;
     background: none;

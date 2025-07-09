@@ -445,12 +445,22 @@ document.addEventListener('DOMContentLoaded', () => {
             const jerseyHolders = simulatedStageData.jersey_holders;
 
             if (stageResults && stageResults.length > 0) {
-                if (elements.finisher1Span) elements.finisher1Span.textContent = stageResults[0]?.rider_name || '-';
-                if (elements.finisher2Span) elements.finisher2Span.textContent = stageResults[1]?.rider_name || '-';
-                if (elements.finisher3Span) elements.finisher3Span.textContent = stageResults[2]?.rider_name || '-';
+                // Helper to format rider name with time difference
+                const formatFinisher = (finisher) => {
+                    if (!finisher) return '-';
+                    let timeDiff = '';
+                    if (finisher.time && finisher.time !== "00:00") {
+                        timeDiff = ` (+${finisher.time})`; // Add the '+' sign here
+                    }
+                    return `${finisher.rider_name}${timeDiff}`;
+                };
+
+                if (elements.finisher1Span) elements.finisher1Span.textContent = formatFinisher(stageResults[0]);
+                if (elements.finisher2Span) elements.finisher2Span.textContent = formatFinisher(stageResults[1]);
+                if (elements.finisher3Span) elements.finisher3Span.textContent = formatFinisher(stageResults[2]);
             } else {
                 setTextContent([elements.finisher1Span, elements.finisher2Span, elements.finisher3Span], '-');
-            }
+            }   
 
             if (elements.yellowJerseySpan) elements.yellowJerseySpan.textContent = jerseyHolders.yellow || 'N/A';
             if (elements.greenJerseySpan) elements.greenJerseySpan.textContent = jerseyHolders.green || 'N/A';
