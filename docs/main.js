@@ -677,21 +677,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // --- Router to call the correct rendering function based on the page ---
-    const currentPage = window.location.pathname.split('/').pop();
-
-    if (currentPage === '' || currentPage === 'index.html') {
-        renderHomePage();
-    } else if (currentPage === 'full_leaderboard.html') {
-        renderFullLeaderboardPage();
-    } else if (currentPage === 'team_selection.html') {
-        renderTeamSelectionPage();
-    }
-});
-
-document.addEventListener('DOMContentLoaded', () => {
-    // ... (your existing code) ...
-
     // --- Hamburger Menu Logic ---
     const hamburger = document.querySelector('.hamburger');
     const navLinks = document.querySelector('.nav-links');
