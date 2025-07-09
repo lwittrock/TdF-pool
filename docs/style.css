@@ -1,112 +1,163 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0; /* Reset margin */
-    background-color: #f4f4f4;
-    color: #333;
-    line-height: 1.6;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap');
+
+:root {
+    /* Color Palette inspired by larswittrock.eu */
+    --color-background-light: #f8f8f8; /* Very light grey for body background */
+    --color-background-card: #ffffff; /* Pure white for content cards/sections */
+    --color-text-primary: #333333; /* Dark grey for main text */
+    --color-text-secondary: #666666; /* Medium grey for sub-text/info */
+    --color-accent: #6c7c70; /* Desaturated green/blue from inspiration site for links/active */
+    --color-border-subtle: #eeeeee; /* Very light grey for subtle lines */
+    --color-header-bg: #4a4a4a; /* Darker grey for header/footer */
 }
 
+body {
+    font-family: 'Inter', sans-serif; /* Modern sans-serif font */
+    margin: 0;
+    background-color: var(--color-background-light);
+    color: var(--color-text-primary);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased; /* Smoother font rendering */
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Header */
 header {
-    background-color: #003366; /* Dark blue */
+    background-color: var(--color-header-bg);
     color: white;
-    padding: 15px 0;
+    padding: 20px 0;
     text-align: center;
-    border-radius: 0 0 8px 8px; /* Rounded bottom corners */
-    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Subtle shadow */
+    margin-bottom: 30px;
 }
 
 header h1 {
     margin: 0;
-    font-size: 2.5em;
-}
-
-header p {
-    font-size: 1.1em;
-    opacity: 0.9;
+    font-size: 2.8em;
+    font-weight: 700;
 }
 
 /* Navigation Bar */
 nav {
-    background-color: #0056b3; /* Medium blue */
-    padding: 10px 0;
+    background-color: var(--color-background-card);
+    padding: 15px 0;
     text-align: center;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    margin-bottom: 20px; /* Space below nav */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    margin-bottom: 30px;
 }
 
 nav ul {
     list-style: none;
     padding: 0;
     margin: 0;
-    display: flex; /* Make items horizontal */
-    justify-content: center; /* Center items */
-    flex-wrap: wrap; /* Allow wrapping on small screens */
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 nav li {
-    margin: 0 15px; /* Spacing between items */
+    margin: 0 20px;
 }
 
 nav a {
-    color: white;
+    color: var(--color-text-secondary);
     text-decoration: none;
-    font-weight: bold;
-    padding: 8px 15px;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
+    font-weight: 500;
+    padding: 8px 0; /* Padding only top/bottom */
+    position: relative; /* For underline effect */
+    transition: color 0.3s ease;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px; /* Position below text */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--color-accent);
+    transition: width 0.3s ease;
 }
 
 nav a:hover {
-    background-color: #003d80; /* Darker blue on hover */
+    color: var(--color-accent);
+}
+
+nav a:hover::after {
+    width: 100%;
 }
 
 nav a.active {
-    background-color: #002244; /* Even darker for active page */
-    cursor: default;
+    color: var(--color-accent);
 }
 
+nav a.active::after {
+    width: 100%; /* Active link always has underline */
+}
+
+/* Main Content Area */
 main {
-    max-width: 1000px; /* Slightly wider main content */
+    max-width: 960px; /* Wider main content for spacious feel */
     margin: 0 auto;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    background-color: var(--color-background-card);
+    padding: 40px;
+    border-radius: 8px; /* Slight rounding for the main container */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05); /* More subtle, spread out shadow */
 }
 
 h2 {
-    color: #0056b3; /* Medium blue */
-    border-bottom: 2px solid #eee;
-    padding-bottom: 10px;
-    margin-top: 30px;
+    color: var(--color-text-primary);
+    font-size: 2em;
+    font-weight: 700;
+    padding-bottom: 15px;
+    margin-top: 0; /* No top margin for first h2 in main */
+    margin-bottom: 25px;
+    position: relative;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 50px; /* Short underline for headings */
+    height: 3px;
+    background-color: var(--color-accent);
 }
 
 h3 {
-    color: #003366; /* Dark blue for subheadings */
-    margin-top: 25px;
+    color: var(--color-text-primary);
+    font-size: 1.5em;
+    font-weight: 500;
+    margin-top: 35px;
+    margin-bottom: 15px;
 }
 
+/* Content Sections - No visible boxes */
 section {
-    margin-bottom: 30px; /* Spacing between sections */
-    padding: 15px;
-    background-color: #f9f9f9;
-    border-radius: 6px;
-    border: 1px solid #eee;
+    margin-bottom: 40px; /* Generous spacing between sections */
+    padding: 0; /* No padding if not a box */
+    background-color: transparent; /* No background color */
+    border: none; /* No border */
+    box-shadow: none; /* No shadow */
 }
 
-/* Specific styling for data containers */
-.stage-info p,
+/* Specific styling for data containers - keep content grouped but not boxed */
+.stage-info div,
 .daily-highlights div,
 .cumulative-standings div,
 #full-leaderboard-container,
 #team-selection-container,
 #selected-stage-details,
 #fun-stats-container {
-    background-color: #fff;
-    padding: 15px;
-    border-radius: 5px;
-    border: 1px solid #ddd;
-    margin-top: 15px;
+    background-color: var(--color-background-card); /* White background for content */
+    padding: 25px;
+    border-radius: 8px; /* Subtle rounding */
+    /* Remove borders and strong shadows for clean look */
+    /* border: 1px solid var(--color-border-subtle); */
+    /* box-shadow: 0 1px 3px rgba(0,0,0,0.05); */
+    margin-top: 20px; /* Space from heading */
 }
 
 /* Table Styling */
@@ -114,62 +165,131 @@ table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
+    border-radius: 8px;
+    overflow: hidden; /* Ensures rounded corners clip content */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05); /* Very subtle table shadow */
 }
 
 th, td {
-    padding: 12px 15px;
-    border: 1px solid #ddd;
+    padding: 15px 20px;
+    border-bottom: 1px solid var(--color-border-subtle); /* Only subtle bottom border */
     text-align: left;
+    font-weight: 400; /* Lighter font weight */
 }
 
 th {
-    background-color: #0056b3;
+    background-color: var(--color-accent); /* Accent color for headers */
     color: white;
-    font-weight: bold;
+    font-weight: 500; /* Medium font weight for headers */
+    text-transform: uppercase;
+    font-size: 0.9em;
+}
+
+tr:last-child td {
+    border-bottom: none; /* No border on last row */
 }
 
 tr:nth-child(even) {
-    background-color: #f2f2f2;
+    background-color: #fcfcfc; /* Very subtle zebra striping */
 }
 
 tr:hover {
-    background-color: #ddd;
+    background-color: #f2f2f2; /* Light hover effect */
+    transition: background-color 0.2s ease;
 }
 
-/* Specific styles for ranks (top 3) - applied to rows */
-/* This will need to be applied by JS for dynamic tables */
-.rank-1 { background-color: #ffe08a; font-weight: bold; } /* Yellowish */
-.rank-2 { background-color: #c9e6ff; } /* Light blue */
-.rank-3 { background-color: #ffe8cc; } /* Light orange */
+/* Specific styles for ranks (top 3) - applied to table rows by JS */
+.rank-1 { background-color: #fff8e1; font-weight: 500; } /* Lightest yellow */
+.rank-2 { background-color: #e0f2f7; font-weight: 500; } /* Lightest blue */
+.rank-3 { background-color: #ffe0b2; font-weight: 500; } /* Lightest orange */
 
-
-/* Lists within content sections */
+/* Lists within content sections (e.g., scoring rules) */
 ul {
-    list-style: none;
+    list-style: none; /* Remove default bullets */
     padding: 0;
+    margin-left: 20px; /* Indent lists slightly */
 }
 
 ul li {
-    background-color: #fff;
+    background-color: transparent; /* No background */
     margin-bottom: 8px;
-    padding: 10px;
-    border-radius: 5px;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    padding: 0;
+    border-radius: 0;
+    box-shadow: none;
+    position: relative;
+}
+
+ul li::before { /* Custom bullet point */
+    content: '–'; /* Dash as bullet */
+    color: var(--color-accent);
+    position: absolute;
+    left: -20px;
 }
 
 .small-text {
     font-size: 0.9em;
-    color: #666;
+    color: var(--color-text-secondary);
     text-align: center;
     margin-top: 20px;
 }
 
+/* Form elements (e.g., select dropdown) */
+select {
+    padding: 10px 15px;
+    border: 1px solid var(--color-border-subtle);
+    border-radius: 5px;
+    background-color: var(--color-background-card);
+    font-family: 'Inter', sans-serif;
+    font-size: 1em;
+    color: var(--color-text-primary);
+    margin-top: 10px;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.05); /* Subtle inner shadow */
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+select:focus {
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 2px rgba(108, 124, 112, 0.2); /* Accent glow on focus */
+    outline: none;
+}
+
+
+/* Footer */
 footer {
     text-align: center;
-    margin-top: 40px;
-    padding: 20px;
-    color: #666;
+    margin-top: 50px;
+    padding: 30px;
+    color: white;
     font-size: 0.9em;
-    background-color: #eee;
+    background-color: var(--color-header-bg);
     border-radius: 8px 8px 0 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2em;
+    }
+
+    nav ul {
+        flex-direction: column;
+    }
+
+    nav li {
+        margin: 5px 0;
+    }
+
+    main {
+        padding: 20px;
+        margin: 0 10px; /* Reduce side margin on smaller screens */
+    }
+
+    h2 {
+        font-size: 1.8em;
+    }
+
+    th, td {
+        padding: 10px 12px;
+        font-size: 0.9em;
+    }
 }

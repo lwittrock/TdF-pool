@@ -8,6 +8,10 @@ document.addEventListener('DOMContentLoaded', () => {
         try {
             const response = await fetch(DATA_PATH + filename);
             if (!response.ok) {
+                if (response.status === 404) {
+                    console.warn(`File not found: ${filename}. This might be expected for some non-critical data.`);
+                    return null; // Return null if file not found
+                }
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
             return await response.json();
@@ -17,9 +21,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    function createTable(headers, data, idPrefix = '', rankKey = null) {
+    function createTable(headers, data, rankKey = null) {
         if (!data || data.length === 0) {
-            return '<p>No data available.</p>';
+            return '<p>Geen gegevens beschikbaar.</p>'; // Translated
         }
 
         let tableHTML = `
@@ -31,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 </thead>
                 <tbody>
         `;
-        data.forEach((row, index) => {
+        data.forEach((row) => {
             let rowClass = '';
             if (rankKey && row[rankKey]) {
                 if (row[rankKey] === 1) rowClass = 'rank-1';
@@ -39,10 +43,23 @@ document.addEventListener('DOMContentLoaded', () => {
                 else if (row[rankKey] === 3) rowClass = 'rank-3';
             }
             tableHTML += `<tr class="${rowClass}">`;
+            // Map headers to data keys for dynamic content
             headers.forEach(header => {
-                // Convert header name to data key (e.g., "Participant Name" -> "participant_name")
-                const dataKey = header.toLowerCase().replace(/ /g, '_').replace('total_score', 'total_score').replace('rank','rank');
-                tableHTML += `<td>${row[dataKey] !== undefined ? row[dataKey] : 'N/A'}</td>`;
+                let displayValue;
+                switch(header) {
+                    case "Rang": displayValue = row.rank; break;
+                    case "Deelnemer Naam": displayValue = row.participant_name; break;
+                    case "Totaal Score": displayValue = row.total_score; break;
+                    case "Dagelijkse Score": displayValue = row.daily_score; break;
+                    case "Renner": displayValue = row.rider_name || row.rider; break; // 'rider' or 'rider_name'
+                    case "Cumulatieve Punten": displayValue = row.cumulative_points; break;
+                    case "Tijd (indien beschikbaar)": displayValue = row.time || 'N/A'; break;
+                    case "Verdiende Punten": displayValue = row.points_earned || row.points; break; // 'points' or 'points_earned'
+                    case "Team": displayValue = row.pro_team; break; // New for team selection
+                    case "Type": displayValue = row.type; break; // New for team selection (Main/Reserve)
+                    default: displayValue = 'N/A'; // Fallback
+                }
+                tableHTML += `<td>${displayValue !== undefined ? displayValue : 'N/A'}</td>`;
             });
             tableHTML += `</tr>`;
         });
@@ -66,10 +83,10 @@ document.addEventListener('DOMContentLoaded', () => {
         // Fetch all necessary data for the home page
         const riderHistory = await fetchData('rider_points_history.json');
         const leaderboardHistory = await fetchData('leaderboard_history.json');
-        const cumulativeLeaderboard = await fetchData('cumulative_leaderboard.json'); // Direct cumulative for top 5
+        const cumulativeLeaderboard = await fetchData('cumulative_leaderboard.json');
 
         if (!riderHistory || !leaderboardHistory || !cumulativeLeaderboard) {
-            console.error('Failed to load required data for home page.');
+            console.error('Niet alle benodigde gegevens konden worden geladen voor de startpagina.'); // Translated
             return;
         }
 
@@ -78,8 +95,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const latestLeaderboardStageData = leaderboardHistory[leaderboardHistory.length - 1];
         
         if (!latestRiderStageData || !latestLeaderboardStageData) {
-            console.warn('No stage data available yet.');
-            currentStageTitle.textContent = 'No Stage Data Available Yet';
+            console.warn('Geen etappegegevens beschikbaar.'); // Translated
+            currentStageTitle.textContent = 'Nog geen etappegegevens beschikbaar.'; // Translated
             return;
         }
 
@@ -88,48 +105,32 @@ document.addEventListener('DOMContentLoaded', () => {
         lastUpdatedDateSpan.textContent = updateDate;
 
         // Render Current Stage Info
-        currentStageTitle.textContent = `Most Recent Stage: Stage ${stageNumber} (${updateDate})`;
+        currentStageTitle.textContent = `Meest Recente Etappe: Etappe ${stageNumber} (${updateDate})`; // Translated
         
-        // Fetch simulated stage data directly for results and jerseys (not just points)
-        // This requires the simulated_stages data to be in docs/data/simulated_stages/
-        // For simplicity now, we'll derive from rider history, but ideally:
-        // const latestSimulatedStageData = await fetchData(`simulated_stages/stage_${stageNumber}_data.json`);
-        // if (latestSimulatedStageData) {
-        //     const stageResults = latestSimulatedStageData.stage_results;
-        //     const jerseyHolders = latestSimulatedStageData.jersey_holders;
-        //     // ... use stageResults and jerseyHolders to populate ...
-        // }
-
-        // Placeholder for Stage Overview (from daily_rider_points in history for now)
-        const dailyRiderPoints = latestRiderStageData.daily_rider_points;
-        const sortedStageScorers = Object.entries(dailyRiderPoints)
-            .sort(([, pointsA], [, pointsB]) => pointsB - pointsA)
-            .filter(([, points]) => points > 0);
-
-        if (sortedStageScorers.length > 0) {
-            topFinishersSpan.textContent = sortedStageScorers.slice(0, 3).map(entry => `${entry[0]} (${entry[1]} pts)`).join(', ');
-        } else {
-            topFinishersSpan.textContent = 'No points scored this stage yet.';
-        }
-
-        // NOTE: Jersey holders are not directly in rider_points_history.json, they are in the raw simulated stage data.
-        // For accurate jersey display, you would need to fetch docs/data/simulated_stages/stage_X_data.json
-        // For now, these will likely show 'Loading...' or 'N/A' unless you manually add that data or adjust Python.
-        // Assuming you'll have stage_X_data.json copied to docs/data/simulated_stages/
         const simulatedStageData = await fetchData(`simulated_stages/stage_${stageNumber}_data.json`);
-        if (simulatedStageData && simulatedStageData.jersey_holders) {
-            const jerseys = simulatedStageData.jersey_holders;
-            yellowJerseySpan.textContent = jerseys.yellow || 'N/A';
-            greenJerseySpan.textContent = jerseys.green || 'N/A';
-            polkaDotJerseySpan.textContent = jerseys.polka_dot || 'N/A';
-            whiteJerseySpan.textContent = jerseys.white || 'N/A';
-        } else {
-            yellowJerseySpan.textContent = 'N/A (data unavailable)';
-            greenJerseySpan.textContent = 'N/A (data unavailable)';
-            polkaDotJerseySpan.textContent = 'N/A (data unavailable)';
-            whiteJerseySpan.textContent = 'N/A (data unavailable)';
-        }
+        if (simulatedStageData) {
+            const stageResults = simulatedStageData.stage_results;
+            const jerseyHolders = simulatedStageData.jersey_holders;
 
+            // Top 3 Finishers
+            if (stageResults && stageResults.length > 0) {
+                topFinishersSpan.textContent = stageResults.slice(0, 3).map(entry => `${entry.rider_name} (${entry.rank}${entry.rank === 1 ? 'e' : 'e'} plek)`).join(', '); // Translated
+            } else {
+                topFinishersSpan.textContent = 'Nog geen resultaten beschikbaar.'; // Translated
+            }
+
+            // Jersey Holders
+            yellowJerseySpan.textContent = jerseyHolders.yellow || 'N/A';
+            greenJerseySpan.textContent = jerseyHolders.green || 'N/A';
+            polkaDotJerseySpan.textContent = jerseyHolders.polka_dot || 'N/A';
+            whiteJerseySpan.textContent = jerseyHolders.white || 'N/A';
+        } else {
+            topFinishersSpan.textContent = 'Gegevens niet beschikbaar.'; // Translated
+            yellowJerseySpan.textContent = 'N/A (gegevens niet beschikbaar)'; // Translated
+            greenJerseySpan.textContent = 'N/A (gegevens niet beschikbaar)'; // Translated
+            polkaDotJerseySpan.textContent = 'N/A (gegevens niet beschikbaar)'; // Translated
+            whiteJerseySpan.textContent = 'N/A (gegevens niet beschikbaar)'; // Translated
+        }
 
         // Render Top 5 Daily Scorers (Participants)
         const dailyParticipantScores = latestLeaderboardStageData.daily_participant_scores;
@@ -137,21 +138,21 @@ document.addEventListener('DOMContentLoaded', () => {
             const sortedDailyParticipants = Object.entries(dailyParticipantScores)
                 .sort(([, scoreA], [, scoreB]) => scoreB - scoreA)
                 .map(([name, score]) => ({ participant_name: name, daily_score: score }))
-                .slice(0, 5); // Get top 5
+                .slice(0, 5);
 
-            const headers = ["Participant Name", "Daily Score"];
+            const headers = ["Deelnemer Naam", "Dagelijkse Score"]; // Translated
             topDailyParticipantsDiv.innerHTML = createTable(headers, sortedDailyParticipants);
         } else {
-            topDailyParticipantsDiv.innerHTML = '<p>No daily participant scores available for this stage.</p>';
+            topDailyParticipantsDiv.innerHTML = '<p>Geen dagelijkse deelnemersscores beschikbaar voor deze etappe.</p>'; // Translated
         }
 
         // Render Top 5 Overall Standings (Participants)
         if (cumulativeLeaderboard) {
             const top5Cumulative = cumulativeLeaderboard.slice(0, 5);
-            const headers = ["Rank", "Participant Name", "Total Score"];
-            topCumulativeParticipantsDiv.innerHTML = createTable(headers, top5Cumulative, 'cumulative-rank-', 'rank');
+            const headers = ["Rang", "Deelnemer Naam", "Totaal Score"]; // Translated
+            topCumulativeParticipantsDiv.innerHTML = createTable(headers, top5Cumulative, 'rank');
         } else {
-            topCumulativeParticipantsDiv.innerHTML = '<p>No overall standings available.</p>';
+            topCumulativeParticipantsDiv.innerHTML = '<p>Geen algemeen klassement beschikbaar.</p>'; // Translated
         }
     }
 
@@ -159,14 +160,14 @@ document.addEventListener('DOMContentLoaded', () => {
     async function renderFullLeaderboardPage() {
         const fullLeaderboardContainer = document.getElementById('full-leaderboard-container');
         if (fullLeaderboardContainer) {
-            fullLeaderboardContainer.innerHTML = '<p>Fetching complete leaderboard...</p>';
+            fullLeaderboardContainer.innerHTML = '<p>Volledig klassement laden...</p>'; // Translated
             const leaderboard = await fetchData('cumulative_leaderboard.json');
 
             if (leaderboard && leaderboard.length > 0) {
-                const headers = ["Rank", "Participant Name", "Total Score"];
-                fullLeaderboardContainer.innerHTML = createTable(headers, leaderboard, 'full-rank-', 'rank');
+                const headers = ["Rang", "Deelnemer Naam", "Totaal Score"]; // Translated
+                fullLeaderboardContainer.innerHTML = createTable(headers, leaderboard, 'rank');
             } else {
-                fullLeaderboardContainer.innerHTML = '<p>No complete leaderboard data available.</p>';
+                fullLeaderboardContainer.innerHTML = '<p>Geen volledig klassement beschikbaar.</p>'; // Translated
             }
         }
     }
@@ -175,46 +176,60 @@ document.addEventListener('DOMContentLoaded', () => {
     async function renderTeamSelectionPage() {
         const teamSelectionContainer = document.getElementById('team-selection-container');
         if (teamSelectionContainer) {
-            teamSelectionContainer.innerHTML = '<p>Fetching team selections...</p>';
-            const participantSelectionsRaw = await fetch('../python_scripts/participant_selections.json').then(res => res.json()).catch(() => {
-                // Fallback if not directly accessible or needs to be compiled into JS
-                console.warn('Could not fetch participant_selections.json directly. Assuming hardcoded selections or missing file.');
-                return {
-                    "Participant A": ["Tadej Pogačar", "Jonas Vingegaard", "Remco Evenepoel", "Mathieu van der Poel", "Wout Van Aert", "Jasper Philipsen", "Sepp Kuss", "Julian Alaphilippe"],
-                    "Participant B": ["Primož Roglič", "Juan Ayuso", "Carlos Rodríguez", "Adam Yates", "Pello Bilbao", "Tom Pidcock", "Biniam Girmay", "Mads Pedersen"],
-                    "Participant C": ["Enric Mas", "Ben O'Connor", "Romain Bardet", "David Gaudu", "Simon Yates", "Christophe Laporte", "Dylan Groenewegen", "Michael Matthews"]
-                };
-            });
+            teamSelectionContainer.innerHTML = '<p>Teamselecties laden...</p>'; // Translated
+            
+            // Fetch participant selections from the newly generated JSON file
+            const participantSelectionsData = await fetchData('participant_selections.json');
             const cumulativeRiderPoints = await fetchData('cumulative_rider_points.json');
 
-            if (!participantSelectionsRaw || !cumulativeRiderPoints) {
-                teamSelectionContainer.innerHTML = '<p>Could not load all necessary data for team selections.</p>';
+            if (!participantSelectionsData || !cumulativeRiderPoints) {
+                teamSelectionContainer.innerHTML = '<p>Niet alle benodigde gegevens voor teamselecties konden worden geladen.</p>'; // Translated
                 return;
             }
 
             let htmlContent = '';
-            for (const participantName in participantSelectionsRaw) {
+            for (const participantName in participantSelectionsData) {
+                const selectionDetails = participantSelectionsData[participantName];
                 htmlContent += `<h3>${participantName}</h3>`;
                 htmlContent += `
                     <table>
                         <thead>
                             <tr>
-                                <th>Rider</th>
-                                <th>Cumulative Points</th>
+                                <th>Renner</th>
+                                <th>Type</th>
+                                <th>Team</th>
+                                <th>Cumulatieve Punten</th>
                             </tr>
                         </thead>
                         <tbody>
-                `;
-                const selectedRiders = participantSelectionsRaw[participantName];
-                selectedRiders.forEach(rider => {
+                `; // Translated headers
+
+                // Main Riders
+                selectionDetails.main_riders.forEach(rider => {
                     const points = cumulativeRiderPoints[rider] || 0;
                     htmlContent += `
                         <tr>
                             <td>${rider}</td>
+                            <td>Hoofdrenner</td>
+                            <td>${selectionDetails.pro_team}</td>
                             <td>${points}</td>
                         </tr>
-                    `;
+                    `; // Translated type
                 });
+
+                // Reserve Rider
+                if (selectionDetails.reserve_rider) {
+                    const points = cumulativeRiderPoints[selectionDetails.reserve_rider] || 0;
+                    htmlContent += `
+                        <tr>
+                            <td>${selectionDetails.reserve_rider}</td>
+                            <td>Reserve</td>
+                            <td>${selectionDetails.pro_team}</td>
+                            <td>${points}</td>
+                        </tr>
+                    `; // Translated type
+                }
+
                 htmlContent += `</tbody></table>`;
             }
             teamSelectionContainer.innerHTML = htmlContent;
@@ -229,64 +244,61 @@ document.addEventListener('DOMContentLoaded', () => {
         const riderHistory = await fetchData('rider_points_history.json');
         
         if (!riderHistory || riderHistory.length === 0) {
-            stageSelect.innerHTML = '<option value="">No stages available</option>';
-            selectedStageDetails.innerHTML = '<p>No stage data available yet.</p>';
+            stageSelect.innerHTML = '<option value="">Geen etappes beschikbaar</option>'; // Translated
+            selectedStageDetails.innerHTML = '<p>Nog geen etappegegevens beschikbaar.</p>'; // Translated
             return;
         }
 
         // Populate dropdown with stages
-        stageSelect.innerHTML = '<option value="">Select a Stage</option>';
+        stageSelect.innerHTML = '<option value="">Selecteer een Etappe</option>'; // Translated
         riderHistory.forEach(stageData => {
             const option = document.createElement('option');
             option.value = stageData.stage_number;
-            option.textContent = `Stage ${stageData.stage_number} (${stageData.date})`;
+            option.textContent = `Etappe ${stageData.stage_number} (${stageData.date})`; // Translated
             stageSelect.appendChild(option);
         });
 
         // Function to display details for a selected stage
         async function displayStageDetails(stageNumber) {
-            selectedStageDetails.innerHTML = `<p>Loading details for Stage ${stageNumber}...</p>`;
+            selectedStageDetails.innerHTML = `<p>Details voor Etappe ${stageNumber} laden...</p>`; // Translated
             
-            // Get the specific stage data from history for daily rider points
             const stageHistoryEntry = riderHistory.find(s => s.stage_number == stageNumber);
-            
-            // Fetch the raw simulated stage data for results, GC, and jersey holders
             const simulatedStageData = await fetchData(`simulated_stages/stage_${stageNumber}_data.json`);
 
             if (!stageHistoryEntry || !simulatedStageData) {
-                selectedStageDetails.innerHTML = `<p>Data for Stage ${stageNumber} not fully available.</p>`;
+                selectedStageDetails.innerHTML = `<p>Gegevens voor Etappe ${stageNumber} niet volledig beschikbaar.</p>`; // Translated
                 return;
             }
 
             const { stage_results, gc_standings, jersey_holders } = simulatedStageData;
             const dailyRiderPoints = stageHistoryEntry.daily_rider_points;
 
-            let detailsHtml = `<h3>Stage ${stageNumber} - ${stageHistoryEntry.date}</h3>`;
+            let detailsHtml = `<h3>Etappe ${stageNumber} - ${stageHistoryEntry.date}</h3>`;
 
-            // Top 3 Finishers (from stage_results)
+            // Top Finishers (from stage_results)
             if (stage_results && stage_results.length > 0) {
-                detailsHtml += `<h4>Top Finishers</h4>
+                detailsHtml += `<h4>Top Aankomsten</h4>
                     <table>
                         <thead>
-                            <tr><th>Rank</th><th>Rider</th><th>Time (if available)</th></tr>
+                            <tr><th>Rang</th><th>Renner</th><th>Tijd (indien beschikbaar)</th></tr>
                         </thead>
-                        <tbody>`;
+                        <tbody>`; // Translated
                 stage_results.slice(0, 5).forEach(result => { // Show top 5 finishers from raw data
                     detailsHtml += `<tr><td>${result.rank}</td><td>${result.rider_name}</td><td>${result.time || 'N/A'}</td></tr>`;
                 });
                 detailsHtml += `</tbody></table>`;
             } else {
-                detailsHtml += `<p>No stage results available.</p>`;
+                detailsHtml += `<p>Nog geen etapperesultaten beschikbaar.</p>`; // Translated
             }
 
             // Jersey Holders
-            detailsHtml += `<h4>Jersey Holders</h4>
+            detailsHtml += `<h4>Truidragers</h4>
                 <ul>
-                    <li>Yellow Jersey: ${jersey_holders.yellow || 'N/A'}</li>
-                    <li>Green Jersey: ${jersey_holders.green || 'N/A'}</li>
-                    <li>Polka Dot Jersey: ${jersey_holders.polka_dot || 'N/A'}</li>
-                    <li>White Jersey: ${jersey_holders.white || 'N/A'}</li>
-                </ul>`;
+                    <li>Gele Trui: ${jersey_holders.yellow || 'N/A'}</li>
+                    <li>Groene Trui: ${jersey_holders.green || 'N/A'}</li>
+                    <li>Bolletjestrui: ${jersey_holders.polka_dot || 'N/A'}</li>
+                    <li>Witte Trui: ${jersey_holders.white || 'N/A'}</li>
+                </ul>`; // Translated
             
             // Riders who scored points in this stage (top 10 based on our daily_rider_points calc)
             if (dailyRiderPoints) {
@@ -294,12 +306,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     .sort(([, pointsA], [, pointsB]) => pointsB - pointsA)
                     .slice(0, 10); // Show top 10 riders by daily points
 
-                detailsHtml += `<h4>Riders Earning Points This Stage</h4>
+                detailsHtml += `<h4>Renners met Punten in Deze Etappe</h4>
                     <table>
                         <thead>
-                            <tr><th>Rider</th><th>Points Earned</th></tr>
+                            <tr><th>Renner</th><th>Verdiende Punten</th></tr>
                         </thead>
-                        <tbody>`;
+                        <tbody>`; // Translated
                 sortedDailyRiderPoints.forEach(([rider, points]) => {
                     if (points > 0) { // Only show riders who actually earned points
                         detailsHtml += `<tr><td>${rider}</td><td>${points}</td></tr>`;
@@ -307,7 +319,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
                 detailsHtml += `</tbody></table>`;
             } else {
-                detailsHtml += `<p>No point-scoring riders data for this stage.</p>`;
+                detailsHtml += `<p>Geen puntenscorende rennersgegevens voor deze etappe.</p>`; // Translated
             }
 
             selectedStageDetails.innerHTML = detailsHtml;
@@ -319,7 +331,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (selectedStageNum) {
                 displayStageDetails(selectedStageNum);
             } else {
-                selectedStageDetails.innerHTML = '<p>Select a stage to view its details, top finishers, and jersey holders.</p>';
+                selectedStageDetails.innerHTML = '<p>Selecteer een etappe om de details, top aankomsten en truidragers te bekijken.</p>'; // Translated
             }
         });
 
@@ -336,13 +348,14 @@ document.addEventListener('DOMContentLoaded', () => {
     function renderFunStatsPage() {
         const funStatsContainer = document.getElementById('fun-stats-container');
         if (funStatsContainer) {
-            funStatsContainer.innerHTML = '<p>This page will be filled with interesting statistics later!</p>';
+            funStatsContainer.innerHTML = '<p>Deze pagina wordt later gevuld met interessante statistieken!</p>'; // Translated
         }
     }
 
     // --- Initialize Pages based on current HTML file ---
     const path = window.location.pathname;
-    if (path.includes('index.html') || path === '/' || path === '/Tour-de-France-Pool/') { // Handle root/index.html
+    // Check for exact path or variations (e.g., / or /index.html)
+    if (path.includes('index.html') || path === '/' || path.endsWith('/Tour-de-France-Pool/') || path.endsWith('/docs/')) {
         renderHomePage();
     } else if (path.includes('full_leaderboard.html')) {
         renderFullLeaderboardPage();
@@ -353,5 +366,4 @@ document.addEventListener('DOMContentLoaded', () => {
     } else if (path.includes('fun_stats.html')) {
         renderFunStatsPage();
     }
-    // About page doesn't need specific JS rendering beyond static HTML
 });
