@@ -1,0 +1,129 @@
+{
+    "stage_info": {
+        "date": "2025-07-11",
+        "distance": 197.0,
+        "departure_city": "Saint-Malo",
+        "arrival_city": "Mûr-de-Bretagne (Guerlédan)",
+        "stage_type_category": "RR",
+        "stage_difficulty": "Hills, uphill finish",
+        "won_how": "Sprint of small group"
+    },
+    "top_20_finishers": [
+        {
+            "rider_name": "Pogačar Tadej",
+            "rank": 1,
+            "time": "4:05:39"
+        },
+        {
+            "rider_name": "Vingegaard Jonas",
+            "rank": 2,
+            "time": "4:05:39"
+        },
+        {
+            "rider_name": "Onley Oscar",
+            "rank": 3,
+            "time": "4:05:41"
+        },
+        {
+            "rider_name": "Gall Felix",
+            "rank": 4,
+            "time": "4:05:41"
+        },
+        {
+            "rider_name": "Jorgenson Matteo",
+            "rank": 5,
+            "time": "4:05:41"
+        },
+        {
+            "rider_name": "Evenepoel Remco",
+            "rank": 6,
+            "time": "4:05:41"
+        },
+        {
+            "rider_name": "Vauquelin Kévin",
+            "rank": 7,
+            "time": "4:05:41"
+        },
+        {
+            "rider_name": "Narváez Jhonatan",
+            "rank": 8,
+            "time": "4:05:46"
+        },
+        {
+            "rider_name": "Laurance Axel",
+            "rank": 9,
+            "time": "4:05:54"
+        },
+        {
+            "rider_name": "Johannessen Tobias Halland",
+            "rank": 10,
+            "time": "4:06:00"
+        },
+        {
+            "rider_name": "Jegat Jordan",
+            "rank": 11,
+            "time": "4:06:00"
+        },
+        {
+            "rider_name": "Skjelmose Mattias",
+            "rank": 12,
+            "time": "4:06:00"
+        },
+        {
+            "rider_name": "Grégoire Romain",
+            "rank": 13,
+            "time": "4:06:00"
+        },
+        {
+            "rider_name": "Lipowitz Florian",
+            "rank": 14,
+            "time": "4:06:00"
+        },
+        {
+            "rider_name": "Rodríguez Carlos",
+            "rank": 15,
+            "time": "4:06:00"
+        },
+        {
+            "rider_name": "Roglič Primož",
+            "rank": 16,
+            "time": "4:06:00"
+        },
+        {
+            "rider_name": "Rodríguez Cristián",
+            "rank": 17,
+            "time": "4:06:14"
+        },
+        {
+            "rider_name": "Meurisse Xandro",
+            "rank": 18,
+            "time": "4:06:28"
+        },
+        {
+            "rider_name": "Mas Enric",
+            "rank": 19,
+            "time": "4:06:30"
+        },
+        {
+            "rider_name": "Higuita Sergio",
+            "rank": 20,
+            "time": "4:06:40"
+        }
+    ],
+    "top_gc_rider": {
+        "rider_name": "Pogačar Tadej",
+        "rank": 1
+    },
+    "top_kom_rider": {
+        "rider_name": "Wellens Tim",
+        "rank": 1
+    },
+    "top_points_rider": {
+        "rider_name": "Pogačar Tadej",
+        "rank": 1
+    },
+    "top_youth_rider": {
+        "rider_name": "Evenepoel Remco",
+        "rank": 1
+    }
+}

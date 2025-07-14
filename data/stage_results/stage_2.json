@@ -1,0 +1,129 @@
+{
+    "stage_info": {
+        "date": "2025-07-06",
+        "distance": 209.1,
+        "departure_city": "Lauwin-Planque",
+        "arrival_city": "Boulogne-sur-Mer",
+        "stage_type_category": "RR",
+        "stage_difficulty": "Hills, uphill finish",
+        "won_how": "Sprint of 26 riders"
+    },
+    "top_20_finishers": [
+        {
+            "rider_name": "van der Poel Mathieu",
+            "rank": 1,
+            "time": "4:45:41"
+        },
+        {
+            "rider_name": "Pogačar Tadej",
+            "rank": 2,
+            "time": "4:45:41"
+        },
+        {
+            "rider_name": "Vingegaard Jonas",
+            "rank": 3,
+            "time": "4:45:41"
+        },
+        {
+            "rider_name": "Grégoire Romain",
+            "rank": 4,
+            "time": "4:45:41"
+        },
+        {
+            "rider_name": "Alaphilippe Julian",
+            "rank": 5,
+            "time": "4:45:41"
+        },
+        {
+            "rider_name": "Onley Oscar",
+            "rank": 6,
+            "time": "4:45:41"
+        },
+        {
+            "rider_name": "Paret-Peintre Aurélien",
+            "rank": 7,
+            "time": "4:45:41"
+        },
+        {
+            "rider_name": "Vauquelin Kévin",
+            "rank": 8,
+            "time": "4:45:41"
+        },
+        {
+            "rider_name": "Velasco Simone",
+            "rank": 9,
+            "time": "4:45:41"
+        },
+        {
+            "rider_name": "Berckmoes Jenno",
+            "rank": 10,
+            "time": "4:45:41"
+        },
+        {
+            "rider_name": "Delettre Alexandre",
+            "rank": 11,
+            "time": "4:45:41"
+        },
+        {
+            "rider_name": "Mas Enric",
+            "rank": 12,
+            "time": "4:45:41"
+        },
+        {
+            "rider_name": "Buitrago Santiago",
+            "rank": 13,
+            "time": "4:45:41"
+        },
+        {
+            "rider_name": "Hirschi Marc",
+            "rank": 14,
+            "time": "4:45:41"
+        },
+        {
+            "rider_name": "Almeida João",
+            "rank": 15,
+            "time": "4:45:41"
+        },
+        {
+            "rider_name": "Martin Guillaume",
+            "rank": 16,
+            "time": "4:45:41"
+        },
+        {
+            "rider_name": "Evenepoel Remco",
+            "rank": 17,
+            "time": "4:45:41"
+        },
+        {
+            "rider_name": "Jorgenson Matteo",
+            "rank": 18,
+            "time": "4:45:41"
+        },
+        {
+            "rider_name": "Powless Neilson",
+            "rank": 19,
+            "time": "4:45:41"
+        },
+        {
+            "rider_name": "Buchmann Emanuel",
+            "rank": 20,
+            "time": "4:45:41"
+        }
+    ],
+    "top_gc_rider": {
+        "rider_name": "van der Poel Mathieu",
+        "rank": 1
+    },
+    "top_kom_rider": {
+        "rider_name": "Pogačar Tadej",
+        "rank": 1
+    },
+    "top_points_rider": {
+        "rider_name": "Philipsen Jasper",
+        "rank": 1
+    },
+    "top_youth_rider": {
+        "rider_name": "Vauquelin Kévin",
+        "rank": 1
+    }
+}

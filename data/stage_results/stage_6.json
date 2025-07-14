@@ -1,0 +1,129 @@
+{
+    "stage_info": {
+        "date": "2025-07-10",
+        "distance": 201.5,
+        "departure_city": "Bayeux",
+        "arrival_city": "Vire Normandie",
+        "stage_type_category": "RR",
+        "stage_difficulty": "Hills, uphill finish",
+        "won_how": "42.5 km solo"
+    },
+    "top_20_finishers": [
+        {
+            "rider_name": "Healy Ben",
+            "rank": 1,
+            "time": "4:24:10"
+        },
+        {
+            "rider_name": "Simmons Quinn",
+            "rank": 2,
+            "time": "4:26:54"
+        },
+        {
+            "rider_name": "Storer Michael",
+            "rank": 3,
+            "time": "4:27:01"
+        },
+        {
+            "rider_name": "Dunbar Eddie",
+            "rank": 4,
+            "time": "4:27:31"
+        },
+        {
+            "rider_name": "Yates Simon",
+            "rank": 5,
+            "time": "4:27:34"
+        },
+        {
+            "rider_name": "Barta Will",
+            "rank": 6,
+            "time": "4:27:39"
+        },
+        {
+            "rider_name": "Tejada Harold",
+            "rank": 7,
+            "time": "4:28:02"
+        },
+        {
+            "rider_name": "van der Poel Mathieu",
+            "rank": 8,
+            "time": "4:28:08"
+        },
+        {
+            "rider_name": "Pogačar Tadej",
+            "rank": 9,
+            "time": "4:29:37"
+        },
+        {
+            "rider_name": "Vingegaard Jonas",
+            "rank": 10,
+            "time": "4:29:37"
+        },
+        {
+            "rider_name": "Jorgenson Matteo",
+            "rank": 11,
+            "time": "4:29:37"
+        },
+        {
+            "rider_name": "Evenepoel Remco",
+            "rank": 12,
+            "time": "4:29:37"
+        },
+        {
+            "rider_name": "Onley Oscar",
+            "rank": 13,
+            "time": "4:29:37"
+        },
+        {
+            "rider_name": "Vauquelin Kévin",
+            "rank": 14,
+            "time": "4:29:37"
+        },
+        {
+            "rider_name": "Lipowitz Florian",
+            "rank": 15,
+            "time": "4:29:37"
+        },
+        {
+            "rider_name": "Gall Felix",
+            "rank": 16,
+            "time": "4:29:37"
+        },
+        {
+            "rider_name": "Buitrago Santiago",
+            "rank": 17,
+            "time": "4:29:42"
+        },
+        {
+            "rider_name": "Mas Enric",
+            "rank": 18,
+            "time": "4:29:42"
+        },
+        {
+            "rider_name": "Roglič Primož",
+            "rank": 19,
+            "time": "4:29:42"
+        },
+        {
+            "rider_name": "Jegat Jordan",
+            "rank": 20,
+            "time": "4:29:42"
+        }
+    ],
+    "top_gc_rider": {
+        "rider_name": "van der Poel Mathieu",
+        "rank": 1
+    },
+    "top_kom_rider": {
+        "rider_name": "Wellens Tim",
+        "rank": 1
+    },
+    "top_points_rider": {
+        "rider_name": "Milan Jonathan",
+        "rank": 1
+    },
+    "top_youth_rider": {
+        "rider_name": "Evenepoel Remco",
+        "rank": 1
+    }
+}

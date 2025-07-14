@@ -1,0 +1,129 @@
+{
+    "stage_info": {
+        "date": "2025-07-14",
+        "distance": 165.3,
+        "departure_city": "Ennezat",
+        "arrival_city": "Le Mont-Dore Puy de Sancy",
+        "stage_type_category": "RR",
+        "stage_difficulty": "Hills, uphill finish",
+        "won_how": "2.3 km solo"
+    },
+    "top_20_finishers": [
+        {
+            "rider_name": "Yates Simon",
+            "rank": 1,
+            "time": "4:20:05"
+        },
+        {
+            "rider_name": "Arensman Thymen",
+            "rank": 2,
+            "time": "4:20:14"
+        },
+        {
+            "rider_name": "Healy Ben",
+            "rank": 3,
+            "time": "4:20:36"
+        },
+        {
+            "rider_name": "O'Connor Ben",
+            "rank": 4,
+            "time": "4:20:54"
+        },
+        {
+            "rider_name": "Storer Michael",
+            "rank": 5,
+            "time": "4:21:28"
+        },
+        {
+            "rider_name": "Blackmore Joseph",
+            "rank": 6,
+            "time": "4:24:02"
+        },
+        {
+            "rider_name": "Johannessen Anders Halland",
+            "rank": 7,
+            "time": "4:24:43"
+        },
+        {
+            "rider_name": "Martinez Lenny",
+            "rank": 8,
+            "time": "4:24:56"
+        },
+        {
+            "rider_name": "Pogačar Tadej",
+            "rank": 9,
+            "time": "4:24:56"
+        },
+        {
+            "rider_name": "Vingegaard Jonas",
+            "rank": 10,
+            "time": "4:24:56"
+        },
+        {
+            "rider_name": "Lipowitz Florian",
+            "rank": 11,
+            "time": "4:24:59"
+        },
+        {
+            "rider_name": "Jorgenson Matteo",
+            "rank": 12,
+            "time": "4:24:59"
+        },
+        {
+            "rider_name": "Evenepoel Remco",
+            "rank": 13,
+            "time": "4:25:02"
+        },
+        {
+            "rider_name": "Onley Oscar",
+            "rank": 14,
+            "time": "4:25:02"
+        },
+        {
+            "rider_name": "Johannessen Tobias Halland",
+            "rank": 15,
+            "time": "4:25:02"
+        },
+        {
+            "rider_name": "Roglič Primož",
+            "rank": 16,
+            "time": "4:25:02"
+        },
+        {
+            "rider_name": "Gall Felix",
+            "rank": 17,
+            "time": "4:25:16"
+        },
+        {
+            "rider_name": "Rodríguez Carlos",
+            "rank": 18,
+            "time": "4:25:20"
+        },
+        {
+            "rider_name": "Jegat Jordan",
+            "rank": 19,
+            "time": "4:25:20"
+        },
+        {
+            "rider_name": "Higuita Sergio",
+            "rank": 20,
+            "time": "4:25:36"
+        }
+    ],
+    "top_gc_rider": {
+        "rider_name": "Healy Ben",
+        "rank": 1
+    },
+    "top_kom_rider": {
+        "rider_name": "Martinez Lenny",
+        "rank": 1
+    },
+    "top_points_rider": {
+        "rider_name": "Milan Jonathan",
+        "rank": 1
+    },
+    "top_youth_rider": {
+        "rider_name": "Healy Ben",
+        "rank": 1
+    }
+}
