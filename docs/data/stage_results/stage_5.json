@@ -1,60 +1,129 @@
 {
-    "top_20_finishers": [],
+    "stage_info": {
+        "date": "2025-07-09",
+        "distance": 33.0,
+        "departure_city": "Caen",
+        "arrival_city": "Caen",
+        "stage_type_category": "ITT",
+        "stage_difficulty": "Flat",
+        "won_how": "Time trial"
+    },
+    "top_20_finishers": [
+        {
+            "rider_name": "Remco Evenepoel",
+            "rank": 1,
+            "time": "0:36:42"
+        },
+        {
+            "rider_name": "Tadej Pogačar",
+            "rank": 2,
+            "time": "0:36:58"
+        },
+        {
+            "rider_name": "Edoardo Affini",
+            "rank": 3,
+            "time": "0:37:15"
+        },
+        {
+            "rider_name": "Bruno Armirail",
+            "rank": 4,
+            "time": "0:37:17"
+        },
+        {
+            "rider_name": "Kévin Vauquelin",
+            "rank": 5,
+            "time": "0:37:31"
+        },
+        {
+            "rider_name": "Florian Lipowitz",
+            "rank": 6,
+            "time": "0:37:40"
+        },
+        {
+            "rider_name": "Iván Romeo",
+            "rank": 7,
+            "time": "0:37:44"
+        },
+        {
+            "rider_name": "João Almeida",
+            "rank": 8,
+            "time": "0:37:56"
+        },
+        {
+            "rider_name": "Luke Plapp",
+            "rank": 9,
+            "time": "0:37:59"
+        },
+        {
+            "rider_name": "Pablo Castrillo",
+            "rank": 10,
+            "time": "0:38:00"
+        },
+        {
+            "rider_name": "Matteo Jorgenson",
+            "rank": 11,
+            "time": "0:38:01"
+        },
+        {
+            "rider_name": "Primož Roglič",
+            "rank": 12,
+            "time": "0:38:01"
+        },
+        {
+            "rider_name": "Jonas Vingegaard",
+            "rank": 13,
+            "time": "0:38:03"
+        },
+        {
+            "rider_name": "Tobias Foss",
+            "rank": 14,
+            "time": "0:38:07"
+        },
+        {
+            "rider_name": "Nelson Oliveira",
+            "rank": 15,
+            "time": "0:38:19"
+        },
+        {
+            "rider_name": "Nils Politt",
+            "rank": 16,
+            "time": "0:38:19"
+        },
+        {
+            "rider_name": "Raúl García Pierna",
+            "rank": 17,
+            "time": "0:38:20"
+        },
+        {
+            "rider_name": "Mathieu van der Poel",
+            "rank": 18,
+            "time": "0:38:26"
+        },
+        {
+            "rider_name": "Mattias Skjelmose",
+            "rank": 19,
+            "time": "0:38:28"
+        },
+        {
+            "rider_name": "Mauro Schmid",
+            "rank": 20,
+            "time": "0:38:28"
+        }
+    ],
     "top_gc_rider": {
-        "rider_name": "Pogačar Tadej",
-        "rider_url": "rider/tadej-pogacar",
-        "rider_number": 1,
-        "team_name": "UAE Team Emirates - XRG",
-        "team_url": "team/uae-team-emirates-xrg-2025",
-        "rank": 1,
-        "prev_rank": 2,
-        "age": 26,
-        "nationality": "SI",
-        "time": "17:22:58",
-        "bonus": "0:00:00",
-        "pcs_points": 0,
-        "uci_points": 25.0
+        "rider_name": "Tadej Pogačar",
+        "rank": 1
     },
     "top_kom_rider": {
-        "rider_name": "Pogačar Tadej",
-        "rider_url": "rider/tadej-pogacar",
-        "rider_number": 1,
-        "team_name": "UAE Team Emirates - XRG",
-        "team_url": "team/uae-team-emirates-xrg-2025",
-        "rank": 1,
-        "prev_rank": 1,
-        "points": 5,
-        "age": 26,
-        "nationality": "SI",
-        "pcs_points": 5,
-        "uci_points": 0
+        "rider_name": "Tadej Pogačar",
+        "rank": 1
     },
     "top_points_rider": {
-        "rider_name": "Pogačar Tadej",
-        "rider_url": "rider/tadej-pogacar",
-        "rider_number": 1,
-        "team_name": "UAE Team Emirates - XRG",
-        "team_url": "team/uae-team-emirates-xrg-2025",
-        "rank": 1,
-        "prev_rank": 4,
-        "points": 97,
-        "age": 26,
-        "nationality": "SI",
-        "pcs_points": 97,
-        "uci_points": 0
+        "rider_name": "Tadej Pogačar",
+        "rank": 1
     },
     "top_youth_rider": {
-        "rider_name": "Evenepoel Remco",
-        "rider_url": "rider/remco-evenepoel",
-        "rider_number": 21,
-        "team_name": "Soudal Quick-Step",
-        "team_url": "team/soudal-quick-step-2025",
-        "rank": 1,
-        "prev_rank": 3,
-        "time": "17:23:40",
-        "age": 25,
-        "nationality": "BE",
-        "pcs_points": 0,
-        "uci_points": 0
+        "rider_name": "Remco Evenepoel",
+        "rank": 1
     }
 }

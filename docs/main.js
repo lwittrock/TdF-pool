@@ -70,10 +70,43 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // This createTable function seems to be a generic one, keep it as is if not used for the specific new formats
-    // Otherwise, it might need significant adaptation or removal.
-    // Based on the usage, it seems to be a general utility, but not directly used for the new detailed outputs.
-    // I'm leaving it as is for now, assuming its current usage (if any) remains valid for non-reformatted data.
+    /**
+     * Converts a time string (HH:MM:SS or MM:SS) to total seconds.
+     * @param {string} timeStr - The time string (e.g., "4:24:10" or "26:54").
+     * @returns {number} Total seconds.
+     */
+    function timeStringToSeconds(timeStr) {
+        if (!timeStr) return 0;
+        const parts = timeStr.split(':').map(Number);
+        if (parts.length === 3) { // HH:MM:SS
+            return parts[0] * 3600 + parts[1] * 60 + parts[2];
+        } else if (parts.length === 2) { // MM:SS
+            return parts[0] * 60 + parts[1];
+        }
+        return 0;
+    }
+
+    /**
+     * Converts total seconds back to a formatted time string (H:MM:SS or MM:SS).
+     * @param {number} totalSeconds - The total number of seconds.
+     * @returns {string} Formatted time string (e.g., "0:02:44" or "2:44").
+     */
+    function secondsToTimeString(totalSeconds) {
+        if (totalSeconds < 0) totalSeconds = 0; // Should not happen for gaps, but safety
+        const hours = Math.floor(totalSeconds / 3600);
+        const minutes = Math.floor((totalSeconds % 3600) / 60);
+        const seconds = totalSeconds % 60;
+
+        const pad = (num) => num.toString().padStart(2, '0');
+
+        if (hours > 0) {
+            return `${hours}:${pad(minutes)}:${pad(seconds)}`;
+        }
+        return `${minutes}:${pad(seconds)}`;
+    }
+
+
+
     function createTable(headers, data, rankKey = null) {
         if (!data || data.length === 0) {
             return '<p>Geen gegevens beschikbaar.</p>';
@@ -150,7 +183,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (rankChange > 0) {
                     rankChangeIndicator = `<span class="rank-up" title="Stijging van ${rankChange} plaatsen">↑${rankChange}</span>`;
                 } else if (rankChange < 0) {
-                    rankChangeIndicator = `<span class="rank-down" title="Daling van ${Math.abs(rankChange)} plaatsen">↓${Math.abs(rankChange)}</span>`;
+                    rankChangeIndicator = `<span class="rank-down" title="Daling van ${Math.abs(rankChange)} plaatsen">↓${Math.abs(change)}</span>`;
                 } else {
                     rankChangeIndicator = `<span class="rank-no-change" title="Geen verandering">=</span>`;
                 }
@@ -221,8 +254,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         const stages = Object.keys(participantData)
-                              .filter(key => key.startsWith('stage_'))
-                              .sort((a, b) => parseInt(a.split('_')[1]) - parseInt(b.split('_')[1]));
+                                     .filter(key => key.startsWith('stage_'))
+                                     .sort((a, b) => parseInt(a.split('_')[1]) - parseInt(b.split('_')[1]));
 
         stages.forEach(stageKey => {
             const stageInfo = participantData[stageKey];
@@ -251,8 +284,8 @@ document.addEventListener('DOMContentLoaded', () => {
         let html = '<h4>Gescoorde Punten per Renner:</h4><ul class="rider-points-list">';
         // Filter for riders who scored points (points > 0) and sort contributions by points descending
         const sortedContributions = Object.entries(riderContributions)
-                                          .filter(([, points]) => points > 0) // Only show riders who scored points
-                                          .sort(([, pointsA], [, pointsB]) => pointsB - pointsA);
+                                             .filter(([, points]) => points > 0) // Only show riders who scored points
+                                             .sort(([, pointsA], [, pointsB]) => pointsB - pointsA);
 
         if (sortedContributions.length === 0) {
             return '<p class="no-rider-details">Geen renners van deze deelnemer hebben punten gescoord in deze etappe.</p>';
@@ -341,7 +374,7 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        container.innerHTML = createParticipantList(dailyParticipantsDataForRender, false, null, latestStageNumber);
+        container.innerHTML = createParticipantList(dailyParticipantsDataForRender.slice(0, 5), false, null, latestStageNumber);
 
         // Attach event listeners after rendering
         setTimeout(() => {
@@ -386,6 +419,7 @@ document.addEventListener('DOMContentLoaded', () => {
             finishLocationSpan: document.getElementById('finish-location'),
             distanceKmSpan: document.getElementById('distance-km'),
             stageTypeSpan: document.getElementById('stage-type'),
+            wonHowSpan: document.getElementById('won-how'),
             yellowJerseySpan: document.getElementById('yellow-jersey'),
             greenJerseySpan: document.getElementById('green-jersey'),
             polkaDotJerseySpan: document.getElementById('polka-dot-jersey'),
@@ -413,8 +447,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const sampleRiderName = Object.keys(globalDetailedRiderHistory)[0];
         if (sampleRiderName) {
             const riderStages = Object.keys(globalDetailedRiderHistory[sampleRiderName])
-                                      .filter(key => key.startsWith('stage_'))
-                                      .map(key => parseInt(key.split('_')[1]));
+                                            .filter(key => key.startsWith('stage_'))
+                                            .map(key => parseInt(key.split('_')[1]));
             if (riderStages.length > 0) {
                 latestStageNumber = Math.max(...riderStages);
                 latestDate = globalDetailedRiderHistory[sampleRiderName][`stage_${latestStageNumber}`]?.date || 'N/A';
@@ -430,51 +464,113 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        if (lastUpdatedDateSpan) lastUpdatedDateSpan.textContent = latestDate;
-        if (elements.currentStageTitle) elements.currentStageTitle.textContent = `Meest Recente Etappe: Etappe ${latestStageNumber} (${latestDate})`;
+        // Changed data source from 'simulated_stages' to 'stage_results'
+        const stageResultsData = await fetchData(`stage_results/stage_${latestStageNumber}.json`);
 
-        const simulatedStageData = await fetchData(`simulated_stages/stage_${latestStageNumber}_data.json`);
+        if (stageResultsData) {
+            const stageInfo = stageResultsData.stage_info;
+            const top20Finishers = stageResultsData.top_20_finishers;
+            const jerseyHolders = {
+                yellow: stageResultsData.top_gc_rider?.rider_name,
+                green: stageResultsData.top_points_rider?.rider_name,
+                polka_dot: stageResultsData.top_kom_rider?.rider_name,
+                white: stageResultsData.top_youth_rider?.rider_name
+            };
 
-        if (simulatedStageData) {
-            if (elements.startLocationSpan) elements.startLocationSpan.textContent = simulatedStageData.start_location || 'Onbekend';
-            if (elements.finishLocationSpan) elements.finishLocationSpan.textContent = simulatedStageData.finish_location || 'Onbekend';
-            if (elements.distanceKmSpan) elements.distanceKmSpan.textContent = simulatedStageData.distance_km ? `${simulatedStageData.distance_km} km` : 'Onbekend';
-            if (elements.stageTypeSpan) elements.stageTypeSpan.textContent = simulatedStageData.stage_type || 'Onbekend';
+            if (elements.startLocationSpan) elements.startLocationSpan.textContent = stageInfo?.departure_city || 'Onbekend';
+            if (elements.finishLocationSpan) elements.finishLocationSpan.textContent = stageInfo?.arrival_city || 'Onbekend';
+            if (elements.distanceKmSpan) elements.distanceKmSpan.textContent = stageInfo?.distance || 'Onbekend';
 
-            const stageResults = simulatedStageData.stage_results;
-            const jerseyHolders = simulatedStageData.jersey_holders;
+            if (elements.stageTypeSpan) {
+                const category = stageInfo?.stage_type_category;
+                const difficulty = stageInfo?.stage_difficulty;
 
-            if (stageResults && stageResults.length > 0) {
+                let translatedCategory = 'Onbekend';
+                switch (category) {
+                    case 'RR':
+                        translatedCategory = 'Wegrit';
+                        break;
+                    case 'ITT':
+                        translatedCategory = 'Individuele Tijdrit';
+                        break;
+                    case 'TTT':
+                        translatedCategory = 'Ploegentijdrit';
+                        break;
+                }
+
+                let translatedDifficulty = '';
+                switch (difficulty) {
+                    case 'Flat':
+                        translatedDifficulty = 'Vlak';
+                        break;
+                    case 'Hills':
+                        translatedDifficulty = 'Heuvels'; // Changed from 'Heuvelachtig'
+                        break;
+                    case 'Hills, uphill finish':
+                        translatedDifficulty = 'Heuvels, aankomst bergop'; // Changed from 'Heuvelachtig, Aankomst Bergop'
+                        break;
+                    case 'Mountains':
+                        translatedDifficulty = 'Bergen'; // Changed from 'Bergachtig'
+                        break;
+                    case 'Mountains, uphill finish':
+                        translatedDifficulty = 'Bergen, aankomst bergop'; // Changed from 'Bergachtig, Aankomst Bergop'
+                        break;
+                }                
+
+                // Combine category and difficulty
+                let combinedText = translatedCategory;
+                if (translatedDifficulty) {
+                    combinedText += ` (${translatedDifficulty})`;
+                }
+
+                elements.stageTypeSpan.textContent = combinedText;
+            }
+            
+            if (elements.wonHowSpan) elements.wonHowSpan.textContent = stageInfo?.won_how || 'Onbekend';
+
+            if (top20Finishers && top20Finishers.length > 0) {
+                const winnerTimeStr = top20Finishers[0].time;
+                const winnerTotalSeconds = timeStringToSeconds(winnerTimeStr);
+
                 // Helper to format rider name with time difference
-                const formatFinisher = (finisher) => {
+                const formatFinisher = (finisher, winnerSeconds) => {
                     if (!finisher) return '-';
-                    let timeDiff = '';
-                    if (finisher.time && finisher.time !== "00:00") {
-                        timeDiff = ` (+${finisher.time})`; // Add the '+' sign here
+                    let timeDiffStr = '';
+                    if (finisher.rank > 1 && finisher.time) { // Only calculate gap for riders after rank 1
+                        const finisherTotalSeconds = timeStringToSeconds(finisher.time);
+                        const gapSeconds = finisherTotalSeconds - winnerSeconds;
+                        if (gapSeconds > 0) { // Ensure it's a positive gap
+                            timeDiffStr = ` (+${secondsToTimeString(gapSeconds)})`;
+                        }
                     }
-                    return `${finisher.rider_name}${timeDiff}`;
+                    return `${finisher.rider_name}${timeDiffStr}`;
                 };
 
-                if (elements.finisher1Span) elements.finisher1Span.textContent = formatFinisher(stageResults[0]);
-                if (elements.finisher2Span) elements.finisher2Span.textContent = formatFinisher(stageResults[1]);
-                if (elements.finisher3Span) elements.finisher3Span.textContent = formatFinisher(stageResults[2]);
+                if (elements.finisher1Span) elements.finisher1Span.textContent = formatFinisher(top20Finishers[0], winnerTotalSeconds);
+                if (elements.finisher2Span) elements.finisher2Span.textContent = formatFinisher(top20Finishers[1], winnerTotalSeconds);
+                if (elements.finisher3Span) elements.finisher3Span.textContent = formatFinisher(top20Finishers[2], winnerTotalSeconds);
             } else {
                 setTextContent([elements.finisher1Span, elements.finisher2Span, elements.finisher3Span], '-');
-            }   
+            }
 
             if (elements.yellowJerseySpan) elements.yellowJerseySpan.textContent = jerseyHolders.yellow || 'N/A';
             if (elements.greenJerseySpan) elements.greenJerseySpan.textContent = jerseyHolders.green || 'N/A';
             if (elements.polkaDotJerseySpan) elements.polkaDotJerseySpan.textContent = jerseyHolders.polka_dot || 'N/A';
             if (elements.whiteJerseySpan) elements.whiteJerseySpan.textContent = jerseyHolders.white || 'N/A';
 
-            if (elements.notableDropoutSpan) elements.notableDropoutSpan.textContent = 'N/A (Gegevens niet beschikbaar)';
+            if (elements.notableDropoutSpan) elements.notableDropoutSpan.textContent = 'N/A (Gegevens niet beschikbaar)'; // No notable_dropout in new data
+            if (lastUpdatedDateSpan) lastUpdatedDateSpan.textContent = stageInfo?.date || latestDate; // Use stage_info date if available
 
         } else {
-            console.warn(`Simulatiegegevens voor Etappe ${latestStageNumber} niet gevonden.`);
-            setTextContent([elements.startLocationSpan, elements.finishLocationSpan, elements.distanceKmSpan, elements.stageTypeSpan,
+            console.warn(`Etappegegevens voor Etappe ${latestStageNumber} niet gevonden in stage_results.`);
+            setTextContent([elements.startLocationSpan, elements.finishLocationSpan, elements.distanceKmSpan, elements.stageTypeSpan, elements.wonHowSpan,
                             elements.yellowJerseySpan, elements.greenJerseySpan, elements.polkaDotJerseySpan, elements.whiteJerseySpan,
                             elements.notableDropoutSpan], 'Gegevens niet beschikbaar.');
+            if (lastUpdatedDateSpan) lastUpdatedDateSpan.textContent = latestDate; // Fallback to date from detailed rider history
         }
+
+        if (elements.currentStageTitle) elements.currentStageTitle.textContent = `Meest Recente Etappe: Etappe ${latestStageNumber} (${lastUpdatedDateSpan.textContent})`;
+
 
         // Prepare data for Top 5 Daily Scorers (Participants)
         const dailyParticipantsDataForRender = [];

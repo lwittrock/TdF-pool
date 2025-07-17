@@ -10,120 +10,120 @@
     },
     "top_20_finishers": [
         {
-            "rider_name": "Milan Jonathan",
+            "rider_name": "Jonathan Milan",
             "rank": 1,
             "time": "3:50:26"
         },
         {
-            "rider_name": "van Aert Wout",
+            "rider_name": "Wout van Aert",
             "rank": 2,
             "time": "3:50:26"
         },
         {
-            "rider_name": "Groves Kaden",
+            "rider_name": "Kaden Groves",
             "rank": 3,
             "time": "3:50:26"
         },
         {
-            "rider_name": "Ackermann Pascal",
+            "rider_name": "Pascal Ackermann",
             "rank": 4,
             "time": "3:50:26"
         },
         {
-            "rider_name": "De Lie Arnaud",
+            "rider_name": "Arnaud De Lie",
             "rank": 5,
             "time": "3:50:26"
         },
         {
-            "rider_name": "Andresen Tobias Lund",
+            "rider_name": "Lund Andresen Tobias",
             "rank": 6,
             "time": "3:50:26"
         },
         {
-            "rider_name": "Coquard Bryan",
+            "rider_name": "Bryan Coquard",
             "rank": 7,
             "time": "3:50:26"
         },
         {
-            "rider_name": "Dainese Alberto",
+            "rider_name": "Alberto Dainese",
             "rank": 8,
             "time": "3:50:26"
         },
         {
-            "rider_name": "Albanese Vincenzo",
+            "rider_name": "Vincenzo Albanese",
             "rank": 9,
             "time": "3:50:26"
         },
         {
-            "rider_name": "Fredheim Stian",
+            "rider_name": "Stian Fredheim",
             "rank": 10,
             "time": "3:50:26"
         },
         {
-            "rider_name": "van Poppel Danny",
+            "rider_name": "Danny van Poppel",
             "rank": 11,
             "time": "3:50:26"
         },
         {
-            "rider_name": "Bauhaus Phil",
+            "rider_name": "Phil Bauhaus",
             "rank": 12,
             "time": "3:50:26"
         },
         {
-            "rider_name": "Askey Lewis",
+            "rider_name": "Lewis Askey",
             "rank": 13,
             "time": "3:50:26"
         },
         {
-            "rider_name": "Tronchon Bastien",
+            "rider_name": "Bastien Tronchon",
             "rank": 14,
             "time": "3:50:26"
         },
         {
-            "rider_name": "Watson Samuel",
+            "rider_name": "Samuel Watson",
             "rank": 15,
             "time": "3:50:26"
         },
         {
-            "rider_name": "Groenewegen Dylan",
+            "rider_name": "Dylan Groenewegen",
             "rank": 16,
             "time": "3:50:26"
         },
         {
-            "rider_name": "Turgis Anthony",
+            "rider_name": "Anthony Turgis",
             "rank": 17,
             "time": "3:50:26"
         },
         {
-            "rider_name": "Bol Cees",
+            "rider_name": "Cees Bol",
             "rank": 18,
             "time": "3:50:26"
         },
         {
-            "rider_name": "Girmay Biniam",
+            "rider_name": "Biniam Girmay",
             "rank": 19,
             "time": "3:50:26"
         },
         {
-            "rider_name": "Démare Arnaud",
+            "rider_name": "Arnaud Démare",
             "rank": 20,
             "time": "3:50:26"
         }
     ],
     "top_gc_rider": {
-        "rider_name": "Pogačar Tadej",
+        "rider_name": "Tadej Pogačar",
         "rank": 1
     },
     "top_kom_rider": {
-        "rider_name": "Wellens Tim",
+        "rider_name": "Tim Wellens",
         "rank": 1
     },
     "top_points_rider": {
-        "rider_name": "Milan Jonathan",
+        "rider_name": "Jonathan Milan",
         "rank": 1
     },
     "top_youth_rider": {
-        "rider_name": "Evenepoel Remco",
+        "rider_name": "Remco Evenepoel",
         "rank": 1
     }
 }

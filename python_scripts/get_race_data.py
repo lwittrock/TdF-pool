@@ -7,7 +7,7 @@ DATA_DIR = 'data'
 STAGE_DATA_DIR = os.path.join(DATA_DIR, 'stage_results')
 
 # Set the stage number for the desired Tour de France stage
-stage_number = 2 # Example stage, will be iterated in main calculation script
+stage_number = 12 # Example stage, will be iterated in main calculation script
 
 # URL for Tour de France 2025 Stage on ProCyclingStats
 stage_url = f"race/tour-de-france/2025/stage-{stage_number}/result"
