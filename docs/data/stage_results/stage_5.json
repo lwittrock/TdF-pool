@@ -1,0 +1,60 @@
+{
+    "top_20_finishers": [],
+    "top_gc_rider": {
+        "rider_name": "Pogačar Tadej",
+        "rider_url": "rider/tadej-pogacar",
+        "rider_number": 1,
+        "team_name": "UAE Team Emirates - XRG",
+        "team_url": "team/uae-team-emirates-xrg-2025",
+        "rank": 1,
+        "prev_rank": 2,
+        "age": 26,
+        "nationality": "SI",
+        "time": "17:22:58",
+        "bonus": "0:00:00",
+        "pcs_points": 0,
+        "uci_points": 25.0
+    },
+    "top_kom_rider": {
+        "rider_name": "Pogačar Tadej",
+        "rider_url": "rider/tadej-pogacar",
+        "rider_number": 1,
+        "team_name": "UAE Team Emirates - XRG",
+        "team_url": "team/uae-team-emirates-xrg-2025",
+        "rank": 1,
+        "prev_rank": 1,
+        "points": 5,
+        "age": 26,
+        "nationality": "SI",
+        "pcs_points": 5,
+        "uci_points": 0
+    },
+    "top_points_rider": {
+        "rider_name": "Pogačar Tadej",
+        "rider_url": "rider/tadej-pogacar",
+        "rider_number": 1,
+        "team_name": "UAE Team Emirates - XRG",
+        "team_url": "team/uae-team-emirates-xrg-2025",
+        "rank": 1,
+        "prev_rank": 4,
+        "points": 97,
+        "age": 26,
+        "nationality": "SI",
+        "pcs_points": 97,
+        "uci_points": 0
+    },
+    "top_youth_rider": {
+        "rider_name": "Evenepoel Remco",
+        "rider_url": "rider/remco-evenepoel",
+        "rider_number": 21,
+        "team_name": "Soudal Quick-Step",
+        "team_url": "team/soudal-quick-step-2025",
+        "rank": 1,
+        "prev_rank": 3,
+        "time": "17:23:40",
+        "age": 25,
+        "nationality": "BE",
+        "pcs_points": 0,
+        "uci_points": 0
+    }
+}

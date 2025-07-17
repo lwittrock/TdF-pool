@@ -7,13 +7,35 @@ DATA_DIR = 'data'
 STAGE_DATA_DIR = os.path.join(DATA_DIR, 'stage_results')
 
 # Set the stage number for the desired Tour de France stage
-stage_number = 3
+stage_number = 2 # Example stage, will be iterated in main calculation script
 
 # URL for Tour de France 2025 Stage on ProCyclingStats
 stage_url = f"race/tour-de-france/2025/stage-{stage_number}/result"
 
 # Define the filename
 filename = f"stage_{stage_number}.json"
+
+# --- Helper function to reformat rider names ---
+def reformat_rider_name(name_str):
+    """
+    Attempts to reformat a rider name from 'LastName FirstName' to 'FirstName LastName'.
+    Assumes the first name is the last word in the string.
+    Handles multi-word last names correctly (e.g., 'Van der Poel Mathieu' -> 'Mathieu Van der Poel').
+    """
+    if not isinstance(name_str, str) or ' ' not in name_str:
+        return name_str # Return as is if not a string or single word
+
+    parts = name_str.split(' ')
+    if len(parts) < 2:
+        return name_str # Cannot reformat if less than two words
+
+    first_name = parts[-1]
+    last_name_parts = parts[:-1]
+    
+    # Join the last name parts back together
+    last_name = ' '.join(last_name_parts)
+
+    return f"{first_name} {last_name}"
 
 try:
     # Create the directory if it doesn't exist
@@ -53,8 +75,8 @@ try:
         stage_info['stage_difficulty'] = difficulty_map.get(profile_icon_value, 'Unknown')
 
     except Exception as e:
-        stage_info['stage_difficulty'] = 'N/A'
-        stage_info['stage_difficulty'] = 'Could not retrieve profile icon'
+        stage_info['stage_difficulty'] = 'N/A' # Resetting 'N/A' for consistency if error occurs
+        # stage_info['stage_difficulty'] = 'Could not retrieve profile icon' # This line was redundant
         print(f"Warning: Could not get stage profile icon: {e}")
 
     stage_info['won_how'] = full_stage_data.get('won_how', 'N/A')
@@ -65,7 +87,7 @@ try:
     if 'results' in full_stage_data and isinstance(full_stage_data['results'], list):
         extracted_data['top_20_finishers'] = [
             {
-                "rider_name": rider.get("rider_name"),
+                "rider_name": reformat_rider_name(rider.get("rider_name")), # <--- Applied reformat here
                 "rank": rider.get("rank"),
                 "time": rider.get("time") # Raw time for each rider
             }
@@ -79,8 +101,8 @@ try:
     def extract_top_rider_info(rider_data):
         if rider_data:
             return {
-                "rider_name": rider_data.get("rider_name"),
-                "rank": rider_data.get("rank") # Corrected: Use rider_data here
+                "rider_name": reformat_rider_name(rider_data.get("rider_name")), # <--- Applied reformat here
+                "rank": rider_data.get("rank") 
             }
         return None
 
@@ -119,7 +141,7 @@ try:
     with open(filepath, 'w', encoding='utf-8') as f:
         json.dump(extracted_data, f, ensure_ascii=False, indent=4)
 
-    print(f"Successfully extracted and saved specific data for Tour de France 2025 Stage 6 to {filepath}")
+    print(f"Successfully extracted and saved specific data for Tour de France 2025 Stage {stage_number} to {filepath}") # Corrected stage number in print
 
 except Exception as e:
     print(f"An error occurred: {e}")

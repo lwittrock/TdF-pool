@@ -1,0 +1,129 @@
+{
+    "stage_info": {
+        "date": "2025-07-12",
+        "distance": 171.4,
+        "departure_city": "Saint-Méen-le-Grand",
+        "arrival_city": "Laval (Espace Mayenne)",
+        "stage_type_category": "RR",
+        "stage_difficulty": "Flat",
+        "won_how": "Sprint of large group"
+    },
+    "top_20_finishers": [
+        {
+            "rider_name": "Milan Jonathan",
+            "rank": 1,
+            "time": "3:50:26"
+        },
+        {
+            "rider_name": "van Aert Wout",
+            "rank": 2,
+            "time": "3:50:26"
+        },
+        {
+            "rider_name": "Groves Kaden",
+            "rank": 3,
+            "time": "3:50:26"
+        },
+        {
+            "rider_name": "Ackermann Pascal",
+            "rank": 4,
+            "time": "3:50:26"
+        },
+        {
+            "rider_name": "De Lie Arnaud",
+            "rank": 5,
+            "time": "3:50:26"
+        },
+        {
+            "rider_name": "Andresen Tobias Lund",
+            "rank": 6,
+            "time": "3:50:26"
+        },
+        {
+            "rider_name": "Coquard Bryan",
+            "rank": 7,
+            "time": "3:50:26"
+        },
+        {
+            "rider_name": "Dainese Alberto",
+            "rank": 8,
+            "time": "3:50:26"
+        },
+        {
+            "rider_name": "Albanese Vincenzo",
+            "rank": 9,
+            "time": "3:50:26"
+        },
+        {
+            "rider_name": "Fredheim Stian",
+            "rank": 10,
+            "time": "3:50:26"
+        },
+        {
+            "rider_name": "van Poppel Danny",
+            "rank": 11,
+            "time": "3:50:26"
+        },
+        {
+            "rider_name": "Bauhaus Phil",
+            "rank": 12,
+            "time": "3:50:26"
+        },
+        {
+            "rider_name": "Askey Lewis",
+            "rank": 13,
+            "time": "3:50:26"
+        },
+        {
+            "rider_name": "Tronchon Bastien",
+            "rank": 14,
+            "time": "3:50:26"
+        },
+        {
+            "rider_name": "Watson Samuel",
+            "rank": 15,
+            "time": "3:50:26"
+        },
+        {
+            "rider_name": "Groenewegen Dylan",
+            "rank": 16,
+            "time": "3:50:26"
+        },
+        {
+            "rider_name": "Turgis Anthony",
+            "rank": 17,
+            "time": "3:50:26"
+        },
+        {
+            "rider_name": "Bol Cees",
+            "rank": 18,
+            "time": "3:50:26"
+        },
+        {
+            "rider_name": "Girmay Biniam",
+            "rank": 19,
+            "time": "3:50:26"
+        },
+        {
+            "rider_name": "Démare Arnaud",
+            "rank": 20,
+            "time": "3:50:26"
+        }
+    ],
+    "top_gc_rider": {
+        "rider_name": "Pogačar Tadej",
+        "rank": 1
+    },
+    "top_kom_rider": {
+        "rider_name": "Wellens Tim",
+        "rank": 1
+    },
+    "top_points_rider": {
+        "rider_name": "Milan Jonathan",
+        "rank": 1
+    },
+    "top_youth_rider": {
+        "rider_name": "Evenepoel Remco",
+        "rank": 1
+    }
+}

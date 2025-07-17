@@ -10,120 +10,120 @@
     },
     "top_20_finishers": [
         {
-            "rider_name": "Mathieu van der Poel",
+            "rider_name": "van der Poel Mathieu",
             "rank": 1,
             "time": "4:45:41"
         },
         {
-            "rider_name": "Tadej Pogačar",
+            "rider_name": "Pogačar Tadej",
             "rank": 2,
             "time": "4:45:41"
         },
         {
-            "rider_name": "Jonas Vingegaard",
+            "rider_name": "Vingegaard Jonas",
             "rank": 3,
             "time": "4:45:41"
         },
         {
-            "rider_name": "Romain Grégoire",
+            "rider_name": "Grégoire Romain",
             "rank": 4,
             "time": "4:45:41"
         },
         {
-            "rider_name": "Julian Alaphilippe",
+            "rider_name": "Alaphilippe Julian",
             "rank": 5,
             "time": "4:45:41"
         },
         {
-            "rider_name": "Oscar Onley",
+            "rider_name": "Onley Oscar",
             "rank": 6,
             "time": "4:45:41"
         },
         {
-            "rider_name": "Aurélien Paret-Peintre",
+            "rider_name": "Paret-Peintre Aurélien",
             "rank": 7,
             "time": "4:45:41"
         },
         {
-            "rider_name": "Kévin Vauquelin",
+            "rider_name": "Vauquelin Kévin",
             "rank": 8,
             "time": "4:45:41"
         },
         {
-            "rider_name": "Simone Velasco",
+            "rider_name": "Velasco Simone",
             "rank": 9,
             "time": "4:45:41"
         },
         {
-            "rider_name": "Jenno Berckmoes",
+            "rider_name": "Berckmoes Jenno",
             "rank": 10,
             "time": "4:45:41"
         },
         {
-            "rider_name": "Alexandre Delettre",
+            "rider_name": "Delettre Alexandre",
             "rank": 11,
             "time": "4:45:41"
         },
         {
-            "rider_name": "Enric Mas",
+            "rider_name": "Mas Enric",
             "rank": 12,
             "time": "4:45:41"
         },
         {
-            "rider_name": "Santiago Buitrago",
+            "rider_name": "Buitrago Santiago",
             "rank": 13,
             "time": "4:45:41"
         },
         {
-            "rider_name": "Marc Hirschi",
+            "rider_name": "Hirschi Marc",
             "rank": 14,
             "time": "4:45:41"
         },
         {
-            "rider_name": "João Almeida",
+            "rider_name": "Almeida João",
             "rank": 15,
             "time": "4:45:41"
         },
         {
-            "rider_name": "Guillaume Martin",
+            "rider_name": "Martin Guillaume",
             "rank": 16,
             "time": "4:45:41"
         },
         {
-            "rider_name": "Remco Evenepoel",
+            "rider_name": "Evenepoel Remco",
             "rank": 17,
             "time": "4:45:41"
         },
         {
-            "rider_name": "Matteo Jorgenson",
+            "rider_name": "Jorgenson Matteo",
             "rank": 18,
             "time": "4:45:41"
         },
         {
-            "rider_name": "Neilson Powless",
+            "rider_name": "Powless Neilson",
             "rank": 19,
             "time": "4:45:41"
         },
         {
-            "rider_name": "Emanuel Buchmann",
+            "rider_name": "Buchmann Emanuel",
             "rank": 20,
             "time": "4:45:41"
         }
     ],
     "top_gc_rider": {
-        "rider_name": "Mathieu van der Poel",
+        "rider_name": "van der Poel Mathieu",
         "rank": 1
     },
     "top_kom_rider": {
-        "rider_name": "Tadej Pogačar",
+        "rider_name": "Pogačar Tadej",
         "rank": 1
     },
     "top_points_rider": {
-        "rider_name": "Jasper Philipsen",
+        "rider_name": "Philipsen Jasper",
         "rank": 1
     },
     "top_youth_rider": {
-        "rider_name": "Kévin Vauquelin",
+        "rider_name": "Vauquelin Kévin",
         "rank": 1
     }
 }

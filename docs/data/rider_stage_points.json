@@ -1,300 +1,2851 @@
 {
-    "Tadej Pogačar": {
-        "stage_1": {
-            "date": "2025-07-09",
+    "van der Poel Mathieu": {
+        "stage_2": {
+            "date": "2025-07-14",
             "stage_finish_points": 25,
             "jersey_points": {
-                "green": 5
+                "yellow": 20
             },
-            "stage_total": 30,
-            "cumulative_total_after_stage": 30
+            "stage_total": 45,
+            "cumulative_total_after_stage": 45
         },
-        "stage_2": {
-            "date": "2025-07-09",
-            "stage_finish_points": 12,
-            "jersey_points": {},
-            "stage_total": 12,
-            "cumulative_total_after_stage": 42
-        },
-        "stage_3": {
-            "date": "2025-07-09",
-            "stage_finish_points": 11,
-            "jersey_points": {},
-            "stage_total": 11,
-            "cumulative_total_after_stage": 53
-        }
-    },
-    "Mattias Skjelmose": {
-        "stage_1": {
-            "date": "2025-07-09",
+        "stage_4": {
+            "date": "2025-07-14",
             "stage_finish_points": 19,
             "jersey_points": {
-                "white": 5
+                "yellow": 20
+            },
+            "stage_total": 39,
+            "cumulative_total_after_stage": 84
+        },
+        "stage_5": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 84
+        },
+        "stage_6": {
+            "date": "2025-07-14",
+            "stage_finish_points": 13,
+            "jersey_points": {
+                "yellow": 20
+            },
+            "stage_total": 33,
+            "cumulative_total_after_stage": 117
+        },
+        "stage_7": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 117
+        },
+        "stage_8": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 117
+        },
+        "stage_9": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 117
+        },
+        "stage_10": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 117
+        }
+    },
+    "Pogačar Tadej": {
+        "stage_2": {
+            "date": "2025-07-14",
+            "stage_finish_points": 19,
+            "jersey_points": {
+                "polka_dot": 5
             },
             "stage_total": 24,
             "cumulative_total_after_stage": 24
         },
-        "stage_2": {
-            "date": "2025-07-09",
-            "stage_finish_points": 14,
-            "jersey_points": {},
-            "stage_total": 14,
-            "cumulative_total_after_stage": 38
+        "stage_4": {
+            "date": "2025-07-14",
+            "stage_finish_points": 25,
+            "jersey_points": {
+                "polka_dot": 5
+            },
+            "stage_total": 30,
+            "cumulative_total_after_stage": 54
         },
-        "stage_3": {
-            "date": "2025-07-09",
-            "stage_finish_points": 19,
+        "stage_5": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {
+                "yellow": 20,
+                "green": 5,
+                "polka_dot": 5
+            },
+            "stage_total": 30,
+            "cumulative_total_after_stage": 84
+        },
+        "stage_6": {
+            "date": "2025-07-14",
+            "stage_finish_points": 12,
             "jersey_points": {},
-            "stage_total": 19,
-            "cumulative_total_after_stage": 57
+            "stage_total": 12,
+            "cumulative_total_after_stage": 96
+        },
+        "stage_7": {
+            "date": "2025-07-14",
+            "stage_finish_points": 25,
+            "jersey_points": {
+                "yellow": 20,
+                "green": 5
+            },
+            "stage_total": 50,
+            "cumulative_total_after_stage": 146
+        },
+        "stage_8": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {
+                "yellow": 20
+            },
+            "stage_total": 20,
+            "cumulative_total_after_stage": 166
+        },
+        "stage_9": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {
+                "yellow": 20
+            },
+            "stage_total": 20,
+            "cumulative_total_after_stage": 186
+        },
+        "stage_10": {
+            "date": "2025-07-14",
+            "stage_finish_points": 12,
+            "jersey_points": {},
+            "stage_total": 12,
+            "cumulative_total_after_stage": 198
         }
     },
-    "Remco Evenepoel": {
-        "stage_1": {
-            "date": "2025-07-09",
+    "Vingegaard Jonas": {
+        "stage_2": {
+            "date": "2025-07-14",
             "stage_finish_points": 18,
             "jersey_points": {},
             "stage_total": 18,
             "cumulative_total_after_stage": 18
         },
-        "stage_2": {
-            "date": "2025-07-09",
-            "stage_finish_points": 25,
-            "jersey_points": {
-                "green": 5
-            },
-            "stage_total": 30,
-            "cumulative_total_after_stage": 48
-        },
-        "stage_3": {
-            "date": "2025-07-09",
-            "stage_finish_points": 10,
+        "stage_4": {
+            "date": "2025-07-14",
+            "stage_finish_points": 18,
             "jersey_points": {},
-            "stage_total": 10,
-            "cumulative_total_after_stage": 58
+            "stage_total": 18,
+            "cumulative_total_after_stage": 36
+        },
+        "stage_5": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 36
+        },
+        "stage_6": {
+            "date": "2025-07-14",
+            "stage_finish_points": 11,
+            "jersey_points": {},
+            "stage_total": 11,
+            "cumulative_total_after_stage": 47
+        },
+        "stage_7": {
+            "date": "2025-07-14",
+            "stage_finish_points": 19,
+            "jersey_points": {},
+            "stage_total": 19,
+            "cumulative_total_after_stage": 66
+        },
+        "stage_8": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 66
+        },
+        "stage_9": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 66
+        },
+        "stage_10": {
+            "date": "2025-07-14",
+            "stage_finish_points": 11,
+            "jersey_points": {},
+            "stage_total": 11,
+            "cumulative_total_after_stage": 77
         }
     },
-    "Primož Roglič": {
-        "stage_1": {
-            "date": "2025-07-09",
+    "Grégoire Romain": {
+        "stage_2": {
+            "date": "2025-07-14",
             "stage_finish_points": 17,
             "jersey_points": {},
             "stage_total": 17,
             "cumulative_total_after_stage": 17
         },
-        "stage_2": {
-            "date": "2025-07-09",
-            "stage_finish_points": 15,
+        "stage_4": {
+            "date": "2025-07-14",
+            "stage_finish_points": 16,
             "jersey_points": {},
-            "stage_total": 15,
-            "cumulative_total_after_stage": 32
+            "stage_total": 16,
+            "cumulative_total_after_stage": 33
         },
-        "stage_3": {
-            "date": "2025-07-09",
-            "stage_finish_points": 18,
+        "stage_5": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
             "jersey_points": {},
-            "stage_total": 18,
-            "cumulative_total_after_stage": 50
+            "stage_total": 0,
+            "cumulative_total_after_stage": 33
+        },
+        "stage_6": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 33
+        },
+        "stage_7": {
+            "date": "2025-07-14",
+            "stage_finish_points": 8,
+            "jersey_points": {},
+            "stage_total": 8,
+            "cumulative_total_after_stage": 41
+        },
+        "stage_8": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 41
+        },
+        "stage_9": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 41
+        },
+        "stage_10": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 41
         }
     },
-    "Thymen Arensman": {
-        "stage_1": {
-            "date": "2025-07-09",
+    "Alaphilippe Julian": {
+        "stage_2": {
+            "date": "2025-07-14",
             "stage_finish_points": 16,
             "jersey_points": {},
             "stage_total": 16,
             "cumulative_total_after_stage": 16
         },
-        "stage_2": {
-            "date": "2025-07-09",
-            "stage_finish_points": 17,
+        "stage_4": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
             "jersey_points": {},
-            "stage_total": 17,
-            "cumulative_total_after_stage": 33
+            "stage_total": 0,
+            "cumulative_total_after_stage": 16
         },
-        "stage_3": {
-            "date": "2025-07-09",
-            "stage_finish_points": 14,
+        "stage_5": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
             "jersey_points": {},
-            "stage_total": 14,
-            "cumulative_total_after_stage": 47
+            "stage_total": 0,
+            "cumulative_total_after_stage": 16
+        },
+        "stage_6": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 16
+        },
+        "stage_7": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 16
+        },
+        "stage_8": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 16
+        },
+        "stage_9": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 16
+        },
+        "stage_10": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 16
         }
     },
-    "Juan Ayuso": {
-        "stage_1": {
-            "date": "2025-07-09",
+    "Onley Oscar": {
+        "stage_2": {
+            "date": "2025-07-14",
             "stage_finish_points": 15,
             "jersey_points": {},
             "stage_total": 15,
             "cumulative_total_after_stage": 15
         },
-        "stage_2": {
-            "date": "2025-07-09",
-            "stage_finish_points": 19,
-            "jersey_points": {
-                "white": 5
-            },
-            "stage_total": 24,
-            "cumulative_total_after_stage": 39
+        "stage_4": {
+            "date": "2025-07-14",
+            "stage_finish_points": 17,
+            "jersey_points": {},
+            "stage_total": 17,
+            "cumulative_total_after_stage": 32
         },
-        "stage_3": {
-            "date": "2025-07-09",
-            "stage_finish_points": 25,
-            "jersey_points": {
-                "green": 5
-            },
-            "stage_total": 30,
-            "cumulative_total_after_stage": 69
+        "stage_5": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 32
+        },
+        "stage_6": {
+            "date": "2025-07-14",
+            "stage_finish_points": 8,
+            "jersey_points": {},
+            "stage_total": 8,
+            "cumulative_total_after_stage": 40
+        },
+        "stage_7": {
+            "date": "2025-07-14",
+            "stage_finish_points": 18,
+            "jersey_points": {},
+            "stage_total": 18,
+            "cumulative_total_after_stage": 58
+        },
+        "stage_8": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 58
+        },
+        "stage_9": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 58
+        },
+        "stage_10": {
+            "date": "2025-07-14",
+            "stage_finish_points": 7,
+            "jersey_points": {},
+            "stage_total": 7,
+            "cumulative_total_after_stage": 65
         }
     },
-    "Sepp Kuss": {
-        "stage_1": {
-            "date": "2025-07-09",
+    "Paret-Peintre Aurélien": {
+        "stage_2": {
+            "date": "2025-07-14",
             "stage_finish_points": 14,
             "jersey_points": {},
             "stage_total": 14,
             "cumulative_total_after_stage": 14
         },
+        "stage_4": {
+            "date": "2025-07-14",
+            "stage_finish_points": 9,
+            "jersey_points": {},
+            "stage_total": 9,
+            "cumulative_total_after_stage": 23
+        },
+        "stage_5": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 23
+        },
+        "stage_6": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 23
+        },
+        "stage_7": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 23
+        },
+        "stage_8": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 23
+        },
+        "stage_9": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 23
+        },
+        "stage_10": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 23
+        }
+    },
+    "Vauquelin Kévin": {
         "stage_2": {
-            "date": "2025-07-09",
+            "date": "2025-07-14",
+            "stage_finish_points": 13,
+            "jersey_points": {
+                "white": 5
+            },
+            "stage_total": 18,
+            "cumulative_total_after_stage": 18
+        },
+        "stage_4": {
+            "date": "2025-07-14",
+            "stage_finish_points": 11,
+            "jersey_points": {
+                "white": 5
+            },
+            "stage_total": 16,
+            "cumulative_total_after_stage": 34
+        },
+        "stage_5": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 34
+        },
+        "stage_6": {
+            "date": "2025-07-14",
+            "stage_finish_points": 7,
+            "jersey_points": {},
+            "stage_total": 7,
+            "cumulative_total_after_stage": 41
+        },
+        "stage_7": {
+            "date": "2025-07-14",
+            "stage_finish_points": 14,
+            "jersey_points": {},
+            "stage_total": 14,
+            "cumulative_total_after_stage": 55
+        },
+        "stage_8": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 55
+        },
+        "stage_9": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 55
+        },
+        "stage_10": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 55
+        }
+    },
+    "Velasco Simone": {
+        "stage_2": {
+            "date": "2025-07-14",
+            "stage_finish_points": 12,
+            "jersey_points": {},
+            "stage_total": 12,
+            "cumulative_total_after_stage": 12
+        },
+        "stage_4": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 12
+        },
+        "stage_5": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 12
+        },
+        "stage_6": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 12
+        },
+        "stage_7": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 12
+        },
+        "stage_8": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 12
+        },
+        "stage_9": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 12
+        },
+        "stage_10": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 12
+        }
+    },
+    "Berckmoes Jenno": {
+        "stage_2": {
+            "date": "2025-07-14",
+            "stage_finish_points": 11,
+            "jersey_points": {},
+            "stage_total": 11,
+            "cumulative_total_after_stage": 11
+        },
+        "stage_4": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 11
+        },
+        "stage_5": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 11
+        },
+        "stage_6": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 11
+        },
+        "stage_7": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 11
+        },
+        "stage_8": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 11
+        },
+        "stage_9": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 11
+        },
+        "stage_10": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 11
+        }
+    },
+    "Delettre Alexandre": {
+        "stage_2": {
+            "date": "2025-07-14",
             "stage_finish_points": 10,
             "jersey_points": {},
             "stage_total": 10,
-            "cumulative_total_after_stage": 24
+            "cumulative_total_after_stage": 10
         },
-        "stage_3": {
-            "date": "2025-07-09",
+        "stage_4": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 10
+        },
+        "stage_5": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 10
+        },
+        "stage_6": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 10
+        },
+        "stage_7": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 10
+        },
+        "stage_8": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 10
+        },
+        "stage_9": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 10
+        },
+        "stage_10": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 10
+        }
+    },
+    "Mas Enric": {
+        "stage_2": {
+            "date": "2025-07-14",
+            "stage_finish_points": 9,
+            "jersey_points": {},
+            "stage_total": 9,
+            "cumulative_total_after_stage": 9
+        },
+        "stage_4": {
+            "date": "2025-07-14",
+            "stage_finish_points": 4,
+            "jersey_points": {},
+            "stage_total": 4,
+            "cumulative_total_after_stage": 13
+        },
+        "stage_5": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 13
+        },
+        "stage_6": {
+            "date": "2025-07-14",
+            "stage_finish_points": 3,
+            "jersey_points": {},
+            "stage_total": 3,
+            "cumulative_total_after_stage": 16
+        },
+        "stage_7": {
+            "date": "2025-07-14",
+            "stage_finish_points": 2,
+            "jersey_points": {},
+            "stage_total": 2,
+            "cumulative_total_after_stage": 18
+        },
+        "stage_8": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 18
+        },
+        "stage_9": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 18
+        },
+        "stage_10": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 18
+        }
+    },
+    "Buitrago Santiago": {
+        "stage_2": {
+            "date": "2025-07-14",
+            "stage_finish_points": 8,
+            "jersey_points": {},
+            "stage_total": 8,
+            "cumulative_total_after_stage": 8
+        },
+        "stage_4": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 8
+        },
+        "stage_5": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 8
+        },
+        "stage_6": {
+            "date": "2025-07-14",
+            "stage_finish_points": 4,
+            "jersey_points": {},
+            "stage_total": 4,
+            "cumulative_total_after_stage": 12
+        },
+        "stage_7": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 12
+        },
+        "stage_8": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 12
+        },
+        "stage_9": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 12
+        },
+        "stage_10": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 12
+        }
+    },
+    "Hirschi Marc": {
+        "stage_2": {
+            "date": "2025-07-14",
+            "stage_finish_points": 7,
+            "jersey_points": {},
+            "stage_total": 7,
+            "cumulative_total_after_stage": 7
+        },
+        "stage_4": {
+            "date": "2025-07-14",
+            "stage_finish_points": 1,
+            "jersey_points": {},
+            "stage_total": 1,
+            "cumulative_total_after_stage": 8
+        },
+        "stage_5": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 8
+        },
+        "stage_6": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 8
+        },
+        "stage_7": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 8
+        },
+        "stage_8": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 8
+        },
+        "stage_9": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 8
+        },
+        "stage_10": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 8
+        }
+    },
+    "Almeida João": {
+        "stage_2": {
+            "date": "2025-07-14",
+            "stage_finish_points": 6,
+            "jersey_points": {},
+            "stage_total": 6,
+            "cumulative_total_after_stage": 6
+        },
+        "stage_4": {
+            "date": "2025-07-14",
+            "stage_finish_points": 15,
+            "jersey_points": {},
+            "stage_total": 15,
+            "cumulative_total_after_stage": 21
+        },
+        "stage_5": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 21
+        },
+        "stage_6": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 21
+        },
+        "stage_7": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 21
+        },
+        "stage_8": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 21
+        },
+        "stage_9": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 21
+        },
+        "stage_10": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 21
+        }
+    },
+    "Martin Guillaume": {
+        "stage_2": {
+            "date": "2025-07-14",
+            "stage_finish_points": 5,
+            "jersey_points": {},
+            "stage_total": 5,
+            "cumulative_total_after_stage": 5
+        },
+        "stage_4": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 5
+        },
+        "stage_5": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 5
+        },
+        "stage_6": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 5
+        },
+        "stage_7": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 5
+        },
+        "stage_8": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 5
+        },
+        "stage_9": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 5
+        },
+        "stage_10": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 5
+        }
+    },
+    "Evenepoel Remco": {
+        "stage_2": {
+            "date": "2025-07-14",
+            "stage_finish_points": 4,
+            "jersey_points": {},
+            "stage_total": 4,
+            "cumulative_total_after_stage": 4
+        },
+        "stage_4": {
+            "date": "2025-07-14",
+            "stage_finish_points": 14,
+            "jersey_points": {},
+            "stage_total": 14,
+            "cumulative_total_after_stage": 18
+        },
+        "stage_5": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {
+                "white": 5
+            },
+            "stage_total": 5,
+            "cumulative_total_after_stage": 23
+        },
+        "stage_6": {
+            "date": "2025-07-14",
+            "stage_finish_points": 9,
+            "jersey_points": {
+                "white": 5
+            },
+            "stage_total": 14,
+            "cumulative_total_after_stage": 37
+        },
+        "stage_7": {
+            "date": "2025-07-14",
+            "stage_finish_points": 15,
+            "jersey_points": {
+                "white": 5
+            },
+            "stage_total": 20,
+            "cumulative_total_after_stage": 57
+        },
+        "stage_8": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {
+                "white": 5
+            },
+            "stage_total": 5,
+            "cumulative_total_after_stage": 62
+        },
+        "stage_9": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {
+                "white": 5
+            },
+            "stage_total": 5,
+            "cumulative_total_after_stage": 67
+        },
+        "stage_10": {
+            "date": "2025-07-14",
+            "stage_finish_points": 8,
+            "jersey_points": {},
+            "stage_total": 8,
+            "cumulative_total_after_stage": 75
+        }
+    },
+    "Jorgenson Matteo": {
+        "stage_2": {
+            "date": "2025-07-14",
+            "stage_finish_points": 3,
+            "jersey_points": {},
+            "stage_total": 3,
+            "cumulative_total_after_stage": 3
+        },
+        "stage_4": {
+            "date": "2025-07-14",
+            "stage_finish_points": 13,
+            "jersey_points": {},
+            "stage_total": 13,
+            "cumulative_total_after_stage": 16
+        },
+        "stage_5": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 16
+        },
+        "stage_6": {
+            "date": "2025-07-14",
+            "stage_finish_points": 10,
+            "jersey_points": {},
+            "stage_total": 10,
+            "cumulative_total_after_stage": 26
+        },
+        "stage_7": {
+            "date": "2025-07-14",
+            "stage_finish_points": 16,
+            "jersey_points": {},
+            "stage_total": 16,
+            "cumulative_total_after_stage": 42
+        },
+        "stage_8": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 42
+        },
+        "stage_9": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 42
+        },
+        "stage_10": {
+            "date": "2025-07-14",
+            "stage_finish_points": 9,
+            "jersey_points": {},
+            "stage_total": 9,
+            "cumulative_total_after_stage": 51
+        }
+    },
+    "Powless Neilson": {
+        "stage_2": {
+            "date": "2025-07-14",
+            "stage_finish_points": 2,
+            "jersey_points": {},
+            "stage_total": 2,
+            "cumulative_total_after_stage": 2
+        },
+        "stage_4": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 2
+        },
+        "stage_5": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 2
+        },
+        "stage_6": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 2
+        },
+        "stage_7": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 2
+        },
+        "stage_8": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 2
+        },
+        "stage_9": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 2
+        },
+        "stage_10": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 2
+        }
+    },
+    "Buchmann Emanuel": {
+        "stage_2": {
+            "date": "2025-07-14",
+            "stage_finish_points": 1,
+            "jersey_points": {},
+            "stage_total": 1,
+            "cumulative_total_after_stage": 1
+        },
+        "stage_4": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 1
+        },
+        "stage_5": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 1
+        },
+        "stage_6": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 1
+        },
+        "stage_7": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 1
+        },
+        "stage_8": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 1
+        },
+        "stage_9": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 1
+        },
+        "stage_10": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 1
+        }
+    },
+    "Philipsen Jasper": {
+        "stage_2": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {
+                "green": 5
+            },
+            "stage_total": 5,
+            "cumulative_total_after_stage": 5
+        },
+        "stage_4": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 5
+        },
+        "stage_5": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 5
+        },
+        "stage_6": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 5
+        },
+        "stage_7": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 5
+        },
+        "stage_8": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 5
+        },
+        "stage_9": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 5
+        },
+        "stage_10": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 5
+        }
+    },
+    "Skjelmose Mattias": {
+        "stage_4": {
+            "date": "2025-07-14",
+            "stage_finish_points": 12,
+            "jersey_points": {},
+            "stage_total": 12,
+            "cumulative_total_after_stage": 12
+        },
+        "stage_5": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 12
+        },
+        "stage_6": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 12
+        },
+        "stage_7": {
+            "date": "2025-07-14",
+            "stage_finish_points": 9,
+            "jersey_points": {},
+            "stage_total": 9,
+            "cumulative_total_after_stage": 21
+        },
+        "stage_8": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 21
+        },
+        "stage_9": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 21
+        },
+        "stage_10": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 21
+        }
+    },
+    "van Aert Wout": {
+        "stage_4": {
+            "date": "2025-07-14",
+            "stage_finish_points": 10,
+            "jersey_points": {},
+            "stage_total": 10,
+            "cumulative_total_after_stage": 10
+        },
+        "stage_5": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 10
+        },
+        "stage_6": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 10
+        },
+        "stage_7": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 10
+        },
+        "stage_8": {
+            "date": "2025-07-14",
+            "stage_finish_points": 19,
+            "jersey_points": {},
+            "stage_total": 19,
+            "cumulative_total_after_stage": 29
+        },
+        "stage_9": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 29
+        },
+        "stage_10": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 29
+        }
+    },
+    "Baudin Alex": {
+        "stage_4": {
+            "date": "2025-07-14",
+            "stage_finish_points": 8,
+            "jersey_points": {},
+            "stage_total": 8,
+            "cumulative_total_after_stage": 8
+        },
+        "stage_5": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 8
+        },
+        "stage_6": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 8
+        },
+        "stage_7": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 8
+        },
+        "stage_8": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 8
+        },
+        "stage_9": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 8
+        },
+        "stage_10": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 8
+        }
+    },
+    "Narváez Jhonatan": {
+        "stage_4": {
+            "date": "2025-07-14",
+            "stage_finish_points": 7,
+            "jersey_points": {},
+            "stage_total": 7,
+            "cumulative_total_after_stage": 7
+        },
+        "stage_5": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 7
+        },
+        "stage_6": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 7
+        },
+        "stage_7": {
+            "date": "2025-07-14",
+            "stage_finish_points": 13,
+            "jersey_points": {},
+            "stage_total": 13,
+            "cumulative_total_after_stage": 20
+        },
+        "stage_8": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 20
+        },
+        "stage_9": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 20
+        },
+        "stage_10": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 20
+        }
+    },
+    "Johannessen Tobias Halland": {
+        "stage_4": {
+            "date": "2025-07-14",
+            "stage_finish_points": 6,
+            "jersey_points": {},
+            "stage_total": 6,
+            "cumulative_total_after_stage": 6
+        },
+        "stage_5": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 6
+        },
+        "stage_6": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 6
+        },
+        "stage_7": {
+            "date": "2025-07-14",
+            "stage_finish_points": 11,
+            "jersey_points": {},
+            "stage_total": 11,
+            "cumulative_total_after_stage": 17
+        },
+        "stage_8": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 17
+        },
+        "stage_9": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 17
+        },
+        "stage_10": {
+            "date": "2025-07-14",
+            "stage_finish_points": 6,
+            "jersey_points": {},
+            "stage_total": 6,
+            "cumulative_total_after_stage": 23
+        }
+    },
+    "Benoot Tiesj": {
+        "stage_4": {
+            "date": "2025-07-14",
+            "stage_finish_points": 5,
+            "jersey_points": {},
+            "stage_total": 5,
+            "cumulative_total_after_stage": 5
+        },
+        "stage_5": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 5
+        },
+        "stage_6": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 5
+        },
+        "stage_7": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 5
+        },
+        "stage_8": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 5
+        },
+        "stage_9": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 5
+        },
+        "stage_10": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 5
+        }
+    },
+    "Roglič Primož": {
+        "stage_4": {
+            "date": "2025-07-14",
+            "stage_finish_points": 3,
+            "jersey_points": {},
+            "stage_total": 3,
+            "cumulative_total_after_stage": 3
+        },
+        "stage_5": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 3
+        },
+        "stage_6": {
+            "date": "2025-07-14",
+            "stage_finish_points": 2,
+            "jersey_points": {},
+            "stage_total": 2,
+            "cumulative_total_after_stage": 5
+        },
+        "stage_7": {
+            "date": "2025-07-14",
+            "stage_finish_points": 5,
+            "jersey_points": {},
+            "stage_total": 5,
+            "cumulative_total_after_stage": 10
+        },
+        "stage_8": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 10
+        },
+        "stage_9": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 10
+        },
+        "stage_10": {
+            "date": "2025-07-14",
+            "stage_finish_points": 5,
+            "jersey_points": {},
+            "stage_total": 5,
+            "cumulative_total_after_stage": 15
+        }
+    },
+    "Lutsenko Alexey": {
+        "stage_4": {
+            "date": "2025-07-14",
+            "stage_finish_points": 2,
+            "jersey_points": {},
+            "stage_total": 2,
+            "cumulative_total_after_stage": 2
+        },
+        "stage_5": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 2
+        },
+        "stage_6": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 2
+        },
+        "stage_7": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 2
+        },
+        "stage_8": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 2
+        },
+        "stage_9": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 2
+        },
+        "stage_10": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 2
+        }
+    },
+    "Milan Jonathan": {
+        "stage_4": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {
+                "green": 5
+            },
+            "stage_total": 5,
+            "cumulative_total_after_stage": 5
+        },
+        "stage_5": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 5
+        },
+        "stage_6": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {
+                "green": 5
+            },
+            "stage_total": 5,
+            "cumulative_total_after_stage": 10
+        },
+        "stage_7": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 10
+        },
+        "stage_8": {
+            "date": "2025-07-14",
+            "stage_finish_points": 25,
+            "jersey_points": {
+                "green": 5
+            },
+            "stage_total": 30,
+            "cumulative_total_after_stage": 40
+        },
+        "stage_9": {
+            "date": "2025-07-14",
+            "stage_finish_points": 19,
+            "jersey_points": {
+                "green": 5
+            },
+            "stage_total": 24,
+            "cumulative_total_after_stage": 64
+        },
+        "stage_10": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {
+                "green": 5
+            },
+            "stage_total": 5,
+            "cumulative_total_after_stage": 69
+        }
+    },
+    "Healy Ben": {
+        "stage_6": {
+            "date": "2025-07-14",
+            "stage_finish_points": 25,
+            "jersey_points": {},
+            "stage_total": 25,
+            "cumulative_total_after_stage": 25
+        },
+        "stage_7": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 25
+        },
+        "stage_8": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 25
+        },
+        "stage_9": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 25
+        },
+        "stage_10": {
+            "date": "2025-07-14",
+            "stage_finish_points": 18,
+            "jersey_points": {
+                "yellow": 20,
+                "white": 5
+            },
+            "stage_total": 43,
+            "cumulative_total_after_stage": 68
+        }
+    },
+    "Simmons Quinn": {
+        "stage_6": {
+            "date": "2025-07-14",
+            "stage_finish_points": 19,
+            "jersey_points": {},
+            "stage_total": 19,
+            "cumulative_total_after_stage": 19
+        },
+        "stage_7": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 19
+        },
+        "stage_8": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 19
+        },
+        "stage_9": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 19
+        },
+        "stage_10": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 19
+        }
+    },
+    "Storer Michael": {
+        "stage_6": {
+            "date": "2025-07-14",
+            "stage_finish_points": 18,
+            "jersey_points": {},
+            "stage_total": 18,
+            "cumulative_total_after_stage": 18
+        },
+        "stage_7": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 18
+        },
+        "stage_8": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 18
+        },
+        "stage_9": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 18
+        },
+        "stage_10": {
+            "date": "2025-07-14",
+            "stage_finish_points": 16,
+            "jersey_points": {},
+            "stage_total": 16,
+            "cumulative_total_after_stage": 34
+        }
+    },
+    "Dunbar Eddie": {
+        "stage_6": {
+            "date": "2025-07-14",
             "stage_finish_points": 17,
             "jersey_points": {},
             "stage_total": 17,
+            "cumulative_total_after_stage": 17
+        },
+        "stage_7": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 17
+        },
+        "stage_8": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 17
+        },
+        "stage_9": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 17
+        },
+        "stage_10": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 17
+        }
+    },
+    "Yates Simon": {
+        "stage_6": {
+            "date": "2025-07-14",
+            "stage_finish_points": 16,
+            "jersey_points": {},
+            "stage_total": 16,
+            "cumulative_total_after_stage": 16
+        },
+        "stage_7": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 16
+        },
+        "stage_8": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 16
+        },
+        "stage_9": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 16
+        },
+        "stage_10": {
+            "date": "2025-07-14",
+            "stage_finish_points": 25,
+            "jersey_points": {},
+            "stage_total": 25,
             "cumulative_total_after_stage": 41
         }
     },
-    "Santiago Buitrago": {
-        "stage_1": {
-            "date": "2025-07-09",
+    "Barta Will": {
+        "stage_6": {
+            "date": "2025-07-14",
+            "stage_finish_points": 15,
+            "jersey_points": {},
+            "stage_total": 15,
+            "cumulative_total_after_stage": 15
+        },
+        "stage_7": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 15
+        },
+        "stage_8": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 15
+        },
+        "stage_9": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 15
+        },
+        "stage_10": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 15
+        }
+    },
+    "Tejada Harold": {
+        "stage_6": {
+            "date": "2025-07-14",
+            "stage_finish_points": 14,
+            "jersey_points": {},
+            "stage_total": 14,
+            "cumulative_total_after_stage": 14
+        },
+        "stage_7": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 14
+        },
+        "stage_8": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 14
+        },
+        "stage_9": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 14
+        },
+        "stage_10": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 14
+        }
+    },
+    "Lipowitz Florian": {
+        "stage_6": {
+            "date": "2025-07-14",
+            "stage_finish_points": 6,
+            "jersey_points": {},
+            "stage_total": 6,
+            "cumulative_total_after_stage": 6
+        },
+        "stage_7": {
+            "date": "2025-07-14",
+            "stage_finish_points": 7,
+            "jersey_points": {},
+            "stage_total": 7,
+            "cumulative_total_after_stage": 13
+        },
+        "stage_8": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 13
+        },
+        "stage_9": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 13
+        },
+        "stage_10": {
+            "date": "2025-07-14",
+            "stage_finish_points": 10,
+            "jersey_points": {},
+            "stage_total": 10,
+            "cumulative_total_after_stage": 23
+        }
+    },
+    "Gall Felix": {
+        "stage_6": {
+            "date": "2025-07-14",
+            "stage_finish_points": 5,
+            "jersey_points": {},
+            "stage_total": 5,
+            "cumulative_total_after_stage": 5
+        },
+        "stage_7": {
+            "date": "2025-07-14",
+            "stage_finish_points": 17,
+            "jersey_points": {},
+            "stage_total": 17,
+            "cumulative_total_after_stage": 22
+        },
+        "stage_8": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 22
+        },
+        "stage_9": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 22
+        },
+        "stage_10": {
+            "date": "2025-07-14",
+            "stage_finish_points": 4,
+            "jersey_points": {},
+            "stage_total": 4,
+            "cumulative_total_after_stage": 26
+        }
+    },
+    "Jegat Jordan": {
+        "stage_6": {
+            "date": "2025-07-14",
+            "stage_finish_points": 1,
+            "jersey_points": {},
+            "stage_total": 1,
+            "cumulative_total_after_stage": 1
+        },
+        "stage_7": {
+            "date": "2025-07-14",
+            "stage_finish_points": 10,
+            "jersey_points": {},
+            "stage_total": 10,
+            "cumulative_total_after_stage": 11
+        },
+        "stage_8": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 11
+        },
+        "stage_9": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 11
+        },
+        "stage_10": {
+            "date": "2025-07-14",
+            "stage_finish_points": 2,
+            "jersey_points": {},
+            "stage_total": 2,
+            "cumulative_total_after_stage": 13
+        }
+    },
+    "Wellens Tim": {
+        "stage_6": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {
+                "polka_dot": 5
+            },
+            "stage_total": 5,
+            "cumulative_total_after_stage": 5
+        },
+        "stage_7": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {
+                "polka_dot": 5
+            },
+            "stage_total": 5,
+            "cumulative_total_after_stage": 10
+        },
+        "stage_8": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {
+                "polka_dot": 5
+            },
+            "stage_total": 5,
+            "cumulative_total_after_stage": 15
+        },
+        "stage_9": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {
+                "polka_dot": 5
+            },
+            "stage_total": 5,
+            "cumulative_total_after_stage": 20
+        },
+        "stage_10": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 20
+        }
+    },
+    "Laurance Axel": {
+        "stage_7": {
+            "date": "2025-07-14",
+            "stage_finish_points": 12,
+            "jersey_points": {},
+            "stage_total": 12,
+            "cumulative_total_after_stage": 12
+        },
+        "stage_8": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 12
+        },
+        "stage_9": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 12
+        },
+        "stage_10": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 12
+        }
+    },
+    "Rodríguez Carlos": {
+        "stage_7": {
+            "date": "2025-07-14",
+            "stage_finish_points": 6,
+            "jersey_points": {},
+            "stage_total": 6,
+            "cumulative_total_after_stage": 6
+        },
+        "stage_8": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 6
+        },
+        "stage_9": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 6
+        },
+        "stage_10": {
+            "date": "2025-07-14",
+            "stage_finish_points": 3,
+            "jersey_points": {},
+            "stage_total": 3,
+            "cumulative_total_after_stage": 9
+        }
+    },
+    "Rodríguez Cristián": {
+        "stage_7": {
+            "date": "2025-07-14",
+            "stage_finish_points": 4,
+            "jersey_points": {},
+            "stage_total": 4,
+            "cumulative_total_after_stage": 4
+        },
+        "stage_8": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 4
+        },
+        "stage_9": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 4
+        },
+        "stage_10": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 4
+        }
+    },
+    "Meurisse Xandro": {
+        "stage_7": {
+            "date": "2025-07-14",
+            "stage_finish_points": 3,
+            "jersey_points": {},
+            "stage_total": 3,
+            "cumulative_total_after_stage": 3
+        },
+        "stage_8": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 3
+        },
+        "stage_9": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 3
+        },
+        "stage_10": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 3
+        }
+    },
+    "Higuita Sergio": {
+        "stage_7": {
+            "date": "2025-07-14",
+            "stage_finish_points": 1,
+            "jersey_points": {},
+            "stage_total": 1,
+            "cumulative_total_after_stage": 1
+        },
+        "stage_8": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 1
+        },
+        "stage_9": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 1
+        },
+        "stage_10": {
+            "date": "2025-07-14",
+            "stage_finish_points": 1,
+            "jersey_points": {},
+            "stage_total": 1,
+            "cumulative_total_after_stage": 2
+        }
+    },
+    "Groves Kaden": {
+        "stage_8": {
+            "date": "2025-07-14",
+            "stage_finish_points": 18,
+            "jersey_points": {},
+            "stage_total": 18,
+            "cumulative_total_after_stage": 18
+        },
+        "stage_9": {
+            "date": "2025-07-14",
+            "stage_finish_points": 11,
+            "jersey_points": {},
+            "stage_total": 11,
+            "cumulative_total_after_stage": 29
+        },
+        "stage_10": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 29
+        }
+    },
+    "Ackermann Pascal": {
+        "stage_8": {
+            "date": "2025-07-14",
+            "stage_finish_points": 17,
+            "jersey_points": {},
+            "stage_total": 17,
+            "cumulative_total_after_stage": 17
+        },
+        "stage_9": {
+            "date": "2025-07-14",
+            "stage_finish_points": 9,
+            "jersey_points": {},
+            "stage_total": 9,
+            "cumulative_total_after_stage": 26
+        },
+        "stage_10": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 26
+        }
+    },
+    "De Lie Arnaud": {
+        "stage_8": {
+            "date": "2025-07-14",
+            "stage_finish_points": 16,
+            "jersey_points": {},
+            "stage_total": 16,
+            "cumulative_total_after_stage": 16
+        },
+        "stage_9": {
+            "date": "2025-07-14",
+            "stage_finish_points": 18,
+            "jersey_points": {},
+            "stage_total": 18,
+            "cumulative_total_after_stage": 34
+        },
+        "stage_10": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 34
+        }
+    },
+    "Andresen Tobias Lund": {
+        "stage_8": {
+            "date": "2025-07-14",
+            "stage_finish_points": 15,
+            "jersey_points": {},
+            "stage_total": 15,
+            "cumulative_total_after_stage": 15
+        },
+        "stage_9": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 15
+        },
+        "stage_10": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 15
+        }
+    },
+    "Coquard Bryan": {
+        "stage_8": {
+            "date": "2025-07-14",
+            "stage_finish_points": 14,
+            "jersey_points": {},
+            "stage_total": 14,
+            "cumulative_total_after_stage": 14
+        },
+        "stage_9": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 14
+        },
+        "stage_10": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 14
+        }
+    },
+    "Dainese Alberto": {
+        "stage_8": {
+            "date": "2025-07-14",
+            "stage_finish_points": 13,
+            "jersey_points": {},
+            "stage_total": 13,
+            "cumulative_total_after_stage": 13
+        },
+        "stage_9": {
+            "date": "2025-07-14",
+            "stage_finish_points": 5,
+            "jersey_points": {},
+            "stage_total": 5,
+            "cumulative_total_after_stage": 18
+        },
+        "stage_10": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 18
+        }
+    },
+    "Albanese Vincenzo": {
+        "stage_8": {
+            "date": "2025-07-14",
+            "stage_finish_points": 12,
+            "jersey_points": {},
+            "stage_total": 12,
+            "cumulative_total_after_stage": 12
+        },
+        "stage_9": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 12
+        },
+        "stage_10": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 12
+        }
+    },
+    "Fredheim Stian": {
+        "stage_8": {
+            "date": "2025-07-14",
+            "stage_finish_points": 11,
+            "jersey_points": {},
+            "stage_total": 11,
+            "cumulative_total_after_stage": 11
+        },
+        "stage_9": {
+            "date": "2025-07-14",
+            "stage_finish_points": 12,
+            "jersey_points": {},
+            "stage_total": 12,
+            "cumulative_total_after_stage": 23
+        },
+        "stage_10": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 23
+        }
+    },
+    "van Poppel Danny": {
+        "stage_8": {
+            "date": "2025-07-14",
+            "stage_finish_points": 10,
+            "jersey_points": {},
+            "stage_total": 10,
+            "cumulative_total_after_stage": 10
+        },
+        "stage_9": {
+            "date": "2025-07-14",
+            "stage_finish_points": 2,
+            "jersey_points": {},
+            "stage_total": 2,
+            "cumulative_total_after_stage": 12
+        },
+        "stage_10": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 12
+        }
+    },
+    "Bauhaus Phil": {
+        "stage_8": {
+            "date": "2025-07-14",
+            "stage_finish_points": 9,
+            "jersey_points": {},
+            "stage_total": 9,
+            "cumulative_total_after_stage": 9
+        },
+        "stage_9": {
+            "date": "2025-07-14",
+            "stage_finish_points": 14,
+            "jersey_points": {},
+            "stage_total": 14,
+            "cumulative_total_after_stage": 23
+        },
+        "stage_10": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 23
+        }
+    },
+    "Askey Lewis": {
+        "stage_8": {
+            "date": "2025-07-14",
+            "stage_finish_points": 8,
+            "jersey_points": {},
+            "stage_total": 8,
+            "cumulative_total_after_stage": 8
+        },
+        "stage_9": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 8
+        },
+        "stage_10": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 8
+        }
+    },
+    "Tronchon Bastien": {
+        "stage_8": {
+            "date": "2025-07-14",
+            "stage_finish_points": 7,
+            "jersey_points": {},
+            "stage_total": 7,
+            "cumulative_total_after_stage": 7
+        },
+        "stage_9": {
+            "date": "2025-07-14",
+            "stage_finish_points": 4,
+            "jersey_points": {},
+            "stage_total": 4,
+            "cumulative_total_after_stage": 11
+        },
+        "stage_10": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 11
+        }
+    },
+    "Watson Samuel": {
+        "stage_8": {
+            "date": "2025-07-14",
+            "stage_finish_points": 6,
+            "jersey_points": {},
+            "stage_total": 6,
+            "cumulative_total_after_stage": 6
+        },
+        "stage_9": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 6
+        },
+        "stage_10": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 6
+        }
+    },
+    "Groenewegen Dylan": {
+        "stage_8": {
+            "date": "2025-07-14",
+            "stage_finish_points": 5,
+            "jersey_points": {},
+            "stage_total": 5,
+            "cumulative_total_after_stage": 5
+        },
+        "stage_9": {
+            "date": "2025-07-14",
+            "stage_finish_points": 6,
+            "jersey_points": {},
+            "stage_total": 6,
+            "cumulative_total_after_stage": 11
+        },
+        "stage_10": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 11
+        }
+    },
+    "Turgis Anthony": {
+        "stage_8": {
+            "date": "2025-07-14",
+            "stage_finish_points": 4,
+            "jersey_points": {},
+            "stage_total": 4,
+            "cumulative_total_after_stage": 4
+        },
+        "stage_9": {
+            "date": "2025-07-14",
+            "stage_finish_points": 7,
+            "jersey_points": {},
+            "stage_total": 7,
+            "cumulative_total_after_stage": 11
+        },
+        "stage_10": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 11
+        }
+    },
+    "Bol Cees": {
+        "stage_8": {
+            "date": "2025-07-14",
+            "stage_finish_points": 3,
+            "jersey_points": {},
+            "stage_total": 3,
+            "cumulative_total_after_stage": 3
+        },
+        "stage_9": {
+            "date": "2025-07-14",
+            "stage_finish_points": 1,
+            "jersey_points": {},
+            "stage_total": 1,
+            "cumulative_total_after_stage": 4
+        },
+        "stage_10": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 4
+        }
+    },
+    "Girmay Biniam": {
+        "stage_8": {
+            "date": "2025-07-14",
+            "stage_finish_points": 2,
+            "jersey_points": {},
+            "stage_total": 2,
+            "cumulative_total_after_stage": 2
+        },
+        "stage_9": {
+            "date": "2025-07-14",
+            "stage_finish_points": 15,
+            "jersey_points": {},
+            "stage_total": 15,
+            "cumulative_total_after_stage": 17
+        },
+        "stage_10": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 17
+        }
+    },
+    "Démare Arnaud": {
+        "stage_8": {
+            "date": "2025-07-14",
+            "stage_finish_points": 1,
+            "jersey_points": {},
+            "stage_total": 1,
+            "cumulative_total_after_stage": 1
+        },
+        "stage_9": {
+            "date": "2025-07-14",
+            "stage_finish_points": 8,
+            "jersey_points": {},
+            "stage_total": 8,
+            "cumulative_total_after_stage": 9
+        },
+        "stage_10": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 9
+        }
+    },
+    "Merlier Tim": {
+        "stage_9": {
+            "date": "2025-07-14",
+            "stage_finish_points": 25,
+            "jersey_points": {},
+            "stage_total": 25,
+            "cumulative_total_after_stage": 25
+        },
+        "stage_10": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 25
+        }
+    },
+    "Bittner Pavel": {
+        "stage_9": {
+            "date": "2025-07-14",
+            "stage_finish_points": 17,
+            "jersey_points": {},
+            "stage_total": 17,
+            "cumulative_total_after_stage": 17
+        },
+        "stage_10": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 17
+        }
+    },
+    "Penhoët Paul": {
+        "stage_9": {
+            "date": "2025-07-14",
+            "stage_finish_points": 16,
+            "jersey_points": {},
+            "stage_total": 16,
+            "cumulative_total_after_stage": 16
+        },
+        "stage_10": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 16
+        }
+    },
+    "Meeus Jordi": {
+        "stage_9": {
+            "date": "2025-07-14",
+            "stage_finish_points": 13,
+            "jersey_points": {},
+            "stage_total": 13,
+            "cumulative_total_after_stage": 13
+        },
+        "stage_10": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 13
+        }
+    },
+    "Renard Alexis": {
+        "stage_9": {
+            "date": "2025-07-14",
+            "stage_finish_points": 10,
+            "jersey_points": {},
+            "stage_total": 10,
+            "cumulative_total_after_stage": 10
+        },
+        "stage_10": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 10
+        }
+    },
+    "Trentin Matteo": {
+        "stage_9": {
+            "date": "2025-07-14",
+            "stage_finish_points": 3,
+            "jersey_points": {},
+            "stage_total": 3,
+            "cumulative_total_after_stage": 3
+        },
+        "stage_10": {
+            "date": "2025-07-14",
+            "stage_finish_points": 0,
+            "jersey_points": {},
+            "stage_total": 0,
+            "cumulative_total_after_stage": 3
+        }
+    },
+    "Arensman Thymen": {
+        "stage_10": {
+            "date": "2025-07-14",
+            "stage_finish_points": 19,
+            "jersey_points": {},
+            "stage_total": 19,
+            "cumulative_total_after_stage": 19
+        }
+    },
+    "O'Connor Ben": {
+        "stage_10": {
+            "date": "2025-07-14",
+            "stage_finish_points": 17,
+            "jersey_points": {},
+            "stage_total": 17,
+            "cumulative_total_after_stage": 17
+        }
+    },
+    "Blackmore Joseph": {
+        "stage_10": {
+            "date": "2025-07-14",
+            "stage_finish_points": 15,
+            "jersey_points": {},
+            "stage_total": 15,
+            "cumulative_total_after_stage": 15
+        }
+    },
+    "Johannessen Anders Halland": {
+        "stage_10": {
+            "date": "2025-07-14",
+            "stage_finish_points": 14,
+            "jersey_points": {},
+            "stage_total": 14,
+            "cumulative_total_after_stage": 14
+        }
+    },
+    "Martinez Lenny": {
+        "stage_10": {
+            "date": "2025-07-14",
             "stage_finish_points": 13,
             "jersey_points": {
                 "polka_dot": 5
             },
             "stage_total": 18,
             "cumulative_total_after_stage": 18
-        },
-        "stage_2": {
-            "date": "2025-07-09",
-            "stage_finish_points": 11,
-            "jersey_points": {},
-            "stage_total": 11,
-            "cumulative_total_after_stage": 29
-        },
-        "stage_3": {
-            "date": "2025-07-09",
-            "stage_finish_points": 12,
-            "jersey_points": {
-                "polka_dot": 5,
-                "white": 5
-            },
-            "stage_total": 22,
-            "cumulative_total_after_stage": 51
-        }
-    },
-    "Ben O'Connor": {
-        "stage_1": {
-            "date": "2025-07-09",
-            "stage_finish_points": 12,
-            "jersey_points": {},
-            "stage_total": 12,
-            "cumulative_total_after_stage": 12
-        },
-        "stage_2": {
-            "date": "2025-07-09",
-            "stage_finish_points": 16,
-            "jersey_points": {},
-            "stage_total": 16,
-            "cumulative_total_after_stage": 28
-        },
-        "stage_3": {
-            "date": "2025-07-09",
-            "stage_finish_points": 16,
-            "jersey_points": {},
-            "stage_total": 16,
-            "cumulative_total_after_stage": 44
-        }
-    },
-    "João Almeida": {
-        "stage_1": {
-            "date": "2025-07-09",
-            "stage_finish_points": 11,
-            "jersey_points": {},
-            "stage_total": 11,
-            "cumulative_total_after_stage": 11
-        },
-        "stage_2": {
-            "date": "2025-07-09",
-            "stage_finish_points": 18,
-            "jersey_points": {},
-            "stage_total": 18,
-            "cumulative_total_after_stage": 29
-        },
-        "stage_3": {
-            "date": "2025-07-09",
-            "stage_finish_points": 13,
-            "jersey_points": {},
-            "stage_total": 13,
-            "cumulative_total_after_stage": 42
-        }
-    },
-    "Carlos Rodríguez": {
-        "stage_1": {
-            "date": "2025-07-09",
-            "stage_finish_points": 10,
-            "jersey_points": {},
-            "stage_total": 10,
-            "cumulative_total_after_stage": 10
-        },
-        "stage_2": {
-            "date": "2025-07-09",
-            "stage_finish_points": 13,
-            "jersey_points": {},
-            "stage_total": 13,
-            "cumulative_total_after_stage": 23
-        },
-        "stage_3": {
-            "date": "2025-07-09",
-            "stage_finish_points": 9,
-            "jersey_points": {},
-            "stage_total": 9,
-            "cumulative_total_after_stage": 32
-        }
-    },
-    "Jonas Vingegaard": {
-        "stage_1": {
-            "date": "2025-07-09",
-            "stage_finish_points": 9,
-            "jersey_points": {
-                "yellow": 20
-            },
-            "stage_total": 29,
-            "cumulative_total_after_stage": 29
-        },
-        "stage_2": {
-            "date": "2025-07-09",
-            "stage_finish_points": 9,
-            "jersey_points": {
-                "yellow": 20,
-                "polka_dot": 5
-            },
-            "stage_total": 34,
-            "cumulative_total_after_stage": 63
-        },
-        "stage_3": {
-            "date": "2025-07-09",
-            "stage_finish_points": 15,
-            "jersey_points": {
-                "yellow": 20
-            },
-            "stage_total": 35,
-            "cumulative_total_after_stage": 98
         }
     }
 }

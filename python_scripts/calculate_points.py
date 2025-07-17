@@ -14,9 +14,13 @@ SCORING_RULES = {
 }
 
 DATA_DIR = 'data'
-SIMULATED_DATA_DIR = os.path.join(DATA_DIR, 'simulated_stages')
+# New: Directory where scraped real stage results (stage_N.json) are directly stored
+SCRAPED_STAGES_DATA_DIR = os.path.join(DATA_DIR, 'stage_results')
+# Although not used for file paths here, TDF_YEAR is still relevant for context
+# and might be used in other scripts (e.g., the scraper itself).
+TDF_YEAR = 2025 # <<< IMPORTANT: Set the Tour de France year here if it changes!
 
-# New output file paths
+# Output file paths remain the same
 RIDER_CUMULATIVE_POINTS_FILE = os.path.join(DATA_DIR, 'rider_cumulative_points.json')
 PARTICIPANT_CUMULATIVE_POINTS_FILE = os.path.join(DATA_DIR, 'participant_cumulative_points.json') # This is the cumulative leaderboard
 
@@ -50,17 +54,21 @@ def clear_json_file(filepath, default_value_type=dict):
         else:
             json.dump([], f)
 
-def load_simulated_stage_data(stage_number, simulated_data_dir):
-    filepath = os.path.join(simulated_data_dir, f'stage_{stage_number}_data.json')
+# Modified: Load scraped stage data (no 'year' in path)
+def load_scraped_stage_data(stage_number, scraped_stages_data_dir):
+    # Construct the path for the real scraped data file directly in the specified directory
+    filepath = os.path.join(scraped_stages_data_dir, f'stage_{stage_number}.json')
     if not os.path.exists(filepath):
-        raise FileNotFoundError(f"Simulated data for Stage {stage_number} not found at: {filepath}.")
+        raise FileNotFoundError(f"Scraped data for Stage {stage_number} not found at: {filepath}.")
     return load_json_data(filepath)
 
-def find_available_stages(simulated_data_dir):
+# Modified: Find available scraped stages (no 'year' in path scanning)
+def find_available_scraped_stages(scraped_stages_data_dir):
     stage_numbers = []
-    if os.path.exists(simulated_data_dir):
-        for filename in os.listdir(simulated_data_dir):
-            match = re.match(r'stage_(\d+)_data\.json', filename)
+    if os.path.exists(scraped_stages_data_dir):
+        for filename in os.listdir(scraped_stages_data_dir):
+            # Regex to match 'stage_N.json'
+            match = re.match(r'stage_(\d+)\.json', filename)
             if match:
                 stage_numbers.append(int(match.group(1)))
     return sorted(set(stage_numbers))
@@ -86,11 +94,13 @@ def calculate_rider_stage_points_breakdown(stage_results, gc_standings, jersey_h
         rider_stage_data[rider]["stage_total"] += points
 
     # Calculate jersey points (detailed)
-    if gc_standings:
+    # gc_standings is typically just the leader from the scraped data for daily points
+    if gc_standings and gc_standings[0]: # Ensure it's not empty and has a rider
         gc_leader = gc_standings[0]['rider_name']
         points = scoring_rules["yellow_jersey"]
-        rider_stage_data[gc_leader]["jersey_points"]["yellow"] = points
-        rider_stage_data[gc_leader]["stage_total"] += points
+        if gc_leader and gc_leader != 'N/A':
+            rider_stage_data[gc_leader]["jersey_points"]["yellow"] = points
+            rider_stage_data[gc_leader]["stage_total"] += points
 
     for jersey_type, holder_name in jersey_holders.items():
         points = scoring_rules.get(f"{jersey_type}_jersey", 0)
@@ -264,42 +274,59 @@ if __name__ == "__main__":
     try:
         PARTICIPANT_SELECTIONS = load_json_data(PARTICIPANT_SELECTIONS_FILE)
         if not PARTICIPANT_SELECTIONS:
-            print(f"Error: {PARTICIPANT_SELECTIONS_FILE} is empty or invalid. Please run simulate_selections.py first.")
+            print(f"Error: {PARTICIPANT_SELECTIONS_FILE} is empty or invalid. Please ensure participant selections are set up.")
             exit()
         print(f"Loaded {len(PARTICIPANT_SELECTIONS)} participant selections.")
     except FileNotFoundError:
-        print(f"Error: {PARTICIPANT_SELECTIONS_FILE} not found. Please run simulate_selections.py first.")
+        print(f"Error: {PARTICIPANT_SELECTIONS_FILE} not found. Please ensure participant selections are set up.")
         exit()
 
-    available_stage_numbers = find_available_stages(SIMULATED_DATA_DIR)
+    # Changed to find available scraped stages directly in SCRAPED_STAGES_DATA_DIR
+    available_stage_numbers = find_available_scraped_stages(SCRAPED_STAGES_DATA_DIR)
     if not available_stage_numbers:
-        print(f"No simulated stage data found in {SIMULATED_DATA_DIR}.")
+        print(f"No scraped stage data found in {SCRAPED_STAGES_DATA_DIR}. Please run the scraping script first.")
         exit()
-    print(f"Found {len(available_stage_numbers)} stages: {available_stage_numbers}")
+    print(f"Found {len(available_stage_numbers)} scraped stages: {available_stage_numbers}")
 
     # Initialize history structures (loaded and updated iteratively)
-    # The 'detailed_rider_history' and 'detailed_participant_history' will be the primary data structures updated in memory
-    # and then saved. 'cumulative_rider_points' and 'participant_cumulative_leaderboard' will be derived/updated from these.
-    
-    # Load existing history files if they exist (for incremental updates, though currently cleared at start)
-    # When cleared at start, these will be empty dicts, which is fine for full recalculation.
-    # For actual incremental runs, you'd load the full history here.
     detailed_rider_history_in_memory = load_json_data(RIDER_STAGE_POINTS_HISTORY_FILE, default_value={})
     detailed_participant_history_in_memory = load_json_data(PARTICIPANT_STAGE_POINTS_HISTORY_FILE, default_value={})
     previous_cumulative_leaderboard = load_json_data(PARTICIPANT_CUMULATIVE_POINTS_FILE, default_value=[]) # Needed for rank change and cumulative scores for participants
 
     for stage_num in available_stage_numbers:
-        current_date = datetime.now().strftime("%Y-%m-%d") # Or derive from stage data if available
+        # Use current date for history entry or extract from stage data if available
+        current_date = datetime.now().strftime("%Y-%m-%d") 
         print(f"\n--- Processing Stage {stage_num} ({current_date}) ---")
 
         try:
-            full_stage_data = load_simulated_stage_data(stage_num, SIMULATED_DATA_DIR)
-            stage_results = full_stage_data.get('stage_results', [])
-            gc_standings = full_stage_data.get('gc_standings', [])
-            jersey_holders = full_stage_data.get('jersey_holders', {})
-            print(f"Loaded simulated data for Stage {stage_num}.")
+            # Changed to load scraped data directly from SCRAPED_STAGES_DATA_DIR
+            full_stage_data = load_scraped_stage_data(stage_num, SCRAPED_STAGES_DATA_DIR)
+            
+            # The structure of `full_stage_data` from your scraper is different from simulated data.
+            # We map these to what `calculate_rider_stage_points_breakdown` expects.
+            
+            stage_results = full_stage_data.get('top_20_finishers', []) # Use 'top_20_finishers' for results
+            
+            # Extract jersey holders from the 'top_X_rider' fields
+            jersey_holders = {}
+            if full_stage_data.get('top_gc_rider') and full_stage_data['top_gc_rider'].get('rider_name'):
+                jersey_holders['yellow'] = full_stage_data['top_gc_rider'].get('rider_name')
+            if full_stage_data.get('top_points_rider') and full_stage_data['top_points_rider'].get('rider_name'):
+                jersey_holders['green'] = full_stage_data['top_points_rider'].get('rider_name')
+            if full_stage_data.get('top_kom_rider') and full_stage_data['top_kom_rider'].get('rider_name'):
+                jersey_holders['polka_dot'] = full_stage_data['top_kom_rider'].get('rider_name')
+            if full_stage_data.get('top_youth_rider') and full_stage_data['top_youth_rider'].get('rider_name'):
+                jersey_holders['white'] = full_stage_data['top_youth_rider'].get('rider_name')
+
+            # GC standings for daily points calculation is typically just the leader
+            gc_standings = [full_stage_data['top_gc_rider']] if full_stage_data.get('top_gc_rider') else []
+
+            print(f"Loaded scraped data for Stage {stage_num}.")
         except FileNotFoundError as e:
             print(f"Error loading data for Stage {stage_num}: {e}. Skipping.")
+            continue
+        except KeyError as e:
+            print(f"Error accessing expected data fields for Stage {stage_num} from scraped data: {e}. Skipping. Data structure might be incomplete.")
             continue
 
         # --- Rider Calculations ---
@@ -364,18 +391,27 @@ if __name__ == "__main__":
             shutil.copy(f_path, WEB_DATA_DIR)
             print(f"Copied {os.path.basename(f_path)}")
         
-        src_sim_stages_dir = SIMULATED_DATA_DIR
+        # New: Copy the real scraped stages directory to the web output
+        src_real_stages_dir = SCRAPED_STAGES_DATA_DIR
+        dest_real_stages_dir = os.path.join(WEB_DATA_DIR, 'stage_results') # Copy directly to stage_results in web output
+
+        if os.path.exists(dest_real_stages_dir):
+            shutil.rmtree(dest_real_stages_dir)
+            print(f"Removed existing '{dest_real_stages_dir}'")
+        if os.path.exists(src_real_stages_dir):
+            shutil.copytree(src_real_stages_dir, dest_real_stages_dir)
+            print(f"Copied real stages directory.")
+        else:
+            print(f"Warning: Source real stages directory '{src_real_stages_dir}' does not exist. Skipping copy.")
+        
+        # Remove simulated stages directory from web output if it exists
         dest_sim_stages_dir = os.path.join(WEB_DATA_DIR, 'simulated_stages')
         if os.path.exists(dest_sim_stages_dir):
             shutil.rmtree(dest_sim_stages_dir)
-            print(f"Removed existing '{dest_sim_stages_dir}'")
-        if os.path.exists(src_sim_stages_dir):
-            shutil.copytree(src_sim_stages_dir, dest_sim_stages_dir)
-            print(f"Copied simulated stages directory.")
-        else:
-            print(f"Warning: Source simulated stages directory '{src_sim_stages_dir}' does not exist. Skipping copy.")
+            print(f"Removed old simulated stages directory from web output.")
+
     except Exception as e:
         print(f"Error copying files to web directory: {e}")
 
-    print("\nTo run again for new stages, ensure the simulation script has generated their data.")
+    print("\nTo run again for new stages, ensure the scraping script has generated their data.")
     print(f"Remember to commit and push changes in the '{WEB_OUTPUT_DIR}' folder to update GitHub Pages!")
