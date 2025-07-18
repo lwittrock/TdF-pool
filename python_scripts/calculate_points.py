@@ -167,10 +167,17 @@ def calculate_participant_scores_and_contributions(participant_selections_list, 
     # Load previous cumulative scores to build current cumulative correctly
     previous_scores_map = {entry['participant_name']: entry['total_score'] for entry in previous_cumulative_leaderboard or []}
 
-    # Iterate through the list of participant dictionaries
-    for selection_entry in participant_selections_list:
-        participant_name = selection_entry.get("name") # Get the participant's name from the 'name' field
-        selected_riders = selection_entry.get("main_riders", [])
+    # Instead of using initial selections, load per-stage active roster file
+    roster_file = os.path.join(DATA_DIR, 'selection', f'participant_selection_active_stage_{current_stage_num}.json')
+    if os.path.exists(roster_file):
+        participant_roster_list = load_json_data(roster_file, default_value=[])
+    else:
+        print(f"Warning: Active roster file not found for stage {current_stage_num}: {roster_file}. Using initial selections.")
+        participant_roster_list = participant_selections_list
+
+    for selection_entry in participant_roster_list:
+        participant_name = selection_entry.get("name")
+        selected_riders = selection_entry.get("active_riders", [])
 
         if not participant_name:
             print(f"Warning: Participant entry missing 'name' field. Skipping entry: {selection_entry}")
@@ -182,32 +189,26 @@ def calculate_participant_scores_and_contributions(participant_selections_list, 
         for rider in selected_riders:
             rider_stage_data = detailed_rider_history.get(rider, {}).get(f"stage_{current_stage_num}", {})
             rider_stage_total = rider_stage_data.get("stage_total", 0)
-            
             current_stage_contribution_total += rider_stage_total
             current_stage_rider_contributions[rider] = rider_stage_total
-            
+
         participant_stage_scores[participant_name] = current_stage_contribution_total
         participant_rider_contributions[participant_name] = current_stage_rider_contributions
 
-        # Calculate cumulative score
-        # Previous cumulative score + current stage score
         participant_cumulative_scores[participant_name] = previous_scores_map.get(participant_name, 0) + current_stage_contribution_total
-        
 
-    # Create leaderboard for the current cumulative state
     leaderboard = [
         {"participant_name": name, "total_score": score}
         for name, score in participant_cumulative_scores.items()
     ]
     leaderboard_sorted = sorted(leaderboard, key=lambda x: x['total_score'], reverse=True)
 
-    # Calculate rank change
     previous_ranks = {entry['participant_name']: entry['rank'] for entry in previous_cumulative_leaderboard or []}
     for i, entry in enumerate(leaderboard_sorted):
         entry['rank'] = i + 1
         prev_rank = previous_ranks.get(entry['participant_name'])
         entry['rank_change'] = (prev_rank - entry['rank']) if prev_rank is not None else None
-    
+
     return leaderboard_sorted, dict(participant_stage_scores), dict(participant_rider_contributions)
 
 
