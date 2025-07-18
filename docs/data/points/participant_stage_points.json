@@ -1,5 +1,5 @@
 {
-    "Stef De Jong": {
+    "deelnemer 1": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 107,
@@ -171,7 +171,7 @@
             }
         }
     },
-    "Tjitte Mastenbroek": {
+    "deelnemer 2": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 103,
@@ -343,7 +343,7 @@
             }
         }
     },
-    "Johan Zwikstra": {
+    "deelnemer 3": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 43,
@@ -515,7 +515,7 @@
             }
         }
     },
-    "Allard van der Made": {
+    "deelnemer 4": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 100,
@@ -687,7 +687,7 @@
             }
         }
     },
-    "Saskia Bierling": {
+    "deelnemer 5": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 101,
@@ -859,7 +859,7 @@
             }
         }
     },
-    "Rob De Rijke": {
+    "deelnemer 6": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 68,
@@ -1031,7 +1031,7 @@
             }
         }
     },
-    "Dana Broer": {
+    "deelnemer 7": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 60,
@@ -1203,7 +1203,7 @@
             }
         }
     },
-    "Dennis Holtrop": {
+    "deelnemer 8": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 101,
@@ -1375,7 +1375,7 @@
             }
         }
     },
-    "Onno Den Hoed": {
+    "deelnemer 9": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 107,
@@ -1547,7 +1547,7 @@
             }
         }
     },
-    "Sander Zegveld": {
+    "deelnemer 10": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 61,
@@ -1719,7 +1719,7 @@
             }
         }
     },
-    "Tjitske Sorel": {
+    "deelnemer 11": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 70,
@@ -1891,7 +1891,7 @@
             }
         }
     },
-    "Lars Adriaanse": {
+    "deelnemer 12": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 71,
@@ -2063,7 +2063,7 @@
             }
         }
     },
-    "Denise Laurent": {
+    "deelnemer 13": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 101,
@@ -2235,7 +2235,7 @@
             }
         }
     },
-    "Monique Coenraad": {
+    "deelnemer 14": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 107,
@@ -2407,7 +2407,7 @@
             }
         }
     },
-    "Dymphi Blok": {
+    "deelnemer 15": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 109,
@@ -2579,7 +2579,7 @@
             }
         }
     },
-    "Enzio De Geus": {
+    "deelnemer 16": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 112,
@@ -2751,7 +2751,7 @@
             }
         }
     },
-    "Jeannette Vinke": {
+    "deelnemer 17": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 66,
@@ -2923,7 +2923,7 @@
             }
         }
     },
-    "Tim Wessel": {
+    "deelnemer 18": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 69,
@@ -3095,7 +3095,7 @@
             }
         }
     },
-    "Bas van De Lest": {
+    "deelnemer 19": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 94,
@@ -3267,7 +3267,7 @@
             }
         }
     },
-    "Roy Peek": {
+    "deelnemer 20": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 123,
@@ -3439,7 +3439,7 @@
             }
         }
     },
-    "Maarten Klijn": {
+    "deelnemer 21": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 69,
@@ -3611,7 +3611,7 @@
             }
         }
     },
-    "Ruby Dallyn": {
+    "deelnemer 22": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 60,
@@ -3783,7 +3783,7 @@
             }
         }
     },
-    "Hidde van Eijk": {
+    "deelnemer 23": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 83,
@@ -3955,7 +3955,7 @@
             }
         }
     },
-    "Sander van Wesemael": {
+    "deelnemer 24": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 107,
@@ -4127,7 +4127,7 @@
             }
         }
     },
-    "Sanne Jonkheer": {
+    "deelnemer 25": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 97,
@@ -4299,7 +4299,7 @@
             }
         }
     },
-    "Edwin van Houten": {
+    "deelnemer 26": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 100,
@@ -4471,7 +4471,7 @@
             }
         }
     },
-    "Wesley Opgenoort": {
+    "deelnemer 27": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 104,
@@ -4643,7 +4643,7 @@
             }
         }
     },
-    "Youri Bruijne": {
+    "deelnemer 28": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 104,
@@ -4815,7 +4815,7 @@
             }
         }
     },
-    "Elsbeth Schravendeel": {
+    "deelnemer 29": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 110,
@@ -4987,7 +4987,7 @@
             }
         }
     },
-    "Sarah Joppe": {
+    "deelnemer 30": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 61,
@@ -5159,7 +5159,7 @@
             }
         }
     },
-    "Bart De Wit": {
+    "deelnemer 31": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 83,
@@ -5331,7 +5331,7 @@
             }
         }
     },
-    "Bram Bosch": {
+    "deelnemer 32": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 130,
@@ -5503,7 +5503,7 @@
             }
         }
     },
-    "Gerben Fennema": {
+    "deelnemer 33": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 107,
@@ -5675,7 +5675,7 @@
             }
         }
     },
-    "Natasja Brusik": {
+    "deelnemer 34": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 109,
@@ -5847,7 +5847,7 @@
             }
         }
     },
-    "Cosmas Vesseur": {
+    "deelnemer 35": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 40,
@@ -6019,7 +6019,7 @@
             }
         }
     },
-    "Bjorn Reuvers": {
+    "deelnemer 36": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 69,
@@ -6363,7 +6363,7 @@
             }
         }
     },
-    "Jasper Schutte": {
+    "deelnemer 37": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 67,
@@ -6535,7 +6535,7 @@
             }
         }
     },
-    "Robert Hempenius": {
+    "deelnemer 38": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 119,
@@ -6707,7 +6707,7 @@
             }
         }
     },
-    "Judith Eldering": {
+    "deelnemer 39": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 107,
@@ -6879,7 +6879,7 @@
             }
         }
     },
-    "Remco Meihuizen": {
+    "deelnemer 40": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 70,
@@ -7051,7 +7051,7 @@
             }
         }
     },
-    "Nylas Visser": {
+    "deelnemer 41": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 130,
@@ -7223,7 +7223,7 @@
             }
         }
     },
-    "George Rodenhuis": {
+    "deelnemer 42": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 90,
@@ -7395,7 +7395,7 @@
             }
         }
     },
-    "Marielle Von Henning": {
+    "deelnemer 43": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 94,
@@ -7567,7 +7567,7 @@
             }
         }
     },
-    "André van Zadelhoff": {
+    "deelnemer 44": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 112,
@@ -7739,7 +7739,7 @@
             }
         }
     },
-    "Rik Te Riet": {
+    "deelnemer 45": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 60,
@@ -7911,7 +7911,7 @@
             }
         }
     },
-    "Vincent van der Schoot": {
+    "deelnemer 46": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 57,
@@ -8083,7 +8083,7 @@
             }
         }
     },
-    "Rineke Ober": {
+    "deelnemer 47": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 103,
@@ -8255,7 +8255,7 @@
             }
         }
     },
-    "Ramon Scheurwater": {
+    "deelnemer 48": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 70,
@@ -8427,7 +8427,7 @@
             }
         }
     },
-    "Bernd Oldenburg": {
+    "deelnemer 49": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 94,
@@ -8599,7 +8599,7 @@
             }
         }
     },
-    "Frank Stolze": {
+    "deelnemer 50": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 67,
@@ -8771,7 +8771,7 @@
             }
         }
     },
-    "Fleur Severijns": {
+    "deelnemer 51": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 94,
@@ -8943,7 +8943,7 @@
             }
         }
     },
-    "Luc Mahieu": {
+    "deelnemer 52": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 106,
@@ -9115,7 +9115,7 @@
             }
         }
     },
-    "Homan Cheung": {
+    "deelnemer 53": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 89,
@@ -9284,7 +9284,7 @@
             }
         }
     },
-    "Bin Xi": {
+    "deelnemer 54": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 113,
@@ -9456,7 +9456,7 @@
             }
         }
     },
-    "Eelco Meulman": {
+    "deelnemer 55": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 101,
@@ -9628,7 +9628,7 @@
             }
         }
     },
-    "Femke Nagelhoud": {
+    "deelnemer 56": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 100,
@@ -9800,7 +9800,7 @@
             }
         }
     },
-    "Rex Leijenaar": {
+    "deelnemer 57": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 103,
@@ -9972,7 +9972,7 @@
             }
         }
     },
-    "Freek van Gils": {
+    "deelnemer 58": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 107,
@@ -10144,7 +10144,7 @@
             }
         }
     },
-    "Merel Koppenol": {
+    "deelnemer 59": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 57,
@@ -10316,7 +10316,7 @@
             }
         }
     },
-    "Samira Rharissi": {
+    "deelnemer 60": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 67,
@@ -10485,7 +10485,7 @@
             }
         }
     },
-    "Gijsbert Lybaart": {
+    "deelnemer 61": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 107,
@@ -10657,7 +10657,7 @@
             }
         }
     },
-    "Sam Quax": {
+    "deelnemer 62": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 124,
@@ -10829,7 +10829,7 @@
             }
         }
     },
-    "Björn Vroomen": {
+    "deelnemer 63": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 98,
@@ -11001,7 +11001,7 @@
             }
         }
     },
-    "Martijn Wolthoff": {
+    "deelnemer 64": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 101,
@@ -11173,7 +11173,7 @@
             }
         }
     },
-    "Stijn Dodemont": {
+    "deelnemer 65": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 86,
@@ -11345,7 +11345,7 @@
             }
         }
     },
-    "Renate van Mil": {
+    "deelnemer 66": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 107,
@@ -11517,7 +11517,7 @@
             }
         }
     },
-    "Bianca De Gier": {
+    "deelnemer 67": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 107,
@@ -11689,7 +11689,7 @@
             }
         }
     },
-    "Tim Schrama": {
+    "deelnemer 68": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 101,
@@ -11861,7 +11861,7 @@
             }
         }
     },
-    "Lars van De Braak": {
+    "deelnemer 69": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 116,
@@ -12033,7 +12033,7 @@
             }
         }
     },
-    "Michiel Odijk": {
+    "deelnemer 70": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 68,
@@ -12205,7 +12205,7 @@
             }
         }
     },
-    "Thomas van Den Bogaard": {
+    "deelnemer 71": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 97,
@@ -12377,7 +12377,7 @@
             }
         }
     },
-    "Jolanda Elenbaas": {
+    "deelnemer 72": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 91,
@@ -12549,7 +12549,7 @@
             }
         }
     },
-    "Mark van Laarhoven": {
+    "deelnemer 73": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 101,
@@ -12721,7 +12721,7 @@
             }
         }
     },
-    "Joran De Koning": {
+    "deelnemer 74": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 115,
@@ -12893,7 +12893,7 @@
             }
         }
     },
-    "Charlotte En Willem": {
+    "deelnemer 75": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 101,
@@ -13065,7 +13065,7 @@
             }
         }
     },
-    "Bas Postema": {
+    "deelnemer 76": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 117,
@@ -13237,7 +13237,7 @@
             }
         }
     },
-    "Clara Ceulemans": {
+    "deelnemer 77": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 101,
@@ -13409,7 +13409,7 @@
             }
         }
     },
-    "Leoni van der Chijs": {
+    "deelnemer 78": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 91,
@@ -13581,7 +13581,7 @@
             }
         }
     },
-    "Jeroen Braaksma": {
+    "deelnemer 79": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 70,
@@ -13753,7 +13753,7 @@
             }
         }
     },
-    "Karen Pier": {
+    "deelnemer 80": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 127,
@@ -13925,7 +13925,7 @@
             }
         }
     },
-    "Ilse Keverling Buisman": {
+    "deelnemer 81": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 67,
@@ -14097,7 +14097,7 @@
             }
         }
     },
-    "Freek Bruggert": {
+    "deelnemer 82": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 123,
@@ -14269,7 +14269,7 @@
             }
         }
     },
-    "Jeanette van der Lee": {
+    "deelnemer 83": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 101,
@@ -14441,7 +14441,7 @@
             }
         }
     },
-    "Huib De Kleijn": {
+    "deelnemer 84": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 102,
@@ -14613,7 +14613,7 @@
             }
         }
     },
-    "Nemo van Hinthem": {
+    "deelnemer 85": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 107,
@@ -14785,7 +14785,7 @@
             }
         }
     },
-    "Jochen Smit": {
+    "deelnemer 86": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 101,
@@ -14957,7 +14957,7 @@
             }
         }
     },
-    "Marlies Offerman": {
+    "deelnemer 87": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 110,
@@ -15129,7 +15129,7 @@
             }
         }
     },
-    "Caroline van Thiel": {
+    "deelnemer 88": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 100,
@@ -15301,7 +15301,7 @@
             }
         }
     },
-    "Marieke Amersfoort": {
+    "deelnemer 89": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 120,
@@ -15473,7 +15473,7 @@
             }
         }
     },
-    "Roy Bal": {
+    "deelnemer 90": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 108,
@@ -15645,7 +15645,7 @@
             }
         }
     },
-    "Peter Raaijmakers": {
+    "deelnemer 91": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 77,
@@ -15817,7 +15817,7 @@
             }
         }
     },
-    "Luke Mekenkamp": {
+    "deelnemer 92": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 103,
@@ -15989,7 +15989,7 @@
             }
         }
     },
-    "Manisha Sabajo": {
+    "deelnemer 93": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 105,
@@ -16161,7 +16161,7 @@
             }
         }
     },
-    "Jordy Moret": {
+    "deelnemer 94": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 110,
@@ -16333,7 +16333,7 @@
             }
         }
     },
-    "Jeroen Cordeweners": {
+    "deelnemer 95": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 91,
@@ -16505,7 +16505,7 @@
             }
         }
     },
-    "Hylke De Vriend": {
+    "deelnemer 96": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 97,
@@ -16677,7 +16677,7 @@
             }
         }
     },
-    "Gijsbert Jonkers": {
+    "deelnemer 97": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 101,
@@ -16849,7 +16849,7 @@
             }
         }
     },
-    "Evert Jan Hummelen": {
+    "deelnemer 98": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 101,
@@ -17021,7 +17021,7 @@
             }
         }
     },
-    "Anneke Francois": {
+    "deelnemer 99": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 91,
@@ -17193,7 +17193,7 @@
             }
         }
     },
-    "Tineke Ouwehand": {
+    "deelnemer 100": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 107,
@@ -17365,7 +17365,7 @@
             }
         }
     },
-    "Walter Kuks": {
+    "deelnemer 101": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 97,
@@ -17537,7 +17537,7 @@
             }
         }
     },
-    "Stefan Haasbeek": {
+    "deelnemer 102": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 104,
@@ -17709,7 +17709,7 @@
             }
         }
     },
-    "Arno Meijer": {
+    "deelnemer 103": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 130,
@@ -17881,7 +17881,7 @@
             }
         }
     },
-    "Nora Meray": {
+    "deelnemer 104": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 69,
@@ -18053,7 +18053,7 @@
             }
         }
     },
-    "Caroline De Vlaming": {
+    "deelnemer 105": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 107,
@@ -18225,7 +18225,7 @@
             }
         }
     },
-    "Klaas Papjes": {
+    "deelnemer 106": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 107,
@@ -18397,7 +18397,7 @@
             }
         }
     },
-    "Krijn Schep": {
+    "deelnemer 107": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 101,
@@ -18569,7 +18569,7 @@
             }
         }
     },
-    "Jan De Maa": {
+    "deelnemer 108": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 101,
@@ -18741,7 +18741,7 @@
             }
         }
     },
-    "Rick van Tol": {
+    "deelnemer 109": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 110,
@@ -18913,7 +18913,7 @@
             }
         }
     },
-    "Rob Hovens": {
+    "deelnemer 110": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 110,
@@ -19085,7 +19085,7 @@
             }
         }
     },
-    "Martijn Ridderbos": {
+    "deelnemer 111": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 107,
@@ -19257,7 +19257,7 @@
             }
         }
     },
-    "Glenn Rajaram": {
+    "deelnemer 112": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 107,
@@ -19429,7 +19429,7 @@
             }
         }
     },
-    "Melin Crebas": {
+    "deelnemer 113": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 107,
@@ -19601,7 +19601,7 @@
             }
         }
     },
-    "Michiel Denkers": {
+    "deelnemer 114": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 110,
@@ -19773,7 +19773,7 @@
             }
         }
     },
-    "Tom van der Plas": {
+    "deelnemer 115": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 114,
@@ -19945,7 +19945,7 @@
             }
         }
     },
-    "Robert van Tubergen Lotgering": {
+    "deelnemer 116": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 69,
@@ -20113,7 +20113,7 @@
             }
         }
     },
-    "Douwe Meindertsma": {
+    "deelnemer 117": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 107,
@@ -20285,7 +20285,7 @@
             }
         }
     },
-    "Joanne Westland": {
+    "deelnemer 118": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 110,
@@ -20457,7 +20457,7 @@
             }
         }
     },
-    "Jeroen Schilperoort": {
+    "deelnemer 119": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 101,
@@ -20629,7 +20629,7 @@
             }
         }
     },
-    "Jacco Hakfoort": {
+    "deelnemer 120": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 101,
@@ -20801,7 +20801,7 @@
             }
         }
     },
-    "Kasper Edelbroek": {
+    "deelnemer 121": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 104,
@@ -20973,7 +20973,7 @@
             }
         }
     },
-    "Ronald Timmerman": {
+    "deelnemer 122": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 101,
@@ -21145,7 +21145,7 @@
             }
         }
     },
-    "Arthur Miete": {
+    "deelnemer 123": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 93,
@@ -21317,7 +21317,7 @@
             }
         }
     },
-    "Frank Barendrecht": {
+    "deelnemer 124": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 70,
@@ -21489,7 +21489,7 @@
             }
         }
     },
-    "Monica Sonderegger": {
+    "deelnemer 125": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 120,
@@ -21661,7 +21661,7 @@
             }
         }
     },
-    "Tim Rosendahl": {
+    "deelnemer 126": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 130,
@@ -21833,7 +21833,7 @@
             }
         }
     },
-    "Olga Abelmann-wolters": {
+    "deelnemer 127": {
         "stage_2": {
             "date": "2025-07-18",
             "stage_participant_score": 107,
@@ -22002,6 +22002,826 @@
                 "Jasper Philipsen": 0,
                 "Felix Gall": 13,
                 "Florian Lipowitz": 18
+            }
+        }
+    },
+    "deelnemer 128": {
+        "stage_2": {
+            "date": "2025-07-18",
+            "stage_participant_score": 0,
+            "cumulative_participant_score_after_stage": 0,
+            "rider_contributions": {
+                "Nan": 0
+            }
+        },
+        "stage_4": {
+            "date": "2025-07-18",
+            "stage_participant_score": 0,
+            "cumulative_participant_score_after_stage": 0,
+            "rider_contributions": {
+                "Nan": 0
+            }
+        },
+        "stage_5": {
+            "date": "2025-07-18",
+            "stage_participant_score": 0,
+            "cumulative_participant_score_after_stage": 0,
+            "rider_contributions": {
+                "Nan": 0
+            }
+        },
+        "stage_6": {
+            "date": "2025-07-18",
+            "stage_participant_score": 0,
+            "cumulative_participant_score_after_stage": 0,
+            "rider_contributions": {
+                "Nan": 0
+            }
+        },
+        "stage_7": {
+            "date": "2025-07-18",
+            "stage_participant_score": 0,
+            "cumulative_participant_score_after_stage": 0,
+            "rider_contributions": {
+                "Nan": 0
+            }
+        },
+        "stage_8": {
+            "date": "2025-07-18",
+            "stage_participant_score": 0,
+            "cumulative_participant_score_after_stage": 0,
+            "rider_contributions": {
+                "Nan": 0
+            }
+        },
+        "stage_9": {
+            "date": "2025-07-18",
+            "stage_participant_score": 0,
+            "cumulative_participant_score_after_stage": 0,
+            "rider_contributions": {
+                "Nan": 0
+            }
+        },
+        "stage_10": {
+            "date": "2025-07-18",
+            "stage_participant_score": 0,
+            "cumulative_participant_score_after_stage": 0,
+            "rider_contributions": {
+                "Nan": 0
+            }
+        },
+        "stage_11": {
+            "date": "2025-07-18",
+            "stage_participant_score": 0,
+            "cumulative_participant_score_after_stage": 0,
+            "rider_contributions": {
+                "Nan": 0
+            }
+        },
+        "stage_12": {
+            "date": "2025-07-18",
+            "stage_participant_score": 0,
+            "cumulative_participant_score_after_stage": 0,
+            "rider_contributions": {
+                "Nan": 0
+            }
+        }
+    },
+    "deelnemer 129": {
+        "stage_2": {
+            "date": "2025-07-18",
+            "stage_participant_score": 0,
+            "cumulative_participant_score_after_stage": 0,
+            "rider_contributions": {
+                "Nan": 0
+            }
+        },
+        "stage_4": {
+            "date": "2025-07-18",
+            "stage_participant_score": 0,
+            "cumulative_participant_score_after_stage": 0,
+            "rider_contributions": {
+                "Nan": 0
+            }
+        },
+        "stage_5": {
+            "date": "2025-07-18",
+            "stage_participant_score": 0,
+            "cumulative_participant_score_after_stage": 0,
+            "rider_contributions": {
+                "Nan": 0
+            }
+        },
+        "stage_6": {
+            "date": "2025-07-18",
+            "stage_participant_score": 0,
+            "cumulative_participant_score_after_stage": 0,
+            "rider_contributions": {
+                "Nan": 0
+            }
+        },
+        "stage_7": {
+            "date": "2025-07-18",
+            "stage_participant_score": 0,
+            "cumulative_participant_score_after_stage": 0,
+            "rider_contributions": {
+                "Nan": 0
+            }
+        },
+        "stage_8": {
+            "date": "2025-07-18",
+            "stage_participant_score": 0,
+            "cumulative_participant_score_after_stage": 0,
+            "rider_contributions": {
+                "Nan": 0
+            }
+        },
+        "stage_9": {
+            "date": "2025-07-18",
+            "stage_participant_score": 0,
+            "cumulative_participant_score_after_stage": 0,
+            "rider_contributions": {
+                "Nan": 0
+            }
+        },
+        "stage_10": {
+            "date": "2025-07-18",
+            "stage_participant_score": 0,
+            "cumulative_participant_score_after_stage": 0,
+            "rider_contributions": {
+                "Nan": 0
+            }
+        },
+        "stage_11": {
+            "date": "2025-07-18",
+            "stage_participant_score": 0,
+            "cumulative_participant_score_after_stage": 0,
+            "rider_contributions": {
+                "Nan": 0
+            }
+        },
+        "stage_12": {
+            "date": "2025-07-18",
+            "stage_participant_score": 0,
+            "cumulative_participant_score_after_stage": 0,
+            "rider_contributions": {
+                "Nan": 0
+            }
+        }
+    },
+    "deelnemer 130": {
+        "stage_2": {
+            "date": "2025-07-18",
+            "stage_participant_score": 0,
+            "cumulative_participant_score_after_stage": 0,
+            "rider_contributions": {
+                "Nan": 0
+            }
+        },
+        "stage_4": {
+            "date": "2025-07-18",
+            "stage_participant_score": 0,
+            "cumulative_participant_score_after_stage": 0,
+            "rider_contributions": {
+                "Nan": 0
+            }
+        },
+        "stage_5": {
+            "date": "2025-07-18",
+            "stage_participant_score": 0,
+            "cumulative_participant_score_after_stage": 0,
+            "rider_contributions": {
+                "Nan": 0
+            }
+        },
+        "stage_6": {
+            "date": "2025-07-18",
+            "stage_participant_score": 0,
+            "cumulative_participant_score_after_stage": 0,
+            "rider_contributions": {
+                "Nan": 0
+            }
+        },
+        "stage_7": {
+            "date": "2025-07-18",
+            "stage_participant_score": 0,
+            "cumulative_participant_score_after_stage": 0,
+            "rider_contributions": {
+                "Nan": 0
+            }
+        },
+        "stage_8": {
+            "date": "2025-07-18",
+            "stage_participant_score": 0,
+            "cumulative_participant_score_after_stage": 0,
+            "rider_contributions": {
+                "Nan": 0
+            }
+        },
+        "stage_9": {
+            "date": "2025-07-18",
+            "stage_participant_score": 0,
+            "cumulative_participant_score_after_stage": 0,
+            "rider_contributions": {
+                "Nan": 0
+            }
+        },
+        "stage_10": {
+            "date": "2025-07-18",
+            "stage_participant_score": 0,
+            "cumulative_participant_score_after_stage": 0,
+            "rider_contributions": {
+                "Nan": 0
+            }
+        },
+        "stage_11": {
+            "date": "2025-07-18",
+            "stage_participant_score": 0,
+            "cumulative_participant_score_after_stage": 0,
+            "rider_contributions": {
+                "Nan": 0
+            }
+        },
+        "stage_12": {
+            "date": "2025-07-18",
+            "stage_participant_score": 0,
+            "cumulative_participant_score_after_stage": 0,
+            "rider_contributions": {
+                "Nan": 0
+            }
+        }
+    },
+    "deelnemer 131": {
+        "stage_2": {
+            "date": "2025-07-18",
+            "stage_participant_score": 0,
+            "cumulative_participant_score_after_stage": 0,
+            "rider_contributions": {
+                "Nan": 0
+            }
+        },
+        "stage_4": {
+            "date": "2025-07-18",
+            "stage_participant_score": 0,
+            "cumulative_participant_score_after_stage": 0,
+            "rider_contributions": {
+                "Nan": 0
+            }
+        },
+        "stage_5": {
+            "date": "2025-07-18",
+            "stage_participant_score": 0,
+            "cumulative_participant_score_after_stage": 0,
+            "rider_contributions": {
+                "Nan": 0
+            }
+        },
+        "stage_6": {
+            "date": "2025-07-18",
+            "stage_participant_score": 0,
+            "cumulative_participant_score_after_stage": 0,
+            "rider_contributions": {
+                "Nan": 0
+            }
+        },
+        "stage_7": {
+            "date": "2025-07-18",
+            "stage_participant_score": 0,
+            "cumulative_participant_score_after_stage": 0,
+            "rider_contributions": {
+                "Nan": 0
+            }
+        },
+        "stage_8": {
+            "date": "2025-07-18",
+            "stage_participant_score": 0,
+            "cumulative_participant_score_after_stage": 0,
+            "rider_contributions": {
+                "Nan": 0
+            }
+        },
+        "stage_9": {
+            "date": "2025-07-18",
+            "stage_participant_score": 0,
+            "cumulative_participant_score_after_stage": 0,
+            "rider_contributions": {
+                "Nan": 0
+            }
+        },
+        "stage_10": {
+            "date": "2025-07-18",
+            "stage_participant_score": 0,
+            "cumulative_participant_score_after_stage": 0,
+            "rider_contributions": {
+                "Nan": 0
+            }
+        },
+        "stage_11": {
+            "date": "2025-07-18",
+            "stage_participant_score": 0,
+            "cumulative_participant_score_after_stage": 0,
+            "rider_contributions": {
+                "Nan": 0
+            }
+        },
+        "stage_12": {
+            "date": "2025-07-18",
+            "stage_participant_score": 0,
+            "cumulative_participant_score_after_stage": 0,
+            "rider_contributions": {
+                "Nan": 0
+            }
+        }
+    },
+    "deelnemer 132": {
+        "stage_2": {
+            "date": "2025-07-18",
+            "stage_participant_score": 0,
+            "cumulative_participant_score_after_stage": 0,
+            "rider_contributions": {
+                "Nan": 0
+            }
+        },
+        "stage_4": {
+            "date": "2025-07-18",
+            "stage_participant_score": 0,
+            "cumulative_participant_score_after_stage": 0,
+            "rider_contributions": {
+                "Nan": 0
+            }
+        },
+        "stage_5": {
+            "date": "2025-07-18",
+            "stage_participant_score": 0,
+            "cumulative_participant_score_after_stage": 0,
+            "rider_contributions": {
+                "Nan": 0
+            }
+        },
+        "stage_6": {
+            "date": "2025-07-18",
+            "stage_participant_score": 0,
+            "cumulative_participant_score_after_stage": 0,
+            "rider_contributions": {
+                "Nan": 0
+            }
+        },
+        "stage_7": {
+            "date": "2025-07-18",
+            "stage_participant_score": 0,
+            "cumulative_participant_score_after_stage": 0,
+            "rider_contributions": {
+                "Nan": 0
+            }
+        },
+        "stage_8": {
+            "date": "2025-07-18",
+            "stage_participant_score": 0,
+            "cumulative_participant_score_after_stage": 0,
+            "rider_contributions": {
+                "Nan": 0
+            }
+        },
+        "stage_9": {
+            "date": "2025-07-18",
+            "stage_participant_score": 0,
+            "cumulative_participant_score_after_stage": 0,
+            "rider_contributions": {
+                "Nan": 0
+            }
+        },
+        "stage_10": {
+            "date": "2025-07-18",
+            "stage_participant_score": 0,
+            "cumulative_participant_score_after_stage": 0,
+            "rider_contributions": {
+                "Nan": 0
+            }
+        },
+        "stage_11": {
+            "date": "2025-07-18",
+            "stage_participant_score": 0,
+            "cumulative_participant_score_after_stage": 0,
+            "rider_contributions": {
+                "Nan": 0
+            }
+        },
+        "stage_12": {
+            "date": "2025-07-18",
+            "stage_participant_score": 0,
+            "cumulative_participant_score_after_stage": 0,
+            "rider_contributions": {
+                "Nan": 0
+            }
+        }
+    },
+    "deelnemer 133": {
+        "stage_2": {
+            "date": "2025-07-18",
+            "stage_participant_score": 0,
+            "cumulative_participant_score_after_stage": 0,
+            "rider_contributions": {
+                "Nan": 0
+            }
+        },
+        "stage_4": {
+            "date": "2025-07-18",
+            "stage_participant_score": 0,
+            "cumulative_participant_score_after_stage": 0,
+            "rider_contributions": {
+                "Nan": 0
+            }
+        },
+        "stage_5": {
+            "date": "2025-07-18",
+            "stage_participant_score": 0,
+            "cumulative_participant_score_after_stage": 0,
+            "rider_contributions": {
+                "Nan": 0
+            }
+        },
+        "stage_6": {
+            "date": "2025-07-18",
+            "stage_participant_score": 0,
+            "cumulative_participant_score_after_stage": 0,
+            "rider_contributions": {
+                "Nan": 0
+            }
+        },
+        "stage_7": {
+            "date": "2025-07-18",
+            "stage_participant_score": 0,
+            "cumulative_participant_score_after_stage": 0,
+            "rider_contributions": {
+                "Nan": 0
+            }
+        },
+        "stage_8": {
+            "date": "2025-07-18",
+            "stage_participant_score": 0,
+            "cumulative_participant_score_after_stage": 0,
+            "rider_contributions": {
+                "Nan": 0
+            }
+        },
+        "stage_9": {
+            "date": "2025-07-18",
+            "stage_participant_score": 0,
+            "cumulative_participant_score_after_stage": 0,
+            "rider_contributions": {
+                "Nan": 0
+            }
+        },
+        "stage_10": {
+            "date": "2025-07-18",
+            "stage_participant_score": 0,
+            "cumulative_participant_score_after_stage": 0,
+            "rider_contributions": {
+                "Nan": 0
+            }
+        },
+        "stage_11": {
+            "date": "2025-07-18",
+            "stage_participant_score": 0,
+            "cumulative_participant_score_after_stage": 0,
+            "rider_contributions": {
+                "Nan": 0
+            }
+        },
+        "stage_12": {
+            "date": "2025-07-18",
+            "stage_participant_score": 0,
+            "cumulative_participant_score_after_stage": 0,
+            "rider_contributions": {
+                "Nan": 0
+            }
+        }
+    },
+    "deelnemer 134": {
+        "stage_2": {
+            "date": "2025-07-18",
+            "stage_participant_score": 0,
+            "cumulative_participant_score_after_stage": 0,
+            "rider_contributions": {
+                "Nan": 0
+            }
+        },
+        "stage_4": {
+            "date": "2025-07-18",
+            "stage_participant_score": 0,
+            "cumulative_participant_score_after_stage": 0,
+            "rider_contributions": {
+                "Nan": 0
+            }
+        },
+        "stage_5": {
+            "date": "2025-07-18",
+            "stage_participant_score": 0,
+            "cumulative_participant_score_after_stage": 0,
+            "rider_contributions": {
+                "Nan": 0
+            }
+        },
+        "stage_6": {
+            "date": "2025-07-18",
+            "stage_participant_score": 0,
+            "cumulative_participant_score_after_stage": 0,
+            "rider_contributions": {
+                "Nan": 0
+            }
+        },
+        "stage_7": {
+            "date": "2025-07-18",
+            "stage_participant_score": 0,
+            "cumulative_participant_score_after_stage": 0,
+            "rider_contributions": {
+                "Nan": 0
+            }
+        },
+        "stage_8": {
+            "date": "2025-07-18",
+            "stage_participant_score": 0,
+            "cumulative_participant_score_after_stage": 0,
+            "rider_contributions": {
+                "Nan": 0
+            }
+        },
+        "stage_9": {
+            "date": "2025-07-18",
+            "stage_participant_score": 0,
+            "cumulative_participant_score_after_stage": 0,
+            "rider_contributions": {
+                "Nan": 0
+            }
+        },
+        "stage_10": {
+            "date": "2025-07-18",
+            "stage_participant_score": 0,
+            "cumulative_participant_score_after_stage": 0,
+            "rider_contributions": {
+                "Nan": 0
+            }
+        },
+        "stage_11": {
+            "date": "2025-07-18",
+            "stage_participant_score": 0,
+            "cumulative_participant_score_after_stage": 0,
+            "rider_contributions": {
+                "Nan": 0
+            }
+        },
+        "stage_12": {
+            "date": "2025-07-18",
+            "stage_participant_score": 0,
+            "cumulative_participant_score_after_stage": 0,
+            "rider_contributions": {
+                "Nan": 0
+            }
+        }
+    },
+    "deelnemer 135": {
+        "stage_2": {
+            "date": "2025-07-18",
+            "stage_participant_score": 0,
+            "cumulative_participant_score_after_stage": 0,
+            "rider_contributions": {
+                "Nan": 0
+            }
+        },
+        "stage_4": {
+            "date": "2025-07-18",
+            "stage_participant_score": 0,
+            "cumulative_participant_score_after_stage": 0,
+            "rider_contributions": {
+                "Nan": 0
+            }
+        },
+        "stage_5": {
+            "date": "2025-07-18",
+            "stage_participant_score": 0,
+            "cumulative_participant_score_after_stage": 0,
+            "rider_contributions": {
+                "Nan": 0
+            }
+        },
+        "stage_6": {
+            "date": "2025-07-18",
+            "stage_participant_score": 0,
+            "cumulative_participant_score_after_stage": 0,
+            "rider_contributions": {
+                "Nan": 0
+            }
+        },
+        "stage_7": {
+            "date": "2025-07-18",
+            "stage_participant_score": 0,
+            "cumulative_participant_score_after_stage": 0,
+            "rider_contributions": {
+                "Nan": 0
+            }
+        },
+        "stage_8": {
+            "date": "2025-07-18",
+            "stage_participant_score": 0,
+            "cumulative_participant_score_after_stage": 0,
+            "rider_contributions": {
+                "Nan": 0
+            }
+        },
+        "stage_9": {
+            "date": "2025-07-18",
+            "stage_participant_score": 0,
+            "cumulative_participant_score_after_stage": 0,
+            "rider_contributions": {
+                "Nan": 0
+            }
+        },
+        "stage_10": {
+            "date": "2025-07-18",
+            "stage_participant_score": 0,
+            "cumulative_participant_score_after_stage": 0,
+            "rider_contributions": {
+                "Nan": 0
+            }
+        },
+        "stage_11": {
+            "date": "2025-07-18",
+            "stage_participant_score": 0,
+            "cumulative_participant_score_after_stage": 0,
+            "rider_contributions": {
+                "Nan": 0
+            }
+        },
+        "stage_12": {
+            "date": "2025-07-18",
+            "stage_participant_score": 0,
+            "cumulative_participant_score_after_stage": 0,
+            "rider_contributions": {
+                "Nan": 0
+            }
+        }
+    },
+    "deelnemer 136": {
+        "stage_2": {
+            "date": "2025-07-18",
+            "stage_participant_score": 0,
+            "cumulative_participant_score_after_stage": 0,
+            "rider_contributions": {
+                "Nan": 0
+            }
+        },
+        "stage_4": {
+            "date": "2025-07-18",
+            "stage_participant_score": 0,
+            "cumulative_participant_score_after_stage": 0,
+            "rider_contributions": {
+                "Nan": 0
+            }
+        },
+        "stage_5": {
+            "date": "2025-07-18",
+            "stage_participant_score": 0,
+            "cumulative_participant_score_after_stage": 0,
+            "rider_contributions": {
+                "Nan": 0
+            }
+        },
+        "stage_6": {
+            "date": "2025-07-18",
+            "stage_participant_score": 0,
+            "cumulative_participant_score_after_stage": 0,
+            "rider_contributions": {
+                "Nan": 0
+            }
+        },
+        "stage_7": {
+            "date": "2025-07-18",
+            "stage_participant_score": 0,
+            "cumulative_participant_score_after_stage": 0,
+            "rider_contributions": {
+                "Nan": 0
+            }
+        },
+        "stage_8": {
+            "date": "2025-07-18",
+            "stage_participant_score": 0,
+            "cumulative_participant_score_after_stage": 0,
+            "rider_contributions": {
+                "Nan": 0
+            }
+        },
+        "stage_9": {
+            "date": "2025-07-18",
+            "stage_participant_score": 0,
+            "cumulative_participant_score_after_stage": 0,
+            "rider_contributions": {
+                "Nan": 0
+            }
+        },
+        "stage_10": {
+            "date": "2025-07-18",
+            "stage_participant_score": 0,
+            "cumulative_participant_score_after_stage": 0,
+            "rider_contributions": {
+                "Nan": 0
+            }
+        },
+        "stage_11": {
+            "date": "2025-07-18",
+            "stage_participant_score": 0,
+            "cumulative_participant_score_after_stage": 0,
+            "rider_contributions": {
+                "Nan": 0
+            }
+        },
+        "stage_12": {
+            "date": "2025-07-18",
+            "stage_participant_score": 0,
+            "cumulative_participant_score_after_stage": 0,
+            "rider_contributions": {
+                "Nan": 0
+            }
+        }
+    },
+    "deelnemer 137": {
+        "stage_2": {
+            "date": "2025-07-18",
+            "stage_participant_score": 0,
+            "cumulative_participant_score_after_stage": 0,
+            "rider_contributions": {
+                "Nan": 0
+            }
+        },
+        "stage_4": {
+            "date": "2025-07-18",
+            "stage_participant_score": 0,
+            "cumulative_participant_score_after_stage": 0,
+            "rider_contributions": {
+                "Nan": 0
+            }
+        },
+        "stage_5": {
+            "date": "2025-07-18",
+            "stage_participant_score": 0,
+            "cumulative_participant_score_after_stage": 0,
+            "rider_contributions": {
+                "Nan": 0
+            }
+        },
+        "stage_6": {
+            "date": "2025-07-18",
+            "stage_participant_score": 0,
+            "cumulative_participant_score_after_stage": 0,
+            "rider_contributions": {
+                "Nan": 0
+            }
+        },
+        "stage_7": {
+            "date": "2025-07-18",
+            "stage_participant_score": 0,
+            "cumulative_participant_score_after_stage": 0,
+            "rider_contributions": {
+                "Nan": 0
+            }
+        },
+        "stage_8": {
+            "date": "2025-07-18",
+            "stage_participant_score": 0,
+            "cumulative_participant_score_after_stage": 0,
+            "rider_contributions": {
+                "Nan": 0
+            }
+        },
+        "stage_9": {
+            "date": "2025-07-18",
+            "stage_participant_score": 0,
+            "cumulative_participant_score_after_stage": 0,
+            "rider_contributions": {
+                "Nan": 0
+            }
+        },
+        "stage_10": {
+            "date": "2025-07-18",
+            "stage_participant_score": 0,
+            "cumulative_participant_score_after_stage": 0,
+            "rider_contributions": {
+                "Nan": 0
+            }
+        },
+        "stage_11": {
+            "date": "2025-07-18",
+            "stage_participant_score": 0,
+            "cumulative_participant_score_after_stage": 0,
+            "rider_contributions": {
+                "Nan": 0
+            }
+        },
+        "stage_12": {
+            "date": "2025-07-18",
+            "stage_participant_score": 0,
+            "cumulative_participant_score_after_stage": 0,
+            "rider_contributions": {
+                "Nan": 0
             }
         }
     }

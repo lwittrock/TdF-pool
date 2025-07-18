@@ -8,9 +8,10 @@
         "stage_difficulty": "Hills, flat finish",
         "won_how": "Sprint of 6 riders"
     },
+    "dnf_riders": [],
     "top_20_finishers": [
         {
-            "rider_name": "Tadej Pogačar",
+            "rider_name": "Tadej Pogacar",
             "rank": 1,
             "time": "3:50:29"
         },
@@ -30,12 +31,12 @@
             "time": "3:50:29"
         },
         {
-            "rider_name": "Romain Grégoire",
+            "rider_name": "Romain Gregoire",
             "rank": 5,
             "time": "3:50:29"
         },
         {
-            "rider_name": "João Almeida",
+            "rider_name": "Joao Almeida",
             "rank": 6,
             "time": "3:50:29"
         },
@@ -55,7 +56,7 @@
             "time": "3:50:36"
         },
         {
-            "rider_name": "Kévin Vauquelin",
+            "rider_name": "Kevin Vauquelin",
             "rank": 10,
             "time": "3:50:39"
         },
@@ -65,7 +66,7 @@
             "time": "3:50:59"
         },
         {
-            "rider_name": "Aurélien Paret-Peintre",
+            "rider_name": "Aurelien Paret-Peintre",
             "rank": 12,
             "time": "3:50:59"
         },
@@ -75,12 +76,12 @@
             "time": "3:50:59"
         },
         {
-            "rider_name": "Jhonatan Narváez",
+            "rider_name": "Jhonatan Narvaez",
             "rank": 14,
             "time": "3:50:59"
         },
         {
-            "rider_name": "Halland Johannessen Tobias",
+            "rider_name": "Tobias Halland Johannessen",
             "rank": 15,
             "time": "3:50:59"
         },
@@ -95,7 +96,7 @@
             "time": "3:51:01"
         },
         {
-            "rider_name": "Primož Roglič",
+            "rider_name": "Primoz Roglic",
             "rank": 18,
             "time": "3:51:01"
         },
@@ -115,7 +116,7 @@
         "rank": 1
     },
     "top_kom_rider": {
-        "rider_name": "Tadej Pogačar",
+        "rider_name": "Tadej Pogacar",
         "rank": 1
     },
     "top_points_rider": {
@@ -123,7 +124,8 @@
         "rank": 1
     },
     "top_youth_rider": {
-        "rider_name": "Kévin Vauquelin",
+        "rider_name": "Kevin Vauquelin",
         "rank": 1
-    }
+    },
+    "combative_rider": null
 }

@@ -1,7 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Common elements
     const lastUpdatedDateSpan = document.getElementById('last-updated-date');
-    const DATA_PATH = './data/';
+    const DATA_PATH = './data/'; // Base path
+    const POINTS_PATH = DATA_PATH + 'points/'; // Points subdirectory
 
     // Updated Global Data Variables
     let globalParticipantSelectionsData = null; // participant_selections.json
@@ -19,7 +20,17 @@ document.addEventListener('DOMContentLoaded', () => {
      */
     async function fetchData(filename) {
         try {
-            const response = await fetch(DATA_PATH + filename);
+            // Use POINTS_PATH for points-related files, DATA_PATH for others
+            let fetchPath;
+            if (filename.startsWith('participant_cumulative_points.json') ||
+                filename.startsWith('participant_stage_points.json') ||
+                filename.startsWith('rider_cumulative_points.json') ||
+                filename.startsWith('rider_stage_points.json')) {
+                fetchPath = POINTS_PATH + filename;
+            } else {
+                fetchPath = DATA_PATH + filename;
+            }
+            const response = await fetch(fetchPath);
             if (!response.ok) {
                 if (response.status === 404) {
                     console.warn(`File not found: ${filename}. This might be expected for some non-critical data.`);
@@ -46,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
             globalDetailedRiderHistory,
             globalDetailedParticipantHistory
         ] = await Promise.all([
-            fetchData('participant_selections.json'),
+            fetchData('participant_selections_anon.json'),
             fetchData('rider_cumulative_points.json'),
             fetchData('participant_cumulative_points.json'),
             fetchData('rider_stage_points.json'),
@@ -162,7 +173,7 @@ document.addEventListener('DOMContentLoaded', () => {
             return '<p>Geen data om weer te geven.</p>';
         }
 
-        const displayHeaders = headers.slice(0, -1); // Exclude the last empty header
+        const displayHeaders = headers.slice(0, -1);
 
         let tableHTML = '<table class="leaderboard-table">';
         tableHTML += '<thead><tr>';
@@ -183,7 +194,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (rankChange > 0) {
                     rankChangeIndicator = `<span class="rank-up" title="Stijging van ${rankChange} plaatsen">↑${rankChange}</span>`;
                 } else if (rankChange < 0) {
-                    rankChangeIndicator = `<span class="rank-down" title="Daling van ${Math.abs(rankChange)} plaatsen">↓${Math.abs(change)}</span>`;
+                    rankChangeIndicator = `<span class="rank-down" title="Daling van ${Math.abs(rankChange)} plaatsen">↓${Math.abs(rankChange)}</span>`;
                 } else {
                     rankChangeIndicator = `<span class="rank-no-change" title="Geen verandering">=</span>`;
                 }

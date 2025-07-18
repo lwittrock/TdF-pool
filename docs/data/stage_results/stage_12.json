@@ -8,9 +8,12 @@
         "stage_difficulty": "Mountains, uphill finish",
         "won_how": "11.1 km solo"
     },
+    "dnf_riders": [
+        "Cees Bol"
+    ],
     "top_20_finishers": [
         {
-            "rider_name": "Tadej Pogačar",
+            "rider_name": "Tadej Pogacar",
             "rank": 1,
             "time": "4:21:19"
         },
@@ -25,7 +28,7 @@
             "time": "4:23:42"
         },
         {
-            "rider_name": "Halland Johannessen Tobias",
+            "rider_name": "Tobias Halland Johannessen",
             "rank": 4,
             "time": "4:24:19"
         },
@@ -35,7 +38,7 @@
             "time": "4:24:19"
         },
         {
-            "rider_name": "Kévin Vauquelin",
+            "rider_name": "Kevin Vauquelin",
             "rank": 6,
             "time": "4:24:52"
         },
@@ -50,12 +53,12 @@
             "time": "4:25:21"
         },
         {
-            "rider_name": "Primož Roglič",
+            "rider_name": "Primoz Roglic",
             "rank": 9,
             "time": "4:25:27"
         },
         {
-            "rider_name": "Cristián Rodríguez",
+            "rider_name": "Cristian Rodriguez",
             "rank": 10,
             "time": "4:28:45"
         },
@@ -65,7 +68,7 @@
             "time": "4:28:46"
         },
         {
-            "rider_name": "Raúl García Pierna",
+            "rider_name": "Raul Garcia Pierna",
             "rank": 12,
             "time": "4:28:52"
         },
@@ -95,7 +98,7 @@
             "time": "4:32:05"
         },
         {
-            "rider_name": "Jhonatan Narváez",
+            "rider_name": "Jhonatan Narvaez",
             "rank": 18,
             "time": "4:32:09"
         },
@@ -105,17 +108,17 @@
             "time": "4:33:06"
         },
         {
-            "rider_name": "Aurélien Paret-Peintre",
+            "rider_name": "Aurelien Paret-Peintre",
             "rank": 20,
             "time": "4:33:06"
         }
     ],
     "top_gc_rider": {
-        "rider_name": "Tadej Pogačar",
+        "rider_name": "Tadej Pogacar",
         "rank": 1
     },
     "top_kom_rider": {
-        "rider_name": "Tadej Pogačar",
+        "rider_name": "Tadej Pogacar",
         "rank": 1
     },
     "top_points_rider": {
@@ -125,5 +128,6 @@
     "top_youth_rider": {
         "rider_name": "Remco Evenepoel",
         "rank": 1
-    }
+    },
+    "combative_rider": null
 }

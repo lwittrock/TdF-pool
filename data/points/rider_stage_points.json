@@ -4,77 +4,77 @@
             "date": "2025-07-18",
             "stage_finish_points": 25,
             "jersey_points": {
-                "yellow": 10
+                "yellow": 15
             },
-            "stage_total": 35,
-            "cumulative_total_after_stage": 35
+            "stage_total": 40,
+            "cumulative_total_after_stage": 40
         },
         "stage_4": {
             "date": "2025-07-18",
             "stage_finish_points": 19,
             "jersey_points": {
-                "yellow": 10
+                "yellow": 15
             },
-            "stage_total": 29,
-            "cumulative_total_after_stage": 64
+            "stage_total": 34,
+            "cumulative_total_after_stage": 74
         },
         "stage_5": {
             "date": "2025-07-18",
             "stage_finish_points": 3,
             "jersey_points": {},
             "stage_total": 3,
-            "cumulative_total_after_stage": 67
+            "cumulative_total_after_stage": 77
         },
         "stage_6": {
             "date": "2025-07-18",
             "stage_finish_points": 13,
             "jersey_points": {
-                "yellow": 10
+                "yellow": 15
             },
-            "stage_total": 23,
-            "cumulative_total_after_stage": 90
+            "stage_total": 28,
+            "cumulative_total_after_stage": 105
         },
         "stage_7": {
             "date": "2025-07-18",
             "stage_finish_points": 0,
             "jersey_points": {},
             "stage_total": 0,
-            "cumulative_total_after_stage": 90
+            "cumulative_total_after_stage": 105
         },
         "stage_8": {
             "date": "2025-07-18",
             "stage_finish_points": 0,
             "jersey_points": {},
             "stage_total": 0,
-            "cumulative_total_after_stage": 90
+            "cumulative_total_after_stage": 105
         },
         "stage_9": {
             "date": "2025-07-18",
             "stage_finish_points": 0,
             "jersey_points": {},
             "stage_total": 0,
-            "cumulative_total_after_stage": 90
+            "cumulative_total_after_stage": 105
         },
         "stage_10": {
             "date": "2025-07-18",
             "stage_finish_points": 0,
             "jersey_points": {},
             "stage_total": 0,
-            "cumulative_total_after_stage": 90
+            "cumulative_total_after_stage": 105
         },
         "stage_11": {
             "date": "2025-07-18",
             "stage_finish_points": 18,
             "jersey_points": {},
             "stage_total": 18,
-            "cumulative_total_after_stage": 108
+            "cumulative_total_after_stage": 123
         },
         "stage_12": {
             "date": "2025-07-18",
             "stage_finish_points": 0,
             "jersey_points": {},
             "stage_total": 0,
-            "cumulative_total_after_stage": 108
+            "cumulative_total_after_stage": 123
         }
     },
     "Tadej Pogacar": {
@@ -82,89 +82,89 @@
             "date": "2025-07-18",
             "stage_finish_points": 19,
             "jersey_points": {
-                "polka_dot": 5
+                "polka_dot": 10
             },
-            "stage_total": 24,
-            "cumulative_total_after_stage": 24
+            "stage_total": 29,
+            "cumulative_total_after_stage": 29
         },
         "stage_4": {
             "date": "2025-07-18",
             "stage_finish_points": 25,
             "jersey_points": {
-                "polka_dot": 5
+                "polka_dot": 10
             },
-            "stage_total": 30,
-            "cumulative_total_after_stage": 54
+            "stage_total": 35,
+            "cumulative_total_after_stage": 64
         },
         "stage_5": {
             "date": "2025-07-18",
             "stage_finish_points": 19,
             "jersey_points": {
-                "yellow": 10,
-                "green": 5,
-                "polka_dot": 5
+                "yellow": 15,
+                "green": 10,
+                "polka_dot": 10
             },
-            "stage_total": 39,
-            "cumulative_total_after_stage": 93
+            "stage_total": 54,
+            "cumulative_total_after_stage": 118
         },
         "stage_6": {
             "date": "2025-07-18",
             "stage_finish_points": 12,
             "jersey_points": {},
             "stage_total": 12,
-            "cumulative_total_after_stage": 105
+            "cumulative_total_after_stage": 130
         },
         "stage_7": {
             "date": "2025-07-18",
             "stage_finish_points": 25,
             "jersey_points": {
-                "yellow": 10,
-                "green": 5
+                "yellow": 15,
+                "green": 10
             },
-            "stage_total": 40,
-            "cumulative_total_after_stage": 145
+            "stage_total": 50,
+            "cumulative_total_after_stage": 180
         },
         "stage_8": {
             "date": "2025-07-18",
             "stage_finish_points": 0,
             "jersey_points": {
-                "yellow": 10
+                "yellow": 15
             },
-            "stage_total": 10,
-            "cumulative_total_after_stage": 155
+            "stage_total": 15,
+            "cumulative_total_after_stage": 195
         },
         "stage_9": {
             "date": "2025-07-18",
             "stage_finish_points": 0,
             "jersey_points": {
-                "yellow": 10
+                "yellow": 15
             },
-            "stage_total": 10,
-            "cumulative_total_after_stage": 165
+            "stage_total": 15,
+            "cumulative_total_after_stage": 210
         },
         "stage_10": {
             "date": "2025-07-18",
             "stage_finish_points": 12,
             "jersey_points": {},
             "stage_total": 12,
-            "cumulative_total_after_stage": 177
+            "cumulative_total_after_stage": 222
         },
         "stage_11": {
             "date": "2025-07-18",
             "stage_finish_points": 0,
             "jersey_points": {},
             "stage_total": 0,
-            "cumulative_total_after_stage": 177
+            "cumulative_total_after_stage": 222
         },
         "stage_12": {
             "date": "2025-07-18",
             "stage_finish_points": 25,
             "jersey_points": {
-                "yellow": 10,
-                "polka_dot": 5
+                "yellow": 15,
+                "polka_dot": 10
             },
-            "stage_total": 40,
-            "cumulative_total_after_stage": 217
+            "stage_total": 50,
+            "cumulative_total_after_stage": 272
         }
     },
     "Jonas Vingegaard": {
@@ -532,75 +532,75 @@
             "date": "2025-07-18",
             "stage_finish_points": 13,
             "jersey_points": {
-                "white": 5
+                "white": 10
             },
-            "stage_total": 18,
-            "cumulative_total_after_stage": 18
+            "stage_total": 23,
+            "cumulative_total_after_stage": 23
         },
         "stage_4": {
             "date": "2025-07-18",
             "stage_finish_points": 11,
             "jersey_points": {
-                "white": 5
+                "white": 10
             },
-            "stage_total": 16,
-            "cumulative_total_after_stage": 34
+            "stage_total": 21,
+            "cumulative_total_after_stage": 44
         },
         "stage_5": {
             "date": "2025-07-18",
             "stage_finish_points": 16,
             "jersey_points": {},
             "stage_total": 16,
-            "cumulative_total_after_stage": 50
+            "cumulative_total_after_stage": 60
         },
         "stage_6": {
             "date": "2025-07-18",
             "stage_finish_points": 7,
             "jersey_points": {},
             "stage_total": 7,
-            "cumulative_total_after_stage": 57
+            "cumulative_total_after_stage": 67
         },
         "stage_7": {
             "date": "2025-07-18",
             "stage_finish_points": 14,
             "jersey_points": {},
             "stage_total": 14,
-            "cumulative_total_after_stage": 71
+            "cumulative_total_after_stage": 81
         },
         "stage_8": {
             "date": "2025-07-18",
             "stage_finish_points": 0,
             "jersey_points": {},
             "stage_total": 0,
-            "cumulative_total_after_stage": 71
+            "cumulative_total_after_stage": 81
         },
         "stage_9": {
             "date": "2025-07-18",
             "stage_finish_points": 0,
             "jersey_points": {},
             "stage_total": 0,
-            "cumulative_total_after_stage": 71
+            "cumulative_total_after_stage": 81
         },
         "stage_10": {
             "date": "2025-07-18",
             "stage_finish_points": 0,
             "jersey_points": {},
             "stage_total": 0,
-            "cumulative_total_after_stage": 71
+            "cumulative_total_after_stage": 81
         },
         "stage_11": {
             "date": "2025-07-18",
             "stage_finish_points": 0,
             "jersey_points": {},
             "stage_total": 0,
-            "cumulative_total_after_stage": 71
+            "cumulative_total_after_stage": 81
         },
         "stage_12": {
             "date": "2025-07-18",
             "stage_finish_points": 15,
             "jersey_points": {},
             "stage_total": 15,
-            "cumulative_total_after_stage": 86
+            "cumulative_total_after_stage": 96
         }
     },
     "Simone Velasco": {
@@ -1198,69 +1198,69 @@
             "date": "2025-07-18",
             "stage_finish_points": 25,
             "jersey_points": {
-                "white": 5
+                "white": 10
             },
-            "stage_total": 30,
-            "cumulative_total_after_stage": 48
+            "stage_total": 35,
+            "cumulative_total_after_stage": 53
         },
         "stage_6": {
             "date": "2025-07-18",
             "stage_finish_points": 9,
             "jersey_points": {
-                "white": 5
+                "white": 10
             },
-            "stage_total": 14,
-            "cumulative_total_after_stage": 62
+            "stage_total": 19,
+            "cumulative_total_after_stage": 72
         },
         "stage_7": {
             "date": "2025-07-18",
             "stage_finish_points": 15,
             "jersey_points": {
-                "white": 5
+                "white": 10
             },
-            "stage_total": 20,
-            "cumulative_total_after_stage": 82
+            "stage_total": 25,
+            "cumulative_total_after_stage": 97
         },
         "stage_8": {
             "date": "2025-07-18",
             "stage_finish_points": 0,
             "jersey_points": {
-                "white": 5
+                "white": 10
             },
-            "stage_total": 5,
-            "cumulative_total_after_stage": 87
+            "stage_total": 10,
+            "cumulative_total_after_stage": 107
         },
         "stage_9": {
             "date": "2025-07-18",
             "stage_finish_points": 0,
             "jersey_points": {
-                "white": 5
+                "white": 10
             },
-            "stage_total": 5,
-            "cumulative_total_after_stage": 92
+            "stage_total": 10,
+            "cumulative_total_after_stage": 117
         },
         "stage_10": {
             "date": "2025-07-18",
             "stage_finish_points": 8,
             "jersey_points": {},
             "stage_total": 8,
-            "cumulative_total_after_stage": 100
+            "cumulative_total_after_stage": 125
         },
         "stage_11": {
             "date": "2025-07-18",
             "stage_finish_points": 0,
             "jersey_points": {},
             "stage_total": 0,
-            "cumulative_total_after_stage": 100
+            "cumulative_total_after_stage": 125
         },
         "stage_12": {
             "date": "2025-07-18",
             "stage_finish_points": 14,
             "jersey_points": {
-                "white": 5
+                "white": 10
             },
-            "stage_total": 19,
-            "cumulative_total_after_stage": 119
+            "stage_total": 24,
+            "cumulative_total_after_stage": 149
         }
     },
     "Matteo Jorgenson": {
@@ -1484,73 +1484,73 @@
             "date": "2025-07-18",
             "stage_finish_points": 0,
             "jersey_points": {
-                "green": 5
+                "green": 10
             },
-            "stage_total": 5,
-            "cumulative_total_after_stage": 5
+            "stage_total": 10,
+            "cumulative_total_after_stage": 10
         },
         "stage_4": {
             "date": "2025-07-18",
             "stage_finish_points": 0,
             "jersey_points": {},
             "stage_total": 0,
-            "cumulative_total_after_stage": 5
+            "cumulative_total_after_stage": 10
         },
         "stage_5": {
             "date": "2025-07-18",
             "stage_finish_points": 0,
             "jersey_points": {},
             "stage_total": 0,
-            "cumulative_total_after_stage": 5
+            "cumulative_total_after_stage": 10
         },
         "stage_6": {
             "date": "2025-07-18",
             "stage_finish_points": 0,
             "jersey_points": {},
             "stage_total": 0,
-            "cumulative_total_after_stage": 5
+            "cumulative_total_after_stage": 10
         },
         "stage_7": {
             "date": "2025-07-18",
             "stage_finish_points": 0,
             "jersey_points": {},
             "stage_total": 0,
-            "cumulative_total_after_stage": 5
+            "cumulative_total_after_stage": 10
         },
         "stage_8": {
             "date": "2025-07-18",
             "stage_finish_points": 0,
             "jersey_points": {},
             "stage_total": 0,
-            "cumulative_total_after_stage": 5
+            "cumulative_total_after_stage": 10
         },
         "stage_9": {
             "date": "2025-07-18",
             "stage_finish_points": 0,
             "jersey_points": {},
             "stage_total": 0,
-            "cumulative_total_after_stage": 5
+            "cumulative_total_after_stage": 10
         },
         "stage_10": {
             "date": "2025-07-18",
             "stage_finish_points": 0,
             "jersey_points": {},
             "stage_total": 0,
-            "cumulative_total_after_stage": 5
+            "cumulative_total_after_stage": 10
         },
         "stage_11": {
             "date": "2025-07-18",
             "stage_finish_points": 0,
             "jersey_points": {},
             "stage_total": 0,
-            "cumulative_total_after_stage": 5
+            "cumulative_total_after_stage": 10
         },
         "stage_12": {
             "date": "2025-07-18",
             "stage_finish_points": 0,
             "jersey_points": {},
             "stage_total": 0,
-            "cumulative_total_after_stage": 5
+            "cumulative_total_after_stage": 10
         }
     },
     "Mattias Skjelmose": {
@@ -2078,78 +2078,78 @@
             "date": "2025-07-18",
             "stage_finish_points": 0,
             "jersey_points": {
-                "green": 5
+                "green": 10
             },
-            "stage_total": 5,
-            "cumulative_total_after_stage": 5
+            "stage_total": 10,
+            "cumulative_total_after_stage": 10
         },
         "stage_5": {
             "date": "2025-07-18",
             "stage_finish_points": 0,
             "jersey_points": {},
             "stage_total": 0,
-            "cumulative_total_after_stage": 5
+            "cumulative_total_after_stage": 10
         },
         "stage_6": {
             "date": "2025-07-18",
             "stage_finish_points": 0,
             "jersey_points": {
-                "green": 5
+                "green": 10
             },
-            "stage_total": 5,
-            "cumulative_total_after_stage": 10
+            "stage_total": 10,
+            "cumulative_total_after_stage": 20
         },
         "stage_7": {
             "date": "2025-07-18",
             "stage_finish_points": 0,
             "jersey_points": {},
             "stage_total": 0,
-            "cumulative_total_after_stage": 10
+            "cumulative_total_after_stage": 20
         },
         "stage_8": {
             "date": "2025-07-18",
             "stage_finish_points": 25,
             "jersey_points": {
-                "green": 5
+                "green": 10
             },
-            "stage_total": 30,
-            "cumulative_total_after_stage": 40
+            "stage_total": 35,
+            "cumulative_total_after_stage": 55
         },
         "stage_9": {
             "date": "2025-07-18",
             "stage_finish_points": 19,
             "jersey_points": {
-                "green": 5
+                "green": 10
             },
-            "stage_total": 24,
-            "cumulative_total_after_stage": 64
+            "stage_total": 29,
+            "cumulative_total_after_stage": 84
         },
         "stage_10": {
             "date": "2025-07-18",
             "stage_finish_points": 0,
             "jersey_points": {
-                "green": 5
+                "green": 10
             },
-            "stage_total": 5,
-            "cumulative_total_after_stage": 69
+            "stage_total": 10,
+            "cumulative_total_after_stage": 94
         },
         "stage_11": {
             "date": "2025-07-18",
             "stage_finish_points": 0,
             "jersey_points": {
-                "green": 5
+                "green": 10
             },
-            "stage_total": 5,
-            "cumulative_total_after_stage": 74
+            "stage_total": 10,
+            "cumulative_total_after_stage": 104
         },
         "stage_12": {
             "date": "2025-07-18",
             "stage_finish_points": 0,
             "jersey_points": {
-                "green": 5
+                "green": 10
             },
-            "stage_total": 5,
-            "cumulative_total_after_stage": 79
+            "stage_total": 10,
+            "cumulative_total_after_stage": 114
         }
     },
     "Edoardo Affini": {
@@ -2823,28 +2823,28 @@
             "date": "2025-07-18",
             "stage_finish_points": 18,
             "jersey_points": {
-                "yellow": 10,
-                "white": 5
+                "yellow": 15,
+                "white": 10
             },
-            "stage_total": 33,
-            "cumulative_total_after_stage": 58
+            "stage_total": 43,
+            "cumulative_total_after_stage": 68
         },
         "stage_11": {
             "date": "2025-07-18",
             "stage_finish_points": 0,
             "jersey_points": {
-                "yellow": 10,
-                "white": 5
+                "yellow": 15,
+                "white": 10
             },
-            "stage_total": 15,
-            "cumulative_total_after_stage": 73
+            "stage_total": 25,
+            "cumulative_total_after_stage": 93
         },
         "stage_12": {
             "date": "2025-07-18",
             "stage_finish_points": 0,
             "jersey_points": {},
             "stage_total": 0,
-            "cumulative_total_after_stage": 73
+            "cumulative_total_after_stage": 93
         }
     },
     "Quinn Simmons": {
@@ -3260,58 +3260,58 @@
             "date": "2025-07-18",
             "stage_finish_points": 0,
             "jersey_points": {
-                "polka_dot": 5
+                "polka_dot": 10
             },
-            "stage_total": 5,
-            "cumulative_total_after_stage": 5
+            "stage_total": 10,
+            "cumulative_total_after_stage": 10
         },
         "stage_7": {
             "date": "2025-07-18",
             "stage_finish_points": 0,
             "jersey_points": {
-                "polka_dot": 5
+                "polka_dot": 10
             },
-            "stage_total": 5,
-            "cumulative_total_after_stage": 10
+            "stage_total": 10,
+            "cumulative_total_after_stage": 20
         },
         "stage_8": {
             "date": "2025-07-18",
             "stage_finish_points": 0,
             "jersey_points": {
-                "polka_dot": 5
+                "polka_dot": 10
             },
-            "stage_total": 5,
-            "cumulative_total_after_stage": 15
+            "stage_total": 10,
+            "cumulative_total_after_stage": 30
         },
         "stage_9": {
             "date": "2025-07-18",
             "stage_finish_points": 0,
             "jersey_points": {
-                "polka_dot": 5
+                "polka_dot": 10
             },
-            "stage_total": 5,
-            "cumulative_total_after_stage": 20
+            "stage_total": 10,
+            "cumulative_total_after_stage": 40
         },
         "stage_10": {
             "date": "2025-07-18",
             "stage_finish_points": 0,
             "jersey_points": {},
             "stage_total": 0,
-            "cumulative_total_after_stage": 20
+            "cumulative_total_after_stage": 40
         },
         "stage_11": {
             "date": "2025-07-18",
             "stage_finish_points": 0,
             "jersey_points": {},
             "stage_total": 0,
-            "cumulative_total_after_stage": 20
+            "cumulative_total_after_stage": 40
         },
         "stage_12": {
             "date": "2025-07-18",
             "stage_finish_points": 0,
             "jersey_points": {},
             "stage_total": 0,
-            "cumulative_total_after_stage": 20
+            "cumulative_total_after_stage": 40
         }
     },
     "Axel Laurance": {
@@ -4477,26 +4477,26 @@
             "date": "2025-07-18",
             "stage_finish_points": 13,
             "jersey_points": {
-                "polka_dot": 5
+                "polka_dot": 10
             },
-            "stage_total": 18,
-            "cumulative_total_after_stage": 18
+            "stage_total": 23,
+            "cumulative_total_after_stage": 23
         },
         "stage_11": {
             "date": "2025-07-18",
             "stage_finish_points": 0,
             "jersey_points": {
-                "polka_dot": 5
+                "polka_dot": 10
             },
-            "stage_total": 5,
-            "cumulative_total_after_stage": 23
+            "stage_total": 10,
+            "cumulative_total_after_stage": 33
         },
         "stage_12": {
             "date": "2025-07-18",
             "stage_finish_points": 0,
             "jersey_points": {},
             "stage_total": 0,
-            "cumulative_total_after_stage": 23
+            "cumulative_total_after_stage": 33
         }
     },
     "Jonas Abrahamsen": {

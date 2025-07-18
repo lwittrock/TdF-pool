@@ -8,6 +8,7 @@
         "stage_difficulty": "Hills, uphill finish",
         "won_how": "42.5 km solo"
     },
+    "dnf_riders": [],
     "top_20_finishers": [
         {
             "rider_name": "Ben Healy",
@@ -50,7 +51,7 @@
             "time": "4:28:08"
         },
         {
-            "rider_name": "Tadej Pogačar",
+            "rider_name": "Tadej Pogacar",
             "rank": 9,
             "time": "4:29:37"
         },
@@ -75,7 +76,7 @@
             "time": "4:29:37"
         },
         {
-            "rider_name": "Kévin Vauquelin",
+            "rider_name": "Kevin Vauquelin",
             "rank": 14,
             "time": "4:29:37"
         },
@@ -100,7 +101,7 @@
             "time": "4:29:42"
         },
         {
-            "rider_name": "Primož Roglič",
+            "rider_name": "Primoz Roglic",
             "rank": 19,
             "time": "4:29:42"
         },
@@ -125,5 +126,6 @@
     "top_youth_rider": {
         "rider_name": "Remco Evenepoel",
         "rank": 1
-    }
+    },
+    "combative_rider": null
 }

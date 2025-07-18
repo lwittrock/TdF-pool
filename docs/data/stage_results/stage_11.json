@@ -8,6 +8,7 @@
         "stage_difficulty": "Flat",
         "won_how": "Sprint à deux"
     },
+    "dnf_riders": [],
     "top_20_finishers": [
         {
             "rider_name": "Jonas Abrahamsen",
@@ -25,7 +26,7 @@
             "time": "3:16:03"
         },
         {
-            "rider_name": "Arnaud De Lie",
+            "rider_name": "Arnaud de Lie",
             "rank": 4,
             "time": "3:16:49"
         },
@@ -75,7 +76,7 @@
             "time": "3:19:24"
         },
         {
-            "rider_name": "Romain Grégoire",
+            "rider_name": "Romain Gregoire",
             "rank": 14,
             "time": "3:19:24"
         },
@@ -90,12 +91,12 @@
             "time": "3:19:24"
         },
         {
-            "rider_name": "Louis Barré",
+            "rider_name": "Louis Barre",
             "rank": 17,
             "time": "3:19:24"
         },
         {
-            "rider_name": "Clément Champoussin",
+            "rider_name": "Clement Champoussin",
             "rank": 18,
             "time": "3:19:24"
         },
@@ -105,7 +106,7 @@
             "time": "3:19:24"
         },
         {
-            "rider_name": "Jhonatan Narváez",
+            "rider_name": "Jhonatan Narvaez",
             "rank": 20,
             "time": "3:19:24"
         }
@@ -125,5 +126,6 @@
     "top_youth_rider": {
         "rider_name": "Ben Healy",
         "rank": 1
-    }
+    },
+    "combative_rider": null
 }

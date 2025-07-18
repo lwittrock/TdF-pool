@@ -68,10 +68,10 @@ def find_available_scraped_stages(STAGE_DATA_DIR):
 
 # --- Calculate points per rider based on stage results ---
 SCORING_RULES = {
-    "yellow_jersey": 10,
-    "green_jersey": 5,
-    "polka_dot_jersey": 5,
-    "white_jersey": 5,
+    "yellow_jersey": 15,
+    "green_jersey": 10,
+    "polka_dot_jersey": 10,
+    "white_jersey": 10,
     "combative_rider": 5,
     "team_stage": 6,
 }
