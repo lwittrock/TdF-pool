@@ -8,7 +8,7 @@ DATA_DIR = 'data'
 STAGE_DATA_DIR = os.path.join(DATA_DIR, 'stage_results')
 
 # Set the stage number for the desired Tour de France stage
-stage_number = 11 # Example stage, will be iterated in main calculation script
+stage_number = 12 # Example stage, will be iterated in main calculation script
 
 # URL for Tour de France 2025 Stage on ProCyclingStats
 stage_url = f"race/tour-de-france/2025/stage-{stage_number}/result"
@@ -20,40 +20,42 @@ filename = f"stage_{stage_number}.json"
 def reformat_rider_name(name_str):
     """
     Attempts to reformat a rider name from 'LastName FirstName' to 'FirstName LastName'.
-    Assumes the first name is the last word in the string.
-    Handles multi-word last names correctly (e.g., 'Van der Poel Mathieu' -> 'Mathieu Van der Poel').
+    Handles multi-word first names and multi-word last names.
+    Special case: for names containing 'Garcia' and 'Pierna', treat the last word as first name and the first two as surname (e.g., 'GARCÍA PIERNA Raúl' -> 'Raúl García Pierna').
     This version aims for "Proper Case" (e.g., "Tadej Pogacar") without forcing lowercase.
     It also normalizes Unicode characters (e.g., 'č' to 'c').
     """
-    if not isinstance(name_str, str) or not name_str.strip(): # Handle empty strings after strip
-        return name_str.strip() # Return empty/non-string as is after stripping
+    if not isinstance(name_str, str) or not name_str.strip():
+        return name_str.strip()
 
     # Normalize Unicode characters: decompose into base character and diacritic, then encode to ASCII
     # and decode back, effectively removing diacritics.
     normalized_name_str = unicodedata.normalize('NFKD', name_str).encode('ascii', 'ignore').decode('utf-8')
-    
-    parts = normalized_name_str.strip().split(' ') # Strip leading/trailing spaces before splitting
+    parts = normalized_name_str.strip().split(' ')
+    surname_prefixes = {'van', 'der', 'de', 'le', 'dos', 'da', 'di', 'del', 'la'}
 
-    # Heuristic for proper casing:
-    # Most names should be Title Case. Handle common exceptions like "van der", "de", "le", "dos santos"
     def _proper_case_part(part):
         lower_part = part.lower()
-        if lower_part in ['van', 'der', 'de', 'le', 'dos', 'da', 'di', 'del', 'la']: # Added 'la'
-            return lower_part # Keep these lowercase
-        return part.title() # Title case for others
+        if lower_part in surname_prefixes:
+            return lower_part
+        return part.title()
 
     if len(parts) < 2:
         return _proper_case_part(parts[0]) if parts else "" # Handle cases like "Froome"
 
-    # The last part is assumed to be the first name
-    first_name_raw = parts[-1]
-    
-    # Process last name parts, applying specific casing rules
-    last_name_parts_raw = parts[:-1]
-    last_name_processed_parts = [_proper_case_part(p) for p in last_name_parts_raw]
-    
-    last_name = ' '.join(last_name_processed_parts)
-    first_name = _proper_case_part(first_name_raw) # Apply proper case to the first name part
+    # Manual fix for Spanish double surname 'Garcia Pierna'
+    if len(parts) == 3 and parts[0].lower() == 'garcia' and parts[1].lower() == 'pierna':
+        first_name = _proper_case_part(parts[2])
+        last_name = f"{_proper_case_part(parts[0])} {_proper_case_part(parts[1])}"
+        return f"{first_name} {last_name}"
+
+    # If the last two words are both capitalized (likely first names), treat them as first name
+    if len(parts) > 2 and parts[-2].istitle() and parts[-1].istitle():
+        first_name = ' '.join(_proper_case_part(p) for p in parts[-2:])
+        last_name = ' '.join(_proper_case_part(p) for p in parts[:-2])
+    else:
+        first_name = _proper_case_part(parts[-1])
+        last_name = ' '.join(_proper_case_part(p) for p in parts[:-1])
 
     return f"{first_name} {last_name}"
 
