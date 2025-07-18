@@ -1,13 +1,14 @@
 import json
 import os
 from procyclingstats import Stage
+import unicodedata # New import for Unicode normalization
 
 # --- Directory and File Naming Configuration ---
 DATA_DIR = 'data'
 STAGE_DATA_DIR = os.path.join(DATA_DIR, 'stage_results')
 
 # Set the stage number for the desired Tour de France stage
-stage_number = 12 # Example stage, will be iterated in main calculation script
+stage_number = 11 # Example stage, will be iterated in main calculation script
 
 # URL for Tour de France 2025 Stage on ProCyclingStats
 stage_url = f"race/tour-de-france/2025/stage-{stage_number}/result"
@@ -21,19 +22,38 @@ def reformat_rider_name(name_str):
     Attempts to reformat a rider name from 'LastName FirstName' to 'FirstName LastName'.
     Assumes the first name is the last word in the string.
     Handles multi-word last names correctly (e.g., 'Van der Poel Mathieu' -> 'Mathieu Van der Poel').
+    This version aims for "Proper Case" (e.g., "Tadej Pogacar") without forcing lowercase.
+    It also normalizes Unicode characters (e.g., 'č' to 'c').
     """
-    if not isinstance(name_str, str) or ' ' not in name_str:
-        return name_str # Return as is if not a string or single word
+    if not isinstance(name_str, str) or not name_str.strip(): # Handle empty strings after strip
+        return name_str.strip() # Return empty/non-string as is after stripping
 
-    parts = name_str.split(' ')
-    if len(parts) < 2:
-        return name_str # Cannot reformat if less than two words
-
-    first_name = parts[-1]
-    last_name_parts = parts[:-1]
+    # Normalize Unicode characters: decompose into base character and diacritic, then encode to ASCII
+    # and decode back, effectively removing diacritics.
+    normalized_name_str = unicodedata.normalize('NFKD', name_str).encode('ascii', 'ignore').decode('utf-8')
     
-    # Join the last name parts back together
-    last_name = ' '.join(last_name_parts)
+    parts = normalized_name_str.strip().split(' ') # Strip leading/trailing spaces before splitting
+
+    # Heuristic for proper casing:
+    # Most names should be Title Case. Handle common exceptions like "van der", "de", "le", "dos santos"
+    def _proper_case_part(part):
+        lower_part = part.lower()
+        if lower_part in ['van', 'der', 'de', 'le', 'dos', 'da', 'di', 'del', 'la']: # Added 'la'
+            return lower_part # Keep these lowercase
+        return part.title() # Title case for others
+
+    if len(parts) < 2:
+        return _proper_case_part(parts[0]) if parts else "" # Handle cases like "Froome"
+
+    # The last part is assumed to be the first name
+    first_name_raw = parts[-1]
+    
+    # Process last name parts, applying specific casing rules
+    last_name_parts_raw = parts[:-1]
+    last_name_processed_parts = [_proper_case_part(p) for p in last_name_parts_raw]
+    
+    last_name = ' '.join(last_name_processed_parts)
+    first_name = _proper_case_part(first_name_raw) # Apply proper case to the first name part
 
     return f"{first_name} {last_name}"
 
@@ -54,9 +74,9 @@ try:
     # --- Add Stage Information ---
     stage_info = {}
     stage_info['date'] = full_stage_data.get('date', 'N/A')
-    stage_info['distance'] = full_stage_data.get('distance', 'N/A') # 'distance' is often used for length in km
+    stage_info['distance'] = full_stage_data.get('distance', 'N/A')
     stage_info['departure_city'] = full_stage_data.get('departure', 'N/A') 
-    stage_info['arrival_city'] = full_stage_data.get('arrival', 'N/A')     # Corrected: 'end_city' for arrival
+    stage_info['arrival_city'] = full_stage_data.get('arrival', 'N/A')
     stage_info['stage_type_category'] = full_stage_data.get('stage_type', 'N/A')
 
     # --- Add Stage Difficulty based on profile_icon() ---
@@ -75,8 +95,7 @@ try:
         stage_info['stage_difficulty'] = difficulty_map.get(profile_icon_value, 'Unknown')
 
     except Exception as e:
-        stage_info['stage_difficulty'] = 'N/A' # Resetting 'N/A' for consistency if error occurs
-        # stage_info['stage_difficulty'] = 'Could not retrieve profile icon' # This line was redundant
+        stage_info['stage_difficulty'] = 'N/A'
         print(f"Warning: Could not get stage profile icon: {e}")
 
     stage_info['won_how'] = full_stage_data.get('won_how', 'N/A')
@@ -100,9 +119,12 @@ try:
     # Helper function to extract specific fields for top riders (no time for these)
     def extract_top_rider_info(rider_data):
         if rider_data:
+            # PCS sometimes returns dict with 'rider_name' key, sometimes just the name string
+            name_to_format = rider_data.get("rider_name") if isinstance(rider_data, dict) else rider_data
+            
             return {
-                "rider_name": reformat_rider_name(rider_data.get("rider_name")), # <--- Applied reformat here
-                "rank": rider_data.get("rank") 
+                "rider_name": reformat_rider_name(name_to_format), # <--- Applied reformat here
+                "rank": rider_data.get("rank") if isinstance(rider_data, dict) else None # Rank is only in dicts
             }
         return None
 
@@ -134,6 +156,26 @@ try:
         extracted_data['top_youth_rider'] = None
         print("Warning: 'youth' data not found or empty.")
 
+    # Get Combative Rider
+    if 'combative_rider' in full_stage_data and full_stage_data['combative_rider']:
+        combative_rider_data = full_stage_data['combative_rider']
+        
+        if isinstance(combative_rider_data, dict):
+            name_to_format = combative_rider_data.get('rider_name')
+            rank = combative_rider_data.get('rank', 1)
+        else:
+            name_to_format = combative_rider_data
+            rank = 1 
+            
+        extracted_data['combative_rider'] = {
+            "rider_name": reformat_rider_name(name_to_format),
+            "rank": rank
+        }
+    else:
+        extracted_data['combative_rider'] = None
+        print("Warning: 'combative_rider' data not found.")
+
+
     # Create the full path for the file
     filepath = os.path.join(STAGE_DATA_DIR, filename)
 
@@ -141,7 +183,7 @@ try:
     with open(filepath, 'w', encoding='utf-8') as f:
         json.dump(extracted_data, f, ensure_ascii=False, indent=4)
 
-    print(f"Successfully extracted and saved specific data for Tour de France 2025 Stage {stage_number} to {filepath}") # Corrected stage number in print
+    print(f"Successfully extracted and saved specific data for Tour de France 2025 Stage {stage_number} to {filepath}")
 
 except Exception as e:
     print(f"An error occurred: {e}")

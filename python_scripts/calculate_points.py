@@ -24,13 +24,13 @@ RIDER_STAGE_POINTS_HISTORY_FILE = os.path.join(CALC_POINTS_DIR, 'rider_stage_poi
 PARTICIPANT_STAGE_POINTS_HISTORY_FILE = os.path.join(CALC_POINTS_DIR, 'participant_stage_points.json')
 
 # Input file path
-PARTICIPANT_SELECTIONS_FILE = os.path.join(DATA_DIR, 'participant_selections.json')
+PARTICIPANT_SELECTIONS_FILE = os.path.join(DATA_DIR, 'participant_selections_anon.json')
 
 
 # --- Helper Functions ---
 def load_json_data(filepath, default_value=None):
-    if default_value is None:
-        default_value = {}
+    # This function needs to be aware if it's loading a list or a dict
+    # For PARTICIPANT_SELECTIONS_FILE, the default should now be an empty list
     if os.path.exists(filepath):
         with open(filepath, 'r', encoding='utf-8') as f:
             return json.load(f)
@@ -46,7 +46,7 @@ def clear_json_file(filepath, default_value_type=dict):
     with open(filepath, 'w', encoding='utf-8') as f:
         if default_value_type == dict:
             json.dump({}, f)
-        else:
+        else: # For lists
             json.dump([], f)
 
 # Load scraped stage data
@@ -73,7 +73,7 @@ SCORING_RULES = {
     "polka_dot_jersey": 5,
     "white_jersey": 5,
     "combative_rider": 5,
-    "team_finish": 6,
+    "team_stage": 6,
 }
 
 def _get_stage_points_for_rank(rank):
@@ -159,7 +159,7 @@ def update_detailed_rider_history(current_stage_num, current_date, rider_stage_d
 
 
 # --- Calculate cumulative points for each participant ---
-def calculate_participant_scores_and_contributions(participant_selections, detailed_rider_history, current_stage_num, previous_cumulative_leaderboard=None):
+def calculate_participant_scores_and_contributions(participant_selections_list, detailed_rider_history, current_stage_num, previous_cumulative_leaderboard=None):
     participant_stage_scores = defaultdict(int)
     participant_cumulative_scores = defaultdict(int)
     participant_rider_contributions = defaultdict(dict)
@@ -167,8 +167,14 @@ def calculate_participant_scores_and_contributions(participant_selections, detai
     # Load previous cumulative scores to build current cumulative correctly
     previous_scores_map = {entry['participant_name']: entry['total_score'] for entry in previous_cumulative_leaderboard or []}
 
-    for participant, selection in participant_selections.items():
-        selected_riders = selection.get("main_riders", [])
+    # Iterate through the list of participant dictionaries
+    for selection_entry in participant_selections_list:
+        participant_name = selection_entry.get("name") # Get the participant's name from the 'name' field
+        selected_riders = selection_entry.get("main_riders", [])
+
+        if not participant_name:
+            print(f"Warning: Participant entry missing 'name' field. Skipping entry: {selection_entry}")
+            continue
 
         current_stage_contribution_total = 0
         current_stage_rider_contributions = {}
@@ -179,13 +185,13 @@ def calculate_participant_scores_and_contributions(participant_selections, detai
             
             current_stage_contribution_total += rider_stage_total
             current_stage_rider_contributions[rider] = rider_stage_total
-        
-        participant_stage_scores[participant] = current_stage_contribution_total
-        participant_rider_contributions[participant] = current_stage_rider_contributions
+            
+        participant_stage_scores[participant_name] = current_stage_contribution_total
+        participant_rider_contributions[participant_name] = current_stage_rider_contributions
 
         # Calculate cumulative score
         # Previous cumulative score + current stage score
-        participant_cumulative_scores[participant] = previous_scores_map.get(participant, 0) + current_stage_contribution_total
+        participant_cumulative_scores[participant_name] = previous_scores_map.get(participant_name, 0) + current_stage_contribution_total
         
 
     # Create leaderboard for the current cumulative state
@@ -267,7 +273,8 @@ if __name__ == "__main__":
     print("Previous data cleared.")
 
     try:
-        PARTICIPANT_SELECTIONS = load_json_data(PARTICIPANT_SELECTIONS_FILE)
+        # !!! CHANGE HERE !!! Load as a list by setting default_value to []
+        PARTICIPANT_SELECTIONS = load_json_data(PARTICIPANT_SELECTIONS_FILE, default_value=[])
         if not PARTICIPANT_SELECTIONS:
             print(f"Error: {PARTICIPANT_SELECTIONS_FILE} is empty or invalid. Please ensure participant selections are set up.")
             exit()
@@ -330,11 +337,11 @@ if __name__ == "__main__":
         print(f"Rider stage points and cumulative points updated for Stage {stage_num}.")
         
         # --- Participant Calculations ---
-        current_cumulative_rider_points_map = load_json_data(RIDER_CUMULATIVE_POINTS_FILE)
+        # No change needed for current_cumulative_rider_points_map as it's for riders
 
         participant_cumulative_leaderboard, participant_stage_scores, participant_rider_contributions = \
             calculate_participant_scores_and_contributions(
-                PARTICIPANT_SELECTIONS,
+                PARTICIPANT_SELECTIONS, # Pass the list directly
                 detailed_rider_history_in_memory,
                 stage_num,
                 previous_cumulative_leaderboard=previous_cumulative_leaderboard
@@ -356,4 +363,3 @@ if __name__ == "__main__":
 
         # Update previous leaderboard for next stage's rank change calculation
         previous_cumulative_leaderboard = participant_cumulative_leaderboard
-
