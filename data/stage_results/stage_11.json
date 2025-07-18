@@ -8,6 +8,7 @@
         "stage_difficulty": "Flat",
         "won_how": "Sprint à deux"
     },
+    "dnf_riders": [],
     "top_20_finishers": [
         {
             "rider_name": "Jonas Abrahamsen",
@@ -20,17 +21,17 @@
             "time": "3:15:56"
         },
         {
-            "rider_name": "Poel Mathieu van der",
+            "rider_name": "Mathieu van der Poel",
             "rank": 3,
             "time": "3:16:03"
         },
         {
-            "rider_name": "Lie Arnaud de",
+            "rider_name": "Arnaud de Lie",
             "rank": 4,
             "time": "3:16:49"
         },
         {
-            "rider_name": "Aert Wout van",
+            "rider_name": "Wout van Aert",
             "rank": 5,
             "time": "3:16:49"
         },

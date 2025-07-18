@@ -8,6 +8,11 @@
         "stage_difficulty": "Hills, uphill finish",
         "won_how": "2.3 km solo"
     },
+    "dnf_riders": [
+        "Sren Wrenskjold",
+        "Georg Zimmermann",
+        "Marijn van den Berg"
+    ],
     "top_20_finishers": [
         {
             "rider_name": "Simon Yates",
@@ -40,7 +45,7 @@
             "time": "4:24:02"
         },
         {
-            "rider_name": "Halland Johannessen Anders",
+            "rider_name": "Anders Halland Johannessen",
             "rank": 7,
             "time": "4:24:43"
         },
@@ -50,7 +55,7 @@
             "time": "4:24:56"
         },
         {
-            "rider_name": "Tadej Pogačar",
+            "rider_name": "Tadej Pogacar",
             "rank": 9,
             "time": "4:24:56"
         },
@@ -80,12 +85,12 @@
             "time": "4:25:02"
         },
         {
-            "rider_name": "Halland Johannessen Tobias",
+            "rider_name": "Tobias Halland Johannessen",
             "rank": 15,
             "time": "4:25:02"
         },
         {
-            "rider_name": "Primož Roglič",
+            "rider_name": "Primoz Roglic",
             "rank": 16,
             "time": "4:25:02"
         },
@@ -95,7 +100,7 @@
             "time": "4:25:16"
         },
         {
-            "rider_name": "Carlos Rodríguez",
+            "rider_name": "Carlos Rodriguez",
             "rank": 18,
             "time": "4:25:20"
         },
@@ -125,5 +130,6 @@
     "top_youth_rider": {
         "rider_name": "Ben Healy",
         "rank": 1
-    }
+    },
+    "combative_rider": null
 }

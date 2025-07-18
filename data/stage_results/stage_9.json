@@ -8,6 +8,9 @@
         "stage_difficulty": "Flat",
         "won_how": "Sprint of large group"
     },
+    "dnf_riders": [
+        "Joao Almeida"
+    ],
     "top_20_finishers": [
         {
             "rider_name": "Tim Merlier",
@@ -20,7 +23,7 @@
             "time": "3:28:52"
         },
         {
-            "rider_name": "Arnaud De Lie",
+            "rider_name": "Arnaud de Lie",
             "rank": 3,
             "time": "3:28:52"
         },
@@ -30,7 +33,7 @@
             "time": "3:28:52"
         },
         {
-            "rider_name": "Paul Penhoët",
+            "rider_name": "Paul Penhoet",
             "rank": 5,
             "time": "3:28:52"
         },
@@ -70,7 +73,7 @@
             "time": "3:28:52"
         },
         {
-            "rider_name": "Arnaud Démare",
+            "rider_name": "Arnaud Demare",
             "rank": 13,
             "time": "3:28:52"
         },
@@ -111,7 +114,7 @@
         }
     ],
     "top_gc_rider": {
-        "rider_name": "Tadej Pogačar",
+        "rider_name": "Tadej Pogacar",
         "rank": 1
     },
     "top_kom_rider": {
@@ -125,5 +128,6 @@
     "top_youth_rider": {
         "rider_name": "Remco Evenepoel",
         "rank": 1
-    }
+    },
+    "combative_rider": null
 }

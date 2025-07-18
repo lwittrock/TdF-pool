@@ -22,7 +22,7 @@ RIDER_STAGE_POINTS_HISTORY_FILE = os.path.join(CALC_POINTS_DIR, 'rider_stage_poi
 PARTICIPANT_STAGE_POINTS_HISTORY_FILE = os.path.join(CALC_POINTS_DIR, 'participant_stage_points.json')
 
 # Input file path
-PARTICIPANT_SELECTIONS_FILE = os.path.join(DATA_DIR, 'participant_selections.json')
+PARTICIPANT_SELECTIONS_FILE = os.path.join(DATA_DIR, 'participant_selections_anon.json')
 
 
 

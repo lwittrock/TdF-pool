@@ -8,6 +8,10 @@
         "stage_difficulty": "Flat",
         "won_how": "Time trial"
     },
+    "dnf_riders": [
+        "Emilien Jeanniere",
+        "Jasper de Buyst"
+    ],
     "top_20_finishers": [
         {
             "rider_name": "Remco Evenepoel",
@@ -15,7 +19,7 @@
             "time": "0:36:42"
         },
         {
-            "rider_name": "Tadej Pogačar",
+            "rider_name": "Tadej Pogacar",
             "rank": 2,
             "time": "0:36:58"
         },
@@ -30,7 +34,7 @@
             "time": "0:37:17"
         },
         {
-            "rider_name": "Kévin Vauquelin",
+            "rider_name": "Kevin Vauquelin",
             "rank": 5,
             "time": "0:37:31"
         },
@@ -40,12 +44,12 @@
             "time": "0:37:40"
         },
         {
-            "rider_name": "Iván Romeo",
+            "rider_name": "Ivan Romeo",
             "rank": 7,
             "time": "0:37:44"
         },
         {
-            "rider_name": "João Almeida",
+            "rider_name": "Joao Almeida",
             "rank": 8,
             "time": "0:37:56"
         },
@@ -65,7 +69,7 @@
             "time": "0:38:01"
         },
         {
-            "rider_name": "Primož Roglič",
+            "rider_name": "Primoz Roglic",
             "rank": 12,
             "time": "0:38:01"
         },
@@ -90,7 +94,7 @@
             "time": "0:38:19"
         },
         {
-            "rider_name": "Raúl García Pierna",
+            "rider_name": "Raul Garcia Pierna",
             "rank": 17,
             "time": "0:38:20"
         },
@@ -111,19 +115,20 @@
         }
     ],
     "top_gc_rider": {
-        "rider_name": "Tadej Pogačar",
+        "rider_name": "Tadej Pogacar",
         "rank": 1
     },
     "top_kom_rider": {
-        "rider_name": "Tadej Pogačar",
+        "rider_name": "Tadej Pogacar",
         "rank": 1
     },
     "top_points_rider": {
-        "rider_name": "Tadej Pogačar",
+        "rider_name": "Tadej Pogacar",
         "rank": 1
     },
     "top_youth_rider": {
         "rider_name": "Remco Evenepoel",
         "rank": 1
-    }
+    },
+    "combative_rider": null
 }
