@@ -158,6 +158,34 @@ function HomePage() {
     return allStages.sort((a, b) => a.stageNum - b.stageNum);
   };
 
+  // Get participant medals from all stages
+  const getParticipantMedals = (participantName: string) => {
+    let goldCount = 0;
+    let silverCount = 0;
+    let bronzeCount = 0;
+
+    // Iterate through all stages to count medals
+    Object.values(leaderboard_by_stage).forEach((stageData) => {
+      const participantEntry = stageData.find(
+        p => p.participant_name === participantName
+      );
+      
+      if (participantEntry) {
+        if (participantEntry.stage_rank === 1) goldCount++;
+        else if (participantEntry.stage_rank === 2) silverCount++;
+        else if (participantEntry.stage_rank === 3) bronzeCount++;
+      }
+    });
+
+    // Return medals as string (grouped by type)
+    const medals = [];
+    if (goldCount > 0) medals.push('🥇'.repeat(goldCount));
+    if (silverCount > 0) medals.push('🥈'.repeat(silverCount));
+    if (bronzeCount > 0) medals.push('🥉'.repeat(bronzeCount));
+    
+    return medals.join('');
+  };
+
 
   // Main render
   return (
@@ -189,7 +217,7 @@ function HomePage() {
                 : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
             }`}
           >
-            Individueel Klassement
+            Algemeen Klassement
           </button>
           <button
             onClick={() => setActiveView('standings_directie')}
@@ -232,7 +260,7 @@ function HomePage() {
       {activeView === 'stage_individual' && (
         <main className="bg-white rounded-lg shadow-md p-6">
           <h2 className="text-2xl font-semibold mb-6">
-            Etappe {currentStageNum} Resultaten
+            Etappe {currentStageNum} Uitslagen
           </h2>
           
           <div className="overflow-x-auto">
@@ -322,10 +350,13 @@ function HomePage() {
                   <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">Deelnemer</th>
                   <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">Directie</th>
                   <th className="px-4 py-3 text-right text-sm font-semibold text-gray-700">Totaal Punten</th>
+                  <th className="px-4 py-3 text-center text-sm font-semibold text-gray-700">Etappe Medailles</th>
                 </tr>
               </thead>
               <tbody>
                 {(filteredResults as LeaderboardEntry[]).map((entry) => {
+                  const medals = getParticipantMedals(entry.participant_name);
+                  
                   return (
                     <React.Fragment key={entry.participant_name}>
                       <tr 
@@ -347,11 +378,14 @@ function HomePage() {
                         <td className="px-4 py-3 text-sm text-gray-900 text-right font-semibold">
                           {entry.overall_score}
                         </td>
+                        <td className="px-4 py-3 text-sm text-center">
+                          {medals || ''}
+                        </td>
                       </tr>
                       
                       {expandedItem === entry.participant_name && (
                         <tr className="bg-gray-50">
-                          <td colSpan={5} className="px-4 py-4">
+                          <td colSpan={6} className="px-4 py-4">
                             <div className="ml-8 max-w-md">
                               <h3 className="text-sm font-semibold text-gray-700 mb-2 pb-2 border-b border-gray-300">
                                 Punten per Etappe
