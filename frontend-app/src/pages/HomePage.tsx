@@ -1,103 +1,113 @@
 import React, { useState, useMemo } from 'react'
-import tdfData from '../data/tdf_data.json'
+
+// Data Import
+import tdfData from '../data/tdf_data.json' with { type: "json" };
 
 // Interfaces
-// Interfaces
-interface Participant {
+interface LeaderboardEntry {
   participant_name: string;
-  total_score: number;
-  rank: number;
-  rank_change: number | null;
-  directie: string;
+  directie_name: string;
+  overall_score: number;
+  overall_rank: number;
+  overall_rank_change: number;
+  stage_score: number;
+  stage_rank: number;
+  stage_rider_contributions: {
+    [key: string]: number;
+  };
 }
 
 interface DirectieEntry {
-  directie: string;
-  total_score: number;
-  rank: number;
-  rank_change: number | null;
-  contributing_participants: Array<{
+  directie_name: string;
+  overall_score: number;
+  overall_rank: number;
+  overall_rank_change: number;
+  stage_score: number;
+  stage_rank: number;
+  stage_participant_contributions: Array<{
     participant_name: string;
-    total_contribution: number;
+    stage_score: number;
+  }>;
+  overall_participant_contributions: Array<{
+    participant_name: string;
+    overall_score: number;
   }>;
 }
 
-interface ParticipantStageData {
-  date: string;
-  stage_score: number;
-  cumulative_score: number;
-  rider_contributions: Record<string, number>;
+interface TdfData {
+  metadata: {
+    current_stage: number;
+    top_n_participants_for_directie: number;
+  };
+  leaderboard_by_stage: Record<string, LeaderboardEntry[]>;
+  directie_leaderboard_by_stage: Record<string, DirectieEntry[]>;
 }
 
-interface ParticipantData {
-  directie: string;
-  stages: Record<string, ParticipantStageData>;
-  rider_totals: Record<string, number>;
-}
+// View Type
+type ViewType = 'stage_individual' | 'standings_individual' | 'standings_directie';
 
-type ViewType = 'klassement' | 'stage' | 'directie';
 
-interface StageResult {
-  name: string;
-  score: number;
-  date: string;
-  directie?: string; // added directie
-}
-
+// Main Component
 function HomePage() {
-  const [activeView, setActiveView] = useState<ViewType>('klassement');
+  const [activeView, setActiveView] = useState<ViewType>('standings_individual');
   const [searchTerm, setSearchTerm] = useState('');
   const [expandedItem, setExpandedItem] = useState<string | null>(null);
 
-  // Destructure data from imported JSON
-  const { metadata, leaderboard, participants, directie_leaderboard } = tdfData;
+  // Destructure data from imported JSON with proper typing
+  const data: TdfData = tdfData as unknown as TdfData;
+  const { metadata, leaderboard_by_stage, directie_leaderboard_by_stage } = data;
   const currentStageNum = metadata.current_stage;
   const currentStageKey = `stage_${currentStageNum}`;
 
-  // Memoize stage results for current stage
-  const stageResults = useMemo(() => {
-    return Object.entries(participants as Record<string, ParticipantData>)
-      .map(([name, data]) => ({
-        name,
-        score: data.stages[currentStageKey]?.stage_score || 0,
-        date: data.stages[currentStageKey]?.date || '',
-        directie: data.directie || '' // include directie
-      }))
-      .sort((a, b) => b.score - a.score);
-  }, [participants, currentStageKey]);
+  // Get current stage leaderboards
+  const currentLeaderboard = useMemo(() => 
+    leaderboard_by_stage[currentStageKey] || [], 
+    [leaderboard_by_stage, currentStageKey]
+  );
+  
+  const currentDirectieLeaderboard = useMemo(() => 
+    directie_leaderboard_by_stage[currentStageKey] || [], 
+    [directie_leaderboard_by_stage, currentStageKey]
+  );
 
-  // Memoize filtered results based on active view and search term
+  // Memorize stage results for current stage (sorted by stage_rank)
+  const stageResults = useMemo(() => {
+    return [...currentLeaderboard].sort((a, b) => a.stage_rank - b.stage_rank);
+  }, [currentLeaderboard]);
+
+  // Memorize filtered results based on active view and search term
   const filteredResults = useMemo(() => {
     const searchLower = searchTerm.toLowerCase().trim();
     
     if (!searchLower) {
-      // No search: return data depending on view
-      if (activeView === 'klassement') return leaderboard;
-      if (activeView === 'stage') return stageResults;
-      return directie_leaderboard;
+      if (activeView === 'standings_individual') return currentLeaderboard;
+      if (activeView === 'stage_individual') return stageResults;
+      return currentDirectieLeaderboard;
     }
 
-    // When searching, always allow filtering by participant name OR directie
-    if (activeView === 'klassement') {
-      return leaderboard.filter((p: Participant) => 
+    // Filter based on view type
+    if (activeView === 'standings_individual') {
+      return currentLeaderboard.filter((p) => 
         p.participant_name.toLowerCase().includes(searchLower) ||
-        (p.directie || '').toLowerCase().includes(searchLower)
+        p.directie_name.toLowerCase().includes(searchLower)
       );
-    } else if (activeView === 'stage') {
-      return stageResults.filter((r: StageResult) => 
-        r.name.toLowerCase().includes(searchLower) ||
-        (r.directie || '').toLowerCase().includes(searchLower)
+    } else if (activeView === 'stage_individual') {
+      return stageResults.filter((r) => 
+        r.participant_name.toLowerCase().includes(searchLower) ||
+        r.directie_name.toLowerCase().includes(searchLower)
       );
-    } else { // directie view: match directie name OR any contributing participant's name
-      return directie_leaderboard.filter((d: DirectieEntry) => 
-        d.directie.toLowerCase().includes(searchLower) ||
-        d.contributing_participants.some(cp => cp.participant_name.toLowerCase().includes(searchLower))
+    } else {
+      return currentDirectieLeaderboard.filter((d) => 
+        d.directie_name.toLowerCase().includes(searchLower) ||
+        d.overall_participant_contributions.some(cp => 
+          cp.participant_name.toLowerCase().includes(searchLower)
+        )
       );
     }
-  }, [activeView, searchTerm, leaderboard, stageResults, directie_leaderboard]);
+  }, [activeView, searchTerm, stageResults, currentDirectieLeaderboard, currentLeaderboard]); 
 
-  const renderRankChange = (rankChange: number | null) => {
-    if (rankChange === null) return <span className="text-gray-400">—</span>;
+  // Helper to render rank change with arrows and colors
+  const renderRankChange = (rankChange: number) => {
     if (rankChange > 0) {
       return <span className="text-green-600 font-semibold">↑ {rankChange}</span>;
     }
@@ -107,33 +117,49 @@ function HomePage() {
     return <span className="text-gray-400">—</span>;
   };
 
-  const renderMedal = (index: number) => {
-    if (index === 0) return ' 🥇';
-    if (index === 1) return ' 🥈';
-    if (index === 2) return ' 🥉';
+  // Helper to render medal emojis for top 3
+  const renderMedal = (rank: number) => {
+    if (rank === 1) return ' 🥇';
+    if (rank === 2) return ' 🥈';
+    if (rank === 3) return ' 🥉';
     return '';
   };
 
+  // Toggle expanded item for details view
   const toggleItemDetails = (itemName: string) => {
-    setExpandedItem(prev => 
-      prev === itemName ? null : itemName
-    );
+    setExpandedItem(prev => prev === itemName ? null : itemName);
   };
 
+  // Get participant stages data for expanded view
   const getParticipantStages = (participantName: string) => {
-    const participantData = (participants as Record<string, ParticipantData>)[participantName];
-    if (!participantData?.stages) return [];
+    const allStages: Array<{
+      stageNum: number;
+      stageKey: string;
+      stage_score: number;
+      stage_rank: number;
+    }> = [];
 
-    return Object.entries(participantData.stages)
-      .map(([stageKey, data]) => ({
-        stageNum: parseInt(stageKey.replace('stage_', '')),
-        stageKey,
-        stage_score: data.stage_score,
-        date: data.date
-      }))
-      .sort((a, b) => a.stageNum - b.stageNum);
+    // Iterate through all stages in leaderboard_by_stage
+    Object.entries(leaderboard_by_stage).forEach(([stageKey, stageData]) => {
+      const participantEntry = stageData.find(
+        p => p.participant_name === participantName
+      );
+      
+      if (participantEntry) {
+        allStages.push({
+          stageNum: parseInt(stageKey.replace('stage_', '')),
+          stageKey,
+          stage_score: participantEntry.stage_score,
+          stage_rank: participantEntry.stage_rank
+        });
+      }
+    });
+
+    return allStages.sort((a, b) => a.stageNum - b.stageNum);
   };
 
+
+  // Main render
   return (
     <div className="min-h-screen bg-gray-100 p-8">
       <header className="bg-white rounded-lg shadow-md p-6 mb-8">
@@ -142,32 +168,33 @@ function HomePage() {
 
       {/* Navigation and Search */}
       <div className="flex flex-col lg:flex-row gap-4 mb-8">
+        
         {/* Navigation Tabs */}
         <div className="bg-white rounded-lg shadow-md p-2 flex gap-2 lg:flex-1">
           <button
-            onClick={() => setActiveView('klassement')}
+            onClick={() => setActiveView('stage_individual')}
             className={`flex-1 py-3 px-4 rounded-md font-semibold transition-colors ${
-              activeView === 'klassement'
+              activeView === 'stage_individual'
                 ? 'bg-blue-600 text-white'
                 : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
             }`}
           >
-            Algemeen Klassement
-          </button>
+            Etappe Uitslagen
+          </button>          
           <button
-            onClick={() => setActiveView('stage')}
+            onClick={() => setActiveView('standings_individual')}
             className={`flex-1 py-3 px-4 rounded-md font-semibold transition-colors ${
-              activeView === 'stage'
+              activeView === 'standings_individual'
                 ? 'bg-blue-600 text-white'
                 : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
             }`}
           >
-            Etappe {currentStageNum}
+            Individueel Klassement
           </button>
           <button
-            onClick={() => setActiveView('directie')}
+            onClick={() => setActiveView('standings_directie')}
             className={`flex-1 py-3 px-4 rounded-md font-semibold transition-colors ${
-              activeView === 'directie'
+              activeView === 'standings_directie'
                 ? 'bg-blue-600 text-white'
                 : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
             }`}
@@ -202,15 +229,10 @@ function HomePage() {
       </div>
 
       {/* Stage Results View */}
-      {activeView === 'stage' && (
+      {activeView === 'stage_individual' && (
         <main className="bg-white rounded-lg shadow-md p-6">
           <h2 className="text-2xl font-semibold mb-6">
             Etappe {currentStageNum} Resultaten
-            {stageResults[0]?.date && (
-              <span className="text-sm text-gray-500 ml-2">
-                ({new Date(stageResults[0].date).toLocaleDateString('nl-NL')})
-              </span>
-            )}
           </h2>
           
           <div className="overflow-x-auto">
@@ -219,59 +241,57 @@ function HomePage() {
                 <tr className="bg-gray-50 border-b-2 border-gray-200">
                   <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">Positie</th>
                   <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">Deelnemer</th>
-                  <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">Directie</th> {/* new column */}
+                  <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">Directie</th>
                   <th className="px-4 py-3 text-right text-sm font-semibold text-gray-700">Punten</th>
+                  <th className="px-4 py-3 text-center text-sm font-semibold text-gray-700">Alg. Rank</th>
                 </tr>
               </thead>
               <tbody>
-                {filteredResults.map((result, index) => {
-                  const typedResult = result as StageResult;
-                  const isExpanded = expandedItem === typedResult.name;
-                  const participantData = (participants as Record<string, ParticipantData>)[typedResult.name];
-                  const stageData = participantData?.stages[currentStageKey];
-                  const riderContributions = stageData?.rider_contributions || {};
-                  const sortedRiders = Object.entries(riderContributions)
+                {(filteredResults as LeaderboardEntry[]).map((entry) => {
+                  const sortedRiders = Object.entries(entry.stage_rider_contributions)
                     .sort(([, a], [, b]) => b - a);
 
                   return (
-                    <React.Fragment key={typedResult.name}>
+                    <React.Fragment key={entry.participant_name}>
                       <tr 
                         className={`border-b border-gray-100 hover:bg-gray-50 transition-colors cursor-pointer ${
-                          index < 3 ? 'bg-yellow-50' : ''
+                          entry.stage_rank <= 3 ? 'bg-yellow-50' : ''
                         }`}
-                        onClick={() => toggleItemDetails(typedResult.name)}
+                        onClick={() => toggleItemDetails(entry.participant_name)}
                       >
                         <td className="px-4 py-3 text-sm font-medium text-gray-900">
-                          {index + 1}{renderMedal(index)}
+                          {entry.stage_rank}
+                          {renderMedal(entry.stage_rank)}
                         </td>
                         <td className="px-4 py-3 text-sm text-gray-900">
-                          {typedResult.name}
+                          {entry.participant_name}
                         </td>
                         <td className="px-4 py-3 text-sm text-gray-700">
-                          {typedResult.directie || '-'}
+                          {entry.directie_name}
                         </td>
                         <td className="px-4 py-3 text-sm text-gray-900 text-right font-semibold">
-                          {typedResult.score}
+                          {entry.stage_score}
+                        </td>
+                        <td className="px-4 py-3 text-sm text-gray-700 text-center">
+                          #{entry.overall_rank}
                         </td>
                       </tr>
 
-                      {isExpanded && (
+                      {expandedItem === entry.participant_name && (
                         <tr className="bg-gray-50">
-                          <td colSpan={4} className="px-4 py-4"> {/* updated colSpan */}
+                          <td colSpan={5} className="px-4 py-4">
                             <div className="ml-8 max-w-md">
-                              <h3 className="text-sm font-semibold text-gray-700 mb-2 pb-2 border-b border-gray-300">Renner Bijdragen</h3>
+                              <h3 className="text-sm font-semibold text-gray-700 mb-2 pb-2 border-b border-gray-300">
+                                Renner Bijdragen
+                              </h3>
                               <div>
                                 {sortedRiders.map(([rider, points]) => (
                                   <div 
                                     key={rider}
                                     className="flex justify-between items-center py-1 px-2 hover:bg-gray-100 rounded transition-colors"
                                   >
-                                    <span className="text-sm text-gray-700">
-                                      {rider}
-                                    </span>
-                                    <span className="text-sm font-bold text-gray-900">
-                                      {points}
-                                    </span>
+                                    <span className="text-sm text-gray-700">{rider}</span>
+                                    <span className="text-sm font-bold text-gray-900">{points}</span>
                                   </div>
                                 ))}
                               </div>
@@ -289,7 +309,7 @@ function HomePage() {
       )}
 
       {/* Overall Leaderboard View */}
-      {activeView === 'klassement' && (
+      {activeView === 'standings_individual' && (
         <main className="bg-white rounded-lg shadow-md p-6">
           <h2 className="text-2xl font-semibold mb-6">Algemeen Klassement</h2>
           
@@ -300,46 +320,44 @@ function HomePage() {
                   <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">Rank</th>
                   <th className="px-4 py-3 text-center text-sm font-semibold text-gray-700">+/-</th>
                   <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">Deelnemer</th>
-                  <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">Directie</th> {/* new column */}
+                  <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">Directie</th>
                   <th className="px-4 py-3 text-right text-sm font-semibold text-gray-700">Totaal Punten</th>
                 </tr>
               </thead>
               <tbody>
-                {filteredResults.map((participant) => {
-                  const typedParticipant = participant as Participant;
-                  const isExpanded = expandedItem === typedParticipant.participant_name;
-                  const stages = isExpanded ? getParticipantStages(typedParticipant.participant_name) : [];
-
+                {(filteredResults as LeaderboardEntry[]).map((entry) => {
                   return (
-                    <React.Fragment key={typedParticipant.participant_name}>
+                    <React.Fragment key={entry.participant_name}>
                       <tr 
                         className="border-b border-gray-100 hover:bg-gray-50 transition-colors cursor-pointer"
-                        onClick={() => toggleItemDetails(typedParticipant.participant_name)}
+                        onClick={() => toggleItemDetails(entry.participant_name)}
                       >
                         <td className="px-4 py-3 text-sm font-medium text-gray-900">
-                          {typedParticipant.rank}
+                          {entry.overall_rank}
                         </td>
                         <td className="px-4 py-3 text-sm text-center">
-                          {renderRankChange(typedParticipant.rank_change)}
+                          {renderRankChange(entry.overall_rank_change)}
                         </td>
                         <td className="px-4 py-3 text-sm text-gray-900">
-                          {typedParticipant.participant_name}
+                          {entry.participant_name}
                         </td>
                         <td className="px-4 py-3 text-sm text-gray-700">
-                          {typedParticipant.directie || '-'}
+                          {entry.directie_name}
                         </td>
                         <td className="px-4 py-3 text-sm text-gray-900 text-right font-semibold">
-                          {typedParticipant.total_score}
+                          {entry.overall_score}
                         </td>
                       </tr>
                       
-                      {isExpanded && (
+                      {expandedItem === entry.participant_name && (
                         <tr className="bg-gray-50">
-                          <td colSpan={5} className="px-4 py-4"> {/* updated colSpan */}
+                          <td colSpan={5} className="px-4 py-4">
                             <div className="ml-8 max-w-md">
-                              <h3 className="text-sm font-semibold text-gray-700 mb-2 pb-2 border-b border-gray-300">Punten per Etappe</h3>
+                              <h3 className="text-sm font-semibold text-gray-700 mb-2 pb-2 border-b border-gray-300">
+                                Punten per Etappe
+                              </h3>
                               <div>
-                                {stages.map(stage => (
+                                {getParticipantStages(entry.participant_name).map(stage => (
                                   <div 
                                     key={stage.stageKey}
                                     className="flex justify-between items-center py-1 px-2 hover:bg-gray-100 rounded transition-colors"
@@ -347,9 +365,14 @@ function HomePage() {
                                     <span className="text-sm text-gray-700">
                                       Etappe {stage.stageNum}:
                                     </span>
-                                    <span className="text-sm font-bold text-gray-900">
-                                      {stage.stage_score}
-                                    </span>
+                                    <div className="flex items-center gap-3">
+                                      <span className="text-xs text-gray-500">
+                                        #{stage.stage_rank}
+                                      </span>
+                                      <span className="text-sm font-bold text-gray-900">
+                                        {stage.stage_score}
+                                      </span>
+                                    </div>
                                   </div>
                                 ))}
                               </div>
@@ -367,9 +390,12 @@ function HomePage() {
       )}
 
       {/* Directie Leaderboard View */}
-      {activeView === 'directie' && (
+      {activeView === 'standings_directie' && (
         <main className="bg-white rounded-lg shadow-md p-6">
-          <h2 className="text-2xl font-semibold mb-4">Directie Klassement</h2>
+          <h2 className="text-2xl font-semibold mb-6">Directie Klassement</h2>
+          <p className="text-sm text-gray-600 mb-6">
+            Top {metadata.top_n_participants_for_directie} deelnemers per directie per etappe tellen mee
+          </p>
           <div className="overflow-x-auto">
             <table className="w-full">
               <thead>
@@ -381,29 +407,26 @@ function HomePage() {
                 </tr>
               </thead>
               <tbody>
-                {filteredResults.map((directieEntry) => {
-                  const typedDirectie = directieEntry as DirectieEntry;
-                  const isExpanded = expandedItem === typedDirectie.directie;
+                {(filteredResults as DirectieEntry[]).map((entry) => {
+                  const isExpanded = expandedItem === entry.directie_name;
 
                   return (
-                    <React.Fragment key={typedDirectie.directie}>
+                    <React.Fragment key={entry.directie_name}>
                       <tr 
-                        className={`border-b border-gray-100 hover:bg-gray-50 transition-colors cursor-pointer ${
-                          typedDirectie.rank <= 3 ? 'bg-blue-50' : ''
-                        }`}
-                        onClick={() => toggleItemDetails(typedDirectie.directie)}
+                        className="border-b border-gray-100 hover:bg-gray-50 transition-colors cursor-pointer"
+                        onClick={() => toggleItemDetails(entry.directie_name)}
                       >
                         <td className="px-4 py-3 text-sm font-medium text-gray-900">
-                          {typedDirectie.rank}{renderMedal(typedDirectie.rank - 1)}
+                          {entry.overall_rank}
                         </td>
                         <td className="px-4 py-3 text-sm text-center">
-                          {renderRankChange(typedDirectie.rank_change)}
+                          {renderRankChange(entry.overall_rank_change)}
                         </td>
                         <td className="px-4 py-3 text-sm text-gray-900 font-medium">
-                          {typedDirectie.directie}
+                          {entry.directie_name}
                         </td>
                         <td className="px-4 py-3 text-sm text-gray-900 text-right font-semibold">
-                          {typedDirectie.total_score}
+                          {entry.overall_score}
                         </td>
                       </tr>
                       
@@ -412,10 +435,10 @@ function HomePage() {
                           <td colSpan={4} className="px-4 py-4">
                             <div className="ml-8 max-w-2xl">
                               <h3 className="text-sm font-semibold text-gray-700 mb-2 pb-2 border-b border-gray-300">
-                                Bijdragen per Deelnemer
+                                Totale Bijdragen per Deelnemer
                               </h3>
                               <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-                                {typedDirectie.contributing_participants.map((participant, idx) => (
+                                {entry.overall_participant_contributions.map((participant, idx) => (
                                   <div 
                                     key={participant.participant_name}
                                     className="flex justify-between items-center py-2 px-3 hover:bg-gray-100 rounded transition-colors"
@@ -427,7 +450,7 @@ function HomePage() {
                                       {participant.participant_name}
                                     </span>
                                     <span className="text-sm font-bold text-gray-900">
-                                      {participant.total_contribution}
+                                      {participant.overall_score}
                                     </span>
                                   </div>
                                 ))}

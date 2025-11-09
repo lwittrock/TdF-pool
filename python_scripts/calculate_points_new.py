@@ -140,13 +140,15 @@ class TDFDataProcessor:
     def __init__(self, participant_selections: List[dict]):
         self.participant_selections = participant_selections
         self.riders_data = {}
-        self.participants_data = {}
         self.stages_data = {}
-        self.leaderboard_history = {}  # Store leaderboard after each stage
-        self.directie_leaderboard_history = {}  # Store directie leaderboard after each stage
+        self.leaderboard_by_stage = {}
+        self.directie_leaderboard_by_stage = {}
         self.cumulative_rider_points = defaultdict(int)
         self.cumulative_participant_points = defaultdict(int)
         self.cumulative_directie_points = defaultdict(int)
+        
+        # Track participant contributions to directie over time
+        self.participant_directie_contributions = defaultdict(lambda: defaultdict(int))
         
         # Build participant to directie mapping
         self.participant_to_directie = {}
@@ -228,7 +230,8 @@ class TDFDataProcessor:
             logging.warning(f"Active roster file not found for stage {stage_num}. Using initial selections.")
             participant_roster_list = self.participant_selections
         
-        # Calculate participant scores
+        # Calculate participant scores for this stage
+        participant_stage_scores = {}
         for selection_entry in participant_roster_list:
             participant_name = selection_entry.get("name")
             selected_riders = selection_entry.get("active_riders", [])
@@ -236,13 +239,6 @@ class TDFDataProcessor:
             if not participant_name:
                 logging.warning(f"Participant entry missing 'name' field. Skipping: {selection_entry}")
                 continue
-            
-            if participant_name not in self.participants_data:
-                self.participants_data[participant_name] = {
-                    'directie': selection_entry.get("directie", "Unknown"),
-                    'stages': {},
-                    'rider_totals': defaultdict(int)
-                }
             
             stage_score = 0
             rider_contributions = {}
@@ -252,77 +248,96 @@ class TDFDataProcessor:
                 rider_points = rider_stage_data.get('stage_total', 0)
                 stage_score += rider_points
                 rider_contributions[rider] = rider_points
-                
-                # Update rider totals
-                self.participants_data[participant_name]['rider_totals'][rider] += rider_points
+            
+            participant_stage_scores[participant_name] = {
+                'stage_score': stage_score,
+                'rider_contributions': rider_contributions,
+                'directie': self.participant_to_directie.get(participant_name, "Unknown")
+            }
             
             self.cumulative_participant_points[participant_name] += stage_score
             
-            self.participants_data[participant_name]['stages'][f'stage_{stage_num}'] = {
-                'date': stage_date,
-                'stage_score': stage_score,
-                'cumulative_score': self.cumulative_participant_points[participant_name],
-                'rider_contributions': rider_contributions
-            }
-    
-    def update_leaderboard_after_stage(self, stage_num: int):
-        """Update leaderboard with current ranks and calculate rank changes."""
-        leaderboard = [
-            {
-                'participant_name': name,
-                'total_score': score,
-                'directie': self.participant_to_directie.get(name, "Unknown")
-            }
-            for name, score in self.cumulative_participant_points.items()
-        ]
-        leaderboard.sort(key=lambda x: x['total_score'], reverse=True)
-        
-        # Get previous stage leaderboard for rank change calculation
-        previous_stage_key = f'stage_{stage_num - 1}'
-        previous_leaderboard = self.leaderboard_history.get(previous_stage_key, [])
-        previous_ranks = {entry['participant_name']: entry['rank'] for entry in previous_leaderboard}
-        
-        for i, entry in enumerate(leaderboard):
-            current_rank = i + 1
-            entry['rank'] = current_rank
-            prev_rank = previous_ranks.get(entry['participant_name'])
-            
-            # Calculate rank change: positive means moved up, negative means moved down
-            if prev_rank is not None:
-                entry['rank_change'] = prev_rank - current_rank
-            else:
-                entry['rank_change'] = 0  # First stage or new participant
-        
-        # Store leaderboard for this stage
-        self.leaderboard_history[f'stage_{stage_num}'] = leaderboard
-    
-    def update_directie_leaderboard_after_stage(self, stage_num: int):
-        """Update directie leaderboard based on stage contributions (top N per directie per stage)."""
-        # Track participant stage contributions per directie
-        directie_participants_stage = defaultdict(list)
-        stage_key = f'stage_{stage_num}'
-        
-        # Gather per-participant contributions: stage contribution (this stage) and cumulative total
-        for participant_name, data in self.participants_data.items():
+            # Track contribution to directie
             directie = self.participant_to_directie.get(participant_name, "Unknown")
-            # stage contribution for this specific stage
-            stage_contribution = data.get('stages', {}).get(stage_key, {}).get('stage_score', 0)
-            # cumulative total contribution across all stages
-            total_contribution = sum(
-                s.get('stage_score', 0) for s in data.get('stages', {}).values()
-            )
-            if stage_contribution > 0 or total_contribution > 0:
-                directie_participants_stage[directie].append({
-                    'participant_name': participant_name,
-                    'stage_contribution': stage_contribution,
-                    'total_contribution': total_contribution
-                })
+            self.participant_directie_contributions[directie][participant_name] += stage_score
         
-        # Build directie leaderboard by summing top N stage contributions per directie,
-        # and update cumulative_directie_points with that stage's top-N sum
+        # Update leaderboards after processing all participants
+        self.update_leaderboard_after_stage(stage_num, participant_stage_scores)
+        self.update_directie_leaderboard_after_stage(stage_num, participant_stage_scores)
+    
+    def update_leaderboard_after_stage(self, stage_num: int, participant_stage_scores: dict):
+        """Update leaderboard with overall and stage-specific rankings."""
+        # Build leaderboard entries
+        leaderboard = []
+        for participant_name, score in self.cumulative_participant_points.items():
+            stage_data = participant_stage_scores.get(participant_name, {})
+            leaderboard.append({
+                'participant_name': participant_name,
+                'directie_name': self.participant_to_directie.get(participant_name, "Unknown"),
+                'overall_score': score,
+                'stage_score': stage_data.get('stage_score', 0),
+                'stage_rider_contributions': stage_data.get('rider_contributions', {})
+            })
+        
+        # Sort by overall score for overall rankings
+        leaderboard.sort(key=lambda x: x['overall_score'], reverse=True)
+        
+        # Get previous stage for rank change calculation
+        previous_stage_key = f'stage_{stage_num - 1}'
+        previous_leaderboard = self.leaderboard_by_stage.get(previous_stage_key, [])
+        previous_ranks = {entry['participant_name']: entry['overall_rank'] for entry in previous_leaderboard}
+        
+        # Assign overall ranks
+        for i, entry in enumerate(leaderboard):
+            overall_rank = i + 1
+            entry['overall_rank'] = overall_rank
+            prev_rank = previous_ranks.get(entry['participant_name'])
+            entry['overall_rank_change'] = prev_rank - overall_rank if prev_rank is not None else 0
+        
+        # Calculate stage rankings (sort by stage_score)
+        stage_ranking = sorted(leaderboard, key=lambda x: x['stage_score'], reverse=True)
+        stage_ranks = {}
+        for i, entry in enumerate(stage_ranking):
+            stage_ranks[entry['participant_name']] = i + 1
+        
+        # Add stage ranks to leaderboard
+        for entry in leaderboard:
+            entry['stage_rank'] = stage_ranks[entry['participant_name']]
+        
+        # Reorder fields for clarity
+        ordered_leaderboard = []
+        for entry in leaderboard:
+            ordered_leaderboard.append({
+                'participant_name': entry['participant_name'],
+                'directie_name': entry['directie_name'],
+                'overall_score': entry['overall_score'],
+                'overall_rank': entry['overall_rank'],
+                'overall_rank_change': entry['overall_rank_change'],
+                'stage_score': entry['stage_score'],
+                'stage_rank': entry['stage_rank'],
+                'stage_rider_contributions': entry['stage_rider_contributions']
+            })
+        
+        self.leaderboard_by_stage[f'stage_{stage_num}'] = ordered_leaderboard
+    
+    def update_directie_leaderboard_after_stage(self, stage_num: int, participant_stage_scores: dict):
+        """Update directie leaderboard based on stage contributions (top N per directie per stage)."""
+        # Organize participants by directie with their stage scores
+        directie_participants_stage = defaultdict(list)
+        
+        for participant_name, stage_data in participant_stage_scores.items():
+            directie = stage_data['directie']
+            stage_contribution = stage_data['stage_score']
+            
+            directie_participants_stage[directie].append({
+                'participant_name': participant_name,
+                'stage_contribution': stage_contribution
+            })
+        
+        # Build directie leaderboard
         directie_leaderboard = []
         for directie, participants in directie_participants_stage.items():
-            # sort by stage contribution to pick top N for this stage
+            # Sort by stage contribution to pick top N for this stage
             top_by_stage = sorted(
                 participants,
                 key=lambda x: x['stage_contribution'],
@@ -331,55 +346,79 @@ class TDFDataProcessor:
             top_n = top_by_stage[:TOP_N_PARTICIPANTS_FOR_DIRECTIE]
             stage_total_for_directie = sum(p['stage_contribution'] for p in top_n)
             
-            # update cumulative total for the directie (accumulate stage totals)
+            # Update cumulative total for the directie
             self.cumulative_directie_points[directie] += stage_total_for_directie
             
-            # prepare contributing participants list sorted by cumulative total (for display)
-            contributing_sorted = sorted(
-                participants,
-                key=lambda x: x['total_contribution'],
-                reverse=True
-            )
-            # include both totals to make clear what part came from this stage
+            # Get overall participant contributions (sorted by cumulative total)
+            overall_contributions = [
+                {
+                    'participant_name': participant_name,
+                    'overall_score': self.participant_directie_contributions[directie][participant_name]
+                }
+                for participant_name in self.participant_directie_contributions[directie].keys()
+            ]
+            overall_contributions.sort(key=lambda x: x['overall_score'], reverse=True)
+            
+            # Format stage participant contributions
+            stage_contributions = [
+                {
+                    'participant_name': p['participant_name'],
+                    'stage_score': p['stage_contribution']
+                }
+                for p in top_n
+            ]
+            
             directie_leaderboard.append({
-                'directie': directie,
-                'total_score': self.cumulative_directie_points[directie],
-                'stage_score_added': stage_total_for_directie,
-                'contributing_participants': contributing_sorted
+                'directie_name': directie,
+                'overall_score': self.cumulative_directie_points[directie],
+                'stage_score': stage_total_for_directie,
+                'stage_participant_contributions': stage_contributions,
+                'overall_participant_contributions': overall_contributions
             })
         
-        # Sort by cumulative total score
-        directie_leaderboard.sort(key=lambda x: x['total_score'], reverse=True)
+        # Sort by cumulative total score for overall ranking
+        directie_leaderboard.sort(key=lambda x: x['overall_score'], reverse=True)
         
-        # Calculate rank changes using previous stage's directie leaderboard
+        # Get previous stage for rank change calculation
         previous_stage_key = f'stage_{stage_num - 1}'
-        previous_directie_leaderboard = self.directie_leaderboard_history.get(previous_stage_key, [])
-        previous_directie_ranks = {entry['directie']: entry['rank'] for entry in previous_directie_leaderboard}
+        previous_directie_leaderboard = self.directie_leaderboard_by_stage.get(previous_stage_key, [])
+        previous_directie_ranks = {entry['directie_name']: entry['overall_rank'] for entry in previous_directie_leaderboard}
         
+        # Assign overall ranks
         for i, entry in enumerate(directie_leaderboard):
-            current_rank = i + 1
-            entry['rank'] = current_rank
-            prev_rank = previous_directie_ranks.get(entry['directie'])
-            entry['rank_change'] = prev_rank - current_rank if prev_rank is not None else 0
-    
-        # Store directie leaderboard for this stage
-        self.directie_leaderboard_history[f'stage_{stage_num}'] = directie_leaderboard
+            overall_rank = i + 1
+            entry['overall_rank'] = overall_rank
+            prev_rank = previous_directie_ranks.get(entry['directie_name'])
+            entry['overall_rank_change'] = prev_rank - overall_rank if prev_rank is not None else 0
+        
+        # Calculate stage rankings (sort by stage_score)
+        stage_ranking = sorted(directie_leaderboard, key=lambda x: x['stage_score'], reverse=True)
+        stage_ranks = {}
+        for i, entry in enumerate(stage_ranking):
+            stage_ranks[entry['directie_name']] = i + 1
+        
+        # Add stage ranks
+        for entry in directie_leaderboard:
+            entry['stage_rank'] = stage_ranks[entry['directie_name']]
+        
+        # Reorder fields for clarity
+        ordered_directie_leaderboard = []
+        for entry in directie_leaderboard:
+            ordered_directie_leaderboard.append({
+                'directie_name': entry['directie_name'],
+                'overall_score': entry['overall_score'],
+                'overall_rank': entry['overall_rank'],
+                'overall_rank_change': entry['overall_rank_change'],
+                'stage_score': entry['stage_score'],
+                'stage_rank': entry['stage_rank'],
+                'stage_participant_contributions': entry['stage_participant_contributions'],
+                'overall_participant_contributions': entry['overall_participant_contributions']
+            })
+        
+        self.directie_leaderboard_by_stage[f'stage_{stage_num}'] = ordered_directie_leaderboard
     
     def get_consolidated_data(self, total_stages_processed: int, current_stage: int) -> dict:
         """Get the final consolidated data structure."""
-        # Convert defaultdicts to regular dicts for JSON serialization
-        participants_output = {}
-        for name, data in self.participants_data.items():
-            participants_output[name] = {
-                'directie': data['directie'],
-                'stages': data['stages'],
-                'rider_totals': dict(data['rider_totals'])
-            }
-        
-        # Get the latest leaderboards (most recent stage)
-        latest_leaderboard = self.leaderboard_history.get(f'stage_{current_stage}', [])
-        latest_directie_leaderboard = self.directie_leaderboard_history.get(f'stage_{current_stage}', [])
-        
         return {
             'metadata': {
                 'last_updated': datetime.now().isoformat(),
@@ -389,11 +428,8 @@ class TDFDataProcessor:
                 'top_n_participants_for_directie': TOP_N_PARTICIPANTS_FOR_DIRECTIE
             },
             'stages': self.stages_data,
-            'leaderboard': latest_leaderboard,
-            'leaderboard_history': self.leaderboard_history,
-            'directie_leaderboard': latest_directie_leaderboard,
-            'directie_leaderboard_history': self.directie_leaderboard_history,
-            'participants': participants_output,
+            'leaderboard_by_stage': self.leaderboard_by_stage,
+            'directie_leaderboard_by_stage': self.directie_leaderboard_by_stage,
             'riders': self.riders_data
         }
 
@@ -432,9 +468,6 @@ def main():
         try:
             stage_raw_data = load_scraped_stage_data(stage_num, STAGE_DATA_DIR)
             processor.process_stage(stage_num, stage_raw_data)
-            # Update leaderboards after each stage to track rank changes
-            processor.update_leaderboard_after_stage(stage_num)
-            processor.update_directie_leaderboard_after_stage(stage_num)
             logging.info(f"Stage {stage_num} processed successfully.")
         except FileNotFoundError as e:
             logging.error(f"Error loading Stage {stage_num}: {e}. Skipping.")
@@ -453,9 +486,9 @@ def main():
     save_json_data(consolidated_data, CONSOLIDATED_OUTPUT_FILE)
     logging.info(f"✓ Consolidated data saved to: {CONSOLIDATED_OUTPUT_FILE}")
     logging.info(f"✓ Processed {len(available_stage_numbers)} stages")
-    logging.info(f"✓ {len(consolidated_data['participants'])} participants")
+    logging.info(f"✓ {len(set(p['participant_name'] for stage in consolidated_data['leaderboard_by_stage'].values() for p in stage))} participants")
     logging.info(f"✓ {len(consolidated_data['riders'])} riders")
-    logging.info(f"✓ {len(consolidated_data['directie_leaderboard'])} directies")
+    logging.info(f"✓ {len(set(d['directie_name'] for stage in consolidated_data['directie_leaderboard_by_stage'].values() for d in stage))} directies")
     logging.info("--- Processing Complete ---")
 
 
