@@ -297,42 +297,61 @@ class TDFDataProcessor:
         self.leaderboard_history[f'stage_{stage_num}'] = leaderboard
     
     def update_directie_leaderboard_after_stage(self, stage_num: int):
-        """Update directie leaderboard based on stage contributions."""
-        # Track all participant contributions per directie
-        directie_participants = defaultdict(list)
+        """Update directie leaderboard based on stage contributions (top N per directie per stage)."""
+        # Track participant stage contributions per directie
+        directie_participants_stage = defaultdict(list)
         stage_key = f'stage_{stage_num}'
         
-        # First gather all participant contributions
+        # Gather per-participant contributions: stage contribution (this stage) and cumulative total
         for participant_name, data in self.participants_data.items():
             directie = self.participant_to_directie.get(participant_name, "Unknown")
+            # stage contribution for this specific stage
+            stage_contribution = data.get('stages', {}).get(stage_key, {}).get('stage_score', 0)
+            # cumulative total contribution across all stages
             total_contribution = sum(
-                stage_data.get('stage_score', 0) 
-                for stage_data in data['stages'].values()
+                s.get('stage_score', 0) for s in data.get('stages', {}).values()
             )
-            if total_contribution > 0:  # Only include participants who have scored points
-                directie_participants[directie].append({
+            if stage_contribution > 0 or total_contribution > 0:
+                directie_participants_stage[directie].append({
                     'participant_name': participant_name,
+                    'stage_contribution': stage_contribution,
                     'total_contribution': total_contribution
                 })
         
-        # Create directie leaderboard
-        directie_leaderboard = [
-            {
+        # Build directie leaderboard by summing top N stage contributions per directie,
+        # and update cumulative_directie_points with that stage's top-N sum
+        directie_leaderboard = []
+        for directie, participants in directie_participants_stage.items():
+            # sort by stage contribution to pick top N for this stage
+            top_by_stage = sorted(
+                participants,
+                key=lambda x: x['stage_contribution'],
+                reverse=True
+            )
+            top_n = top_by_stage[:TOP_N_PARTICIPANTS_FOR_DIRECTIE]
+            stage_total_for_directie = sum(p['stage_contribution'] for p in top_n)
+            
+            # update cumulative total for the directie (accumulate stage totals)
+            self.cumulative_directie_points[directie] += stage_total_for_directie
+            
+            # prepare contributing participants list sorted by cumulative total (for display)
+            contributing_sorted = sorted(
+                participants,
+                key=lambda x: x['total_contribution'],
+                reverse=True
+            )
+            # include both totals to make clear what part came from this stage
+            directie_leaderboard.append({
                 'directie': directie,
                 'total_score': self.cumulative_directie_points[directie],
-                'contributing_participants': sorted(
-                    participants,
-                    key=lambda x: x['total_contribution'],
-                    reverse=True
-                )
-            }
-            for directie, participants in directie_participants.items()
-        ]
+                'stage_score_added': stage_total_for_directie,
+                'contributing_participants': contributing_sorted
+            })
         
-        # Sort by total score
+        # Sort by cumulative total score
         directie_leaderboard.sort(key=lambda x: x['total_score'], reverse=True)
         
-        # Calculate rank changes
+        # Calculate rank changes using previous stage's directie leaderboard
         previous_stage_key = f'stage_{stage_num - 1}'
         previous_directie_leaderboard = self.directie_leaderboard_history.get(previous_stage_key, [])
         previous_directie_ranks = {entry['directie']: entry['rank'] for entry in previous_directie_leaderboard}
