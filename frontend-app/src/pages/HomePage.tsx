@@ -1,35 +1,5 @@
 import React, { useState, useMemo } from 'react'
 
-// ============================================================================
-// COLOR DEFINITIONS - Change these to experiment with different color schemes
-// ============================================================================
-const COLORS = {
-  // Primary colors
-  primary: '#2d3748',        // Dark gray/charcoal
-  accent: '#10b981',         // Lime green (change this to experiment!)
-  
-  // Background colors
-  background: '#f3f4f6',     // Light gray background
-  tableRowEven: '#ffffff',   // White
-  tableRowOdd: '#f9fafb',    // Very light gray
-  tableRowHover: '#f3f4f6',  // Light gray
-  expandedBg: '#f9fafb',     // Very light gray
-  
-  // Text colors
-  textPrimary: '#111827',    // Almost black
-  textSecondary: '#6b7280',  // Medium gray
-  textMuted: '#9ca3af',      // Light gray
-  
-  // Accent variations
-  accentHover: '#059669',    // Darker green for hover
-  accentLight: '#d1fae5',    // Light green for highlights
-  
-  // Status colors
-  green: '#10b981',          // Positive change
-  red: '#ef4444',            // Negative change
-  yellow: '#fef3c7',         // Podium highlight
-};
-
 // Data Import
 import tdfData from '../data/tdf_data.json' with { type: "json" };
 
@@ -139,12 +109,12 @@ function HomePage() {
   // Helper to render rank change with arrows and colors
   const renderRankChange = (rankChange: number) => {
     if (rankChange > 0) {
-      return <span style={{ color: COLORS.green }} className="font-semibold">↑ {rankChange}</span>;
+      return <span className="font-semibold text-[var(--color-green)]">↑ {rankChange}</span>;
     }
     if (rankChange < 0) {
-      return <span style={{ color: COLORS.red }} className="font-semibold">↓ {Math.abs(rankChange)}</span>;
+      return <span className="font-semibold text-[var(--color-red)]">↓ {Math.abs(rankChange)}</span>;
     }
-    return <span style={{ color: COLORS.textMuted }}>—</span>;
+    return <span className="text-[var(--color-text-muted)]">—</span>;
   };
 
   // Helper to render medal emojis for top 3
@@ -219,10 +189,11 @@ function HomePage() {
 
   // Main render
   return (
-    <div className="min-h-screen py-8 px-32" style={{ backgroundColor: COLORS.background }}>      {/* Header - No box, just title with icon */}
+    <div className="min-h-screen py-8 px-32 bg-[var(--color-background)]">
+      {/* Header - No box, just title with icon */}
       <header className="mb-12 text-center">
         <div className="flex items-center justify-center gap-3 mb-2">
-          <h1 className="text-5xl font-bold" style={{ color: COLORS.primary }}>
+          <h1 className="text-5xl font-bold text-[var(--color-primary)]">
             ACM Tour de France 2025 Poule
           </h1>
         </div>
@@ -235,34 +206,31 @@ function HomePage() {
         <div className="flex gap-3">
           <button
             onClick={() => setActiveView('stage_individual')}
-            className="py-3 px-6 rounded-lg font-semibold transition-all"
-            style={{
-              backgroundColor: activeView === 'stage_individual' ? COLORS.accent : COLORS.tableRowEven,
-              color: activeView === 'stage_individual' ? 'white' : COLORS.textSecondary,
-              border: `2px solid ${activeView === 'stage_individual' ? COLORS.accent : 'transparent'}`,
-            }}
+            className={`py-3 px-6 rounded-lg font-semibold transition-all ${
+              activeView === 'stage_individual'
+                ? 'bg-[var(--color-accent)] text-white border-2 border-[var(--color-accent)]'
+                : 'bg-[var(--color-table-row-even)] text-[var(--color-text-secondary)] border-2 border-transparent'
+            }`}
           >
             Etappe Uitslagen
           </button>          
           <button
             onClick={() => setActiveView('standings_individual')}
-            className="py-3 px-6 rounded-lg font-semibold transition-all"
-            style={{
-              backgroundColor: activeView === 'standings_individual' ? COLORS.accent : COLORS.tableRowEven,
-              color: activeView === 'standings_individual' ? 'white' : COLORS.textSecondary,
-              border: `2px solid ${activeView === 'standings_individual' ? COLORS.accent : 'transparent'}`,
-            }}
+            className={`py-3 px-6 rounded-lg font-semibold transition-all ${
+              activeView === 'standings_individual'
+                ? 'bg-[var(--color-accent)] text-white border-2 border-[var(--color-accent)]'
+                : 'bg-[var(--color-table-row-even)] text-[var(--color-text-secondary)] border-2 border-transparent'
+            }`}
           >
             Individueel Klassement
           </button>
           <button
             onClick={() => setActiveView('standings_directie')}
-            className="py-3 px-6 rounded-lg font-semibold transition-all"
-            style={{
-              backgroundColor: activeView === 'standings_directie' ? COLORS.accent : COLORS.tableRowEven,
-              color: activeView === 'standings_directie' ? 'white' : COLORS.textSecondary,
-              border: `2px solid ${activeView === 'standings_directie' ? COLORS.accent : 'transparent'}`,
-            }}
+            className={`py-3 px-6 rounded-lg font-semibold transition-all ${
+              activeView === 'standings_directie'
+                ? 'bg-[var(--color-accent)] text-white border-2 border-[var(--color-accent)]'
+                : 'bg-[var(--color-table-row-even)] text-[var(--color-text-secondary)] border-2 border-transparent'
+            }`}
           >
             Directie Klassement
           </button>
@@ -275,20 +243,12 @@ function HomePage() {
             placeholder="Zoek deelnemer of directie..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full px-4 py-3 pr-10 rounded-lg transition-all"
-            style={{
-              backgroundColor: COLORS.tableRowEven,
-              border: `2px solid transparent`,
-              color: COLORS.textPrimary,
-            }}
-            onFocus={(e) => e.target.style.borderColor = COLORS.accent}
-            onBlur={(e) => e.target.style.borderColor = 'transparent'}
+            className="w-full px-4 py-3 pr-10 rounded-lg transition-all bg-[var(--color-table-row-even)] border-2 border-transparent text-[var(--color-text-primary)] focus:border-[var(--color-accent)]"
           />
           {searchTerm && (
             <button
               onClick={() => setSearchTerm('')}
-              className="absolute right-3 top-1/2 -translate-y-1/2 transition-colors"
-              style={{ color: COLORS.textMuted }}
+              className="absolute right-3 top-1/2 -translate-y-1/2 transition-colors text-[var(--color-text-muted)]"
               aria-label="Clear search"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -302,19 +262,19 @@ function HomePage() {
       {/* Stage Results View */}
       {activeView === 'stage_individual' && (
         <main>
-          <h2 className="text-2xl font-semibold mb-6" style={{ color: COLORS.primary }}>
+          <h2 className="text-2xl font-semibold mb-6 text-[var(--color-primary)]">
             Etappe {currentStageNum} Resultaten
           </h2>
           
           <div className="overflow-x-auto">
             <table className="w-full">
               <thead>
-                <tr style={{ backgroundColor: COLORS.tableRowOdd }}>
-                  <th className="px-4 py-4 text-left text-sm font-semibold" style={{ color: COLORS.textSecondary }}>Positie</th>
-                  <th className="px-4 py-4 text-left text-sm font-semibold" style={{ color: COLORS.textSecondary }}>Deelnemer</th>
-                  <th className="px-4 py-4 text-left text-sm font-semibold" style={{ color: COLORS.textSecondary }}>Directie</th>
-                  <th className="px-4 py-4 text-right text-sm font-semibold" style={{ color: COLORS.textSecondary }}>Punten</th>
-                  <th className="px-4 py-4 text-center text-sm font-semibold" style={{ color: COLORS.textSecondary }}>Alg. Rank</th>
+                <tr className="bg-[var(--color-table-row-odd)]">
+                  <th className="px-4 py-4 text-left text-sm font-semibold text-[var(--color-text-secondary)]">Positie</th>
+                  <th className="px-4 py-4 text-left text-sm font-semibold text-[var(--color-text-secondary)]">Deelnemer</th>
+                  <th className="px-4 py-4 text-left text-sm font-semibold text-[var(--color-text-secondary)]">Directie</th>
+                  <th className="px-4 py-4 text-right text-sm font-semibold text-[var(--color-text-secondary)]">Punten</th>
+                  <th className="px-4 py-4 text-center text-sm font-semibold text-[var(--color-text-secondary)]">Alg. Rank</th>
                 </tr>
               </thead>
               <tbody>
@@ -325,50 +285,44 @@ function HomePage() {
                   return (
                     <React.Fragment key={entry.participant_name}>
                       <tr 
-                        className="transition-colors cursor-pointer"
-                        style={{
-                          backgroundColor: idx % 2 === 0 ? COLORS.tableRowEven : COLORS.tableRowOdd
-                        }}
-                        onMouseEnter={(e) => e.currentTarget.style.backgroundColor = COLORS.tableRowHover}
-                        onMouseLeave={(e) => e.currentTarget.style.backgroundColor = idx % 2 === 0 ? COLORS.tableRowEven : COLORS.tableRowOdd }
+                        className={`transition-colors cursor-pointer hover:bg-[var(--color-table-row-hover)] ${
+                          idx % 2 === 0 ? 'bg-[var(--color-table-row-even)]' : 'bg-[var(--color-table-row-odd)]'
+                        }`}
                         onClick={() => toggleItemDetails(entry.participant_name)}
                       >
-                        <td className="px-4 py-3 text-sm font-medium" style={{ color: COLORS.textPrimary }}>
+                        <td className="px-4 py-3 text-sm font-medium text-[var(--color-text-primary)]">
                           {entry.stage_rank}
                           {renderMedal(entry.stage_rank)}
                         </td>
-                        <td className="px-4 py-3 text-sm" style={{ color: COLORS.textPrimary }}>
+                        <td className="px-4 py-3 text-sm text-[var(--color-text-primary)]">
                           {entry.participant_name}
                         </td>
-                        <td className="px-4 py-3 text-sm" style={{ color: COLORS.textSecondary }}>
+                        <td className="px-4 py-3 text-sm text-[var(--color-text-secondary)]">
                           {entry.directie_name}
                         </td>
-                        <td className="px-4 py-3 text-sm text-right font-semibold" style={{ color: COLORS.textPrimary }}>
+                        <td className="px-4 py-3 text-sm text-right font-semibold text-[var(--color-text-primary)]">
                           {entry.stage_score}
                         </td>
-                        <td className="px-4 py-3 text-sm text-center" style={{ color: COLORS.textSecondary }}>
+                        <td className="px-4 py-3 text-sm text-center text-[var(--color-text-secondary)]">
                           #{entry.overall_rank}
                         </td>
                       </tr>
 
                       {expandedItem === entry.participant_name && (
-                        <tr style={{ backgroundColor: COLORS.expandedBg }}>
+                        <tr className="bg-[var(--color-expanded-bg)]">
                           <td colSpan={5} className="px-4 py-4">
                             <div className="ml-8 max-w-md">
-                              <h3 className="text-sm font-semibold mb-2 pb-2" style={{ color: COLORS.textSecondary, borderBottom: `1px solid ${COLORS.textMuted}` }}>
+                              <h3 className="text-sm font-semibold mb-2 pb-2 text-[var(--color-text-secondary)] border-b border-[var(--color-text-muted)]">
                                 Renner Bijdragen
                               </h3>
                               <div>
                                 {sortedRiders.map(([rider, points]) => (
                                   <div 
                                     key={rider}
-                                    className="flex justify-between items-center py-1 px-2 rounded transition-colors"
-                                    style={{ backgroundColor: 'transparent' }}
-                                    onMouseEnter={(e) => e.currentTarget.style.backgroundColor = COLORS.tableRowHover}
-                                    onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
+                                    className="flex justify-between items-center py-1 px-2 rounded transition-colors hover:bg-[var(--color-table-row-hover)]"
                                   >
-                                    <span className="text-sm" style={{ color: COLORS.textSecondary }}>{rider}</span>
-                                    <span className="text-sm font-bold" style={{ color: COLORS.textPrimary }}>{points}</span>
+                                    <span className="text-sm text-[var(--color-text-secondary)]">{rider}</span>
+                                    <span className="text-sm font-bold text-[var(--color-text-primary)]">{points}</span>
                                   </div>
                                 ))}
                               </div>
@@ -388,18 +342,18 @@ function HomePage() {
       {/* Overall Leaderboard View */}
       {activeView === 'standings_individual' && (
         <main>
-          <h2 className="text-2xl font-semibold mb-6" style={{ color: COLORS.primary }}>Algemeen Klassement</h2>
+          <h2 className="text-2xl font-semibold mb-6 text-[var(--color-primary)]">Algemeen Klassement</h2>
           
           <div className="overflow-x-auto">
             <table className="w-full">
               <thead>
-                <tr style={{ backgroundColor: COLORS.tableRowOdd }}>
-                  <th className="px-4 py-4 text-left text-sm font-semibold" style={{ color: COLORS.textSecondary }}>Rank</th>
-                  <th className="px-4 py-4 text-center text-sm font-semibold" style={{ color: COLORS.textSecondary }}>+/-</th>
-                  <th className="px-4 py-4 text-left text-sm font-semibold" style={{ color: COLORS.textSecondary }}>Deelnemer</th>
-                  <th className="px-4 py-4 text-left text-sm font-semibold" style={{ color: COLORS.textSecondary }}>Directie</th>
-                  <th className="px-4 py-4 text-right text-sm font-semibold" style={{ color: COLORS.textSecondary }}>Totaal Punten</th>
-                  <th className="px-4 py-4 text-center text-sm font-semibold" style={{ color: COLORS.textSecondary }}>Etappe Medailles</th>
+                <tr className="bg-[var(--color-table-row-odd)]">
+                  <th className="px-4 py-4 text-left text-sm font-semibold text-[var(--color-text-secondary)]">Rank</th>
+                  <th className="px-4 py-4 text-center text-sm font-semibold text-[var(--color-text-secondary)]">+/-</th>
+                  <th className="px-4 py-4 text-left text-sm font-semibold text-[var(--color-text-secondary)]">Deelnemer</th>
+                  <th className="px-4 py-4 text-left text-sm font-semibold text-[var(--color-text-secondary)]">Directie</th>
+                  <th className="px-4 py-4 text-right text-sm font-semibold text-[var(--color-text-secondary)]">Totaal Punten</th>
+                  <th className="px-4 py-4 text-center text-sm font-semibold text-[var(--color-text-secondary)]">Etappe Medailles</th>
                 </tr>
               </thead>
               <tbody>
@@ -409,27 +363,24 @@ function HomePage() {
                   return (
                     <React.Fragment key={entry.participant_name}>
                       <tr 
-                        className="transition-colors cursor-pointer"
-                        style={{
-                          backgroundColor: idx % 2 === 0 ? COLORS.tableRowEven : COLORS.tableRowOdd
-                        }}
-                        onMouseEnter={(e) => e.currentTarget.style.backgroundColor = COLORS.tableRowHover}
-                        onMouseLeave={(e) => e.currentTarget.style.backgroundColor = idx % 2 === 0 ? COLORS.tableRowEven : COLORS.tableRowOdd}
+                        className={`transition-colors cursor-pointer hover:bg-[var(--color-table-row-hover)] ${
+                          idx % 2 === 0 ? 'bg-[var(--color-table-row-even)]' : 'bg-[var(--color-table-row-odd)]'
+                        }`}
                         onClick={() => toggleItemDetails(entry.participant_name)}
                       >
-                        <td className="px-4 py-3 text-sm font-medium" style={{ color: COLORS.textPrimary }}>
+                        <td className="px-4 py-3 text-sm font-medium text-[var(--color-text-primary)]">
                           {entry.overall_rank}
                         </td>
                         <td className="px-4 py-3 text-sm text-center">
                           {renderRankChange(entry.overall_rank_change)}
                         </td>
-                        <td className="px-4 py-3 text-sm" style={{ color: COLORS.textPrimary }}>
+                        <td className="px-4 py-3 text-sm text-[var(--color-text-primary)]">
                           {entry.participant_name}
                         </td>
-                        <td className="px-4 py-3 text-sm" style={{ color: COLORS.textSecondary }}>
+                        <td className="px-4 py-3 text-sm text-[var(--color-text-secondary)]">
                           {entry.directie_name}
                         </td>
-                        <td className="px-4 py-3 text-sm text-right font-semibold" style={{ color: COLORS.textPrimary }}>
+                        <td className="px-4 py-3 text-sm text-right font-semibold text-[var(--color-text-primary)]">
                           {entry.overall_score}
                         </td>
                         <td className="px-4 py-3 text-sm text-center">
@@ -438,29 +389,26 @@ function HomePage() {
                       </tr>
                       
                       {expandedItem === entry.participant_name && (
-                        <tr style={{ backgroundColor: COLORS.expandedBg }}>
+                        <tr className="bg-[var(--color-expanded-bg)]">
                           <td colSpan={6} className="px-4 py-4">
                             <div className="ml-8 max-w-md">
-                              <h3 className="text-sm font-semibold mb-2 pb-2" style={{ color: COLORS.textSecondary, borderBottom: `1px solid ${COLORS.textMuted}` }}>
+                              <h3 className="text-sm font-semibold mb-2 pb-2 text-[var(--color-text-secondary)] border-b border-[var(--color-text-muted)]">
                                 Punten per Etappe
                               </h3>
                               <div>
                                 {getParticipantStages(entry.participant_name).map(stage => (
                                   <div 
                                     key={stage.stageKey}
-                                    className="flex justify-between items-center py-1 px-2 rounded transition-colors"
-                                    style={{ backgroundColor: 'transparent' }}
-                                    onMouseEnter={(e) => e.currentTarget.style.backgroundColor = COLORS.tableRowHover}
-                                    onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
+                                    className="flex justify-between items-center py-1 px-2 rounded transition-colors hover:bg-[var(--color-table-row-hover)]"
                                   >
-                                    <span className="text-sm" style={{ color: COLORS.textSecondary }}>
+                                    <span className="text-sm text-[var(--color-text-secondary)]">
                                       Etappe {stage.stageNum}:
                                     </span>
                                     <div className="flex items-center gap-3">
-                                      <span className="text-xs" style={{ color: COLORS.textMuted }}>
+                                      <span className="text-xs text-[var(--color-text-muted)]">
                                         #{stage.stage_rank}
                                       </span>
-                                      <span className="text-sm font-bold" style={{ color: COLORS.textPrimary }}>
+                                      <span className="text-sm font-bold text-[var(--color-text-primary)]">
                                         {stage.stage_score}
                                       </span>
                                     </div>
@@ -483,18 +431,18 @@ function HomePage() {
       {/* Directie Leaderboard View */}
       {activeView === 'standings_directie' && (
         <main>
-          <h2 className="text-2xl font-semibold mb-6" style={{ color: COLORS.primary }}>Directie Klassement</h2>
-          <p className="text-sm mb-6" style={{ color: COLORS.textSecondary }}>
+          <h2 className="text-2xl font-semibold mb-6 text-[var(--color-primary)]">Directie Klassement</h2>
+          <p className="text-sm mb-6 text-[var(--color-text-secondary)]">
             Top {metadata.top_n_participants_for_directie} deelnemers per directie per etappe tellen mee
           </p>
           <div className="overflow-x-auto">
             <table className="w-full">
               <thead>
-                <tr style={{ backgroundColor: COLORS.tableRowOdd }}>
-                  <th className="px-4 py-4 text-left text-sm font-semibold" style={{ color: COLORS.textSecondary }}>Rank</th>
-                  <th className="px-4 py-4 text-center text-sm font-semibold" style={{ color: COLORS.textSecondary }}>+/-</th>
-                  <th className="px-4 py-4 text-left text-sm font-semibold" style={{ color: COLORS.textSecondary }}>Directie</th>
-                  <th className="px-4 py-4 text-right text-sm font-semibold" style={{ color: COLORS.textSecondary }}>Totaal Punten</th>
+                <tr className="bg-[var(--color-table-row-odd)]">
+                  <th className="px-4 py-4 text-left text-sm font-semibold text-[var(--color-text-secondary)]">Rank</th>
+                  <th className="px-4 py-4 text-center text-sm font-semibold text-[var(--color-text-secondary)]">+/-</th>
+                  <th className="px-4 py-4 text-left text-sm font-semibold text-[var(--color-text-secondary)]">Directie</th>
+                  <th className="px-4 py-4 text-right text-sm font-semibold text-[var(--color-text-secondary)]">Totaal Punten</th>
                 </tr>
               </thead>
               <tbody>
@@ -504,51 +452,45 @@ function HomePage() {
                   return (
                     <React.Fragment key={entry.directie_name}>
                       <tr 
-                        className="transition-colors cursor-pointer"
-                        style={{
-                          backgroundColor: idx % 2 === 0 ? COLORS.tableRowEven : COLORS.tableRowOdd
-                        }}
-                        onMouseEnter={(e) => e.currentTarget.style.backgroundColor = COLORS.tableRowHover}
-                        onMouseLeave={(e) => e.currentTarget.style.backgroundColor = idx % 2 === 0 ? COLORS.tableRowEven : COLORS.tableRowOdd}
+                        className={`transition-colors cursor-pointer hover:bg-[var(--color-table-row-hover)] ${
+                          idx % 2 === 0 ? 'bg-[var(--color-table-row-even)]' : 'bg-[var(--color-table-row-odd)]'
+                        }`}
                         onClick={() => toggleItemDetails(entry.directie_name)}
                       >
-                        <td className="px-4 py-3 text-sm font-medium" style={{ color: COLORS.textPrimary }}>
+                        <td className="px-4 py-3 text-sm font-medium text-[var(--color-text-primary)]">
                           {entry.overall_rank}
                         </td>
                         <td className="px-4 py-3 text-sm text-center">
                           {renderRankChange(entry.overall_rank_change)}
                         </td>
-                        <td className="px-4 py-3 text-sm font-medium" style={{ color: COLORS.textPrimary }}>
+                        <td className="px-4 py-3 text-sm font-medium text-[var(--color-text-primary)]">
                           {entry.directie_name}
                         </td>
-                        <td className="px-4 py-3 text-sm text-right font-semibold" style={{ color: COLORS.textPrimary }}>
+                        <td className="px-4 py-3 text-sm text-right font-semibold text-[var(--color-text-primary)]">
                           {entry.overall_score}
                         </td>
                       </tr>
                       
                       {isExpanded && (
-                        <tr style={{ backgroundColor: COLORS.expandedBg }}>
+                        <tr className="bg-[var(--color-expanded-bg)]">
                           <td colSpan={4} className="px-4 py-4">
                             <div className="ml-8 max-w-2xl">
-                              <h3 className="text-sm font-semibold mb-2 pb-2" style={{ color: COLORS.textSecondary, borderBottom: `1px solid ${COLORS.textMuted}` }}>
+                              <h3 className="text-sm font-semibold mb-2 pb-2 text-[var(--color-text-secondary)] border-b border-[var(--color-text-muted)]">
                                 Totale Bijdragen per Deelnemer
                               </h3>
                               <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
                                 {entry.overall_participant_contributions.map((participant, pidx) => (
                                   <div 
                                     key={participant.participant_name}
-                                    className="flex justify-between items-center py-2 px-3 rounded transition-colors"
-                                    style={{ backgroundColor: 'transparent' }}
-                                    onMouseEnter={(e) => e.currentTarget.style.backgroundColor = COLORS.tableRowHover}
-                                    onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
+                                    className="flex justify-between items-center py-2 px-3 rounded transition-colors hover:bg-[var(--color-table-row-hover)]"
                                   >
-                                    <span className="text-sm flex items-center gap-2" style={{ color: COLORS.textSecondary }}>
-                                      <span className="text-xs font-semibold w-5" style={{ color: COLORS.textMuted }}>
+                                    <span className="text-sm flex items-center gap-2 text-[var(--color-text-secondary)]">
+                                      <span className="text-xs font-semibold w-5 text-[var(--color-text-muted)]">
                                         #{pidx + 1}
                                       </span>
                                       {participant.participant_name}
                                     </span>
-                                    <span className="text-sm font-bold" style={{ color: COLORS.textPrimary }}>
+                                    <span className="text-sm font-bold text-[var(--color-text-primary)]">
                                       {participant.overall_score}
                                     </span>
                                   </div>
