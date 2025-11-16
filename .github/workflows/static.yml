@@ -37,9 +37,11 @@ jobs:
 
       - name: Install Dependencies
         run: npm install
+        working-directory: docs
 
       - name: Build Project
         run: npm run build # VITE CREATES THE './dist' FOLDER HERE
+        working-directory: docs
       # ------------------------------------------------------------------
       
       - name: Setup Pages
@@ -49,7 +51,7 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           # Now the './dist' folder exists and will be uploaded!
-          path: './dist' 
+          path: './docs/dist' 
           
       - name: Deploy to GitHub Pages
         id: deployment
