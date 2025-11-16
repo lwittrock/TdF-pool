@@ -3,7 +3,6 @@ import React, { useState, useMemo } from 'react'
 // Data Import
 import tdfData from '../data/tdf_data.json' with { type: "json" };
 
-// Interfaces
 interface LeaderboardEntry {
   participant_name: string;
   directie_name: string;
@@ -12,9 +11,7 @@ interface LeaderboardEntry {
   overall_rank_change: number;
   stage_score: number;
   stage_rank: number;
-  stage_rider_contributions: {
-    [key: string]: number;
-  };
+  stage_rider_contributions: Record<string, number | undefined>;
 }
 
 interface DirectieEntry {
@@ -24,58 +21,36 @@ interface DirectieEntry {
   overall_rank_change: number;
   stage_score: number;
   stage_rank: number;
-  stage_participant_contributions: Array<{
-    participant_name: string;
-    stage_score: number;
-  }>;
-  overall_participant_contributions: Array<{
-    participant_name: string;
-    overall_score: number;
-  }>;
+  stage_participant_contributions: Array<{ participant_name: string; stage_score: number }>;
+  overall_participant_contributions: Array<{ participant_name: string; overall_score: number }>;
 }
 
-interface TdfData {
-  metadata: {
-    current_stage: number;
-    top_n_participants_for_directie: number;
-  };
-  leaderboard_by_stage: Record<string, LeaderboardEntry[]>;
-  directie_leaderboard_by_stage: Record<string, DirectieEntry[]>;
-}
-
-// View Type
 type ViewType = 'stage_individual' | 'standings_individual' | 'standings_directie';
 
-
-// Main Component
 function HomePage() {
   const [activeView, setActiveView] = useState<ViewType>('standings_individual');
   const [searchTerm, setSearchTerm] = useState('');
   const [expandedItem, setExpandedItem] = useState<string | null>(null);
 
-  // Destructure data from imported JSON with proper typing
-  const data: TdfData = tdfData as unknown as TdfData;
+  const data = tdfData;
   const { metadata, leaderboard_by_stage, directie_leaderboard_by_stage } = data;
   const currentStageNum = metadata.current_stage;
   const currentStageKey = `stage_${currentStageNum}`;
 
-  // Get current stage leaderboards
   const currentLeaderboard = useMemo(() => 
-    leaderboard_by_stage[currentStageKey] || [], 
-    [leaderboard_by_stage, currentStageKey]
+  leaderboard_by_stage[currentStageKey as keyof typeof leaderboard_by_stage] || [], 
+  [leaderboard_by_stage, currentStageKey]
   );
   
   const currentDirectieLeaderboard = useMemo(() => 
-    directie_leaderboard_by_stage[currentStageKey] || [], 
+    directie_leaderboard_by_stage[currentStageKey as keyof typeof directie_leaderboard_by_stage] || [], 
     [directie_leaderboard_by_stage, currentStageKey]
   );
 
-  // Memorize stage results for current stage (sorted by stage_rank)
   const stageResults = useMemo(() => {
     return [...currentLeaderboard].sort((a, b) => a.stage_rank - b.stage_rank);
   }, [currentLeaderboard]);
 
-  // Memorize filtered results based on active view and search term
   const filteredResults = useMemo(() => {
     const searchLower = searchTerm.toLowerCase().trim();
     
@@ -85,7 +60,6 @@ function HomePage() {
       return currentDirectieLeaderboard;
     }
 
-    // Filter based on view type
     if (activeView === 'standings_individual') {
       return currentLeaderboard.filter((p) => 
         p.participant_name.toLowerCase().includes(searchLower) ||
@@ -104,47 +78,33 @@ function HomePage() {
         )
       );
     }
-  }, [activeView, searchTerm, stageResults, currentDirectieLeaderboard, currentLeaderboard]); 
+  }, [activeView, searchTerm, stageResults, currentDirectieLeaderboard, currentLeaderboard]);
 
-  // Helper to render rank change with arrows and colors
   const renderRankChange = (rankChange: number) => {
     if (rankChange > 0) {
-      return <span className="font-semibold text-[var(--color-green)]">↑ {rankChange}</span>;
+      return <span className="font-semibold text-green-600">↑{rankChange}</span>;
     }
     if (rankChange < 0) {
-      return <span className="font-semibold text-[var(--color-red)]">↓ {Math.abs(rankChange)}</span>;
+      return <span className="font-semibold text-red-600">↓{Math.abs(rankChange)}</span>;
     }
-    return <span className="text-[var(--color-text-muted)]">—</span>;
+    return <span className="text-gray-400">—</span>;
   };
 
-  // Helper to render medal emojis for top 3
   const renderMedal = (rank: number) => {
-    if (rank === 1) return ' 🥇';
-    if (rank === 2) return ' 🥈';
-    if (rank === 3) return ' 🥉';
+    if (rank === 1) return '🥇';
+    if (rank === 2) return '🥈';
+    if (rank === 3) return '🥉';
     return '';
   };
 
-  // Toggle expanded item for details view
   const toggleItemDetails = (itemName: string) => {
     setExpandedItem(prev => prev === itemName ? null : itemName);
   };
 
-  // Get participant stages data for expanded view
   const getParticipantStages = (participantName: string) => {
-    const allStages: Array<{
-      stageNum: number;
-      stageKey: string;
-      stage_score: number;
-      stage_rank: number;
-    }> = [];
-
-    // Iterate through all stages in leaderboard_by_stage
+    const allStages: Array<{ stageNum: number; stageKey: string; stage_score: number; stage_rank: number }> = [];
     Object.entries(leaderboard_by_stage).forEach(([stageKey, stageData]) => {
-      const participantEntry = stageData.find(
-        p => p.participant_name === participantName
-      );
-      
+      const participantEntry = stageData.find(p => p.participant_name === participantName);
       if (participantEntry) {
         allStages.push({
           stageNum: parseInt(stageKey.replace('stage_', '')),
@@ -154,101 +114,80 @@ function HomePage() {
         });
       }
     });
-
     return allStages.sort((a, b) => a.stageNum - b.stageNum);
   };
 
-  // Get participant medals from all stages
   const getParticipantMedals = (participantName: string) => {
-    let goldCount = 0;
-    let silverCount = 0;
-    let bronzeCount = 0;
-
-    // Iterate through all stages to count medals
+    let goldCount = 0, silverCount = 0, bronzeCount = 0;
     Object.values(leaderboard_by_stage).forEach((stageData) => {
-      const participantEntry = stageData.find(
-        p => p.participant_name === participantName
-      );
-      
+      const participantEntry = stageData.find(p => p.participant_name === participantName);
       if (participantEntry) {
         if (participantEntry.stage_rank === 1) goldCount++;
         else if (participantEntry.stage_rank === 2) silverCount++;
         else if (participantEntry.stage_rank === 3) bronzeCount++;
       }
     });
-
-    // Return medals as string (grouped by type)
     const medals = [];
     if (goldCount > 0) medals.push('🥇'.repeat(goldCount));
     if (silverCount > 0) medals.push('🥈'.repeat(silverCount));
     if (bronzeCount > 0) medals.push('🥉'.repeat(bronzeCount));
-    
     return medals.join('');
   };
 
-
-  // Main render
   return (
-    <div className="min-h-screen py-8 px-32 bg-[var(--color-background)]">
-      {/* Header - No box, just title with icon */}
-      <header className="mb-12 text-center">
-        <div className="flex items-center justify-center gap-3 mb-2">
-          <h1 className="text-5xl font-bold text-[var(--color-primary)]">
-            ACM Tour de France 2025 Poule
-          </h1>
-        </div>
+    <div className="min-h-screen py-4 px-4 sm:px-6 lg:px-32 bg-gray-50">
+      <header className="mb-6 sm:mb-12 text-center">
+        <h1 className="text-2xl sm:text-3xl lg:text-5xl font-bold text-yellow-600">
+          ACM Tour de France 2025 Poule
+        </h1>
       </header>
 
-      {/* Navigation and Search */}
-      <div className="flex flex-col lg:flex-row gap-6 mb-8 items-center justify-center">
-        
-        {/* Navigation Tabs - No grouping box */}
-        <div className="flex gap-3">
+      <div className="flex flex-col gap-4 mb-6">
+        <div className="flex gap-2">
           <button
             onClick={() => setActiveView('stage_individual')}
-            className={`py-3 px-6 rounded-lg font-semibold transition-all ${
+            className={`flex-1 py-3 px-2 rounded-lg font-semibold transition-all text-xs sm:text-sm lg:text-base ${
               activeView === 'stage_individual'
-                ? 'bg-[var(--color-accent)] text-white border-2 border-[var(--color-accent)]'
-                : 'bg-[var(--color-table-row-even)] text-[var(--color-text-secondary)] border-2 border-transparent'
+                ? 'bg-yellow-500 text-white border-2 border-yellow-500'
+                : 'bg-gray-200 text-gray-700 border-2 border-transparent'
             }`}
           >
-            Etappe Uitslagen 
-          </button>          
+            Etappe
+          </button>
           <button
             onClick={() => setActiveView('standings_individual')}
-            className={`py-3 px-6 rounded-lg font-semibold transition-all ${
+            className={`flex-1 py-3 px-2 rounded-lg font-semibold transition-all text-xs sm:text-sm lg:text-base ${
               activeView === 'standings_individual'
-                ? 'bg-[var(--color-accent)] text-white border-2 border-[var(--color-accent)]'
-                : 'bg-[var(--color-table-row-even)] text-[var(--color-text-secondary)] border-2 border-transparent'
+                ? 'bg-yellow-500 text-white border-2 border-yellow-500'
+                : 'bg-gray-200 text-gray-700 border-2 border-transparent'
             }`}
           >
-            Individueel Klassement
+            Individueel
           </button>
           <button
             onClick={() => setActiveView('standings_directie')}
-            className={`py-3 px-6 rounded-lg font-semibold transition-all ${
+            className={`flex-1 py-3 px-2 rounded-lg font-semibold transition-all text-xs sm:text-sm lg:text-base ${
               activeView === 'standings_directie'
-                ? 'bg-[var(--color-accent)] text-white border-2 border-[var(--color-accent)]'
-                : 'bg-[var(--color-table-row-even)] text-[var(--color-text-secondary)] border-2 border-transparent'
+                ? 'bg-yellow-500 text-white border-2 border-yellow-500'
+                : 'bg-gray-200 text-gray-700 border-2 border-transparent'
             }`}
           >
-            Directie Klassement
+            Directie
           </button>
         </div>
 
-        {/* Search Filter - No box */}
-        <div className="relative lg:w-80">
+        <div className="relative w-full">
           <input
             type="text"
             placeholder="Zoek deelnemer of directie..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full px-4 py-3 pr-10 rounded-lg transition-all bg-[var(--color-table-row-even)] border-2 border-transparent text-[var(--color-text-primary)] focus:border-[var(--color-accent)]"
+            className="w-full px-4 py-3 pr-10 rounded-lg bg-white border-2 border-gray-300 text-gray-900 focus:border-yellow-500 text-sm sm:text-base"
           />
           {searchTerm && (
             <button
               onClick={() => setSearchTerm('')}
-              className="absolute right-3 top-1/2 -translate-y-1/2 transition-colors text-[var(--color-text-muted)]"
+              className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400"
               aria-label="Clear search"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -259,73 +198,101 @@ function HomePage() {
         </div>
       </div>
 
-      {/* Stage Results View */}
       {activeView === 'stage_individual' && (
         <main>
-          <h2 className="text-2xl font-semibold mb-6 text-[var(--color-primary)]">
+          <h2 className="text-xl sm:text-2xl font-semibold mb-4 sm:mb-6 text-yellow-600">
             Etappe {currentStageNum} Resultaten
           </h2>
-          
-          <div className="overflow-x-auto">
+
+          <div className="block lg:hidden space-y-2">
+            {(filteredResults as LeaderboardEntry[]).map((entry) => {
+              const sortedRiders = Object.entries(entry.stage_rider_contributions)
+                .sort(([, a], [, b]) => (b ?? 0) - (a ?? 0));
+              const medal = renderMedal(entry.stage_rank);
+
+              return (
+                <div key={entry.participant_name} className="bg-white rounded-lg shadow-md overflow-hidden">
+                  <div
+                    onClick={() => toggleItemDetails(entry.participant_name)}
+                    className="p-3 cursor-pointer active:bg-gray-50"
+                  >
+                    <div className="flex items-center gap-3">
+                      <div className="flex flex-col items-center justify-center min-w-[50px]">
+                        <div className="text-lg font-bold text-gray-900">#{entry.stage_rank}</div>
+                        {medal && <div className="text-xl leading-none">{medal}</div>}
+                      </div>
+                      
+                      <div className="flex-1 min-w-0">
+                        <div className="font-bold text-sm text-gray-900 truncate">{entry.participant_name}</div>
+                        <div className="text-xs text-gray-500 truncate">{entry.directie_name}</div>
+                      </div>
+                      
+                      <div className="text-right min-w-[60px]">
+                        <div className="text-lg font-bold text-yellow-600">{entry.stage_score}</div>
+                        <div className="text-xs text-gray-500">Alg. #{entry.overall_rank}</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {expandedItem === entry.participant_name && (
+                    <div className="px-3 pb-3 bg-gray-50 border-t border-gray-200">
+                      <div className="pt-3">
+                        <h3 className="text-xs font-semibold mb-2 text-gray-600">Renner Bijdragen</h3>
+                        {sortedRiders.map(([rider, points]) => (
+                          <div key={rider} className="flex justify-between py-1.5 border-b border-gray-100 last:border-0">
+                            <span className="text-sm text-gray-700">{rider}</span>
+                            <span className="text-sm font-bold text-gray-900">{points}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+
+          <div className="hidden lg:block overflow-x-auto">
             <table className="w-full">
               <thead>
-                <tr className="bg-[var(--color-table-row-odd)]">
-                  <th className="px-4 py-4 text-left text-sm font-semibold text-[var(--color-text-secondary)]">Positie</th>
-                  <th className="px-4 py-4 text-left text-sm font-semibold text-[var(--color-text-secondary)]">Deelnemer</th>
-                  <th className="px-4 py-4 text-left text-sm font-semibold text-[var(--color-text-secondary)]">Directie</th>
-                  <th className="px-4 py-4 text-right text-sm font-semibold text-[var(--color-text-secondary)]">Punten</th>
-                  <th className="px-4 py-4 text-center text-sm font-semibold text-[var(--color-text-secondary)]">Alg. Rank</th>
+                <tr className="bg-gray-200">
+                  <th className="px-4 py-4 text-left text-sm font-semibold text-gray-600">Positie</th>
+                  <th className="px-4 py-4 text-left text-sm font-semibold text-gray-600">Deelnemer</th>
+                  <th className="px-4 py-4 text-left text-sm font-semibold text-gray-600">Directie</th>
+                  <th className="px-4 py-4 text-right text-sm font-semibold text-gray-600">Punten</th>
+                  <th className="px-4 py-4 text-center text-sm font-semibold text-gray-600">Alg. Rank</th>
                 </tr>
               </thead>
               <tbody>
                 {(filteredResults as LeaderboardEntry[]).map((entry, idx) => {
                   const sortedRiders = Object.entries(entry.stage_rider_contributions)
-                    .sort(([, a], [, b]) => b - a);
+                    .sort(([, a], [, b]) => (b ?? 0) - (a ?? 0));
 
                   return (
                     <React.Fragment key={entry.participant_name}>
-                      <tr 
-                        className={`transition-colors cursor-pointer hover:bg-[var(--color-table-row-hover)] ${
-                          idx % 2 === 0 ? 'bg-[var(--color-table-row-even)]' : 'bg-[var(--color-table-row-odd)]'
-                        }`}
+                      <tr
+                        className={`cursor-pointer hover:bg-gray-100 ${idx % 2 === 0 ? 'bg-white' : 'bg-gray-50'}`}
                         onClick={() => toggleItemDetails(entry.participant_name)}
                       >
-                        <td className="px-4 py-3 text-sm font-medium text-[var(--color-text-primary)]">
-                          {entry.stage_rank}
-                          {renderMedal(entry.stage_rank)}
+                        <td className="px-4 py-3 text-sm font-medium">
+                          {entry.stage_rank}{renderMedal(entry.stage_rank)}
                         </td>
-                        <td className="px-4 py-3 text-sm text-[var(--color-text-primary)]">
-                          {entry.participant_name}
-                        </td>
-                        <td className="px-4 py-3 text-sm text-[var(--color-text-secondary)]">
-                          {entry.directie_name}
-                        </td>
-                        <td className="px-4 py-3 text-sm text-right font-semibold text-[var(--color-text-primary)]">
-                          {entry.stage_score}
-                        </td>
-                        <td className="px-4 py-3 text-sm text-center text-[var(--color-text-secondary)]">
-                          #{entry.overall_rank}
-                        </td>
+                        <td className="px-4 py-3 text-sm">{entry.participant_name}</td>
+                        <td className="px-4 py-3 text-sm text-gray-600">{entry.directie_name}</td>
+                        <td className="px-4 py-3 text-sm text-right font-semibold">{entry.stage_score}</td>
+                        <td className="px-4 py-3 text-sm text-center text-gray-600">#{entry.overall_rank}</td>
                       </tr>
-
                       {expandedItem === entry.participant_name && (
-                        <tr className="bg-[var(--color-expanded-bg)]">
+                        <tr className="bg-gray-100">
                           <td colSpan={5} className="px-4 py-4">
                             <div className="ml-8 max-w-md">
-                              <h3 className="text-sm font-semibold mb-2 pb-2 text-[var(--color-text-secondary)] border-b border-[var(--color-text-muted)]">
-                                Renner Bijdragen
-                              </h3>
-                              <div>
-                                {sortedRiders.map(([rider, points]) => (
-                                  <div 
-                                    key={rider}
-                                    className="flex justify-between items-center py-1 px-2 rounded transition-colors hover:bg-[var(--color-table-row-hover)]"
-                                  >
-                                    <span className="text-sm text-[var(--color-text-secondary)]">{rider}</span>
-                                    <span className="text-sm font-bold text-[var(--color-text-primary)]">{points}</span>
-                                  </div>
-                                ))}
-                              </div>
+                              <h3 className="text-sm font-semibold mb-2 pb-2 text-gray-600 border-b">Renner Bijdragen</h3>
+                              {sortedRiders.map(([rider, points]) => (
+                                <div key={rider} className="flex justify-between py-1 px-2 rounded hover:bg-gray-200">
+                                  <span className="text-sm text-gray-600">{rider}</span>
+                                  <span className="text-sm font-bold">{points}</span>
+                                </div>
+                              ))}
                             </div>
                           </td>
                         </tr>
@@ -339,82 +306,102 @@ function HomePage() {
         </main>
       )}
 
-      {/* Overall Leaderboard View */}
       {activeView === 'standings_individual' && (
         <main>
-          <h2 className="text-2xl font-semibold mb-6 text-[var(--color-primary)]">Algemeen Klassement</h2>
-          
-          <div className="overflow-x-auto">
+          <h2 className="text-xl sm:text-2xl font-semibold mb-4 sm:mb-6 text-yellow-600">Algemeen Klassement</h2>
+
+          <div className="block lg:hidden space-y-2">
+            {(filteredResults as LeaderboardEntry[]).map((entry) => {
+              const medals = getParticipantMedals(entry.participant_name);
+
+              return (
+                <div key={entry.participant_name} className="bg-white rounded-lg shadow-md overflow-hidden">
+                  <div
+                    onClick={() => toggleItemDetails(entry.participant_name)}
+                    className="p-3 cursor-pointer active:bg-gray-50"
+                  >
+                    <div className="flex items-center gap-3">
+                      <div className="flex flex-col items-center justify-center min-w-[50px]">
+                        <div className="text-lg font-bold text-gray-900">#{entry.overall_rank}</div>
+                        <div className="text-xs">{renderRankChange(entry.overall_rank_change)}</div>
+                      </div>
+                      
+                      <div className="flex-1 min-w-0">
+                        <div className="font-bold text-sm text-gray-900 truncate">{entry.participant_name}</div>
+                        <div className="text-xs text-gray-500 truncate">{entry.directie_name}</div>
+                      </div>
+                      
+                      <div className="text-right min-w-[60px]">
+                        <div className="text-lg font-bold text-yellow-600">{entry.overall_score}</div>
+                        {medals && <div className="text-sm leading-none mt-0.5">{medals}</div>}
+                      </div>
+                    </div>
+                  </div>
+
+                  {expandedItem === entry.participant_name && (
+                    <div className="px-3 pb-3 bg-gray-50 border-t border-gray-200">
+                      <div className="pt-3">
+                        <h3 className="text-xs font-semibold mb-2 text-gray-600">Punten per Etappe</h3>
+                        {getParticipantStages(entry.participant_name).map((stage) => (
+                          <div key={stage.stageKey} className="flex justify-between py-1.5 border-b border-gray-100 last:border-0">
+                            <span className="text-sm text-gray-700">Etappe {stage.stageNum}</span>
+                            <div className="flex items-center gap-2">
+                              <span className="text-xs text-gray-500">#{stage.stage_rank}</span>
+                              <span className="text-sm font-bold text-gray-900">{stage.stage_score}</span>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+
+          <div className="hidden lg:block overflow-x-auto">
             <table className="w-full">
               <thead>
-                <tr className="bg-[var(--color-table-row-odd)]">
-                  <th className="px-4 py-4 text-left text-sm font-semibold text-[var(--color-text-secondary)]">Rank</th>
-                  <th className="px-4 py-4 text-center text-sm font-semibold text-[var(--color-text-secondary)]">+/-</th>
-                  <th className="px-4 py-4 text-left text-sm font-semibold text-[var(--color-text-secondary)]">Deelnemer</th>
-                  <th className="px-4 py-4 text-left text-sm font-semibold text-[var(--color-text-secondary)]">Directie</th>
-                  <th className="px-4 py-4 text-right text-sm font-semibold text-[var(--color-text-secondary)]">Totaal Punten</th>
-                  <th className="px-4 py-4 text-center text-sm font-semibold text-[var(--color-text-secondary)]">Etappe Medailles</th>
+                <tr className="bg-gray-200">
+                  <th className="px-4 py-4 text-left text-sm font-semibold text-gray-600">Rank</th>
+                  <th className="px-4 py-4 text-center text-sm font-semibold text-gray-600">+/-</th>
+                  <th className="px-4 py-4 text-left text-sm font-semibold text-gray-600">Deelnemer</th>
+                  <th className="px-4 py-4 text-left text-sm font-semibold text-gray-600">Directie</th>
+                  <th className="px-4 py-4 text-right text-sm font-semibold text-gray-600">Totaal Punten</th>
+                  <th className="px-4 py-4 text-center text-sm font-semibold text-gray-600">Etappe Medailles</th>
                 </tr>
               </thead>
               <tbody>
                 {(filteredResults as LeaderboardEntry[]).map((entry, idx) => {
                   const medals = getParticipantMedals(entry.participant_name);
-                  
+
                   return (
                     <React.Fragment key={entry.participant_name}>
-                      <tr 
-                        className={`transition-colors cursor-pointer hover:bg-[var(--color-table-row-hover)] ${
-                          idx % 2 === 0 ? 'bg-[var(--color-table-row-even)]' : 'bg-[var(--color-table-row-odd)]'
-                        }`}
+                      <tr
+                        className={`cursor-pointer hover:bg-gray-100 ${idx % 2 === 0 ? 'bg-white' : 'bg-gray-50'}`}
                         onClick={() => toggleItemDetails(entry.participant_name)}
                       >
-                        <td className="px-4 py-3 text-sm font-medium text-[var(--color-text-primary)]">
-                          {entry.overall_rank}
-                        </td>
-                        <td className="px-4 py-3 text-sm text-center">
-                          {renderRankChange(entry.overall_rank_change)}
-                        </td>
-                        <td className="px-4 py-3 text-sm text-[var(--color-text-primary)]">
-                          {entry.participant_name}
-                        </td>
-                        <td className="px-4 py-3 text-sm text-[var(--color-text-secondary)]">
-                          {entry.directie_name}
-                        </td>
-                        <td className="px-4 py-3 text-sm text-right font-semibold text-[var(--color-text-primary)]">
-                          {entry.overall_score}
-                        </td>
-                        <td className="px-4 py-3 text-sm text-center">
-                          {medals || ''}
-                        </td>
+                        <td className="px-4 py-3 text-sm font-medium">{entry.overall_rank}</td>
+                        <td className="px-4 py-3 text-sm text-center">{renderRankChange(entry.overall_rank_change)}</td>
+                        <td className="px-4 py-3 text-sm">{entry.participant_name}</td>
+                        <td className="px-4 py-3 text-sm text-gray-600">{entry.directie_name}</td>
+                        <td className="px-4 py-3 text-sm text-right font-semibold">{entry.overall_score}</td>
+                        <td className="px-4 py-3 text-sm text-center">{medals || ''}</td>
                       </tr>
-                      
                       {expandedItem === entry.participant_name && (
-                        <tr className="bg-[var(--color-expanded-bg)]">
+                        <tr className="bg-gray-100">
                           <td colSpan={6} className="px-4 py-4">
                             <div className="ml-8 max-w-md">
-                              <h3 className="text-sm font-semibold mb-2 pb-2 text-[var(--color-text-secondary)] border-b border-[var(--color-text-muted)]">
-                                Punten per Etappe
-                              </h3>
-                              <div>
-                                {getParticipantStages(entry.participant_name).map(stage => (
-                                  <div 
-                                    key={stage.stageKey}
-                                    className="flex justify-between items-center py-1 px-2 rounded transition-colors hover:bg-[var(--color-table-row-hover)]"
-                                  >
-                                    <span className="text-sm text-[var(--color-text-secondary)]">
-                                      Etappe {stage.stageNum}:
-                                    </span>
-                                    <div className="flex items-center gap-3">
-                                      <span className="text-xs text-[var(--color-text-muted)]">
-                                        #{stage.stage_rank}
-                                      </span>
-                                      <span className="text-sm font-bold text-[var(--color-text-primary)]">
-                                        {stage.stage_score}
-                                      </span>
-                                    </div>
+                              <h3 className="text-sm font-semibold mb-2 pb-2 text-gray-600 border-b">Punten per Etappe</h3>
+                              {getParticipantStages(entry.participant_name).map((stage) => (
+                                <div key={stage.stageKey} className="flex justify-between py-1 px-2 rounded hover:bg-gray-200">
+                                  <span className="text-sm text-gray-600">Etappe {stage.stageNum}:</span>
+                                  <div className="flex items-center gap-3">
+                                    <span className="text-xs text-gray-500">#{stage.stage_rank}</span>
+                                    <span className="text-sm font-bold">{stage.stage_score}</span>
                                   </div>
-                                ))}
-                              </div>
+                                </div>
+                              ))}
                             </div>
                           </td>
                         </tr>
@@ -428,88 +415,111 @@ function HomePage() {
         </main>
       )}
 
-      {/* Directie Leaderboard View */}
       {activeView === 'standings_directie' && (
         <main>
-          <h2 className="text-2xl font-semibold mb-6 text-[var(--color-primary)]">Directie Klassement</h2>
-          <p className="text-sm mb-6 text-[var(--color-text-secondary)]">
+          <h2 className="text-xl sm:text-2xl font-semibold mb-2 sm:mb-4 text-yellow-600">Directie Klassement</h2>
+          <p className="text-xs sm:text-sm mb-4 sm:mb-6 text-gray-600">
             Top {metadata.top_n_participants_for_directie} deelnemers per directie per etappe tellen mee
           </p>
-          <div className="overflow-x-auto">
+
+          <div className="block lg:hidden space-y-2">
+            {(filteredResults as DirectieEntry[]).map((entry) => (
+              <div key={entry.directie_name} className="bg-white rounded-lg shadow-md overflow-hidden">
+                <div
+                  onClick={() => toggleItemDetails(entry.directie_name)}
+                  className="p-3 cursor-pointer active:bg-gray-50"
+                >
+                  <div className="flex items-center gap-3">
+                    <div className="flex flex-col items-center justify-center min-w-[50px]">
+                      <div className="text-lg font-bold text-gray-900">#{entry.overall_rank}</div>
+                      <div className="text-xs">{renderRankChange(entry.overall_rank_change)}</div>
+                    </div>
+                    
+                    <div className="flex-1 min-w-0">
+                      <div className="font-bold text-sm text-gray-900 truncate">{entry.directie_name}</div>
+                    </div>
+                    
+                    <div className="text-right min-w-[60px]">
+                      <div className="text-lg font-bold text-yellow-600">{entry.overall_score}</div>
+                    </div>
+                  </div>
+                </div>
+
+                {expandedItem === entry.directie_name && (
+                  <div className="px-3 pb-3 bg-gray-50 border-t border-gray-200">
+                    <div className="pt-3">
+                      <h3 className="text-xs font-semibold mb-2 text-gray-600">Totale Bijdragen per Deelnemer</h3>
+                      {entry.overall_participant_contributions.map((participant, pidx) => (
+                        <div key={participant.participant_name} className="flex justify-between py-1.5 border-b border-gray-100 last:border-0">
+                          <div className="flex items-center gap-2 flex-1 min-w-0">
+                            <span className="text-xs font-semibold text-gray-500">#{pidx + 1}</span>
+                            <span className="text-sm text-gray-700 truncate">{participant.participant_name}</span>
+                          </div>
+                          <span className="text-sm font-bold text-gray-900">{participant.overall_score}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+
+          <div className="hidden lg:block overflow-x-auto">
             <table className="w-full">
               <thead>
-                <tr className="bg-[var(--color-table-row-odd)]">
-                  <th className="px-4 py-4 text-left text-sm font-semibold text-[var(--color-text-secondary)]">Rank</th>
-                  <th className="px-4 py-4 text-center text-sm font-semibold text-[var(--color-text-secondary)]">+/-</th>
-                  <th className="px-4 py-4 text-left text-sm font-semibold text-[var(--color-text-secondary)]">Directie</th>
-                  <th className="px-4 py-4 text-right text-sm font-semibold text-[var(--color-text-secondary)]">Totaal Punten</th>
+                <tr className="bg-gray-200">
+                  <th className="px-4 py-4 text-left text-sm font-semibold text-gray-600">Rank</th>
+                  <th className="px-4 py-4 text-center text-sm font-semibold text-gray-600">+/-</th>
+                  <th className="px-4 py-4 text-left text-sm font-semibold text-gray-600">Directie</th>
+                  <th className="px-4 py-4 text-right text-sm font-semibold text-gray-600">Totaal Punten</th>
                 </tr>
               </thead>
               <tbody>
-                {(filteredResults as DirectieEntry[]).map((entry, idx) => {
-                  const isExpanded = expandedItem === entry.directie_name;
-
-                  return (
-                    <React.Fragment key={entry.directie_name}>
-                      <tr 
-                        className={`transition-colors cursor-pointer hover:bg-[var(--color-table-row-hover)] ${
-                          idx % 2 === 0 ? 'bg-[var(--color-table-row-even)]' : 'bg-[var(--color-table-row-odd)]'
-                        }`}
-                        onClick={() => toggleItemDetails(entry.directie_name)}
-                      >
-                        <td className="px-4 py-3 text-sm font-medium text-[var(--color-text-primary)]">
-                          {entry.overall_rank}
-                        </td>
-                        <td className="px-4 py-3 text-sm text-center">
-                          {renderRankChange(entry.overall_rank_change)}
-                        </td>
-                        <td className="px-4 py-3 text-sm font-medium text-[var(--color-text-primary)]">
-                          {entry.directie_name}
-                        </td>
-                        <td className="px-4 py-3 text-sm text-right font-semibold text-[var(--color-text-primary)]">
-                          {entry.overall_score}
+                {(filteredResults as DirectieEntry[]).map((entry, idx) => (
+                  <React.Fragment key={entry.directie_name}>
+                    <tr
+                      className={`cursor-pointer hover:bg-gray-100 ${idx % 2 === 0 ? 'bg-white' : 'bg-gray-50'}`}
+                      onClick={() => toggleItemDetails(entry.directie_name)}
+                    >
+                      <td className="px-4 py-3 text-sm font-medium">{entry.overall_rank}</td>
+                      <td className="px-4 py-3 text-sm text-center">{renderRankChange(entry.overall_rank_change)}</td>
+                      <td className="px-4 py-3 text-sm font-medium">{entry.directie_name}</td>
+                      <td className="px-4 py-3 text-sm text-right font-semibold">{entry.overall_score}</td>
+                    </tr>
+                    {expandedItem === entry.directie_name && (
+                      <tr className="bg-gray-100">
+                        <td colSpan={4} className="px-4 py-4">
+                          <div className="ml-8 max-w-2xl">
+                            <h3 className="text-sm font-semibold mb-2 pb-2 text-gray-600 border-b">Totale Bijdragen per Deelnemer</h3>
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                              {entry.overall_participant_contributions.map((participant, pidx) => (
+                                <div
+                                  key={participant.participant_name}
+                                  className="flex justify-between items-center py-2 px-3 rounded hover:bg-gray-200"
+                                >
+                                  <span className="text-sm flex items-center gap-2 text-gray-600">
+                                    <span className="text-xs font-semibold w-5 text-gray-400">#{pidx + 1}</span>
+                                    {participant.participant_name}
+                                  </span>
+                                  <span className="text-sm font-bold">{participant.overall_score}</span>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
                         </td>
                       </tr>
-                      
-                      {isExpanded && (
-                        <tr className="bg-[var(--color-expanded-bg)]">
-                          <td colSpan={4} className="px-4 py-4">
-                            <div className="ml-8 max-w-2xl">
-                              <h3 className="text-sm font-semibold mb-2 pb-2 text-[var(--color-text-secondary)] border-b border-[var(--color-text-muted)]">
-                                Totale Bijdragen per Deelnemer
-                              </h3>
-                              <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-                                {entry.overall_participant_contributions.map((participant, pidx) => (
-                                  <div 
-                                    key={participant.participant_name}
-                                    className="flex justify-between items-center py-2 px-3 rounded transition-colors hover:bg-[var(--color-table-row-hover)]"
-                                  >
-                                    <span className="text-sm flex items-center gap-2 text-[var(--color-text-secondary)]">
-                                      <span className="text-xs font-semibold w-5 text-[var(--color-text-muted)]">
-                                        #{pidx + 1}
-                                      </span>
-                                      {participant.participant_name}
-                                    </span>
-                                    <span className="text-sm font-bold text-[var(--color-text-primary)]">
-                                      {participant.overall_score}
-                                    </span>
-                                  </div>
-                                ))}
-                              </div>
-                            </div>
-                          </td>
-                        </tr>
-                      )}
-                    </React.Fragment>
-                  );
-                })}
+                    )}
+                  </React.Fragment>
+                ))}
               </tbody>
             </table>
           </div>
         </main>
       )}
     </div>
-  )
+  );
 }
 
-export default HomePage
+export default HomePage;
+
