@@ -212,7 +212,7 @@ function HomePage() {
                 : 'bg-[var(--color-table-row-even)] text-[var(--color-text-secondary)] border-2 border-transparent'
             }`}
           >
-            Etappe Uitslagen
+            Etappe Uitslagen 
           </button>          
           <button
             onClick={() => setActiveView('standings_individual')}
