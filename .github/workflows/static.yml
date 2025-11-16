@@ -36,7 +36,7 @@ jobs:
           cache: 'npm' # Enables caching for faster installation
 
       - name: Install Dependencies
-        run: npm install
+        run: npm ci
         working-directory: docs
 
       - name: Build Project
