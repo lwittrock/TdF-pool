@@ -2,30 +2,3 @@
 @tailwind components;
 @tailwind utilities;
 
-
-:root {
-  /* Primary colors */
-  --color-primary: #2d3748;
-  --color-accent: #10b981;
-  
-  /* Background colors */
-  --color-background: #f3f4f6;
-  --color-table-row-even: #ffffff;
-  --color-table-row-odd: #f9fafb;
-  --color-table-row-hover: #f3f4f6;
-  --color-expanded-bg: #f9fafb;
-  
-  /* Text colors */
-  --color-text-primary: #111827;
-  --color-text-secondary: #6b7280;
-  --color-text-muted: #9ca3af;
-  
-  /* Accent variations */
-  --color-accent-hover: #059669;
-  --color-accent-light: #d1fae5;
-  
-  /* Status colors */
-  --color-green: #10b981;
-  --color-red: #ef4444;
-  --color-yellow: #fef3c7;
-}

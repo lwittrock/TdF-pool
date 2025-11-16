@@ -135,9 +135,9 @@ function HomePage() {
   };
 
   return (
-    <div className="min-h-screen py-4 px-4 sm:px-6 lg:px-32 bg-gray-50">
+    <div className="min-h-screen py-4 px-4 sm:px-6 lg:px-32 bg-tdf-bg">
       <header className="mb-6 sm:mb-12 text-center">
-        <h1 className="text-2xl sm:text-3xl lg:text-5xl font-bold text-yellow-600">
+        <h1 className="text-2xl sm:text-3xl lg:text-5xl font-bold text-tdf-primary">
           Klassement
         </h1>
       </header>
@@ -148,7 +148,7 @@ function HomePage() {
             onClick={() => setActiveView('stage_individual')}
             className={`flex-1 py-3 px-2 rounded-lg font-semibold transition-all text-xs sm:text-sm lg:text-base ${
               activeView === 'stage_individual'
-                ? 'bg-yellow-500 text-white border-2 border-yellow-500'
+                ? 'bg-tdf-accent text-white border-2 border-yellow-500'
                 : 'bg-gray-200 text-gray-700 border-2 border-transparent'
             }`}
           >
@@ -158,7 +158,7 @@ function HomePage() {
             onClick={() => setActiveView('standings_individual')}
             className={`flex-1 py-3 px-2 rounded-lg font-semibold transition-all text-xs sm:text-sm lg:text-base ${
               activeView === 'standings_individual'
-                ? 'bg-yellow-500 text-white border-2 border-yellow-500'
+                ? 'bg-tdf-accent text-white border-2 border-yellow-500'
                 : 'bg-gray-200 text-gray-700 border-2 border-transparent'
             }`}
           >
@@ -168,7 +168,7 @@ function HomePage() {
             onClick={() => setActiveView('standings_directie')}
             className={`flex-1 py-3 px-2 rounded-lg font-semibold transition-all text-xs sm:text-sm lg:text-base ${
               activeView === 'standings_directie'
-                ? 'bg-yellow-500 text-white border-2 border-yellow-500'
+                ? 'bg-tdf-accent text-white border-2 border-yellow-500'
                 : 'bg-gray-200 text-gray-700 border-2 border-transparent'
             }`}
           >
@@ -182,7 +182,7 @@ function HomePage() {
             placeholder="Zoek deelnemer of directie..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full px-4 py-3 pr-10 rounded-lg bg-white border-2 border-gray-300 text-gray-900 focus:border-yellow-500 text-sm sm:text-base"
+            className="w-full px-4 py-3 pr-10 rounded-lg bg-white border-2 border-gray-300 text-tdf-text-primary focus:border-yellow-500 text-sm sm:text-base"
           />
           {searchTerm && (
             <button
@@ -200,7 +200,7 @@ function HomePage() {
 
       {activeView === 'stage_individual' && (
         <main>
-          <h2 className="text-xl sm:text-2xl font-semibold mb-4 sm:mb-6 text-yellow-600">
+          <h2 className="text-xl sm:text-2xl font-semibold mb-4 sm:mb-6 text-tdf-primary">
             Etappe {currentStageNum} Resultaten
           </h2>
 
@@ -214,34 +214,34 @@ function HomePage() {
                 <div key={entry.participant_name} className="bg-white rounded-lg shadow-md overflow-hidden">
                   <div
                     onClick={() => toggleItemDetails(entry.participant_name)}
-                    className="p-3 cursor-pointer active:bg-gray-50"
+                    className="p-3 cursor-pointer active:bg-tdf-bg"
                   >
                     <div className="flex items-center gap-3">
                       <div className="flex flex-col items-center justify-center min-w-[50px]">
-                        <div className="text-lg font-bold text-gray-900">#{entry.stage_rank}</div>
+                        <div className="text-lg font-bold text-tdf-text-primary">#{entry.stage_rank}</div>
                         {medal && <div className="text-xl leading-none">{medal}</div>}
                       </div>
                       
                       <div className="flex-1 min-w-0">
-                        <div className="font-bold text-sm text-gray-900 truncate">{entry.participant_name}</div>
-                        <div className="text-xs text-gray-500 truncate">{entry.directie_name}</div>
+                        <div className="font-bold text-sm text-tdf-text-primary truncate">{entry.participant_name}</div>
+                        <div className="text-xs text-tdf-text-secondary truncate">{entry.directie_name}</div>
                       </div>
                       
                       <div className="text-right min-w-[60px]">
-                        <div className="text-lg font-bold text-yellow-600">{entry.stage_score}</div>
-                        <div className="text-xs text-gray-500">Alg. #{entry.overall_rank}</div>
+                        <div className="text-lg font-bold text-tdf-primary">{entry.stage_score}</div>
+                        <div className="text-xs text-tdf-text-secondary">Alg. #{entry.overall_rank}</div>
                       </div>
                     </div>
                   </div>
 
                   {expandedItem === entry.participant_name && (
-                    <div className="px-3 pb-3 bg-gray-50 border-t border-gray-200">
+                    <div className="px-3 pb-3 bg-tdf-bg border-t border-gray-200">
                       <div className="pt-3">
                         <h3 className="text-xs font-semibold mb-2 text-gray-600">Renner Bijdragen</h3>
                         {sortedRiders.map(([rider, points]) => (
                           <div key={rider} className="flex justify-between py-1.5 border-b border-gray-100 last:border-0">
                             <span className="text-sm text-gray-700">{rider}</span>
-                            <span className="text-sm font-bold text-gray-900">{points}</span>
+                            <span className="text-sm font-bold text-tdf-text-primary">{points}</span>
                           </div>
                         ))}
                       </div>
@@ -271,7 +271,7 @@ function HomePage() {
                   return (
                     <React.Fragment key={entry.participant_name}>
                       <tr
-                        className={`cursor-pointer hover:bg-gray-100 ${idx % 2 === 0 ? 'bg-white' : 'bg-gray-50'}`}
+                        className={`cursor-pointer hover:bg-gray-100 ${idx % 2 === 0 ? 'bg-white' : 'bg-tdf-bg'}`}
                         onClick={() => toggleItemDetails(entry.participant_name)}
                       >
                         <td className="px-4 py-3 text-sm font-medium">
@@ -308,7 +308,7 @@ function HomePage() {
 
       {activeView === 'standings_individual' && (
         <main>
-          <h2 className="text-xl sm:text-2xl font-semibold mb-4 sm:mb-6 text-yellow-600">Algemeen Klassement</h2>
+          <h2 className="text-xl sm:text-2xl font-semibold mb-4 sm:mb-6 text-tdf-primary">Algemeen Klassement</h2>
 
           <div className="block lg:hidden space-y-2">
             {(filteredResults as LeaderboardEntry[]).map((entry) => {
@@ -318,36 +318,36 @@ function HomePage() {
                 <div key={entry.participant_name} className="bg-white rounded-lg shadow-md overflow-hidden">
                   <div
                     onClick={() => toggleItemDetails(entry.participant_name)}
-                    className="p-3 cursor-pointer active:bg-gray-50"
+                    className="p-3 cursor-pointer active:bg-tdf-bg"
                   >
                     <div className="flex items-center gap-3">
                       <div className="flex flex-col items-center justify-center min-w-[50px]">
-                        <div className="text-lg font-bold text-gray-900">#{entry.overall_rank}</div>
+                        <div className="text-lg font-bold text-tdf-text-primary">#{entry.overall_rank}</div>
                         <div className="text-xs">{renderRankChange(entry.overall_rank_change)}</div>
                       </div>
                       
                       <div className="flex-1 min-w-0">
-                        <div className="font-bold text-sm text-gray-900 truncate">{entry.participant_name}</div>
-                        <div className="text-xs text-gray-500 truncate">{entry.directie_name}</div>
+                        <div className="font-bold text-sm text-tdf-text-primary truncate">{entry.participant_name}</div>
+                        <div className="text-xs text-tdf-text-secondary truncate">{entry.directie_name}</div>
                       </div>
                       
                       <div className="text-right min-w-[60px]">
-                        <div className="text-lg font-bold text-yellow-600">{entry.overall_score}</div>
+                        <div className="text-lg font-bold text-tdf-primary">{entry.overall_score}</div>
                         {medals && <div className="text-sm leading-none mt-0.5">{medals}</div>}
                       </div>
                     </div>
                   </div>
 
                   {expandedItem === entry.participant_name && (
-                    <div className="px-3 pb-3 bg-gray-50 border-t border-gray-200">
+                    <div className="px-3 pb-3 bg-tdf-bg border-t border-gray-200">
                       <div className="pt-3">
                         <h3 className="text-xs font-semibold mb-2 text-gray-600">Punten per Etappe</h3>
                         {getParticipantStages(entry.participant_name).map((stage) => (
                           <div key={stage.stageKey} className="flex justify-between py-1.5 border-b border-gray-100 last:border-0">
                             <span className="text-sm text-gray-700">Etappe {stage.stageNum}</span>
                             <div className="flex items-center gap-2">
-                              <span className="text-xs text-gray-500">#{stage.stage_rank}</span>
-                              <span className="text-sm font-bold text-gray-900">{stage.stage_score}</span>
+                              <span className="text-xs text-tdf-text-secondary">#{stage.stage_rank}</span>
+                              <span className="text-sm font-bold text-tdf-text-primary">{stage.stage_score}</span>
                             </div>
                           </div>
                         ))}
@@ -378,7 +378,7 @@ function HomePage() {
                   return (
                     <React.Fragment key={entry.participant_name}>
                       <tr
-                        className={`cursor-pointer hover:bg-gray-100 ${idx % 2 === 0 ? 'bg-white' : 'bg-gray-50'}`}
+                        className={`cursor-pointer hover:bg-gray-100 ${idx % 2 === 0 ? 'bg-white' : 'bg-tdf-bg'}`}
                         onClick={() => toggleItemDetails(entry.participant_name)}
                       >
                         <td className="px-4 py-3 text-sm font-medium">{entry.overall_rank}</td>
@@ -397,7 +397,7 @@ function HomePage() {
                                 <div key={stage.stageKey} className="flex justify-between py-1 px-2 rounded hover:bg-gray-200">
                                   <span className="text-sm text-gray-600">Etappe {stage.stageNum}:</span>
                                   <div className="flex items-center gap-3">
-                                    <span className="text-xs text-gray-500">#{stage.stage_rank}</span>
+                                    <span className="text-xs text-tdf-text-secondary">#{stage.stage_rank}</span>
                                     <span className="text-sm font-bold">{stage.stage_score}</span>
                                   </div>
                                 </div>
@@ -417,7 +417,7 @@ function HomePage() {
 
       {activeView === 'standings_directie' && (
         <main>
-          <h2 className="text-xl sm:text-2xl font-semibold mb-2 sm:mb-4 text-yellow-600">Directie Klassement</h2>
+          <h2 className="text-xl sm:text-2xl font-semibold mb-2 sm:mb-4 text-tdf-primary">Directie Klassement</h2>
           <p className="text-xs sm:text-sm mb-4 sm:mb-6 text-gray-600">
             Top {metadata.top_n_participants_for_directie} deelnemers per directie per etappe tellen mee
           </p>
@@ -427,35 +427,35 @@ function HomePage() {
               <div key={entry.directie_name} className="bg-white rounded-lg shadow-md overflow-hidden">
                 <div
                   onClick={() => toggleItemDetails(entry.directie_name)}
-                  className="p-3 cursor-pointer active:bg-gray-50"
+                  className="p-3 cursor-pointer active:bg-tdf-bg"
                 >
                   <div className="flex items-center gap-3">
                     <div className="flex flex-col items-center justify-center min-w-[50px]">
-                      <div className="text-lg font-bold text-gray-900">#{entry.overall_rank}</div>
+                      <div className="text-lg font-bold text-tdf-text-primary">#{entry.overall_rank}</div>
                       <div className="text-xs">{renderRankChange(entry.overall_rank_change)}</div>
                     </div>
                     
                     <div className="flex-1 min-w-0">
-                      <div className="font-bold text-sm text-gray-900 truncate">{entry.directie_name}</div>
+                      <div className="font-bold text-sm text-tdf-text-primary truncate">{entry.directie_name}</div>
                     </div>
                     
                     <div className="text-right min-w-[60px]">
-                      <div className="text-lg font-bold text-yellow-600">{entry.overall_score}</div>
+                      <div className="text-lg font-bold text-tdf-primary">{entry.overall_score}</div>
                     </div>
                   </div>
                 </div>
 
                 {expandedItem === entry.directie_name && (
-                  <div className="px-3 pb-3 bg-gray-50 border-t border-gray-200">
+                  <div className="px-3 pb-3 bg-tdf-bg border-t border-gray-200">
                     <div className="pt-3">
                       <h3 className="text-xs font-semibold mb-2 text-gray-600">Totale Bijdragen per Deelnemer</h3>
                       {entry.overall_participant_contributions.map((participant, pidx) => (
                         <div key={participant.participant_name} className="flex justify-between py-1.5 border-b border-gray-100 last:border-0">
                           <div className="flex items-center gap-2 flex-1 min-w-0">
-                            <span className="text-xs font-semibold text-gray-500">#{pidx + 1}</span>
+                            <span className="text-xs font-semibold text-tdf-text-secondary">#{pidx + 1}</span>
                             <span className="text-sm text-gray-700 truncate">{participant.participant_name}</span>
                           </div>
-                          <span className="text-sm font-bold text-gray-900">{participant.overall_score}</span>
+                          <span className="text-sm font-bold text-tdf-text-primary">{participant.overall_score}</span>
                         </div>
                       ))}
                     </div>
@@ -479,7 +479,7 @@ function HomePage() {
                 {(filteredResults as DirectieEntry[]).map((entry, idx) => (
                   <React.Fragment key={entry.directie_name}>
                     <tr
-                      className={`cursor-pointer hover:bg-gray-100 ${idx % 2 === 0 ? 'bg-white' : 'bg-gray-50'}`}
+                      className={`cursor-pointer hover:bg-gray-100 ${idx % 2 === 0 ? 'bg-white' : 'bg-tdf-bg'}`}
                       onClick={() => toggleItemDetails(entry.directie_name)}
                     >
                       <td className="px-4 py-3 text-sm font-medium">{entry.overall_rank}</td>
