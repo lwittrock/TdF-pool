@@ -24,7 +24,7 @@ function App() {
           <div className="max-w-7xl mx-auto">
             {/* Mobile Menu Button */}
             <div className="flex justify-between items-center lg:hidden">
-              <span className="text-white font-bold text-lg">TdF Pool</span>
+              <span className="text-white font-bold text-lg">TdF App</span>
               <button
                 onClick={toggleMobileMenu}
                 className="text-white focus:outline-none"

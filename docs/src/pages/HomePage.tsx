@@ -138,7 +138,7 @@ function HomePage() {
     <div className="min-h-screen py-4 px-4 sm:px-6 lg:px-32 bg-gray-50">
       <header className="mb-6 sm:mb-12 text-center">
         <h1 className="text-2xl sm:text-3xl lg:text-5xl font-bold text-yellow-600">
-          ACM Tour de France 2025 Poule
+          ACM Tour de France Poule
         </h1>
       </header>
 
