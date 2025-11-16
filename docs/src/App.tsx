@@ -24,7 +24,7 @@ function App() {
           <div className="max-w-7xl mx-auto">
             {/* Mobile Menu Button */}
             <div className="flex justify-between items-center lg:hidden">
-              <span className="text-white font-bold text-lg">ACM TdF Poule</span>
+              <span className="text-white font-bold text-lg">ACM Tour de France Poule</span>
               <button
                 onClick={toggleMobileMenu}
                 className="text-white focus:outline-none"
