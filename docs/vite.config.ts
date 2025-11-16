@@ -5,6 +5,6 @@ export default defineConfig({
   plugins: [react()],
   base: '/tdf-pool/', 
   build: {
-    outDir: '../dist',
+    outDir: 'dist',
   }
 })
