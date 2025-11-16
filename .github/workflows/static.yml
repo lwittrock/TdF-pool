@@ -51,7 +51,7 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           # Now the './dist' folder exists and will be uploaded!
-          path: './docs/dist' 
+          path: 'docs/dist' 
           
       - name: Deploy to GitHub Pages
         id: deployment
