@@ -6,7 +6,7 @@ import TestPage3 from './pages/TestPage3';
 
 function App() {
   return (
-    <Router basename="/tdf-pool">
+    <Router basename="/TdF-pool">
       <div>
         {/* Navigation Menu */}
         <nav className="bg-gray-800 p-4 shadow-md">
