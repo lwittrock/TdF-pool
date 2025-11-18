@@ -72,7 +72,7 @@ function App() {
               <span className="text-white font-bold text-lg">ACM Tour de France Poule</span>
               <button
                 onClick={toggleMobileMenu}
-                className="text-white focus:outline-none p-2 hover:bg-gray-700 rounded transition-colors"
+                className="text-white focus:outline-none active:outline-none p-2 hover:bg-gray-700 rounded transition-colors [-webkit-tap-highlight-color:transparent]"
                 aria-label="Toggle menu"
               >
                 <AnimatedMenuIcon isOpen={mobileMenuOpen} />
