@@ -1,27 +1,26 @@
 import { useState } from 'react';
-// Import HashRouter, Route, Routes, and Link
 import { HashRouter, Route, Routes, Link } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import TestPage1 from './pages/TestPage1';
 import TestPage2 from './pages/TestPage2';
 import TestPage3 from './pages/TestPage3';
 
-// Helper component for the animated hamburger/cross icon
+// Animated hamburger menu icon that transforms into an X when open
 const AnimatedMenuIcon = ({ isOpen }) => (
-  <div className="flex flex-col justify-center items-center w-6 h-6 transition duration-300 ease-in-out">
-    <div
-      className={`block w-6 h-0.5 bg-white transition duration-300 ease-in-out ${
-        isOpen ? 'transform rotate-45 translate-y-0.5' : 'transform translate-y-[-4px]'
+  <div className="flex flex-col justify-center items-center w-6 h-5 gap-1">
+    <span
+      className={`block w-full h-0.5 bg-white transition-all duration-300 ${
+        isOpen ? 'rotate-45 translate-y-[0.4rem]' : ''
       }`}
     />
-    <div
-      className={`block w-6 h-0.5 bg-white transition duration-300 ease-in-out ${
-        isOpen ? 'opacity-0' : 'opacity-100 mt-1'
+    <span
+      className={`block w-full h-0.5 bg-white transition-all duration-300 ${
+        isOpen ? 'opacity-0' : 'opacity-100'
       }`}
     />
-    <div
-      className={`block w-6 h-0.5 bg-white transition duration-300 ease-in-out ${
-        isOpen ? 'transform -rotate-45 translate-y-[-4.5px]' : 'transform translate-y-[4px]'
+    <span
+      className={`block w-full h-0.5 bg-white transition-all duration-300 ${
+        isOpen ? '-rotate-45 -translate-y-[0.4rem]' : ''
       }`}
     />
   </div>
@@ -38,60 +37,51 @@ function App() {
     setMobileMenuOpen(false);
   };
 
-  // Helper function to determine if a link is active.
-  // Note: HashRouter/Link handles history, but checking window.location.hash is simplest 
-  // for manually applying an active class without useLocation hook complexity.
+  // Check if a navigation link matches the current route
   const isLinkActive = (path) => {
-    // HashRouter uses the format #/path. 
-    // We check if the current hash starts with the path (e.g., #/test1 should match /test1)
     if (path === '/') {
-        // Special case for root: it should match only '#/' or ''
-        return window.location.hash === '#/' || window.location.hash === '';
+      return window.location.hash === '#/' || window.location.hash === '';
     }
     return window.location.hash.startsWith(`#${path}`);
   };
 
-  // Helper to apply active class based on the current hash
+  // Generate appropriate CSS classes for navigation links based on active state and viewport
   const getLinkClass = (path) => {
-      const isActive = isLinkActive(path);
-      const baseClass = "transition duration-300";
-      const activeDesktop = "text-green-400 font-semibold";
-      const inactiveDesktop = "text-white hover:text-green-400";
-      const activeMobile = "block py-3 px-4 text-green-400 font-semibold bg-gray-700 rounded";
-      const inactiveMobile = "block py-3 px-4 text-white hover:bg-gray-700 rounded";
+    const isActive = isLinkActive(path);
+    const baseClass = "transition duration-300";
+    const activeDesktop = "text-tdf-accent font-semibold";
+    const inactiveDesktop = "text-white hover:text-tdf-accent";
+    const activeMobile = "block py-3 px-4 text-tdf-accent font-semibold bg-gray-700/50 rounded";
+    const inactiveMobile = "block py-3 px-4 text-white hover:bg-gray-700/30 rounded transition-colors";
 
-      // Apply different classes for mobile vs desktop active/inactive states
-      if (mobileMenuOpen) {
-          return baseClass + (isActive ? ` ${activeMobile}` : ` ${inactiveMobile}`);
-      } else {
-          return baseClass + (isActive ? ` ${activeDesktop}` : ` ${inactiveDesktop}`);
-      }
+    if (mobileMenuOpen) {
+      return baseClass + (isActive ? ` ${activeMobile}` : ` ${inactiveMobile}`);
+    } else {
+      return baseClass + (isActive ? ` ${activeDesktop}` : ` ${inactiveDesktop}`);
+    }
   };
 
   return (
-    // 1. Use HashRouter instead of BrowserRouter. This automatically handles the # routing.
     <HashRouter>
       <div>
-        {/* Navigation Menu */}
+        {/* Navigation Bar */}
         <nav className="bg-gray-800 p-4 shadow-md">
           <div className="max-w-7xl mx-auto">
-            {/* Mobile Menu Button */}
+            {/* Mobile Header with Menu Toggle */}
             <div className="flex justify-between items-center lg:hidden">
               <span className="text-white font-bold text-lg">ACM Tour de France Poule</span>
               <button
                 onClick={toggleMobileMenu}
-                className="text-white focus:outline-none p-1"
+                className="text-white focus:outline-none p-2 hover:bg-gray-700 rounded transition-colors"
                 aria-label="Toggle menu"
               >
-                {/* 2. Animated Hamburger/Cross Icon */}
                 <AnimatedMenuIcon isOpen={mobileMenuOpen} />
               </button>
             </div>
 
-            {/* Desktop Menu */}
+            {/* Desktop Navigation Links */}
             <ul className="hidden lg:flex justify-center space-x-24">
               <li>
-                {/* Use <Link> component */}
                 <Link to="/" className={getLinkClass('/')}>
                   Home
                 </Link>
@@ -115,8 +105,7 @@ function App() {
 
             {/* Mobile Menu Dropdown */}
             {mobileMenuOpen && (
-              // 3. Visually Distinct Menu: Added darker background and top border divider
-              <ul className="lg:hidden mt-4 space-y-2 border-t border-gray-700 bg-gray-900 pt-4">
+              <ul className="lg:hidden mt-4 space-y-1 pt-4 border-t border-gray-700">
                 <li>
                   <Link to="/" onClick={closeMobileMenu} className={getLinkClass('/')}>
                     Home
@@ -142,14 +131,13 @@ function App() {
           </div>
         </nav>
 
-        {/* Routes: Now managed by HashRouter */}
+        {/* Page Content */}
         <main className="max-w-7xl mx-auto p-4">
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/test1" element={<TestPage1 />} />
             <Route path="/test2" element={<TestPage2 />} />
             <Route path="/test3" element={<TestPage3 />} />
-            {/* You might add a catch-all route here: <Route path="*" element={<NotFoundPage />} /> */}
           </Routes>
         </main>
       </div>
