@@ -6,8 +6,8 @@ import TestPage2 from './pages/TestPage2';
 import TestPage3 from './pages/TestPage3';
 
 // Animated hamburger menu icon that transforms into an X when open
-const AnimatedMenuIcon = ({ isOpen }) => (
-  <div className="flex flex-col justify-center items-center w-6 h-5 gap-1">
+const AnimatedMenuIcon: React.FC<{ isOpen: boolean }> = ({ isOpen }) => (
+    <div className="flex flex-col justify-center items-center w-6 h-5 gap-1">
     <span
       className={`block w-full h-0.5 bg-white transition-all duration-300 ${
         isOpen ? 'rotate-45 translate-y-[0.4rem]' : ''
@@ -38,7 +38,7 @@ function App() {
   };
 
   // Check if a navigation link matches the current route
-  const isLinkActive = (path) => {
+  const isLinkActive = (path: string) => {
     if (path === '/') {
       return window.location.hash === '#/' || window.location.hash === '';
     }
@@ -46,7 +46,7 @@ function App() {
   };
 
   // Generate appropriate CSS classes for navigation links based on active state and viewport
-  const getLinkClass = (path) => {
+  const getLinkClass = (path: string) => {
     const isActive = isLinkActive(path);
     const baseClass = "transition duration-300";
     const activeDesktop = "text-tdf-accent font-semibold";
