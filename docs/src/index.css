@@ -2,3 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
+/*
+ * This rule targets the default tap/click highlight
+ * that mobile browsers apply to links and buttons.
+ */
+button:active {
+  background-color: transparent !important; /* Ensures no background is set on tap */
+}
+
+/* For iOS/Webkit browsers */
+button {
+  -webkit-tap-highlight-color: transparent; /* Removes the semi-transparent overlay */
+}
+
+/* Optional: Removes the outline on focus/tap, which you've mostly done with Tailwind */
+button:focus,
+button:focus-visible {
+  outline: none;
+  box-shadow: none;
+}
