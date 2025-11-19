@@ -1,7 +1,20 @@
 import { useState, useMemo } from 'react';
 import Layout from '../components/Layout';
-import { Card, CardRow, CardExpandedSection, DetailRow } from '../components/Card';
+import { Card, CardRow, CardExpandedSection } from '../components/Card';
 import { TabButton, SearchInput } from '../components/Button';
+
+// Import jersey icons
+import jerseyYellow from '../assets/jersey_yellow.svg';
+import jerseyGreen from '../assets/jersey_green.svg';
+import jerseyPolkaDot from '../assets/jersey_polka_dot.svg';
+import jerseyWhite from '../assets/jersey_white.svg';
+
+const jerseyIcons: Record<string, string> = {
+  yellow: jerseyYellow,
+  green: jerseyGreen,
+  polka_dot: jerseyPolkaDot,
+  white: jerseyWhite
+};
 
 // Import your data
 import tdfData from '../data/tdf_data.json';
@@ -12,7 +25,8 @@ interface RiderStageData {
   jersey_points?: {
     yellow?: number;
     green?: number;
-    polka?: number;
+    polka_dot?: number;
+    white?: number;
   };
   stage_total: number;
   cumulative_total: number;
@@ -44,6 +58,7 @@ interface StageInfo {
     yellow?: number;
     green?: number;
     polka?: number;
+    white?: number;
   };
   stage_total: number;
   cumulative_total: number;
@@ -147,6 +162,19 @@ function RidersPage() {
     return '';
   };
 
+  // Get jerseys earned in a specific stage
+  const getStageJerseys = (stageData: RiderStageData | undefined) => {
+    if (!stageData?.jersey_points) return [];
+    
+    const jerseys = [];
+    if (stageData.jersey_points.yellow) jerseys.push('yellow');
+    if (stageData.jersey_points.green) jerseys.push('green');
+    if (stageData.jersey_points.polka_dot) jerseys.push('polka_dot');
+    if (stageData.jersey_points.white) jerseys.push('white');
+    
+    return jerseys;
+  };
+
   // Filter based on search
   const filteredResults = useMemo(() => {
     const searchLower = searchTerm.toLowerCase().trim();
@@ -216,58 +244,48 @@ function RidersPage() {
             <div className="block lg:hidden space-y-2">
               {(filteredResults as StageRankedRider[]).map((rider) => {
                 const medal = renderMedal(rider.stage_rank);
-                const stageData = rider.stage_data;
+                const jerseys = getStageJerseys(rider.stage_data);
 
                 return (
                   <Card key={rider.name}>
-                    <div onClick={() => setExpandedRider(
-                      expandedRider === rider.name ? null : rider.name
-                    )}>
-                      <CardRow
-                        left={
-                          <>
-                            <div className="text-lg font-bold text-tdf-text-primary">#{rider.stage_rank}</div>
-                            {medal && <div className="text-xl leading-none">{medal}</div>}
-                          </>
-                        }
-                        middle={
-                          <>
+                    <CardRow
+                      left={
+                        <>
+                          <div className="text-lg font-bold text-tdf-text-primary">#{rider.stage_rank}</div>
+                          {medal && <div className="text-xl leading-none">{medal}</div>}
+                        </>
+                      }
+                      middle={
+                        <>
+                          <div className="flex items-center gap-2">
                             <div className="font-bold text-sm text-tdf-text-primary truncate">
                               {rider.name}
                             </div>
-                            <div className="text-xs text-tdf-text-secondary truncate">
-                              {rider.team}
-                            </div>
-                          </>
-                        }
-                        right={
-                          <>
-                            <div className="text-lg font-bold text-tdf-score">{rider.stage_points}</div>
-                            <div className="text-xs text-tdf-text-secondary">punten</div>
-                          </>
-                        }
-                      />
-                    </div>
-
-                    <CardExpandedSection 
-                      title="Etappe Details"
-                      isExpanded={expandedRider === rider.name}
-                    >
-                      <DetailRow label="Finish Punten" value={stageData?.stage_finish_points || 0} />
-                      {stageData?.jersey_points?.yellow && (
-                        <DetailRow label="Gele Trui Bonus" value={stageData.jersey_points.yellow} />
-                      )}
-                      {stageData?.jersey_points?.green && (
-                        <DetailRow label="Groene Trui Bonus" value={stageData.jersey_points.green} />
-                      )}
-                      {stageData?.jersey_points?.polka && (
-                        <DetailRow label="Bolletjestrui Bonus" value={stageData.jersey_points.polka} />
-                      )}
-                      <div className="flex justify-between py-2 px-3 bg-tdf-accent bg-opacity-10 rounded">
-                        <span className="text-sm font-semibold text-tdf-text-primary">Etappe Totaal</span>
-                        <span className="text-sm font-bold text-tdf-score">{rider.stage_points}</span>
-                      </div>
-                    </CardExpandedSection>
+                            {jerseys.length > 0 && (
+                              <div className="flex gap-1">
+                                {jerseys.map(jersey => (
+                                  <img 
+                                    key={jersey}
+                                    src={`../assets/jersey_${jersey}.svg`}
+                                    alt={`${jersey} jersey`}
+                                    className="w-4 h-4"
+                                  />
+                                ))}
+                              </div>
+                            )}
+                          </div>
+                          <div className="text-xs text-tdf-text-secondary truncate">
+                            {rider.team}
+                          </div>
+                        </>
+                      }
+                      right={
+                        <>
+                          <div className="text-lg font-bold text-tdf-score">{rider.stage_points}</div>
+                          <div className="text-xs text-tdf-text-secondary">punten</div>
+                        </>
+                      }
+                    />
                   </Card>
                 );
               })}
@@ -286,65 +304,38 @@ function RidersPage() {
                 </thead>
                 <tbody>
                   {(filteredResults as StageRankedRider[]).map((rider, idx) => {
-                    const stageData = rider.stage_data;
+                    const jerseys = getStageJerseys(rider.stage_data);
+                    
                     return (
-                      <>
-                        <tr
-                          key={rider.name}
-                          className={`cursor-pointer hover:bg-gray-100 ${
-                            idx % 2 === 0 ? 'bg-white' : 'bg-tdf-bg'
-                          }`}
-                          onClick={() => setExpandedRider(
-                            expandedRider === rider.name ? null : rider.name
-                          )}
-                        >
-                          <td className="px-4 py-3 text-sm font-medium text-tdf-text-primary">
-                            {rider.stage_rank}{renderMedal(rider.stage_rank)}
-                          </td>
-                          <td className="px-4 py-3 text-sm text-tdf-text-primary">{rider.name}</td>
-                          <td className="px-4 py-3 text-sm text-tdf-text-secondary">{rider.team}</td>
-                          <td className="px-4 py-3 text-sm text-right font-semibold text-tdf-text-primary">
-                            {rider.stage_points}
-                          </td>
-                        </tr>
-                        {expandedRider === rider.name && (
-                          <tr className="bg-gray-100">
-                            <td colSpan={4} className="px-4 py-4">
-                              <div className="ml-8 max-w-md">
-                                <h3 className="text-sm font-semibold mb-2 pb-2 text-gray-600 border-b">Etappe Details</h3>
-                                <div className="space-y-1">
-                                  <div className="flex justify-between py-1 px-2 rounded hover:bg-gray-200">
-                                    <span className="text-sm text-gray-600">Finish Punten:</span>
-                                    <span className="text-sm font-bold">{stageData?.stage_finish_points || 0}</span>
-                                  </div>
-                                  {stageData?.jersey_points?.yellow && (
-                                    <div className="flex justify-between py-1 px-2 rounded hover:bg-gray-200">
-                                      <span className="text-sm text-gray-600">Gele Trui Bonus:</span>
-                                      <span className="text-sm font-bold">{stageData.jersey_points.yellow}</span>
-                                    </div>
-                                  )}
-                                  {stageData?.jersey_points?.green && (
-                                    <div className="flex justify-between py-1 px-2 rounded hover:bg-gray-200">
-                                      <span className="text-sm text-gray-600">Groene Trui Bonus:</span>
-                                      <span className="text-sm font-bold">{stageData.jersey_points.green}</span>
-                                    </div>
-                                  )}
-                                  {stageData?.jersey_points?.polka && (
-                                    <div className="flex justify-between py-1 px-2 rounded hover:bg-gray-200">
-                                      <span className="text-sm text-gray-600">Bolletjestrui Bonus:</span>
-                                      <span className="text-sm font-bold">{stageData.jersey_points.polka}</span>
-                                    </div>
-                                  )}
-                                  <div className="flex justify-between py-1 px-2 rounded bg-tdf-accent bg-opacity-10 font-semibold">
-                                    <span className="text-sm text-tdf-text-primary">Etappe Totaal:</span>
-                                    <span className="text-sm font-bold text-tdf-score">{rider.stage_points}</span>
-                                  </div>
-                                </div>
+                      <tr
+                        key={rider.name}
+                        className={idx % 2 === 0 ? 'bg-white' : 'bg-tdf-bg'}
+                      >
+                        <td className="px-4 py-3 text-sm font-medium text-tdf-text-primary">
+                          {rider.stage_rank}{renderMedal(rider.stage_rank)}
+                        </td>
+                        <td className="px-4 py-3 text-sm text-tdf-text-primary">
+                          <div className="flex items-center gap-2">
+                            <span>{rider.name}</span>
+                            {jerseys.length > 0 && (
+                              <div className="flex gap-1">
+                                {jerseys.map(jersey => (
+                                  <img 
+                                    key={jersey}
+                                    src={jerseyIcons[jersey]}
+                                    alt={`${jersey} jersey`}
+                                    className="w-5 h-5"
+                                  />
+                                ))}
                               </div>
-                            </td>
-                          </tr>
-                        )}
-                      </>
+                            )}
+                          </div>
+                        </td>
+                        <td className="px-4 py-3 text-sm text-tdf-text-secondary">{rider.team}</td>
+                        <td className="px-4 py-3 text-sm text-right font-semibold text-tdf-text-primary">
+                          {rider.stage_points}
+                        </td>
+                      </tr>
                     );
                   })}
                 </tbody>
