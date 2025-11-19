@@ -4,11 +4,17 @@ import { Card, CardRow, CardExpandedSection } from '../components/Card';
 import { TabButton, SearchInput } from '../components/Button';
 
 // Import jersey icons
+import yellowIcon from '/assets/jersey_yellow.svg';
+import greenIcon from '/assets/jersey_green.svg';
+import polkaDotIcon from '/assets/jersey_polka_dot.svg';
+import whiteIcon from '/assets/jersey_white.svg';
+
+// 2. Reference the imported variables in your object
 const jerseyIcons: Record<string, string> = {
-  yellow: '/assets/jersey_yellow.svg',
-  green: '/assets/jersey_green.svg',
-  polka_dot: '/assets/jersey_polka_dot.svg',
-  white: '/assets/jersey_white.svg'
+  yellow: yellowIcon,
+  green: greenIcon,
+  polka_dot: polkaDotIcon,
+  white: whiteIcon
 };
 
 // Import your data
@@ -261,7 +267,7 @@ function RidersPage() {
                                 {jerseys.map(jersey => (
                                   <img 
                                     key={jersey}
-                                    src={`../assets/jersey_${jersey}.svg`}
+                                    src={jerseyIcons[jersey]}
                                     alt={`${jersey} jersey`}
                                     className="w-4 h-4"
                                   />
