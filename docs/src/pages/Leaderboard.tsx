@@ -260,7 +260,7 @@ function HomePage() {
                   <th className="px-4 py-4 text-left text-sm font-semibold text-gray-600">Deelnemer</th>
                   <th className="px-4 py-4 text-left text-sm font-semibold text-gray-600">Directie</th>
                   <th className="px-4 py-4 text-right text-sm font-semibold text-gray-600">Punten</th>
-                  <th className="px-4 py-4 text-center text-sm font-semibold text-gray-600">Alg. Rank</th>
+                  <th className="px-4 py-4 text-center text-sm font-semibold text-gray-600">Alg. kl.</th>
                 </tr>
               </thead>
               <tbody>
@@ -363,7 +363,7 @@ function HomePage() {
             <table className="w-full">
               <thead>
                 <tr className="bg-gray-200">
-                  <th className="px-4 py-4 text-left text-sm font-semibold text-gray-600">Rank</th>
+                  <th className="px-4 py-4 text-left text-sm font-semibold text-gray-600">Positie</th>
                   <th className="px-4 py-4 text-center text-sm font-semibold text-gray-600">+/-</th>
                   <th className="px-4 py-4 text-left text-sm font-semibold text-gray-600">Deelnemer</th>
                   <th className="px-4 py-4 text-left text-sm font-semibold text-gray-600">Directie</th>
@@ -469,7 +469,7 @@ function HomePage() {
             <table className="w-full">
               <thead>
                 <tr className="bg-gray-200">
-                  <th className="px-4 py-4 text-left text-sm font-semibold text-gray-600">Rank</th>
+                  <th className="px-4 py-4 text-left text-sm font-semibold text-gray-600">Positie</th>
                   <th className="px-4 py-4 text-center text-sm font-semibold text-gray-600">+/-</th>
                   <th className="px-4 py-4 text-left text-sm font-semibold text-gray-600">Directie</th>
                   <th className="px-4 py-4 text-right text-sm font-semibold text-gray-600">Totaal Punten</th>

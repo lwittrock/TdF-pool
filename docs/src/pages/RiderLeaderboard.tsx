@@ -9,7 +9,7 @@ import greenIcon from '/assets/jersey_green.svg';
 import polkaDotIcon from '/assets/jersey_polka_dot.svg';
 import whiteIcon from '/assets/jersey_white.svg';
 
-// 2. Reference the imported variables in your object
+// Reference the imported variables in your object
 const jerseyIcons: Record<string, string> = {
   yellow: yellowIcon,
   green: greenIcon,
@@ -23,6 +23,7 @@ import tdfData from '../data/tdf_data.json';
 interface RiderStageData {
   date: string;
   stage_finish_points: number;
+  stage_finish_position: number;
   jersey_points?: {
     yellow?: number;
     green?: number;
@@ -43,7 +44,6 @@ interface RiderData {
 interface StageRankedRider extends RiderData {
   stage_points: number;
   stage_data: RiderStageData | undefined;
-  stage_rank: number;
 }
 
 interface TotalRankedRider extends RiderData {
@@ -55,6 +55,7 @@ interface StageInfo {
   stageKey: string;
   date: string;
   stage_finish_points: number;
+  stage_finish_position: number;
   jersey_points?: {
     yellow?: number;
     green?: number;
@@ -92,7 +93,7 @@ function RidersPage() {
     })).filter(rider => rider.total_points > 0);
   }, [data.riders]);
 
-  // Calculate stage rankings
+  // Calculate stage rankings (Sorted by Points)
   const stageRankings = useMemo(() => {
     const ridersWithStagePoints = ridersArray
       .map(rider => {
@@ -106,10 +107,7 @@ function RidersPage() {
       .filter(rider => rider.stage_points > 0)
       .sort((a, b) => b.stage_points - a.stage_points);
 
-    return ridersWithStagePoints.map((rider, index) => ({
-      ...rider,
-      stage_rank: index + 1
-    }));
+    return ridersWithStagePoints;
   }, [ridersArray, currentStageKey]);
 
   // Calculate total rankings
@@ -121,7 +119,15 @@ function RidersPage() {
     }));
   }, [ridersArray]);
 
-  // Get medals for a rider across all stages
+  // Helper to render medal emoji
+  const renderMedal = (position: number) => {
+    if (position === 1) return '🥇';
+    if (position === 2) return '🥈';
+    if (position === 3) return '🥉';
+    return '';
+  };
+
+  // Get medals for a rider across all stages based on stage_finish_position
   const getRiderMedals = (riderName: string) => {
     let goldCount = 0, silverCount = 0, bronzeCount = 0;
     
@@ -129,24 +135,13 @@ function RidersPage() {
       stages: Record<string, RiderStageData>;
     }>;
     
-    // Get all stage keys
-    const allStageKeys = Object.keys(ridersRecord[riderName]?.stages || {});
-    
-    allStageKeys.forEach(stageKey => {
-      // Calculate rankings for this stage
-      const stageRanking = ridersArray
-        .map(rider => ({
-          name: rider.name,
-          stage_points: rider.stages[stageKey]?.stage_total || 0
-        }))
-        .filter(r => r.stage_points > 0)
-        .sort((a, b) => b.stage_points - a.stage_points);
+    const riderStages = ridersRecord[riderName]?.stages || {};
 
-      const riderRank = stageRanking.findIndex(r => r.name === riderName) + 1;
-      
-      if (riderRank === 1) goldCount++;
-      else if (riderRank === 2) silverCount++;
-      else if (riderRank === 3) bronzeCount++;
+    Object.values(riderStages).forEach(stageData => {
+      const pos = stageData.stage_finish_position;
+      if (pos === 1) goldCount++;
+      else if (pos === 2) silverCount++;
+      else if (pos === 3) bronzeCount++;
     });
 
     const medals = [];
@@ -154,13 +149,6 @@ function RidersPage() {
     if (silverCount > 0) medals.push('🥈'.repeat(silverCount));
     if (bronzeCount > 0) medals.push('🥉'.repeat(bronzeCount));
     return medals.join('');
-  };
-
-  const renderMedal = (rank: number) => {
-    if (rank === 1) return '🥇';
-    if (rank === 2) return '🥈';
-    if (rank === 3) return '🥉';
-    return '';
   };
 
   // Get jerseys earned in a specific stage
@@ -244,7 +232,9 @@ function RidersPage() {
             {/* Mobile Card View */}
             <div className="block lg:hidden space-y-2">
               {(filteredResults as StageRankedRider[]).map((rider) => {
-                const medal = renderMedal(rider.stage_rank);
+                // Use actual stage finish position for ranking display and medals
+                const finishPos = rider.stage_data?.stage_finish_position || 0;
+                const medal = renderMedal(finishPos);
                 const jerseys = getStageJerseys(rider.stage_data);
 
                 return (
@@ -252,7 +242,9 @@ function RidersPage() {
                     <CardRow
                       left={
                         <>
-                          <div className="text-lg font-bold text-tdf-text-primary">#{rider.stage_rank}</div>
+                          <div className="text-lg font-bold text-tdf-text-primary">
+                             {finishPos > 0 ? `#${finishPos}` : '-'}
+                          </div>
                           {medal && <div className="text-xl leading-none">{medal}</div>}
                         </>
                       }
@@ -297,7 +289,7 @@ function RidersPage() {
               <table className="w-full">
                 <thead>
                   <tr className="bg-gray-200">
-                    <th className="px-4 py-4 text-left text-sm font-semibold text-gray-600">Rank</th>
+                    <th className="px-4 py-4 text-left text-sm font-semibold text-gray-600">Uitslag</th>
                     <th className="px-4 py-4 text-left text-sm font-semibold text-gray-600">Renner</th>
                     <th className="px-4 py-4 text-left text-sm font-semibold text-gray-600">Team</th>
                     <th className="px-4 py-4 text-right text-sm font-semibold text-gray-600">Punten</th>
@@ -306,6 +298,8 @@ function RidersPage() {
                 <tbody>
                   {(filteredResults as StageRankedRider[]).map((rider, idx) => {
                     const jerseys = getStageJerseys(rider.stage_data);
+                    const finishPos = rider.stage_data?.stage_finish_position || 0;
+                    const medal = renderMedal(finishPos);
                     
                     return (
                       <tr
@@ -313,7 +307,7 @@ function RidersPage() {
                         className={idx % 2 === 0 ? 'bg-white' : 'bg-tdf-bg'}
                       >
                         <td className="px-4 py-3 text-sm font-medium text-tdf-text-primary">
-                          {rider.stage_rank}{renderMedal(rider.stage_rank)}
+                          {finishPos > 0 ? finishPos : '-'} {medal}
                         </td>
                         <td className="px-4 py-3 text-sm text-tdf-text-primary">
                           <div className="flex items-center gap-2">
@@ -392,7 +386,10 @@ function RidersPage() {
                     >
                       {getRiderStages(rider.name).map((stage) => (
                         <div key={stage.stageKey} className="flex justify-between py-2 px-3 border-b border-gray-100 last:border-0">
-                          <span className="text-sm text-tdf-text-secondary">Etappe {stage.stageNum}</span>
+                          <span className="text-sm text-tdf-text-secondary">
+                            Etappe {stage.stageNum} 
+                            {stage.stage_finish_position > 0 && ` (Pos: ${stage.stage_finish_position})`}
+                          </span>
                           <div className="flex items-center gap-2">
                             <span className="text-sm font-bold text-tdf-text-primary">{stage.stage_total}</span>
                             <span className="text-xs text-tdf-text-secondary">(Tot: {stage.cumulative_total})</span>
@@ -410,7 +407,7 @@ function RidersPage() {
               <table className="w-full">
                 <thead>
                   <tr className="bg-gray-200">
-                    <th className="px-4 py-4 text-left text-sm font-semibold text-gray-600">Rank</th>
+                    <th className="px-4 py-4 text-left text-sm font-semibold text-gray-600">Positie</th>
                     <th className="px-4 py-4 text-left text-sm font-semibold text-gray-600">Renner</th>
                     <th className="px-4 py-4 text-left text-sm font-semibold text-gray-600">Team</th>
                     <th className="px-4 py-4 text-right text-sm font-semibold text-gray-600">Totaal Punten</th>
@@ -450,7 +447,10 @@ function RidersPage() {
                                 <div className="space-y-1">
                                   {getRiderStages(rider.name).map((stage) => (
                                     <div key={stage.stageKey} className="flex justify-between py-1 px-2 rounded hover:bg-gray-200">
-                                      <span className="text-sm text-gray-600">Etappe {stage.stageNum}:</span>
+                                      <span className="text-sm text-gray-600">
+                                        Etappe {stage.stageNum} 
+                                        {stage.stage_finish_position > 0 && ` (Positie: ${stage.stage_finish_position})`}:
+                                      </span>
                                       <div className="flex items-center gap-3">
                                         <span className="text-sm font-bold">{stage.stage_total}</span>
                                         <span className="text-xs text-tdf-text-secondary">(Totaal: {stage.cumulative_total})</span>
@@ -471,7 +471,7 @@ function RidersPage() {
           </>
         )}
 
-        {/* TEAM VIEW - Placeholder for now */}
+        {/* TEAM VIEW - Placeholder */}
         {activeView === 'team' && (
           <div className="text-center py-12 text-tdf-text-secondary">
             Team klassement - Coming soon

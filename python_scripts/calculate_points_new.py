@@ -14,7 +14,7 @@ TDF_YEAR = 2025
 # Directory structure
 DATA_DIR = 'data'
 STAGE_DATA_DIR = os.path.join(DATA_DIR, 'stage_results')
-WEB_OUTPUT_DIR = 'frontend-app/src'
+WEB_OUTPUT_DIR = 'docs/src'
 WEB_DATA_DIR = os.path.join(WEB_OUTPUT_DIR, 'data')
 
 # Output file
@@ -50,6 +50,7 @@ class StageInfo:
 class RiderStageData:
     date: str
     stage_finish_points: int
+    stage_finish_position: int
     jersey_points: Dict[str, int]
     stage_total: int
     cumulative_total: int
@@ -112,6 +113,7 @@ def calculate_rider_stage_points(stage_results: List[dict], jersey_holders: Dict
     """Calculate points breakdown for each rider in a stage."""
     rider_data = defaultdict(lambda: {
         "stage_finish_points": 0,
+        "stage_finish_position": 0,
         "jersey_points": {},
         "stage_total": 0
     })
@@ -122,6 +124,7 @@ def calculate_rider_stage_points(stage_results: List[dict], jersey_holders: Dict
         rank = row['rank']
         points = get_stage_points_for_rank(rank)
         rider_data[rider]["stage_finish_points"] = points
+        rider_data[rider]["stage_finish_position"] = rank
         rider_data[rider]["stage_total"] = points
 
     # Jersey points
@@ -202,6 +205,7 @@ class TDFDataProcessor:
             self.riders_data[rider_name]['stages'][f'stage_{stage_num}'] = {
                 'date': stage_date,
                 'stage_finish_points': stage_data['stage_finish_points'],
+                'stage_finish_position': stage_data.get('stage_finish_position', 0),
                 'jersey_points': stage_data['jersey_points'],
                 'stage_total': stage_data['stage_total'],
                 'cumulative_total': self.cumulative_rider_points[rider_name]
@@ -217,6 +221,7 @@ class TDFDataProcessor:
                 self.riders_data[rider_name]['stages'][f'stage_{stage_num}'] = {
                     'date': stage_date,
                     'stage_finish_points': 0,
+                    'stage_finish_position': 0,
                     'jersey_points': {},
                     'stage_total': 0,
                     'cumulative_total': self.cumulative_rider_points[rider_name]
