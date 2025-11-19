@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { HashRouter, Route, Routes, Link } from 'react-router-dom';
-import HomePage from './pages/HomePage';
-import TestPage1 from './pages/TestPage1';
+import HomePage from './pages/Leaderboard';
+import TestPage1 from './pages/RiderLeaderboard';
 import TestPage2 from './pages/TestPage2';
 import TestPage3 from './pages/TestPage3';
 
@@ -84,12 +84,12 @@ function App() {
             <ul className="hidden lg:flex justify-center space-x-24">
               <li>
                 <Link to="/" className={getLinkClass('/')}>
-                  Home
+                  Klassement
                 </Link>
               </li>
               <li>
                 <Link to="/test1" className={getLinkClass('/test1')}>
-                  Test Page 1
+                  Renner statistieken
                 </Link>
               </li>
               <li>

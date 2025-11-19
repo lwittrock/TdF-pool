@@ -123,13 +123,20 @@ def scrape_all_stages(up_to_stage):
                     rider_name_formatted = reformat_rider_name(rider.get("rider_name"))
                     
                     if rider_status in ['DNF', 'DNS', 'OTL', 'DSQ']:
-                        extracted_data['dnf_riders'].append(rider_name_formatted)
+                        dnf_entry = {
+                            "rider_name": rider_name_formatted,
+                            "team_name": rider.get("team_name", "N/A"),
+                            "rider_number": rider.get("rider_number", "N/A"),
+                            "status": rider_status
+                        }
+                        extracted_data['dnf_riders'].append(dnf_entry)
                     else: # Assuming 'DF' or other finishing status
-                        # Only include relevant fields for finished riders
                         finished_rider_entry = {
                             "rider_name": rider_name_formatted,
                             "rank": rider.get("rank"),
-                            "time": rider.get("time")
+                            "time": rider.get("time"),
+                            "team": rider.get("team", "N/A"),
+                            "bib": rider.get("bib", "N/A")
                         }
                         all_finished_riders.append(finished_rider_entry)
 
