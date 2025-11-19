@@ -4,16 +4,11 @@ import { Card, CardRow, CardExpandedSection } from '../components/Card';
 import { TabButton, SearchInput } from '../components/Button';
 
 // Import jersey icons
-import jerseyYellow from '../assets/jersey_yellow.svg';
-import jerseyGreen from '../assets/jersey_green.svg';
-import jerseyPolkaDot from '../assets/jersey_polka_dot.svg';
-import jerseyWhite from '../assets/jersey_white.svg';
-
 const jerseyIcons: Record<string, string> = {
-  yellow: jerseyYellow,
-  green: jerseyGreen,
-  polka_dot: jerseyPolkaDot,
-  white: jerseyWhite
+  yellow: '/assets/jersey_yellow.svg',
+  green: '/assets/jersey_green.svg',
+  polka_dot: '/assets/jersey_polka_dot.svg',
+  white: '/assets/jersey_white.svg'
 };
 
 // Import your data
@@ -318,7 +313,7 @@ function RidersPage() {
                           <div className="flex items-center gap-2">
                             <span>{rider.name}</span>
                             {jerseys.length > 0 && (
-                              <div className="flex gap-1">
+                              <div className="flex gap-1 flex-shrink-0">
                                 {jerseys.map(jersey => (
                                   <img 
                                     key={jersey}
