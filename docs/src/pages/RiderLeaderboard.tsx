@@ -238,7 +238,7 @@ function RidersPage() {
         {activeView === 'stage' && (
           <>
           <h2 className="text-xl sm:text-2xl font-semibold mb-4 sm:mb-6 text-tdf-primary">
-            Etappe {currentStageNum} Resultaten
+            Etappe {currentStageNum} Punten
           </h2>
 
             {/* Mobile Card View */}
@@ -349,7 +349,7 @@ function RidersPage() {
         {activeView === 'total' && (
           <>
           <h2 className="text-xl sm:text-2xl font-semibold mb-4 sm:mb-6 text-tdf-primary">
-            Algemeen Klassement
+            Totaal Punten
           </h2>
             {/* Mobile Card View */}
             <div className="block lg:hidden space-y-2">
