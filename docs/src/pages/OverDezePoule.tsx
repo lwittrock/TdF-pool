@@ -1,5 +1,5 @@
-const TestPage3 = () => {
-  return <h1>Test Page 3</h1>;
+const AboutPage = () => {
+  return <h1>Work in progress</h1>;
 };
 
-export default TestPage3;
+export default AboutPage;
