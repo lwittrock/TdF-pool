@@ -211,7 +211,7 @@ function TeamSelectionsPage() {
           <SearchInput 
             value={searchTerm}
             onChange={setSearchTerm}
-            placeholder="Zoek deelnemer..."
+            placeholder="Toon team van deelnemer..."
           />
         </div>
 
