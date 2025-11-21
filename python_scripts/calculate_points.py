@@ -17,8 +17,9 @@ STAGE_DATA_DIR = os.path.join(DATA_DIR, 'stage_results')
 WEB_OUTPUT_DIR = 'docs/src'
 WEB_DATA_DIR = os.path.join(WEB_OUTPUT_DIR, 'data')
 
-# Output file
-CONSOLIDATED_OUTPUT_FILE = os.path.join(WEB_DATA_DIR, 'tdf_data.json')
+# Output files
+CONSOLIDATED_POINTS_FILE = os.path.join(WEB_DATA_DIR, 'tdf_data.json')
+CONSOLIDATED_TEAM_SELECTION_FILE = os.path.join(WEB_DATA_DIR, 'tdf_team_selections.json')
 
 # Input file (all stages selections)
 PARTICIPANT_SELECTIONS_FILE = os.path.join(DATA_DIR, 'team_selections_active.json')
@@ -417,9 +418,11 @@ def main():
         current_stage=max(available_stage_numbers) if available_stage_numbers else 0
     )
 
-    save_json_data(consolidated_data, CONSOLIDATED_OUTPUT_FILE)
+    save_json_data(consolidated_data, CONSOLIDATED_POINTS_FILE)
+    save_json_data(team_selection_data, CONSOLIDATED_TEAM_SELECTION_FILE)
+
     logging.info(f"Successfully processed {stages_processed_count} stages")
-    logging.info(f"Consolidated data saved to: {CONSOLIDATED_OUTPUT_FILE}")
+    logging.info(f"Consolidated data saved to: {CONSOLIDATED_POINTS_FILE}")
     logging.info("--- Processing Complete ---")
 
 if __name__ == "__main__":
