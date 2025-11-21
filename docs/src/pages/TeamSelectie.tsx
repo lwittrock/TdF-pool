@@ -216,15 +216,20 @@ function TeamSelectionsPage() {
         </div>
 
         {/* Header */}
-        {selectedParticipant ? (
-          <h2 className="text-xl sm:text-2xl font-semibold mb-4 sm:mb-6 text-tdf-primary">
-            Team van {selectedParticipant.name}
-          </h2>
-        ) : (
-          <h2 className="text-xl sm:text-2xl font-semibold mb-4 sm:mb-6 text-tdf-primary">
-            Renner Populariteit
-          </h2>
-        )}
+        <>
+          {selectedParticipant ? (
+            <h2 className="text-xl sm:text-2xl font-semibold mb-4 sm:mb-6 text-tdf-primary">
+              Team van {selectedParticipant.name}
+            </h2>
+          ) : (
+            <h2 className="text-xl sm:text-2xl font-semibold mb-4 sm:mb-6 text-tdf-primary">
+              Renner Populariteit
+            </h2>
+          )}
+            <p className="text-xs sm:text-sm mb-4 sm:mb-6 text-gray-600">
+              Alleen actieve renners worden meegeteld (dus maximaal 10 per deelnemer).
+            </p>
+        </>
 
         {/* Mobile Card View */}
         <div className="block lg:hidden space-y-2">
@@ -258,11 +263,17 @@ function TeamSelectionsPage() {
                   }
                   right={
                     <>
-                      <div className="flex items-center gap-2">
-                        {isTop10(rider.name) && (
-                          <div className="text-xl leading-none">🔥</div>
-                        )}
-                        <div className="text-lg font-bold text-tdf-score">{rider.total_points}</div>
+                      <div className="flex items-center gap-2">                        
+                        <div className="text-xl w-6 flex items-center justify-center">
+                          {isTop10(rider.name) && (
+                            <span className="leading-none">
+                              {rider.selection_percentage >= 50 ? '⭐' : '💎'}
+                            </span>
+                          )}
+                        </div>
+                        <div className="text-lg font-bold text-tdf-score w-12 text-right">
+                          {rider.total_points}
+                        </div>
                       </div>
                       <div className="text-xs text-tdf-text-secondary">punten</div>
                     </>
@@ -348,10 +359,18 @@ function TeamSelectionsPage() {
                     <td className="px-4 py-3 text-sm text-tdf-text-secondary">{rider.team}</td>
                     <td className="px-4 py-3 text-sm text-right">
                       <div className="flex items-center justify-end gap-2">
-                        {isTop10(rider.name) && (
-                          <span className="text-lg">🔥</span>
-                        )}
-                        <span className="font-semibold text-tdf-text-primary">{rider.total_points}</span>
+                        <div className="text-lg w-6 flex items-center justify-center"> 
+                          {isTop10(rider.name) && (
+                            <span className="leading-none">
+                              {rider.selection_percentage >= 50 ? '⭐' : '💎'}
+                            </span>
+                          )}
+                        </div>                        
+                        <div className="w-12 text-right"> 
+                            <span className="font-semibold text-tdf-text-primary">
+                              {rider.total_points}
+                            </span>
+                        </div>
                       </div>
                     </td>
                   </tr>
