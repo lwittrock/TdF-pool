@@ -271,7 +271,7 @@ function TeamSelectionsPage() {
                             </span>
                           )}
                         </div>
-                        <div className="text-lg font-bold text-tdf-score w-12 text-right">
+                        <div className="text-lg font-bold text-tdf-score w-8 text-right">
                           {rider.total_points}
                         </div>
                       </div>
