@@ -6,7 +6,7 @@ import logging
 from collections import defaultdict
 from datetime import datetime
 from dataclasses import dataclass
-from typing import Dict, List, Optional
+from typing import Dict, List, Optional, Any
 
 # --- Constants ---
 TDF_YEAR = 2025
@@ -29,10 +29,11 @@ SCORING_RULES_JERSEY = {
     "yellow_jersey": 15,
     "green_jersey": 10,
     "polka_dot_jersey": 10,
-    "white_jersey": 10,
-    "combative_rider": 5,
+    "white_jersey": 10
 }
-SCORING_RULES_RANK = {rank: 22 - rank for rank in range(2, 21)}
+SCORING_RULES_COMBATIVE = 5
+
+SCORING_RULES_RANK = {rank: 21 - rank for rank in range(2, 21)}  # 19 points for 2nd, down to 1 point for 20th
 SCORING_RULES_RANK[1] = 25
 
 # Directie configuration
@@ -109,6 +110,18 @@ def load_scraped_stage_data(stage_number: int, stage_data_dir: str):
 def get_stage_points_for_rank(rank: int) -> int:
     return SCORING_RULES_RANK.get(rank, 0)
 
+def safe_int_conversion(value: Any) -> int:
+    """Safely convert a value (like a rank) to an integer, returning 0 on failure."""
+    if isinstance(value, str):
+        try:
+            # Clean string before converting (e.g., removes dots or non-digits if present)
+            return int(re.sub(r'\D', '', value))
+        except ValueError:
+            return 0
+    elif isinstance(value, int):
+        return value
+    return 0
+
 def calculate_rider_stage_points(stage_results: List[dict], jersey_holders: Dict[str, str]) -> Dict[str, dict]:
     """Calculate points breakdown for each rider in a stage."""
     rider_data = defaultdict(lambda: {
@@ -118,23 +131,45 @@ def calculate_rider_stage_points(stage_results: List[dict], jersey_holders: Dict
         "stage_total": 0
     })
 
-    # Stage finish points
+    # Stage Finish Points
     for row in stage_results:
-        rider = row['rider_name']
-        rank = row['rank']
+        rider = row['rider_name']        
+        rank = safe_int_conversion(row['rank'])
         points = get_stage_points_for_rank(rank)
-        rider_data[rider]["stage_finish_points"] = points
-        rider_data[rider]["stage_finish_position"] = rank
-        rider_data[rider]["stage_total"] = points
+        if rank > 0:
+            rider_data[rider]["stage_finish_points"] = points
+            rider_data[rider]["stage_finish_position"] = rank
+            rider_data[rider]["stage_total"] = points
 
-    # Jersey points
-    for jersey_type, holder_name in jersey_holders.items():
-        points_key = f"{jersey_type}_jersey" if jersey_type != "combative_rider" else jersey_type
-        points = SCORING_RULES_JERSEY.get(points_key, 0)
-        if points > 0 and holder_name and holder_name != "N/A":
-            rider_data[holder_name]["jersey_points"][jersey_type] = points
-            rider_data[holder_name]["stage_total"] += points
+    # Jersey points & combative rider points
+    for jersey_type, holder_data in jersey_holders.items():
+        
+        # 1. Safely Extract Rider Name
+        holder_name = None
+        if isinstance(holder_data, dict) and 'rider_name' in holder_data:
+            holder_name = holder_data.get('rider_name') # Handles structures like "combative_rider": {"rider_name": "Tim Wellens"}
+        elif isinstance(holder_data, str) and holder_data not in ["N/A", "null", ""]:
+            holder_name = holder_data  # Handles structures like "yellow_rider": "Jonas Vingegaard"
+        if not holder_name: # Skip if no valid rider name
+            continue 
             
+        points = 0
+        point_category = jersey_type
+        
+        # 2. Determine Point Value
+        if jersey_type == "combative_rider":
+            points = SCORING_RULES_COMBATIVE
+            point_category = "combative"
+        else:
+            points_key = f"{jersey_type}_jersey"
+            points = SCORING_RULES_JERSEY.get(points_key, 0)
+            point_category = jersey_type 
+
+        # 3. Apply Points to Rider
+        if points > 0:
+            rider_data[holder_name]["jersey_points"][point_category] = points
+            rider_data[holder_name]["stage_total"] += points
+
     return dict(rider_data)
 
 
@@ -178,8 +213,10 @@ class TDFDataProcessor:
             jersey_holders['polka_dot'] = stage_raw_data['top_kom_rider']['rider_name']
         if stage_raw_data.get('top_youth_rider', {}).get('rider_name'):
             jersey_holders['white'] = stage_raw_data['top_youth_rider']['rider_name']
-        if stage_raw_data.get('combative_rider'):
-            jersey_holders['combative'] = stage_raw_data['combative_rider']
+        
+        combative_data = stage_raw_data.get('combative_rider')
+        if combative_data and isinstance(combative_data, dict) and combative_data.get('rider_name'):
+            jersey_holders['combative'] = combative_data['rider_name']
 
         winner = stage_results[0]['rider_name'] if stage_results else None
         self.stages_data[f'stage_{stage_num}'] = {

@@ -136,7 +136,7 @@ def scrape_all_stages(up_to_stage):
                             "rank": rider.get("rank"),
                             "time": rider.get("time"),
                             "team": rider.get("team", "N/A"),
-                            "bib": rider.get("bib", "N/A")
+                            "rider_number": rider.get("rider_number", "N/A")
                         }
                         all_finished_riders.append(finished_rider_entry)
 
