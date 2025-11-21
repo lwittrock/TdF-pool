@@ -275,7 +275,6 @@ function TeamSelectionsPage() {
                           {rider.total_points}
                         </div>
                       </div>
-                      <div className="text-xs text-tdf-text-secondary">punten</div>
                     </>
                   }
                 />

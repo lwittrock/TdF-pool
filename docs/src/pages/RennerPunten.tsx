@@ -274,7 +274,6 @@ function RidersPage() {
                       right={
                         <>
                           <div className="text-lg font-bold text-tdf-score">{rider.stage_points}</div>
-                          <div className="text-xs text-tdf-text-secondary">punten</div>
                         </>
                       }
                     />

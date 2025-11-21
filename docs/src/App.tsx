@@ -90,7 +90,7 @@ function App() {
   return (
     <HashRouter>
       <Navigation />
-      <main className="max-w-7xl mx-auto p-4">
+      <main className="max-w-7xl mx-auto">
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/Klassement" element={<HomePage />} />
