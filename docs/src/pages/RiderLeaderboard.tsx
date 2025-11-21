@@ -197,7 +197,7 @@ function RidersPage() {
 
   return (
     <Layout 
-      title="Renner Klassement" 
+      title="Renner Punten" 
     >
       <main>
         {/* Navigation Tabs */}

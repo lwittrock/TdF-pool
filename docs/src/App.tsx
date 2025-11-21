@@ -88,7 +88,7 @@ function Navigation() {
           </li>
           <li>
             <Link to="/test1" className={getLinkClass('/test1')}>
-              Renner statistieken
+              Renner Punten
             </Link>
           </li>
           <li>
