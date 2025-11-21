@@ -146,12 +146,17 @@ def calculate_rider_stage_points(stage_results: List[dict], jersey_holders: Dict
         
         # 1. Safely Extract Rider Name
         holder_name = None
-        if isinstance(holder_data, dict) and 'rider_name' in holder_data:
-            holder_name = holder_data.get('rider_name') # Handles structures like "combative_rider": {"rider_name": "Tim Wellens"}
-        elif isinstance(holder_data, str) and holder_data not in ["N/A", "null", ""]:
-            holder_name = holder_data  # Handles structures like "yellow_rider": "Jonas Vingegaard"
-        if not holder_name: # Skip if no valid rider name
-            continue 
+        
+        if isinstance(holder_data, dict):
+            # Handle dict format: {"rider_name": "Tim Wellens"}
+            holder_name = holder_data.get('rider_name')
+        elif isinstance(holder_data, str):
+            # Handle string format: "Jonas Vingegaard"
+            holder_name = holder_data
+        
+        # Skip if holder_name is None, empty string, "N/A", or "null"
+        if not holder_name or holder_name.lower() in ["n/a", "null"]:
+            continue
             
         points = 0
         point_category = jersey_type
@@ -161,6 +166,7 @@ def calculate_rider_stage_points(stage_results: List[dict], jersey_holders: Dict
             points = SCORING_RULES_COMBATIVE
             point_category = "combative"
         else:
+            # For yellow, green, polka_dot, white jerseys
             points_key = f"{jersey_type}_jersey"
             points = SCORING_RULES_JERSEY.get(points_key, 0)
             point_category = jersey_type 
@@ -214,9 +220,15 @@ class TDFDataProcessor:
         if stage_raw_data.get('top_youth_rider', {}).get('rider_name'):
             jersey_holders['white'] = stage_raw_data['top_youth_rider']['rider_name']
         
+        # Combative rider - handle null, dict, or string
         combative_data = stage_raw_data.get('combative_rider')
-        if combative_data and isinstance(combative_data, dict) and combative_data.get('rider_name'):
-            jersey_holders['combative'] = combative_data['rider_name']
+        if combative_data:  # Only process if not None
+            if isinstance(combative_data, dict):
+                rider_name = combative_data.get('rider_name')
+                if rider_name and rider_name.lower() not in ["n/a", "null", ""]:
+                    jersey_holders['combative_rider'] = rider_name
+            elif isinstance(combative_data, str) and combative_data.lower() not in ["n/a", "null", ""]:
+                jersey_holders['combative_rider'] = combative_data
 
         winner = stage_results[0]['rider_name'] if stage_results else None
         self.stages_data[f'stage_{stage_num}'] = {

@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "last_updated": "2025-11-21T17:19:40.736339",
+    "last_updated": "2025-11-21T19:14:29.210974",
     "total_stages_processed": 11,
     "current_stage": 12,
     "tdf_year": 2025,
@@ -23,7 +23,7 @@
         "green": "Jasper Philipsen",
         "polka_dot": "Tadej Pogacar",
         "white": "Jonas Abrahamsen",
-        "combative": "Benjamin Thomas"
+        "combative_rider": "Benjamin Thomas"
       },
       "top_20_finishers": [
         {
@@ -190,7 +190,7 @@
         "green": "Jonathan Milan",
         "polka_dot": "Tadej Pogacar",
         "white": "Jonas Abrahamsen",
-        "combative": "Tim Wellens"
+        "combative_rider": "Tim Wellens"
       },
       "top_20_finishers": [
         {
@@ -44530,6 +44530,109 @@
         }
       }
     },
+    "Benjamin Thomas": {
+      "total_points": 5,
+      "stages": {
+        "stage_1": {
+          "date": "2025-07-05",
+          "stage_finish_points": 0,
+          "stage_finish_position": 0,
+          "jersey_points": {
+            "combative": 5
+          },
+          "stage_total": 5,
+          "cumulative_total": 5
+        },
+        "stage_2": {
+          "date": "2025-07-06",
+          "stage_finish_points": 0,
+          "stage_finish_position": 0,
+          "jersey_points": {},
+          "stage_total": 0,
+          "cumulative_total": 5
+        },
+        "stage_3": {
+          "date": "2025-07-07",
+          "stage_finish_points": 0,
+          "stage_finish_position": 0,
+          "jersey_points": {},
+          "stage_total": 0,
+          "cumulative_total": 5
+        },
+        "stage_4": {
+          "date": "2025-07-08",
+          "stage_finish_points": 0,
+          "stage_finish_position": 0,
+          "jersey_points": {},
+          "stage_total": 0,
+          "cumulative_total": 5
+        },
+        "stage_5": {
+          "date": "2025-07-09",
+          "stage_finish_points": 0,
+          "stage_finish_position": 0,
+          "jersey_points": {},
+          "stage_total": 0,
+          "cumulative_total": 5
+        },
+        "stage_6": {
+          "date": "2025-07-10",
+          "stage_finish_points": 0,
+          "stage_finish_position": 0,
+          "jersey_points": {},
+          "stage_total": 0,
+          "cumulative_total": 5
+        },
+        "stage_7": {
+          "date": "2025-07-11",
+          "stage_finish_points": 0,
+          "stage_finish_position": 0,
+          "jersey_points": {},
+          "stage_total": 0,
+          "cumulative_total": 5
+        },
+        "stage_8": {
+          "date": "2025-07-12",
+          "stage_finish_points": 0,
+          "stage_finish_position": 0,
+          "jersey_points": {},
+          "stage_total": 0,
+          "cumulative_total": 5
+        },
+        "stage_9": {
+          "date": "2025-07-13",
+          "stage_finish_points": 0,
+          "stage_finish_position": 0,
+          "jersey_points": {},
+          "stage_total": 0,
+          "cumulative_total": 5
+        },
+        "stage_10": {
+          "date": "2025-07-14",
+          "stage_finish_points": 0,
+          "stage_finish_position": 0,
+          "jersey_points": {},
+          "stage_total": 0,
+          "cumulative_total": 5
+        },
+        "stage_11": {
+          "date": "2025-07-16",
+          "stage_finish_points": 0,
+          "stage_finish_position": 0,
+          "jersey_points": {},
+          "stage_total": 0,
+          "cumulative_total": 5
+        },
+        "stage_12": {
+          "date": "2025-07-17",
+          "stage_finish_points": 0,
+          "stage_finish_position": 0,
+          "jersey_points": {},
+          "stage_total": 0,
+          "cumulative_total": 5
+        }
+      }
+    },
     "Mathieu van der Poel": {
       "total_points": 138,
       "stages": {
@@ -46592,6 +46695,101 @@
         }
       }
     },
+    "Tim Wellens": {
+      "total_points": 45,
+      "stages": {
+        "stage_3": {
+          "date": "2025-07-07",
+          "stage_finish_points": 0,
+          "stage_finish_position": 0,
+          "jersey_points": {
+            "combative": 5
+          },
+          "stage_total": 5,
+          "cumulative_total": 5
+        },
+        "stage_4": {
+          "date": "2025-07-08",
+          "stage_finish_points": 0,
+          "stage_finish_position": 0,
+          "jersey_points": {},
+          "stage_total": 0,
+          "cumulative_total": 5
+        },
+        "stage_5": {
+          "date": "2025-07-09",
+          "stage_finish_points": 0,
+          "stage_finish_position": 0,
+          "jersey_points": {},
+          "stage_total": 0,
+          "cumulative_total": 5
+        },
+        "stage_6": {
+          "date": "2025-07-10",
+          "stage_finish_points": 0,
+          "stage_finish_position": 0,
+          "jersey_points": {
+            "polka_dot": 10
+          },
+          "stage_total": 10,
+          "cumulative_total": 15
+        },
+        "stage_7": {
+          "date": "2025-07-11",
+          "stage_finish_points": 0,
+          "stage_finish_position": 0,
+          "jersey_points": {
+            "polka_dot": 10
+          },
+          "stage_total": 10,
+          "cumulative_total": 25
+        },
+        "stage_8": {
+          "date": "2025-07-12",
+          "stage_finish_points": 0,
+          "stage_finish_position": 0,
+          "jersey_points": {
+            "polka_dot": 10
+          },
+          "stage_total": 10,
+          "cumulative_total": 35
+        },
+        "stage_9": {
+          "date": "2025-07-13",
+          "stage_finish_points": 0,
+          "stage_finish_position": 0,
+          "jersey_points": {
+            "polka_dot": 10
+          },
+          "stage_total": 10,
+          "cumulative_total": 45
+        },
+        "stage_10": {
+          "date": "2025-07-14",
+          "stage_finish_points": 0,
+          "stage_finish_position": 0,
+          "jersey_points": {},
+          "stage_total": 0,
+          "cumulative_total": 45
+        },
+        "stage_11": {
+          "date": "2025-07-16",
+          "stage_finish_points": 0,
+          "stage_finish_position": 0,
+          "jersey_points": {},
+          "stage_total": 0,
+          "cumulative_total": 45
+        },
+        "stage_12": {
+          "date": "2025-07-17",
+          "stage_finish_points": 0,
+          "stage_finish_position": 0,
+          "jersey_points": {},
+          "stage_total": 0,
+          "cumulative_total": 45
+        }
+      }
+    },
     "Mattias Skjelmose": {
       "total_points": 23,
       "stages": {
@@ -48519,75 +48717,6 @@
           "jersey_points": {},
           "stage_total": 2,
           "cumulative_total": 23
-        }
-      }
-    },
-    "Tim Wellens": {
-      "total_points": 40,
-      "stages": {
-        "stage_6": {
-          "date": "2025-07-10",
-          "stage_finish_points": 0,
-          "stage_finish_position": 0,
-          "jersey_points": {
-            "polka_dot": 10
-          },
-          "stage_total": 10,
-          "cumulative_total": 10
-        },
-        "stage_7": {
-          "date": "2025-07-11",
-          "stage_finish_points": 0,
-          "stage_finish_position": 0,
-          "jersey_points": {
-            "polka_dot": 10
-          },
-          "stage_total": 10,
-          "cumulative_total": 20
-        },
-        "stage_8": {
-          "date": "2025-07-12",
-          "stage_finish_points": 0,
-          "stage_finish_position": 0,
-          "jersey_points": {
-            "polka_dot": 10
-          },
-          "stage_total": 10,
-          "cumulative_total": 30
-        },
-        "stage_9": {
-          "date": "2025-07-13",
-          "stage_finish_points": 0,
-          "stage_finish_position": 0,
-          "jersey_points": {
-            "polka_dot": 10
-          },
-          "stage_total": 10,
-          "cumulative_total": 40
-        },
-        "stage_10": {
-          "date": "2025-07-14",
-          "stage_finish_points": 0,
-          "stage_finish_position": 0,
-          "jersey_points": {},
-          "stage_total": 0,
-          "cumulative_total": 40
-        },
-        "stage_11": {
-          "date": "2025-07-16",
-          "stage_finish_points": 0,
-          "stage_finish_position": 0,
-          "jersey_points": {},
-          "stage_total": 0,
-          "cumulative_total": 40
-        },
-        "stage_12": {
-          "date": "2025-07-17",
-          "stage_finish_points": 0,
-          "stage_finish_position": 0,
-          "jersey_points": {},
-          "stage_total": 0,
-          "cumulative_total": 40
         }
       }
     },

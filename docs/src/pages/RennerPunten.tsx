@@ -17,6 +17,41 @@ const jerseyIcons: Record<string, string> = {
   white: whiteIcon
 };
 
+// Combative Icon Component
+interface CombativeIconProps {
+  size?: 'sm' | 'md';
+  riderNumber?: string | number;
+}
+
+const CombativeIcon = ({ size = 'sm', riderNumber }: CombativeIconProps) => {
+  const dimensions = size === 'sm' ? 12 : 15;
+  const fontSize = size === 'sm' ? 10 : 12;
+  
+  return (
+    <svg 
+      width={dimensions} 
+      height={dimensions} 
+      viewBox="0 0 20 20" 
+      xmlns="http://www.w3.org/2000/svg"
+      className="flex-shrink-0"
+    >
+      <rect width="20" height="20" fill="#D32F2F" rx="2"/>
+      <text
+        x="10"
+        y="10"
+        textAnchor="middle"
+        dominantBaseline="central"
+        fill="white"
+        fontSize={fontSize}
+        fontWeight="bold"
+        fontFamily="Arial, sans-serif"
+      >
+        {riderNumber || '#'}
+      </text>
+    </svg>
+  );
+};
+
 // Import your data
 import tdfData from '../data/tdf_data.json';
 
@@ -29,6 +64,7 @@ interface RiderStageData {
     green?: number;
     polka_dot?: number;
     white?: number;
+    combative?: number;
   };
   stage_total: number;
   cumulative_total: number;
@@ -61,6 +97,7 @@ interface StageInfo {
     green?: number;
     polka?: number;
     white?: number;
+    combative?: number;
   };
   stage_total: number;
   cumulative_total: number;
@@ -151,9 +188,9 @@ function RidersPage() {
     return medals.join('');
   };
 
-  // Get jerseys earned in a specific stage
-  const getStageJerseys = (stageData: RiderStageData | undefined) => {
-    if (!stageData?.jersey_points) return [];
+  // Get jerseys and combative earned in a specific stage
+  const getStageAwards = (stageData: RiderStageData | undefined) => {
+    if (!stageData?.jersey_points) return { jerseys: [], hasCombative: false };
     
     const jerseys = [];
     if (stageData.jersey_points.yellow) jerseys.push('yellow');
@@ -161,7 +198,9 @@ function RidersPage() {
     if (stageData.jersey_points.polka_dot) jerseys.push('polka_dot');
     if (stageData.jersey_points.white) jerseys.push('white');
     
-    return jerseys;
+    const hasCombative = !!stageData.jersey_points.combative;
+    
+    return { jerseys, hasCombative };
   };
 
   // Filter based on search
@@ -234,7 +273,7 @@ function RidersPage() {
               {(filteredResults as StageRankedRider[]).map((rider) => {
                 const finishPos = rider.stage_data?.stage_finish_position || 0;
                 const medal = renderMedal(finishPos);
-                const jerseys = getStageJerseys(rider.stage_data);
+                const { jerseys, hasCombative } = getStageAwards(rider.stage_data);
 
                 return (
                   <Card key={rider.name}>
@@ -253,8 +292,8 @@ function RidersPage() {
                             <div className="font-bold text-sm text-tdf-text-primary truncate">
                               {rider.name}
                             </div>
-                            {jerseys.length > 0 && (
-                              <div className="flex gap-1">
+                            {(jerseys.length > 0 || hasCombative) && (
+                              <div className="flex gap-1 items-center">
                                 {jerseys.map(jersey => (
                                   <img 
                                     key={jersey}
@@ -263,6 +302,7 @@ function RidersPage() {
                                     className="w-4 h-4"
                                   />
                                 ))}
+                                {hasCombative && <CombativeIcon size="sm" />}
                               </div>
                             )}
                           </div>
@@ -295,7 +335,7 @@ function RidersPage() {
                 </thead>
                 <tbody>
                   {(filteredResults as StageRankedRider[]).map((rider, idx) => {
-                    const jerseys = getStageJerseys(rider.stage_data);
+                    const { jerseys, hasCombative } = getStageAwards(rider.stage_data);
                     const finishPos = rider.stage_data?.stage_finish_position || 0;
                     const medal = renderMedal(finishPos);
                     
@@ -310,8 +350,8 @@ function RidersPage() {
                         <td className="px-4 py-3 text-sm text-tdf-text-primary">
                           <div className="flex items-center gap-2">
                             <span>{rider.name}</span>
-                            {jerseys.length > 0 && (
-                              <div className="flex gap-1 flex-shrink-0">
+                            {(jerseys.length > 0 || hasCombative) && (
+                              <div className="flex gap-1 flex-shrink-0 items-center">
                                 {jerseys.map(jersey => (
                                   <img 
                                     key={jersey}
@@ -320,6 +360,7 @@ function RidersPage() {
                                     className="w-5 h-5"
                                   />
                                 ))}
+                                {hasCombative && <CombativeIcon size="md" />}
                               </div>
                             )}
                           </div>
@@ -383,7 +424,7 @@ function RidersPage() {
                       isExpanded={expandedRider === rider.name}
                     >
                       {getRiderStages(rider.name).map((stage) => {
-                        const stageJerseys = getStageJerseys(stage);
+                        const { jerseys, hasCombative } = getStageAwards(stage);
                           return (
                             <div key={stage.stageKey} className="flex justify-between items-center py-1 px-2 rounded hover:bg-table-header">
                               <div className="flex items-center">
@@ -395,16 +436,17 @@ function RidersPage() {
                                   {stage.stage_finish_position > 0 ? `# ${stage.stage_finish_position}` : ''}
                                 </span>
 
-                                {stageJerseys.length > 0 && (
+                                {(jerseys.length > 0 || hasCombative) && (
                                   <div className="flex gap-1 items-center">
-                                    {stageJerseys.map(jersey => (
+                                    {jerseys.map(jersey => (
                                       <img 
                                         key={jersey}
                                         src={jerseyIcons[jersey]}
                                         alt={`${jersey} jersey`}
                                         className="w-4 h-4"
                                       />
-                                      ))}
+                                    ))}
+                                    {hasCombative && <CombativeIcon size="sm" />}
                                   </div>
                                 )}
                               </div>
@@ -464,7 +506,7 @@ function RidersPage() {
                                 <h3 className="text-sm font-semibold mb-2 pb-2 text-tdf-text-highlight border-b">Punten per Etappe</h3>
                                 <div className="space-y-1">
                                   {getRiderStages(rider.name).map((stage) => {
-                                    const stageJerseys = getStageJerseys(stage);
+                                    const { jerseys, hasCombative } = getStageAwards(stage);
 
                                     return (
                                       <div key={stage.stageKey} className="flex justify-between items-center py-1 px-2 rounded hover:bg-table-header">
@@ -477,16 +519,17 @@ function RidersPage() {
                                             {stage.stage_finish_position > 0 ? `# ${stage.stage_finish_position}` : ''}
                                           </span>
 
-                                          {stageJerseys.length > 0 && (
+                                          {(jerseys.length > 0 || hasCombative) && (
                                             <div className="flex gap-1 items-center">
-                                              {stageJerseys.map(jersey => (
+                                              {jerseys.map(jersey => (
                                                 <img 
                                                   key={jersey}
                                                   src={jerseyIcons[jersey]}
                                                   alt={`${jersey} jersey`}
                                                   className="w-4 h-4"
                                                 />
-                                               ))}
+                                              ))}
+                                              {hasCombative && <CombativeIcon size="sm" />}
                                             </div>
                                           )}
                                         </div>
