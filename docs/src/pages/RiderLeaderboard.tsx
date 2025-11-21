@@ -232,7 +232,6 @@ function RidersPage() {
             {/* Mobile Card View */}
             <div className="block lg:hidden space-y-2">
               {(filteredResults as StageRankedRider[]).map((rider) => {
-                // Use actual stage finish position for ranking display and medals
                 const finishPos = rider.stage_data?.stage_finish_position || 0;
                 const medal = renderMedal(finishPos);
                 const jerseys = getStageJerseys(rider.stage_data);
@@ -384,18 +383,38 @@ function RidersPage() {
                       title="Punten per Etappe"
                       isExpanded={expandedRider === rider.name}
                     >
-                      {getRiderStages(rider.name).map((stage) => (
-                        <div key={stage.stageKey} className="flex justify-between py-2 px-3 border-b border-gray-100 last:border-0">
-                          <span className="text-sm text-tdf-text-secondary">
-                            Etappe {stage.stageNum} 
-                            {stage.stage_finish_position > 0 && ` (Pos: ${stage.stage_finish_position})`}
-                          </span>
-                          <div className="flex items-center gap-2">
-                            <span className="text-sm font-bold text-tdf-text-primary">{stage.stage_total}</span>
-                            <span className="text-xs text-tdf-text-secondary">(Tot: {stage.cumulative_total})</span>
-                          </div>
-                        </div>
-                      ))}
+                      {getRiderStages(rider.name).map((stage) => {
+                        const stageJerseys = getStageJerseys(stage);
+                          return (
+                            <div key={stage.stageKey} className="flex justify-between items-center py-1 px-2 rounded hover:bg-table-header">
+                              <div className="flex items-center">
+                                <span className="text-sm text-tdf-text-highlight w-24">
+                                  Etappe {stage.stageNum}: 
+                                </span>
+                                
+                                <span className="text-xs text-tdf-text-secondary w-16">
+                                  {stage.stage_finish_position > 0 ? `# ${stage.stage_finish_position}` : ''}
+                                </span>
+
+                                {stageJerseys.length > 0 && (
+                                  <div className="flex gap-1 items-center">
+                                    {stageJerseys.map(jersey => (
+                                      <img 
+                                        key={jersey}
+                                        src={jerseyIcons[jersey]}
+                                        alt={`${jersey} jersey`}
+                                        className="w-4 h-4"
+                                      />
+                                      ))}
+                                  </div>
+                                )}
+                              </div>
+                              <div className="flex items-center gap-3">
+                                <span className="text-sm font-bold">{stage.stage_total}</span>
+                              </div>
+                            </div>
+                          );
+                      })}
                     </CardExpandedSection>
                   </Card>
                 );
@@ -449,14 +468,16 @@ function RidersPage() {
                                     const stageJerseys = getStageJerseys(stage);
 
                                     return (
-                                      <div key={stage.stageKey} className="flex justify-between py-1 px-2 rounded hover:bg-table-header">
-                                        <span className="text-sm text-tdf-text-highlight flex items-center gap-2">
-                                          Etappe {stage.stageNum}: 
-                                          {stage.stage_finish_position > 0 && (
-                                            <span className="text-xs text-tdf-text-secondary whitespace-nowrap">
-                                              # {stage.stage_finish_position}
-                                            </span>
-                                          )}
+                                      <div key={stage.stageKey} className="flex justify-between items-center py-1 px-2 rounded hover:bg-table-header">
+                                        <div className="flex items-center">
+                                          <span className="text-sm text-tdf-text-highlight w-24">
+                                            Etappe {stage.stageNum}: 
+                                          </span>
+                                          
+                                          <span className="text-xs text-tdf-text-secondary w-16">
+                                            {stage.stage_finish_position > 0 ? `# ${stage.stage_finish_position}` : ''}
+                                          </span>
+
                                           {stageJerseys.length > 0 && (
                                             <div className="flex gap-1 items-center">
                                               {stageJerseys.map(jersey => (
@@ -465,14 +486,14 @@ function RidersPage() {
                                                   src={jerseyIcons[jersey]}
                                                   alt={`${jersey} jersey`}
                                                   className="w-4 h-4"
-                                              />
-                                             ))}
+                                                />
+                                               ))}
                                             </div>
                                           )}
-                                        </span>
-                                      <div className="flex items-center gap-3">
-                                        <span className="text-sm font-bold">{stage.stage_total}</span>
-                                      </div>
+                                        </div>
+                                        <div className="flex items-center gap-3">
+                                          <span className="text-sm font-bold">{stage.stage_total}</span>
+                                        </div>
                                       </div>
                                     );
                                   })}
