@@ -386,7 +386,7 @@ def main():
         entry["stage"]: entry["participants"]
         for entry in team_selection_data.get("team_selections_per_stage", [])
     }
-    logging.info(f"Loaded team selections for {len(team_selections_per_stage)} stages.")
+    logging.info(f"Loaded team selections for {len(team_selections_per_stage)} stages (incl. initial stage 0).")
 
     # Find available stage results
     available_stage_numbers = find_available_scraped_stages(STAGE_DATA_DIR)
@@ -397,15 +397,14 @@ def main():
 
     processor = TDFDataProcessor(team_selections_per_stage)
 
+    stages_processed_count = 0
     for stage_num in available_stage_numbers:
         if stage_num == 0:
-            logging.info("Skipping stage 0 (initial selection only).")
             continue
-        logging.info(f"--- Processing Stage {stage_num} ---")
         try:
             stage_raw_data = load_scraped_stage_data(stage_num, STAGE_DATA_DIR)
             processor.process_stage(stage_num, stage_raw_data)
-            logging.info(f"Stage {stage_num} processed successfully.")
+            stages_processed_count += 1
         except FileNotFoundError as e:
             logging.error(f"Error loading Stage {stage_num}: {e}. Skipping.")
             continue
@@ -419,7 +418,8 @@ def main():
     )
 
     save_json_data(consolidated_data, CONSOLIDATED_OUTPUT_FILE)
-    logging.info(f"✓ Consolidated data saved to: {CONSOLIDATED_OUTPUT_FILE}")
+    logging.info(f"Successfully processed {stages_processed_count} stages")
+    logging.info(f"Consolidated data saved to: {CONSOLIDATED_OUTPUT_FILE}")
     logging.info("--- Processing Complete ---")
 
 if __name__ == "__main__":
