@@ -288,11 +288,11 @@ function RidersPage() {
             <div className="hidden lg:block overflow-x-auto">
               <table className="w-full">
                 <thead>
-                  <tr className="bg-gray-200">
-                    <th className="px-4 py-4 text-left text-sm font-semibold text-gray-600">Uitslag</th>
-                    <th className="px-4 py-4 text-left text-sm font-semibold text-gray-600">Renner</th>
-                    <th className="px-4 py-4 text-left text-sm font-semibold text-gray-600">Team</th>
-                    <th className="px-4 py-4 text-right text-sm font-semibold text-gray-600">Punten</th>
+                  <tr className="bg-table-header">
+                    <th className="px-4 py-4 text-left text-sm font-semibold text-tdf-text-highlight">Uitslag</th>
+                    <th className="px-4 py-4 text-left text-sm font-semibold text-tdf-text-highlight">Renner</th>
+                    <th className="px-4 py-4 text-left text-sm font-semibold text-tdf-text-highlight">Team</th>
+                    <th className="px-4 py-4 text-right text-sm font-semibold text-tdf-text-highlight">Punten</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -406,12 +406,12 @@ function RidersPage() {
             <div className="hidden lg:block overflow-x-auto">
               <table className="w-full">
                 <thead>
-                  <tr className="bg-gray-200">
-                    <th className="px-4 py-4 text-left text-sm font-semibold text-gray-600">Positie</th>
-                    <th className="px-4 py-4 text-left text-sm font-semibold text-gray-600">Renner</th>
-                    <th className="px-4 py-4 text-left text-sm font-semibold text-gray-600">Team</th>
-                    <th className="px-4 py-4 text-right text-sm font-semibold text-gray-600">Totaal Punten</th>
-                    <th className="px-4 py-4 text-center text-sm font-semibold text-gray-600">Etappe Medailles</th>
+                  <tr className="bg-table-header">
+                    <th className="px-4 py-4 text-left text-sm font-semibold text-tdf-text-highlight">Positie</th>
+                    <th className="px-4 py-4 text-left text-sm font-semibold text-tdf-text-highlight">Renner</th>
+                    <th className="px-4 py-4 text-left text-sm font-semibold text-tdf-text-highlight">Team</th>
+                    <th className="px-4 py-4 text-right text-sm font-semibold text-tdf-text-highlight">Totaal Punten</th>
+                    <th className="px-4 py-4 text-center text-sm font-semibold text-tdf-text-highlight">Etappe Medailles</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -443,20 +443,39 @@ function RidersPage() {
                           <tr className="bg-gray-100">
                             <td colSpan={5} className="px-4 py-4">
                               <div className="ml-8 max-w-md">
-                                <h3 className="text-sm font-semibold mb-2 pb-2 text-gray-600 border-b">Punten per Etappe</h3>
+                                <h3 className="text-sm font-semibold mb-2 pb-2 text-tdf-text-highlight border-b">Punten per Etappe</h3>
                                 <div className="space-y-1">
-                                  {getRiderStages(rider.name).map((stage) => (
-                                    <div key={stage.stageKey} className="flex justify-between py-1 px-2 rounded hover:bg-gray-200">
-                                      <span className="text-sm text-gray-600">
-                                        Etappe {stage.stageNum} 
-                                        {stage.stage_finish_position > 0 && ` (Positie: ${stage.stage_finish_position})`}:
-                                      </span>
+                                  {getRiderStages(rider.name).map((stage) => {
+                                    const stageJerseys = getStageJerseys(stage);
+
+                                    return (
+                                      <div key={stage.stageKey} className="flex justify-between py-1 px-2 rounded hover:bg-table-header">
+                                        <span className="text-sm text-tdf-text-highlight flex items-center gap-2">
+                                          Etappe {stage.stageNum}: 
+                                          {stage.stage_finish_position > 0 && (
+                                            <span className="text-xs text-tdf-text-secondary whitespace-nowrap">
+                                              # {stage.stage_finish_position}
+                                            </span>
+                                          )}
+                                          {stageJerseys.length > 0 && (
+                                            <div className="flex gap-1 items-center">
+                                              {stageJerseys.map(jersey => (
+                                                <img 
+                                                  key={jersey}
+                                                  src={jerseyIcons[jersey]}
+                                                  alt={`${jersey} jersey`}
+                                                  className="w-4 h-4"
+                                              />
+                                             ))}
+                                            </div>
+                                          )}
+                                        </span>
                                       <div className="flex items-center gap-3">
                                         <span className="text-sm font-bold">{stage.stage_total}</span>
-                                        <span className="text-xs text-tdf-text-secondary">(Totaal: {stage.cumulative_total})</span>
                                       </div>
-                                    </div>
-                                  ))}
+                                      </div>
+                                    );
+                                  })}
                                 </div>
                               </div>
                             </td>

@@ -17,12 +17,14 @@ module.exports = {
         'tdf-card-hover': '#f3f4f6',  // gray-100 - hover state
         'tdf-expanded': '#f9fafb',    // gray-50 - expanded sections
         
-        // Table rows
-        'tdf-row-even': '#ffffff',    // white
-        'tdf-row-odd': '#f9fafb',     // gray-50
+        // Table
+        'table-header': '#e5e7eb',    // gray-200
+        'table-row-even': '#ffffff',    // white
+        'table-row-odd': '#f9fafb',     // gray-50
         
         // Text colors
         'tdf-text-primary': '#111827',    // gray-900
+        'tdf-text-highlight': '#4b5563', // gray-600
         'tdf-text-secondary': '#6b7280',  // gray-500
         'tdf-text-muted': '#9ca3af',      // gray-400
         
