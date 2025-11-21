@@ -1,162 +1,239 @@
 import json
 import os
+from datetime import datetime
 
 # --- Configuration ---
 DATA_DIR = 'data'
 STAGE_RESULTS_DIR = os.path.join(DATA_DIR, 'stage_results')
-# Input file for initial participant selections
 INITIAL_TEAMS_FILE = os.path.join(DATA_DIR, 'participant_selections_anon.json')
-# Output directory for per-stage active rosters
-PER_STAGE_ROSTER_OUTPUT_DIR = os.path.join(DATA_DIR, 'selection')
+OUTPUT_FILE = os.path.join(DATA_DIR, 'team_selections_active.json')
 
-# --- Main Logic ---
-def manage_rosters(up_to_stage_number):
-    """
-    Manages active and reserve rider rosters for participants based on stage results.
-    For each stage, it identifies DNF/DNS/OTL/DSQ riders and replaces them with reserves
-    for the next stage. Output is a separate JSON file for each stage's roster state.
-    """
-    # Ensure the main data directory and the specific output directory exist
-    os.makedirs(DATA_DIR, exist_ok=True)
-    os.makedirs(PER_STAGE_ROSTER_OUTPUT_DIR, exist_ok=True)
-    print(f"Ensured data directory exists: {DATA_DIR}")
-    print(f"Ensured per-stage roster output directory exists: {PER_STAGE_ROSTER_OUTPUT_DIR}")
-
-    participants_data = [] # This will be a list of participant dictionaries, updated per stage
-
-    # Load initial participant configurations from the specified JSON file
+def load_initial_selections():
+    """Load and preprocess initial participant selections."""
     try:
         with open(INITIAL_TEAMS_FILE, 'r', encoding='utf-8') as f:
-            raw_participants_data = json.load(f)
-        print(f"Loaded initial participant selections from {INITIAL_TEAMS_FILE}")
-
-        # Pre-process raw_participants_data into our internal working format
-        # This converts 'main_riders' to 'active_riders' and 'reserve_rider' (string) to 'reserve_riders' (list)
-        for participant in raw_participants_data:
-            # Create a mutable copy to avoid modifying the loop variable directly if needed
-            processed_participant = participant.copy()
-
-            # Rename 'main_riders' to 'active_riders' for internal consistency
-            processed_participant['active_riders'] = processed_participant.pop('main_riders', [])
-
-            # Convert 'reserve_rider' string to a list for easier management (pop/append)
-            # If 'reserve_rider' is an empty string or None, it results in an empty list
-            reserve_rider_name = processed_participant.pop('reserve_rider', None)
-            processed_participant['reserve_riders'] = [reserve_rider_name] if reserve_rider_name else []
-            
-            # Add a log for tracking substitutions within each participant's data
-            processed_participant['substitution_log'] = []
-            
-            participants_data.append(processed_participant)
-
-    except FileNotFoundError:
-        print(f"Error: Initial participant selection file '{INITIAL_TEAMS_FILE}' not found. "
-              "Please ensure it exists in the 'data' folder and is correctly named.")
-        return
-    except json.JSONDecodeError:
-        print(f"Error: Could not decode JSON from '{INITIAL_TEAMS_FILE}'. "
-              "Check its format for syntax errors (e.g., missing commas, unclosed brackets).")
-        return
-    except Exception as e:
-        print(f"An unexpected error occurred during initial data loading: {e}")
-        return
-
-    # Process each stage sequentially
-    for stage_num in range(1, up_to_stage_number + 1):
-        stage_filepath = os.path.join(STAGE_RESULTS_DIR, f'stage_{stage_num}.json')
-        # Define the output file path for this specific stage's roster state
-        roster_output_filepath = os.path.join(PER_STAGE_ROSTER_OUTPUT_DIR, 
-                                              f'participant_selection_active_stage_{stage_num}.json')
-
-        print(f"\n--- Processing Stage {stage_num} ---")
-
-        try:
-            with open(stage_filepath, 'r', encoding='utf-8') as f:
-                stage_data = json.load(f)
-            print(f"Loaded stage results from {stage_filepath}")
-        except FileNotFoundError:
-            print(f"Warning: Stage results file '{stage_filepath}' not found. "
-                  f"Skipping stage {stage_num}. Rosters remain unchanged from the previous stage.")
-            # If a stage file is missing, save the current roster state to its own file,
-            # indicating no changes happened for this stage due to missing data.
-            with open(roster_output_filepath, 'w', encoding='utf-8') as f:
-                json.dump(participants_data, f, ensure_ascii=False, indent=4)
-            continue # Move to the next stage
-        except json.JSONDecodeError:
-            print(f"Error: Could not decode JSON from '{stage_filepath}'. "
-                  f"Skipping stage {stage_num}. Rosters remain unchanged.")
-            with open(roster_output_filepath, 'w', encoding='utf-8') as f:
-                json.dump(participants_data, f, ensure_ascii=False, indent=4)
-            continue
-        except Exception as e:
-            print(f"An unexpected error occurred while processing stage {stage_num} results: {e}")
-            with open(roster_output_filepath, 'w', encoding='utf-8') as f:
-                json.dump(participants_data, f, ensure_ascii=False, indent=4)
-            continue
-
-
-        # Get the set of all non-finishing riders for this stage
-        dnf_riders_this_stage = set(stage_data.get('dnf_riders', []))
+            raw_data = json.load(f)
         
-        if dnf_riders_this_stage:
-            print(f"Riders out of race (DNF/DNS/OTL/DSQ) in Stage {stage_num}: {', '.join(sorted(dnf_riders_this_stage))}")
+        participants = []
+        for participant in raw_data:
+            processed = {
+                'name': participant.get('name'),
+                'active_riders': participant.get('main_riders', []).copy(),
+                'reserve_rider': participant.get('reserve_rider', None), 
+                'has_substituted': False,
+                'substitution': None 
+            }
+            participants.append(processed)
+        
+        return participants
+    
+    except FileNotFoundError:
+        print(f"❌ Error: Initial selections file '{INITIAL_TEAMS_FILE}' not found.")
+        return None
+    except json.JSONDecodeError as e:
+        print(f"❌ Error: Could not decode JSON from '{INITIAL_TEAMS_FILE}'")
+        print(f"   {e}")
+        return None
+    except Exception as e:
+        print(f"❌ Unexpected error loading initial selections: {e}")
+        return None
+
+def load_stage_results(stage_num):
+    """Load stage results, return None if not found."""
+    stage_filepath = os.path.join(STAGE_RESULTS_DIR, f'stage_{stage_num}.json')
+    try:
+        with open(stage_filepath, 'r', encoding='utf-8') as f:
+            return json.load(f)
+    except FileNotFoundError:
+        return None
+    except json.JSONDecodeError as e:
+        print(f"⚠️  Warning: Could not decode stage {stage_num} results: {e}")
+        return None
+    except Exception as e:
+        print(f"⚠️  Warning: Error loading stage {stage_num}: {e}")
+        return None
+
+def process_stage_substitutions(participants, stage_num, dnf_riders):
+    """
+    Process substitutions for a single stage.
+    Returns updated participants and a summary of changes.
+    """
+    stage_changes = {
+        'stage': stage_num,
+        'dnf_riders': sorted(list(dnf_riders)),
+        'participants_affected': []
+    }
+    
+    for participant in participants:
+        participant_name = participant['name']
+        active_riders = participant['active_riders']
+        reserve_rider = participant['reserve_rider']
+        
+        # Find which active riders DNF'd
+        dnf_from_team = [rider for rider in active_riders if rider in dnf_riders]
+        
+        if not dnf_from_team:
+            continue
+        
+        participant_change = {
+            'name': participant_name,
+            'riders_lost': dnf_from_team,
+            'substitution_made': None
+        }
+        
+        # Remove DNF riders
+        for dnf_rider in dnf_from_team:
+            active_riders.remove(dnf_rider)
+        
+        # Attempt substitution for the first lost rider (if reserve available and not already used)
+        if dnf_from_team and reserve_rider and not participant['has_substituted']:
+            replacement = reserve_rider
+            active_riders.append(replacement)
+            
+            # Mark substitution as made
+            participant['has_substituted'] = True
+            participant['substitution'] = {
+                'stage': stage_num,
+                'out_rider': dnf_from_team[0],
+                'in_rider': replacement
+            }
+            participant['reserve_rider'] = None  # Reserve is now used
+            
+            participant_change['substitution_made'] = {
+                'out': dnf_from_team[0],
+                'in': replacement
+            }
+        
+        stage_changes['participants_affected'].append(participant_change)
+    
+    return participants, stage_changes
+
+def generate_stage_snapshot(participants, stage_num):
+    """Generate a snapshot of all team selections at a specific stage."""
+    return {
+        'stage': stage_num,
+        'participants': [
+            {
+                'name': p['name'],
+                'active_riders': p['active_riders'].copy(),
+                'reserve_rider': p['reserve_rider'],
+                'team_size': len(p['active_riders']),
+                'has_substituted': p['has_substituted']
+            }
+            for p in participants
+        ]
+    }
+
+def manage_rosters(up_to_stage_number):
+    """
+    Main function to manage team selections across all stages.
+    Creates a single JSON file with complete tracking information.
+    """
+    # Ensure directories exist
+    os.makedirs(DATA_DIR, exist_ok=True)
+    print(f"Processing team selection changes up to stage {up_to_stage_number}\n")
+    
+    # Load initial data
+    participants = load_initial_selections()
+    if participants is None:
+        return
+    
+    print(f"✓ Loaded {len(participants)} participants")
+    
+    # Initialize output structure
+    output_data = {
+        'metadata': {
+            'last_updated': datetime.now().isoformat(),
+            'stages_processed': 0,
+            'participants_with_substitutions': 0
+        },
+        'team_selections_per_stage': [],
+        'stage_changes': [],
+        'participants_summary': []
+    }
+    
+    # Add initial state (before any stages)
+    output_data['team_selections_per_stage'].append(generate_stage_snapshot(participants, 0))
+    
+    # Process each stage
+    for stage_num in range(1, up_to_stage_number + 1):
+        print(f"\n--- Stage {stage_num} ---")
+        
+        stage_data = load_stage_results(stage_num)
+        
+        if stage_data is None:
+            print(f"⚠️  No results file found for stage {stage_num}, stopping here.")
+            break
+        
+        dnf_riders = set(stage_data.get('dnf_riders', []))
+        
+        if dnf_riders:
+            print(f"  Riders out: {len(dnf_riders)} ({', '.join(sorted(dnf_riders))})")
         else:
-            print(f"No riders out of race reported for Stage {stage_num}.")
-
-        # Update rosters for each participant
-        for participant in participants_data:
-            participant_name = participant['name']
-            active_riders = participant.get('active_riders', [])
-            reserve_riders = participant.get('reserve_riders', []) # This will be a list of 0 or 1 item
-            
-            new_active_riders = []
-            riders_dnf_from_team_this_stage = []
-
-            # Identify active riders from this participant's team who DNF'd in this stage
-            for rider in active_riders:
-                if rider in dnf_riders_this_stage:
-                    riders_dnf_from_team_this_stage.append(rider)
-                    print(f"  {participant_name}: Rider '{rider}' from their active team DNF'd in Stage {stage_num}.")
+            print(f"  No riders out this stage")
+        
+        # Process substitutions
+        participants, stage_summary = process_stage_substitutions(
+            participants, stage_num, dnf_riders
+        )
+        
+        # Report changes
+        if stage_summary['participants_affected']:
+            print(f"  Participants affected: {len(stage_summary['participants_affected'])}")
+            for change in stage_summary['participants_affected']:
+                lost_riders = ', '.join(change['riders_lost'])
+                if change['substitution_made']:
+                    sub = change['substitution_made']
+                    print(f"    • {change['name']}: Lost {lost_riders}, substituted {sub['out']} → {sub['in']}")
                 else:
-                    new_active_riders.append(rider)
-            
-            # Perform substitutions for DNF'd riders
-            for dnf_rider_from_team in riders_dnf_from_team_this_stage:
-                if reserve_riders: # Check if there's any reserve left in the list (length > 0)
-                    replacement_rider = reserve_riders.pop(0) # Get and remove the first (and only) reserve
-                    new_active_riders.append(replacement_rider)
-                    # Log the substitution
-                    participant['substitution_log'].append({
-                        "stage": stage_num,
-                        "out_rider": dnf_rider_from_team,
-                        "in_rider": replacement_rider
-                    })
-                    print(f"    {participant_name}: Replaced '{dnf_rider_from_team}' with reserve '{replacement_rider}'.")
-                else:
-                    print(f"    {participant_name}: No reserve available for '{dnf_rider_from_team}'. Team will have one less rider.")
-                    # Log that no replacement was made
-                    participant['substitution_log'].append({
-                        "stage": stage_num,
-                        "out_rider": dnf_rider_from_team,
-                        "in_rider": None # Indicate no replacement
-                    })
-            
-            # Update the participant's roster for the next stage
-            participant['active_riders'] = new_active_riders
-            # participant['reserve_riders'] is already updated by .pop(0) if a substitution occurred
-
-        # After processing ALL participants for the current stage, save the combined state
-        # to a new file specific to this stage number.
-        with open(roster_output_filepath, 'w', encoding='utf-8') as f:
-            json.dump(participants_data, f, ensure_ascii=False, indent=4)
-        print(f"Saved current active rosters after Stage {stage_num} to {roster_output_filepath}")
-
-    print("\n--- Roster Management Complete ---")
-    print(f"Per-stage active rosters are saved in: {PER_STAGE_ROSTER_OUTPUT_DIR}")
+                    print(f"    • {change['name']}: Lost {lost_riders} (no substitution)")
+        
+        # Store summary and snapshot
+        output_data['stage_changes'].append(stage_summary)
+        output_data['team_selections_per_stage'].append(generate_stage_snapshot(participants, stage_num))
+        output_data['metadata']['stages_processed'] = stage_num
+    
+    # Add detailed participant information
+    for participant in participants:
+        output_data['participants_summary'].append({
+            'name': participant['name'],
+            'current_active_riders': participant['active_riders'],
+            'current_reserve_rider': participant['reserve_rider'],
+            'current_team_size': len(participant['active_riders']),
+            'has_substituted': participant['has_substituted'],
+            'substitution': participant['substitution']
+        })
+    
+    # Count participants with substitutions
+    output_data['metadata']['participants_with_substitutions'] = sum(
+        1 for p in participants if p['has_substituted']
+    )
+    
+    # Save to single output file
+    try:
+        with open(OUTPUT_FILE, 'w', encoding='utf-8') as f:
+            json.dump(output_data, f, ensure_ascii=False, indent=2)
+        
+        print(f"\n{'='*50}")
+        print(f"✓ Team selection tracking saved to: {OUTPUT_FILE}")
+        print(f"\nSummary:")
+        print(f"  - Stages processed: {output_data['metadata']['stages_processed']}")
+        print(f"  - Participants who made substitutions: {output_data['metadata']['participants_with_substitutions']}")
+        
+        # Show current team sizes
+        team_sizes = {}
+        for p in output_data['participants_summary']:
+            size = p['current_team_size']
+            team_sizes[size] = team_sizes.get(size, 0) + 1
+        
+        print(f"\nCurrent team sizes:")
+        for size in sorted(team_sizes.keys(), reverse=True):
+            print(f"  - {size} riders: {team_sizes[size]} participants")
+        
+    except Exception as e:
+        print(f"❌ Error saving output file: {e}")
 
 if __name__ == "__main__":
-    # Set the latest stage number you want to process up to.
-    # This should correspond to the 'current_stage_number' in your scraping script
-    # and the number of stage_X.json files available in data/stage_results/.
-    latest_stage_to_process = 12
-    manage_rosters(latest_stage_to_process)
+    # Set to the latest stage number available
+    LATEST_STAGE = 12
+    manage_rosters(LATEST_STAGE)
