@@ -93,12 +93,12 @@ function Navigation() {
           </li>
           <li>
             <Link to="/test2" className={getLinkClass('/test2')}>
-              Test Page 2
+              Team Selectie
             </Link>
           </li>
           <li>
             <Link to="/test3" className={getLinkClass('/test3')}>
-              Test Page 3
+              Over deze Poule
             </Link>
           </li>
         </ul>
@@ -113,17 +113,17 @@ function Navigation() {
             </li>
             <li>
               <Link to="/test1" onClick={closeMobileMenu} className={getLinkClass('/test1')}>
-                Renner statistieken
+                Renner Punten
               </Link>
             </li>
             <li>
               <Link to="/test2" onClick={closeMobileMenu} className={getLinkClass('/test2')}>
-                Test Page 2
+                Team Selectie
               </Link>
             </li>
             <li>
               <Link to="/test3" onClick={closeMobileMenu} className={getLinkClass('/test3')}>
-                Test Page 3
+                Over deze Poule
               </Link>
             </li>
           </ul>
