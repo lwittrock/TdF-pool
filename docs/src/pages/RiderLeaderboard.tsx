@@ -388,11 +388,11 @@ function RidersPage() {
                           return (
                             <div key={stage.stageKey} className="flex justify-between items-center py-1 px-2 rounded hover:bg-table-header">
                               <div className="flex items-center">
-                                <span className="text-sm text-tdf-text-highlight w-24">
+                                <span className="text-sm text-tdf-text-highlight w-20">
                                   Etappe {stage.stageNum}: 
                                 </span>
                                 
-                                <span className="text-xs text-tdf-text-secondary w-16">
+                                <span className="text-xs text-tdf-text-secondary w-10">
                                   {stage.stage_finish_position > 0 ? `# ${stage.stage_finish_position}` : ''}
                                 </span>
 

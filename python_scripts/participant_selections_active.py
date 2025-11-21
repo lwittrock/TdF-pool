@@ -18,6 +18,7 @@ def load_initial_selections():
         for participant in raw_data:
             processed = {
                 'name': participant.get('name'),
+                'directie': participant.get('directie', 'Unknown'),
                 'active_riders': participant.get('main_riders', []).copy(),
                 'reserve_rider': participant.get('reserve_rider', None), 
                 'has_substituted': False,
@@ -115,6 +116,7 @@ def generate_stage_snapshot(participants, stage_num):
         'participants': [
             {
                 'name': p['name'],
+                'directie': p.get('directie', 'Unknown'),
                 'active_riders': p['active_riders'].copy(),
                 'reserve_rider': p['reserve_rider'],
                 'team_size': len(p['active_riders']),

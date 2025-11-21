@@ -156,7 +156,7 @@ class TDFDataProcessor:
         initial_stage = self.team_selections_per_stage.get(0, [])
         for selection in initial_stage:
             participant_name = selection.get("name")
-            directie = selection.get("directie", "Onbekend")
+            directie = selection.get("directie", "Unknown")
             if participant_name:
                 self.participant_to_directie[participant_name] = directie
         
