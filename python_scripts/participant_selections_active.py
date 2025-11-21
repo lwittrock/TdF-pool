@@ -180,14 +180,7 @@ def manage_rosters(up_to_stage_number):
         # Report changes
         if stage_summary['participants_affected']:
             print(f"  Participants affected: {len(stage_summary['participants_affected'])}")
-            for change in stage_summary['participants_affected']:
-                lost_riders = ', '.join(change['riders_lost'])
-                if change['substitution_made']:
-                    sub = change['substitution_made']
-                    print(f"    • {change['name']}: Lost {lost_riders}, substituted {sub['out']} → {sub['in']}")
-                else:
-                    print(f"    • {change['name']}: Lost {lost_riders} (no substitution)")
-        
+
         # Store summary and snapshot
         output_data['stage_changes'].append(stage_summary)
         output_data['team_selections_per_stage'].append(generate_stage_snapshot(participants, stage_num))
